@@ -1,9 +1,13 @@
 ---
-title: "About this blog"
-description: |
-  Some additional details about the blog
+title: "About"
+#description: |
+#  Some additional details about the blog
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+**Olaf Schmalfuß**, born 1980, Master of Arts (M.A.) in Library and Information Science, as well as German Linguistics at the Humboldt-University Berlin, and a librarian by passion, has been working at De Gruyter Verlag in Berlin since 2012.  
+Initially as manager and technical contact for key accounts of the Technical Customer Service, since 2015 he has been responsible for data governance in the domains of *Product Information Management* (PIM) and *business partners*, as well as *data warehousing* and *metadata development/delivery*, among other things, with an even stronger focus on *master data* and *metadata* in "Product Data, Metadata & Standards".
+Before that, he gained experience in various positions in the book trade and at MPIWG.

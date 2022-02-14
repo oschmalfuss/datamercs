@@ -2,7 +2,7 @@
 title: "rbbKultur - Mediathek-Downloader"
 description: |
   HowTo download "Mediathek" features for archival purposes
-preview: example.png
+preview: dwnfunction.png
 author:
   - first_name: "Olaf"
     last_name: "Schmalfuß"
@@ -46,12 +46,6 @@ For archival or educational purposes it might be useful to know how to download 
 * adjust script  
 
 ```{r, eval=F, echo=T}
-rbb_downloader "Program_Name" "Download_URL"
-
-```
-  
-  
-```{r, eval=F, echo=T}
 rbb_downloader()
   {
     if [ -z "$1" ]
@@ -68,7 +62,7 @@ rbb_downloader()
   }
   
 # usage:
-rbb_downloader "Program_Name" "Download_URL"
+rbb_downloader "File_Name" "Download_URL"
 
 ```
 

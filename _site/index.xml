@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>OS DataMercs</title>
+    <link>https://www.datamercs.net</link>
+    <atom:link href="https://www.datamercs.net/index.xml" rel="self" type="application/rss+xml"/>
+    <description>OS DataMercs
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to OS DataMercs</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/welcome</link>
+      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services</description>
+      <guid>https://www.datamercs.net/posts/welcome</guid>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Win Task Scheduler for cygwin</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin</link>
+      <description>HowTo run bash scripts via Cygwin as Scheduled Task (i.e. "Aufgabenplanung") in Windows</description>
+      <guid>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin</guid>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/example.png" medium="image" type="image/png" width="1258" height="839"/>
+    </item>
+    <item>
+      <title>rbbKultur - Mediathek-Downloader</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader</link>
+      <description>HowTo download "Mediathek" features for archival purposes</description>
+      <guid>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader</guid>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png" medium="image" type="image/png" width="520" height="340"/>
+    </item>
+  </channel>
+</rss>

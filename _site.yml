@@ -3,6 +3,7 @@ title: "OS DataMercs"
 description: |
   OS DataMercs
 output_dir: "_site"
+base_url: https://www.datamercs.net
 #theme: osdm.css
 navbar:
   right:
@@ -10,4 +11,18 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Publications"
+      href: publications.html
+    - text: "Resources"
+      href: recources.html
+    - text: "Contact"
+      href: contact.html
+    - icon: fa fa-github
+      href: https://github.com/oschmalfuss
+#    - icon: fa fa-twitter
+#      href: https://twitter.com/lisalendway
+#    - icon: fa-youtube-square
+#      href: https://www.youtube.com/channel/UCC3CCtUrSSQoJkxodRKr89g
+    - icon: fa fa-linkedin
+      href: https://www.linkedin.com/in/olaf-schmalfu%C3%9F
 output: distill::distill_article

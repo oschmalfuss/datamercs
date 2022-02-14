@@ -1,8 +1,7 @@
 ---
 title: "Welcome to OS DataMercs"
 description: |
-  Welcome to our new blog, OS DataMercs. We hope you enjoy 
-  reading what we have to say!
+  OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services
 author:
 - first_name: "Olaf"
   last_name: "Schmalfuß"

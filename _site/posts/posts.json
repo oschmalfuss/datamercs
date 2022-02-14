@@ -2,7 +2,7 @@
   {
     "path": "posts/welcome/",
     "title": "Welcome to OS DataMercs",
-    "description": "Welcome to our new blog, OS DataMercs. We hope you enjoy \nreading what we have to say!",
+    "description": "OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services",
     "author": [
       {
         "name": "Olaf Schmalfuß",
@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2022-02-14T17:56:16+01:00",
+    "last_modified": "2022-02-14T22:09:59+01:00",
     "input_file": {}
   },
   {
@@ -31,7 +31,9 @@
     "contents": "\r\nHowTo run bash script via Cygwin as Scheduled Task (i.e. “Aufgabenplanung”) in Windows\r\nFor process automation it is not necessary to rely on Outlook reminders if you’re on Windows and cannot (or want not) run Cron as a service to schedule scripts or programs:\r\nWindows brings its native service called “Scheduled Tasks” (or “Aufgabenplanung” in the German version)\r\nOpen “Scheduled Tasks” App\r\nhit Windows Key + R to open command prompt, enter taskschd.msc, which works regardless of Win version/ language\r\nalternatively\r\nsearch APP for either “Scheduled Task” or “Aufgabenplanung”\r\nor locate the “EXE” in C:\\Windows\\System32\\taskschd.msc\r\n…\r\n\r\nSet up a new Job\r\nRight-click on an empty space in the Tasks’ overview and select “new task” (i.e. “Einfache Aufgabe erstellen”).\r\nIn “Actions” (i.e. “Aktionen”) enter the path to cygwin in the “Program/script” field, e.g.C:\\cygwin64\\bin\\bash.exe\r\nIn the “Add arguments” box, enter “-l -c” and the full path to the bash command to run surrounded by quotes in UNIX notation, i.e. with forward slashes and as seen from within cygwin, and not simply the Windows path, e.g.-l -c \"/tmp/pdw_test/pull_chapter_report_from_jobscheduler.sh\"\r\n -l: Run as if logged on at a shell\r\n -c: Run this command\r\nIn the “Start in” field enterC:\\cygwin64\\bin\r\nAdd a description and give your task a meaningful name, so that when you come back to it in a year you know what it’s for and you’re done!\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2020-07-07-wintaskschedulerforcygwin/example.png",
     "last_modified": "2022-02-14T17:49:27+01:00",
-    "input_file": {}
+    "input_file": {},
+    "preview_width": 1258,
+    "preview_height": 839
   },
   {
     "path": "posts/2018-04-05-rbbkultur-mediathek-downloader/",
@@ -45,9 +47,11 @@
     ],
     "date": "2018-04-05",
     "categories": [],
-    "contents": "\r\nrbbKultur - Mediathek-Downloader\r\nIntroduction\r\nFor archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters’ archives, i.e. “Mediathek”.\r\n1. select Program\r\nrbbKultur - Mediathek\r\n\r\nhttps://www.kulturradio.de/zum_nachhoeren/\r\n\r\nchose date and program\r\n2. inspect element\r\ni.e. launch Developer Tools\r\nFireFox: CTRL+SHIFT+C\r\nChrome: CTRL+SHIFT+I\r\n\r\n3. Start player\r\n4. back in Developer Tools\r\nunder NETWORK right click on the File (media/ mpeg)\r\nthen Copy URL or copy as cURL\r\n5. Download via bash script\r\nadjust script\r\n\r\nrbb_downloader \"Program_Name\" \"Download_URL\"\r\n\r\n\r\nrbb_downloader()\r\n  {\r\n    if [ -z \"$1\" ]\r\n      then echo \"Dateiname fehlt\"\r\n    elif [ -z \"$2\" ]\r\n      then  \"Download URL fehlt\"\r\n    else\r\n      DWNDIR=/tmp/Downloads/AlteMusik\r\n      AMDOWN=$1\r\n      rbbmediapmdp=$2\r\n      curl $rbbmediapmdp -o $DWNDIR/\"$AMDOWN\"\r\n      ls -htl $DWNDIR\r\n  fi\r\n  }\r\n  \r\n# usage:\r\nrbb_downloader \"Program_Name\" \"Download_URL\"\r\n\r\noptional: save in bashrc\r\n\r\nC:\\cygwin64\\home\\schmalfuss\\.bashrc\r\n\r\nrun\r\ne.g. \r\n\r\n\r\nrbb_downloader \"Alte Musik - 2020-07-08 - Heinrich Isaac - Lieder und Motetten.mp3\" \"https://rbbmediapmdp-a.akamaihd.net/content/74/da/74da3627-5312-4f34-b681-93c48f12202d/0a858af8-b788-430b-9f5a-b5c678701a18_53d97702-265a-4586-a6d8-c8c7ad9bac80.mp3\"\r\n\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2022-02-14T17:54:26+01:00",
-    "input_file": {}
+    "contents": "\r\nrbbKultur - Mediathek-Downloader\r\nIntroduction\r\nFor archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters’ archives, i.e. “Mediathek”.\r\n1. select Program\r\nrbbKultur - Mediathek\r\n\r\nhttps://www.kulturradio.de/zum_nachhoeren/\r\n\r\nchose date and program\r\n2. inspect element\r\ni.e. launch Developer Tools\r\nFireFox: CTRL+SHIFT+C\r\nChrome: CTRL+SHIFT+I\r\n\r\n3. Start player\r\n4. back in Developer Tools\r\nunder NETWORK right click on the File (media/ mpeg)\r\nthen Copy URL or copy as cURL\r\n5. Download via bash script\r\nadjust script\r\n\r\nrbb_downloader()\r\n  {\r\n    if [ -z \"$1\" ]\r\n      then echo \"Dateiname fehlt\"\r\n    elif [ -z \"$2\" ]\r\n      then  \"Download URL fehlt\"\r\n    else\r\n      DWNDIR=/tmp/Downloads/AlteMusik\r\n      AMDOWN=$1\r\n      rbbmediapmdp=$2\r\n      curl $rbbmediapmdp -o $DWNDIR/\"$AMDOWN\"\r\n      ls -htl $DWNDIR\r\n  fi\r\n  }\r\n  \r\n# usage:\r\nrbb_downloader \"File_Name\" \"Download_URL\"\r\n\r\noptional: save in bashrc\r\n\r\nC:\\cygwin64\\home\\schmalfuss\\.bashrc\r\n\r\nrun\r\ne.g. \r\n\r\n\r\nrbb_downloader \"Alte Musik - 2020-07-08 - Heinrich Isaac - Lieder und Motetten.mp3\" \"https://rbbmediapmdp-a.akamaihd.net/content/74/da/74da3627-5312-4f34-b681-93c48f12202d/0a858af8-b788-430b-9f5a-b5c678701a18_53d97702-265a-4586-a6d8-c8c7ad9bac80.mp3\"\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png",
+    "last_modified": "2022-02-14T21:33:41+01:00",
+    "input_file": {},
+    "preview_width": 520,
+    "preview_height": 340
   }
 ]
