@@ -1,0 +1,110 @@
+---
+title: "MarcEdit under Ubuntu Linux"
+description: |
+  HowTo install MarcEdit under Ubuntu 13.04, via Mono or Wine
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2013-05-23
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+*originally posted [here](https://sites.google.com/site/bibliolaf/home/MarcEdit-under-Ubuntu-Linux)*  
+
+# MarcEdit via MONO
+
+Terry Reese's only install instructions for Linux on his Worklog: http://blog.reeset.net/archives/805. The mentioned "Install.txt" does not even exist in the latest iteration of MarcEdit, see the relevant part below.  
+There is also a tutorial on Youtube: https://www.youtube.com/watch?v=N65IHRiRby8  
+
+The following set-up was done on Ubuntu 13.04  
+
+```{bash, eval=F, echo=T}
+# install MonoDevelop (http://monodevelop.com/)
+sudo apt-get install monodevelop
+
+# create you MARC records working directory
+mkdir MarcRecords; cd MarcRecords
+
+# download the latest version of MarcEdit from http://marcedit.reeset.net/downloads and unzip
+wget http://marcedit.reeset.net/software/marcedit_other.zip; unzip marcedit_other.zip; rm marcedit_other.zip
+
+# following the MarcEdit install instructions run the following command once (also check other dependencies: http://blog.reeset.net/archives/805):
+mono ~/MarcRecords/marcedit_linux/linux_bootloader.exe
+
+# a permanent alias makes it easier to start MarcEditin the future
+echo "alias marcedit='mono ~/MarcRecords/marcedit_linux/MarcEdit.exe'" >> ~/.bash_aliases
+
+# restart Terminal in order to activate the alias
+
+# start MarcEdit.exe via alias "marcedit"
+marcedit
+
+# or start MarcEdit.exe via
+mono ~/MarcRecords/marcedit_linux/MarcEdit.exe
+
+
+```
+  
+  
+From Terry Reese's "MarcEdit Installation Instructions":
+  
+> Install.txt Last Modified: 12/28/2009
+
+    "LINUX/OTHER INSTALLATION PROCEDURE:  
+    
+    1.1  INSTALLATION FROM ZIP  
+    
+    a) Ensure that the dependencies have been installed  
+       1) Dependency list:  
+          i) MONO 2.4+ (Runtime plus the System.Windows.Forms library [these are sometimes separate])  
+         ii) YAZ 3 + YAZ 3 develop Libraries + YAZ++ ZOOM bindings  
+        iii) ZLIBC libraries  
+         iV) libxml2/libxslt libraries  
+    b) Unzip marcedit.zip  
+    c) Navigate to the MarcEdit program directory and run linux_bootloader.exe (example, mono linux_bootloader.exe)  
+    d) Yaz.Sharp.dll.config — ensure that the dllmap points to the correct version of the shared libyaz object.  
+    e) main_icon.bmp can be used for a desktop icon  
+    f) On first run:  
+       a) mono MarcEdit.exe  
+       b) Preferences tab will open, click on other, and set the following two values:  
+          i) Temp path: /tmp/  
+         ii) MONO path: [to your full mono path; likely /usr/bin/mono]"  
+  
+  
+
+# MarcEdit via WINE
+
+```{bash, eval=F, echo=T}
+sudo apt-get install wine
+
+WINEPREFIX='/home/USERNAME/wine32' WINEARCH='win32' wine 'wineboot'
+WINEPREFIX='/home/USERNAME/wine32' bash winetricks dotnet40 corefonts
+
+wget http://marcedit.reeset.net/software/MarcEdit_Setup.msi
+
+WINEPREFIX='/home/USERNAME/wine32' msiexec /i MarcEdit_Setup.msi
+
+rm MarcEdit_Setup.msi
+
+echo "alias winmarc='WINEPREFIX='/home/USERNAME/wine32' wine /home/USERNAME/wine32/drive_c/Program\ Files/MarcEdit\ 5.0/MarcEdit.exe'" >> ~/.bash_aliases
+
+# restart Terminal
+
+# start MarcEdit.exe via alias "winmarc"
+winmarc
+
+# or start MarcEdit.exe via
+WINEPREFIX='/home/USERNAME/wine32' wine /home/USERNAME/wine32/drive_c/Program\ Files/MarcEdit\ 5.0/MarcEdit.exe
+
+```
+
+
