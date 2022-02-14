@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "Some additional details about the blog",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-02-14T20:17:38+01:00"
+    },
+    {
+      "path": "index.html",
+      "title": "OS DataMercs",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-02-14T20:17:40+01:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

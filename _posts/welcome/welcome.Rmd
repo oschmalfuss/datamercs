@@ -1,0 +1,28 @@
+---
+title: "Welcome to OS DataMercs"
+description: |
+  Welcome to our new blog, OS DataMercs. We hope you enjoy 
+  reading what we have to say!
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848 
+  url: https://www.datamercs.net
+  affiliation: OS DataMercs
+  affiliation_url: https://www.datamercs.net
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating blogs with Distill at:
+# https://rstudio.github.io/distill/blog.html
+
+```
+
+
+
