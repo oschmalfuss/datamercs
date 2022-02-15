@@ -3,3 +3,7 @@ title: "OS DataMercs"
 site: distill::distill_website
 listing: posts
 ---
+
+    ...  
+    "They can do it all. MARC, KBART, XML, and the customer service was far above anything I've ever seen.  
+    I can't wait to work with them on another project."  

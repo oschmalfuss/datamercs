@@ -25,4 +25,9 @@ navbar:
 #      href: https://www.youtube.com/channel/UCC3CCtUrSSQoJkxodRKr89g
     - icon: fa fa-linkedin
       href: https://www.linkedin.com/in/olaf-schmalfu%C3%9F
+    - icon: fa fa-rss
+      href: index.xml
+collections:
+  posts:
+    share: [twitter, linkedin, instagram, facebook]
 output: distill::distill_article

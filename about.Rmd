@@ -1,13 +1,21 @@
 ---
-title: "About"
-#description: |
-#  Some additional details about the blog
+title: "Olaf Schmalfuß"
+image: "picOSsm.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/olaf-schmalfu%C3%9F/"
+#  - label: Twitter
+#    url: "https://twitter.com/"
+  - label: GitHub
+    url: "https://github.com/oschmalfuss"
+  - label: Email
+    url: "mailto:os@datamercs.net"
+  - label: ORCID
+    url: "https://orcid.org/0000-0002-1919-3848"
+output:
+  postcards::trestles
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-**Olaf Schmalfuß**, born 1980, Master of Arts (M.A.) in Library and Information Science, as well as German Linguistics at the Humboldt-University Berlin, and a librarian by passion, has been working at De Gruyter Verlag in Berlin since 2012.  
-Initially as manager and technical contact for key accounts of the Technical Customer Service, since 2015 he has been responsible for data governance in the domains of *Product Information Management* (PIM) and *business partners*, as well as *data warehousing* and *metadata development/delivery*, among other things, with an even stronger focus on *master data* and *metadata* in "Product Data, Metadata & Standards".
-Before that, he gained experience in various positions in the book trade and at MPIWG.
+**Olaf Schmalfuß**, born 1980, Master of Arts (M.A.) in *Library and Information Science*, as well as *German Linguistics* at the *Humboldt-University Berlin*, and a librarian by passion, has been working at [De Gruyter Verlag](https://www.degruyter.com) in Berlin since 2012.\
+Initially as manager and technical contact for key accounts of the *Technical Customer Service*, since 2015 he has been responsible for data governance in the domains of *Product Information Management* (PIM) and *business partners*, as well as *data warehousing* and *metadata development/delivery*, among other things, with an even stronger focus on *master data* and *metadata* in "Product Data, Metadata & Standards".  
+Before that, he gained experience in various positions in the book trade and at the [MPIWG](https://www.mpiwg-berlin.mpg.de) library.  

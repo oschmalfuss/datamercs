@@ -14,7 +14,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <aside>
-This content will appear in the gutter of the article.
+Need someone to talk about meta data!?  
+Call your friendly neighbourhood librarian at info@datamercs.net and we’ll be in touch shortly.
 </aside>
 
 

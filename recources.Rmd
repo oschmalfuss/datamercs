@@ -10,11 +10,25 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web. 
+## // Standards
 
-Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliographic) // [DNB](https://www.dnb.de/marc21) // [OCLC](https://www.oclc.org/bibformats/en/about.html)  
+[KBART](https://www.niso.org/standards-committees/kbart) - Knowledge Bases and Related Tools Recommended Practice  
+[ONIX](https://www.editeur.org/8/ONIX/) for Books Product Information Message  
+[JATS - Journal Article Tag Suite // BITS](https://jats.nlm.nih.gov)  
 
+## // Catalogues
 
+[Gemeinsamer Verbundkatalog (k10plus)](https://kxp.k10plus.de/)  
+[Elektronische Zeitschriftenbibliothek (EZB)](http://ezb.uni-regensburg.de/)  
+[DNB OPAC](https://portal.dnb.de/opac.htm)  
+[LoC OPAC](https://catalog.loc.gov/vwebv/searchAdvanced) // [LC Subject Headings (LCSH)](https://id.loc.gov/authorities/subjects.html)  
+[Datenbank-Infosystem (DBIS)](https://dbis.ur.de/)  
+[VIAF](https://viaf.org/) Virtual International Authority File  
+[Zeitschriftendatenbank (ZDB)](https://zdb-katalog.de/index.xhtml)  
 
+## // APIs
 
-
+[Crossref API](https://api.crossref.org/)  
+[SRU](https://www.loc.gov/standards/sru/) - Search/Retrieve via URL // [Z39.50-Zugang des GBV](https://verbundwiki.gbv.de/display/VZG/Schnittstellen)  
+[WorldCat - bib Read](https://developer.api.oclc.org/)  
