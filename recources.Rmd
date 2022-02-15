@@ -32,3 +32,15 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 [Crossref API](https://api.crossref.org/)  
 [SRU](https://www.loc.gov/standards/sru/) - Search/Retrieve via URL // [Z39.50-Zugang des GBV](https://verbundwiki.gbv.de/display/VZG/Schnittstellen)  
 [WorldCat - bib Read](https://developer.api.oclc.org/)  
+
+## // Tools
+
+[cygwin](https://cygwin.com/install.html)  
+[draw.io](https://app.diagrams.net)
+[MarcEdit](https://marcedit.reeset.net/)  
+[R](https://www.r-project.org) // [RStudio](https://www.rstudio.com/products/rstudio/)  
+
+## // De Gruyter
+
+[metadata portal](https://oschmalfuss.github.io/degruyter/FTP-Index.html) // MARCs and KBARTs  
+[eBook records](https://oschmalfuss.github.io/degruyter/DG-title-records.html)  

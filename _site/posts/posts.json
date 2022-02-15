@@ -9,11 +9,11 @@
         "url": "https://www.datamercs.net"
       }
     ],
-    "date": "2022-02-14",
+    "date": "2022-02-15",
     "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2022-02-14T22:09:59+01:00",
+    "contents": "\r\nTrinity of Discovery\r\nThe “Trinity of Discovery” exhibits our holistic approach to metadata delivery and creation and sets the framework to a title’s, may it be eBook or journal, (meta) data needs.\r\nIt is also what most libraries would expect to receive from a publisher one way or another, either directly or through third party services or union catalogues:\r\nmeta data and discovery from the smallest chunk down to collection level, because\r\n\r\n»We are not going to buy any of your eBooks if users cannot discover them.«\r\n(an unnamed head of aqcuisition)\r\n\r\nMARC records, KBARTs, ONIX and JATS XML are key, especially to scientific publishing houses!\r\nThus, this site aims to showcase several tools and workflows, so that even the smallest publisher, or the interested librarian, can build upon that and implement their own (half-) automated data pipelines, from ERP to .MRC;-)\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/welcome/trinity of discovery.jpg",
+    "last_modified": "2022-02-15T18:15:51+01:00",
     "input_file": {}
   },
   {

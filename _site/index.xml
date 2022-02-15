@@ -7,14 +7,15 @@
     <description>OS DataMercs
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Welcome to OS DataMercs</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/welcome</link>
       <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services</description>
       <guid>https://www.datamercs.net/posts/welcome</guid>
-      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Win Task Scheduler for cygwin</title>

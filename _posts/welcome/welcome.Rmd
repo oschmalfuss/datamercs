@@ -2,6 +2,7 @@
 title: "Welcome to OS DataMercs"
 description: |
   OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services
+preview: "trinity of discovery.jpg"
 author:
 - first_name: "Olaf"
   last_name: "Schmalfuß"
@@ -16,12 +17,23 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-
-# Learn more about creating blogs with Distill at:
-# https://rstudio.github.io/distill/blog.html
-
+knitr::opts_chunk$set(echo = F)
 ```
 
+# Trinity of Discovery
 
+The "Trinity of Discovery" exhibits our holistic approach to metadata delivery and creation and sets the framework to a title's, may it be eBook or journal, (meta) data needs.  
+It is also what most libraries would expect to receive from a publisher one way or another, either directly or through third party services or union catalogues:  
+meta data and discovery from the smallest chunk down to collection level, because  
+
+> »We are not going to buy any of your eBooks if users cannot discover them.«  
+> (an unnamed head of aqcuisition)
+
+MARC records, KBARTs, ONIX and JATS XML are key, especially to scientific publishing houses!  
+
+Thus, this site aims to showcase several tools and workflows, so that even the smallest publisher, or the interested librarian, can build upon that and implement their own (half-) automated data pipelines, from ERP to .MRC;-)  
+
+```{r fig_example, layout="l-body-outset",fig.align = 'center'}
+knitr::include_graphics("trinity of discovery.jpg")
+```
 
