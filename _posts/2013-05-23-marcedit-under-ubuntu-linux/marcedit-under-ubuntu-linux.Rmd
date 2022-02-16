@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 *originally posted [here](https://sites.google.com/site/bibliolaf/home/MarcEdit-under-Ubuntu-Linux)*  
 
-# MarcEdit via MONO
+# // MarcEdit via MONO
 
 Terry Reese's only install instructions for Linux on his Worklog: http://blog.reeset.net/archives/805. The mentioned "Install.txt" does not even exist in the latest iteration of MarcEdit, see the relevant part below.  
 There is also a tutorial on Youtube: https://www.youtube.com/watch?v=N65IHRiRby8  
@@ -81,7 +81,7 @@ From Terry Reese's "MarcEdit Installation Instructions":
   
   
 
-# MarcEdit via WINE
+# // MarcEdit via WINE
 
 ```{bash, eval=F, echo=T}
 sudo apt-get install wine

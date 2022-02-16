@@ -3,7 +3,11 @@ title: "Standards & Resources"
 description: |
   Useful Resources for Practitioners
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -36,11 +40,11 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 ## // Tools
 
 [cygwin](https://cygwin.com/install.html)  
-[draw.io](https://app.diagrams.net)
+[draw.io](https://app.diagrams.net)  
 [MarcEdit](https://marcedit.reeset.net/)  
 [R](https://www.r-project.org) // [RStudio](https://www.rstudio.com/products/rstudio/)  
 
 ## // De Gruyter
 
-[metadata portal](https://oschmalfuss.github.io/degruyter/FTP-Index.html) // MARCs and KBARTs  
-[eBook records](https://oschmalfuss.github.io/degruyter/DG-title-records.html)  
+[DG metadata portal](https://oschmalfuss.github.io/degruyter/FTP-Index.html) - packages' MARCs and KBARTs  
+[DG eBook records](https://oschmalfuss.github.io/degruyter/DG-title-records.html) - title level records  

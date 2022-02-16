@@ -1,0 +1,417 @@
+---
+title: "Z39.50 for Dummies"
+description: |
+  This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which tought me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!
+author:
+- name: "Wolfram Schneider"
+  url: https://wolfram.schneider.org
+  affiliation: Index Data
+  affiliation_url: https://www.indexdata.com
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+date: 2020-08-15
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# // Z39.50 for Dummies
+
+by Wolfram Schneider on 2009/08/27  
+(http://www.indexdata.com/blog/2009/08/z3950-dummies)  
+
+One of the things Index Data is known for is the [YAZ toolkit](http://www.indexdata.com/yaz) - an open source programmers’ toolkit supporting the development of Z39.50/SRW/SRU clients and servers. The first release was in 1995 and I've been using it for my own metasearch engine [ZACK Gateway](http://opus.tu-bs.de/zack/index.en.html) since 1998, long before I joined Index Data. 
+  
+Z39.50 is a client-server protocol for searching and retrieving information from remote computer databases. It is a mature low level protocol like HTTP and FTP. You don't implement Z39.50 yourself, you use the YAZ utilities and the libraries and frameworks for in other languages (C++, PHP, Perl, etc.).  
+  
+There are many people who thinks that Z39.50 is a dead standard, and hard to understand. That is not true. Z39.50 is still growing in use, stable and very fast. It is the only widely available protocol for metasearch.  
+  
+Using Z39.50 is not harder than using FTP. I think that the overhead for learning Z39.50 is less than a half day for an experienced programmer. Every problem which you have later is not related to the Z39.50 protocol itself, it is related to underlying system behind the Z39.50 server. Keep in mind that Z39.50 is an API to access (bibliographic) databases. It does not define how the data is structured and indexed in the database.  
+
+## // Z39.50 for Dummies Series - Part 1
+
+I will now start a Z39.50 for Dummies series and show some example how to access a remote database.  
+  
+I'm using in the following demos the [zoomsh](http://www.indexdata.com/yaz/doc/zoomsh.html) program from the [YAZ toolkit](http://www.indexdata.com/yaz/)  
+  
+Let's start with a simple question: does the Library of Congress have the book "library mashups"? (I strongly recommend you buy this book - I wrote chapter 19):  
+
+```
+$ zoomsh "connect z3950.loc.gov:7090/voyager" 'search "library mashups"' quit
+
+z3950.loc.gov:7090/voyager: 2 hits
+```
+
+That's all! Only one line on the command line. A SRU or SOAP request would not be shorter.  
+  
+Now, retrieve the record:  
+
+```
+$ zoomsh "connect z3950.loc.gov:7090/voyager" 'search "library mashups"' "show 0 1" "quit"
+
+z3950.loc.gov:7090/voyager: 2 hits
+0 database=VOYAGER syntax=USmarc schema=unknown
+02438cam 22003018a 4500
+001 15804854
+005 20090710141909.0
+008 090706s2009 nju b 001 0 eng
+906 $a 7 $b cbc $c orignew $d 1 $e ecip $f 20 $g y-gencatlg
+925 0 $a acquire $b 2 shelf copies $x policy default
+955 $b rg11 2009-07-06 $i rg11 2009-07-06 $a rg11 2009-07-08 to Policy (CLED/SHED)
+ $a td04 2009-07-09 to Dewey $w rd14 2009-07-10
+010 $a 2009025999
+020 $a 9781573873727
+040 $a DLC $c DLC
+050 00 $a Z674.75.W67 $b L52 2009
+082 00 $a 020.285/4678 $2 22
+245 00 $a Library mashups : $b exploring new ways to deliver library
+data / $c edited by Nicole C. Engard.
+260 $a Medford, N.J. : $b Information Today, Inc., $c c2009.
+263 $a 0908
+300 $a p. cm.
+504 $a Includes bibliographical references and index.
+505 0 $a What is a mashup? / Darlene Fichter -- Behind the scenes : some technical details on mashups / Bonaria Biancu -- Making your data available to be mashed up / Ross Singer -- Mashing up with librarian knowledge / Thomas Brevik -- Information in context / Brian Herzog -- Mashing up the library website / Lichen Rancourt -- Piping out library data / Nicole C. Engard -- Mashups @ Libraries interact / Corey Wallis -- Library catalog mashup : using Blacklight to expose collections / Bess Sadler, Joseph Gilbert, and Matt Mitchell -- Breaking into the OPAC / Tim Spalding -- Mashing up open data with biblios.net Web services / Joshua Ferraro -- SOPAC 2.0 : the thrashable, mashable catalog / John Blyberg -- Mashups with the WorldCat Affiliate Services / Karen A. Coombs -- Flickr and digital image collections / Mark Dahl and Jeremy McWilliams -- Blip.tv and digital video collections in the library / Jason A. Clark -- Where's the nearest computer lab? : mapping up campus / Derik A. Badman -- The repository mashup map / Stuart Lewis -- The LibraryThing API and libraries / Robin Hastings -- ZACK bookmaps / Wolfram Schneider -- Federated database search mashup / Stephen Hedges, Laura Solomon, and Karl Jendretzky -- Electronic dissertation mashups using SRU / Michael C. Witt.
+650 0 $a Mashups (World Wide Web) $x Library applications.
+650 0 $a Libraries and the Internet.
+650 0 $a Library Web sites $x Design.
+650 0 $a Web site development.
+700 1 $a Engard, Nicole C., $d 1979-
+963 $a Amy Reeve; phone: 609-654-6266; email: areeve @ infotoday.com; bc: nellor @ infotoday.com
+```
+
+The default exchange format for bibliographic records in Z39.50 is MARC21. This is maybe not what you want to parse yourself.  
+  
+Ok, now let's download the record in XML format:  
+
+```
+$ zoomsh "connect z3950.loc.gov:7090/voyager" 'search "library mashups"' "show 0 1 xml" "quit"
+
+z3950.loc.gov:7090/voyager: 2 hits
+0 database=VOYAGER syntax=USmarc schema=unknown
+<record xmlns="http://www.loc.gov/MARC21/slim">
+ <leader>02438cam a22003018a 4500</leader>
+ <controlfield tag="001">15804854</controlfield>
+ <controlfield tag="005">20090710141909.0</controlfield>
+ <controlfield tag="008">090706s2009 nju b 001 0 eng </controlfield>
+ <datafield tag="906" ind1=" " ind2=" ">
+ <subfield code="a">7</subfield>
+ <subfield code="b">cbc</subfield>
+ <subfield code="c">orignew</subfield>
+ <subfield code="d">1</subfield>
+ <subfield code="e">ecip</subfield>
+ <subfield code="f">20</subfield>
+ <subfield code="g">y-gencatlg</subfield>
+ </datafield>
+
+[large XML output...]
+</record>
+```
+
+You can parse the XML output with your favorite tools, usually an XSLT style sheet.  
+  
+Next time I will show you how to run a meta search in one line.
+
+-Wolfram
+
+**UPDATE**:  The latest release of YAZ, inspired by this blog post, supports client-side mapping of MARC to MARCXML, so you can dump XML records even from targets that do not support XML.  
+
+---
+
+## // Z39.50 for Dummies Part 2
+
+by Wolfram Schneider on 2009/08/31  
+(http://www.indexdata.com/blog/2009/08/z3950-dummies-part-2)  
+  
+In the last blog post [Z39.50 for Dummies](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1) I gave an introduction on how to use the zoomsh program to access the Z39.50 Server of the Library of Congress.  
+  
+Today I will show you how to run a simple metasearch on the command line. You want to know which library has the book with the ISBN 0-13-949876-1 (UNIX network programming / W. Richard Stevens)? You can run the zoomsh in a shell loop.  
+  
+Put the list of databases (zURL's) line by line in the text file zurl.txt:  
+
+```
+z3950.loc.gov:7090/voyager
+melvyl.cdlib.org:210/CDL90
+library.ox.ac.uk:210/ADVANCE
+z3950.library.wisc.edu:210/madison
+```
+  
+and run a little loop in a shell script:  
+
+```
+$ for zurl in `cat zurl.txt`
+do
+ zoomsh "connect $zurl" \
+ "search @attr 1=7 0-13-949876-1" "quit"
+done
+
+
+z3950.loc.gov:7090/voyager: 0 hits
+melvyl.cdlib.org:210/CDL90: 1 hits
+library.ox.ac.uk:210/ADVANCE: 1 hits
+z3950.library.wisc.edu:210/madison: 0 hits 
+```
+
+Of course it takes time to run one search request after another. How about a parallel search? Modern xargs(1) commands on BSD based Operating Systems (MacOS, FreeBSD) and the GNU xargs supports to run several processes at a time.  
+  
+This example runs up to 2 search request at a time and is 2 times faster than the shell script above:  
+
+```
+$ xargs -n1 -P2 perl -e 'exec "zoomsh", "connect $ARGV[0]", "search \@attr 1=7 0-13-949876-1", "quit"' &lt; zurl.txt
+
+melvyl.cdlib.org:210/CDL90: 1 hits
+library.ox.ac.uk:210/ADVANCE: 1 hits
+z3950.loc.gov:7090/voyager: 0 hits
+z3950.library.wisc.edu:210/madison: 0 hits
+```
+
+You see here that the order of responses is different, the fastest databases wins and displayed first.  
+  
+I think it is safe to run up to 20 searches in parallel on modern hardware. Note that there is a lot of process overhead here, for each request 2 processes will be executed. If a connection hangs you must wait until you hit the time out.  
+  
+This was an example how easy it is to run your own metasearch on the command line. If you want setup a real metasearch for your organization I recommend to try out our metasearch middleware [pazpar2](http://www.indexdata.com/pazpar2), featuring merging, relevance ranking, record sorting, and faceted results. In a nutshell, pazpar2 is a web-oriented Z39.50 client. It will search a lot of targets in parallel and provide on-the-fly integration of the results. The interface is entirely webservice-based, and you can use it from any development environment. The pazpar2 home page is http://www.indexdata.com/pazpar2  
+
+---
+  
+## // Z39.50 for Dummies Series - Part 3
+
+by Wolfram Schneider on 2009/09/09  
+(http://www.indexdata.com/blog/2009/09/z3950-dummies-series-part-3)  
+  
+This is part 3 of the Z39.50 series for dummies. In the [first part](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1) I explained what Z39.50 is and how to run a simple search. In the [second part](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2) I showed how to run a simple meta search on the command line.  
+  
+I searched for the book: *UNIX network programming / W. Richard Stevens, ISBN 0-13-949876-1* in four large libraries:  
+
+```
+$ for zurl in `cat zurl.txt`
+do
+ zoomsh "connect $zurl" \
+ "search @attr 1=7 0-13-949876-1" "quit"
+done
+
+z3950.loc.gov:7090/voyager: 0 hits
+melvyl.cdlib.org:210/CDL90: 1 hits
+library.ox.ac.uk:210/ADVANCE: 1 hits
+z3950.library.wisc.edu:210/madison: 0 hits
+```
+
+Only 2 out of 4 libraries own this must-have book. Can this be true? Well, lets modify the ISBN and search without dashes ('-')  
+
+```
+$ for zurl in `cat zurl.txt`
+do
+ zoomsh "connect $zurl" \
+ "search @attr 1=7 0139498761" "quit"
+done
+
+z3950.loc.gov:7090/voyager: 1 hits
+melvyl.cdlib.org:210/CDL90: 1 hits
+library.ox.ac.uk:210/ADVANCE: 1 hits
+z3950.library.wisc.edu:210/madison: 1 hits
+```
+
+Bingo - every library has a copy of UNIX network programming by W. Richard Stevens!  
+  
+Z39.50 defines the syntax to search in a database. It does not define the semantic of a search, how an ISBN is structured.  
+  
+If you build a search engine on top of Z39.50 you need an additional layer to handle the semantic of a search for each database. (You need this layer too to add workaround for broken implementations)  
+  
+In this example above we must remove the dashes in an ISBN search for the Library of Congress and University of Wisconsin-Madinson Libraries.  
+  
+Another thing which you must be aware: libraries use for historical reasons different character sets: utf-8, iso8859-1, iso5426 and marc8. You must convert your search query to the right character set for each library, for searching and retrieving the records.  
+  
+In this article I described the challenges to run a meta search on top of Z39.50. All these problems are due the underlying databases and not Z39.50 - you will have the same problems if you use a web based XML services such as SRU or a proprietary, vendor-based API. The truth is that running a metasearch is not a trivial task.  
+
+---
+
+## // Z39.50 for Dummies - Part 4
+
+by Wolfram Schneider on 2009/10/12  
+(http://www.indexdata.com/blog/2009/10/z3950-dummies-part-4)  
+  
+This is part 4 of the series [Z39.50 for dummies](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1).  
+  
+Libraries store and exchange bibliographic data in MARC records. A MARC record is a [MAchine-Readable Cataloging record](http://en.wikipedia.org/wiki/MARC_standards). It was developed at the [Library of Congress](http://www.loc.gov/marc/) (LoC) beginning in the 1960s.  
+  
+A dump of the LoC catalog (and other libraries) is available at the Internet Archive in the collection [marcrecords](http://www.archive.org/details/marcrecords). The [LoC catalog dump](http://www.archive.org/details/marc_records_scriblio_net) is split into 29 files, part01.dat to part29.dat. Each file is roughly 200MB large.  
+  
+The great news is that the data from LoC is public domain (already paid by the US taxpayers, thank you!) and you can use the data for your own system.  
+  
+Before you can import data, you must validate, convert, or fix the bibliographic data. I will show now how you can do this with the Index Data [YAZ toolkit](http://www.indexdata.com/yaz/). The YAZ toolkit contains the program [yaz-marcdump](http://www.indexdata.com/yaz/doc/yaz-marcdump.html) to dump MARC records.  
+  
+yaz-marcdump called without an option will print the records in line format:  
+
+```
+$ yaz-marcdump part01.dat | more
+
+00720cam  22002051  4500
+001    00000002
+003 DLC
+005 20040505165105.0
+008 800108s1899    ilu           000 0 eng
+010    $a    00000002
+035    $a (OCoLC)5853149
+040    $a DLC $c DSI $d DLC
+050 00 $a RX671 $b .A92
+100 1  $a Aurand, Samuel Herbert, $d 1854-
+245 10 $a Botanical materia medica and pharmacology; $b drugs considered from a botanical, pharmaceutical, physiological, therapeutical and toxicological standpoint. $c By S. H. Aurand.
+260    $a Chicago, $b P. H. Mallen Company, $c 1899.
+300    $a 406 p. $c 24 cm.
+500    $a Homeopathic formulae.
+650  0 $a Botany, Medical.
+650  0 $a Homeopathy $x Materia medica and therapeutics.
+[...]
+```
+
+First converts the MARC21 records in MARC-8 encoding to MARC21 in UTF-8 encoding:  
+
+```
+$ yaz-marcdump -f marc-8 -t utf-8 -o marc \
+       part01.dat > part.mrc
+```
+
+For MARC21, the leader offset 9 tells whether it is really MARC8 (almost always the case) or whether it's UTF-8. A MARC21 must have position 9='a' (value 97). For this reason, the option -l for yaz-marcdump may come in handy:  
+
+```
+$ yaz-marcdump -f marc-8 -t utf-8 -o marc \
+       -l 9=97 part01.dat > part.mrc
+```
+
+If you prefer MARCXML instead MARC21 records you may convert the records:  
+
+```
+$ yaz-marcdump -o marcxml -f MARC-8 -t UTF-8 \
+    part01.dat > part.marcxml
+
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+<record>
+  <leader>00720cam a22002051  4500</leader>
+  <controlfield tag="001">   00000002 </controlfield>
+  <controlfield tag="003">DLC</controlfield>
+  <controlfield tag="005">20040505165105.0</controlfield>
+  <controlfield tag="008">800108s1899    ilu           000 0 eng
+</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="a">   00000002 </subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)5853149</subfield>
+  </datafield>
+[...]
+```
+
+The Library of Congress has over 7 million records. That's huge data, total 5.6GB raw data. If you compress that data it is only 1.7GB.  
+  
+To convert compressed data, run yaz-marcdump in a UNIX pipe:  
+
+```
+$ zcat part01.dat.gz | yaz-marcdump -f MARC-8 \
+  -t UTF-8 -o marcxml /dev/stdin > part01.marcxml 
+```
+
+You can search a marc dump with the UNIX grep tool:  
+
+```
+$ yaz-marcdump -f marc-8 -t utf-8 part01.dat | \
+      grep Sausalito
+
+260    $a Sausalito, Calif. : $b University Science Books, $c 2000.
+260    $a Sausalito, Calif. : $b Math Solutions Publications, $c c2000.
+260    $a Sausalito, Calif. : $b Post-Apollo Press, $c c2000.
+260    $a Sausalito, Calif. : $b University Science Books, $c c2002.
+260    $a Sausalito, Calif. : $b Post-Apollo Press, $c c2000.
+260    $a Sausalito, CA : $b Toland Communications, $c c2000.
+260    $a Sausalito, CA : $b In Between Books, $c 2001.
+[...]
+```
+
+The [yaz-marcdump](http://www.indexdata.com/yaz/doc/yaz-marcdump.html) tool supports the character sets UTF-8, MARC-8, ISO8859-1, ISO5426 and some other encodings. For more information, see the [yaz-iconv](http://www.indexdata.com/yaz/doc/yaz-iconv.html) manual pages.  
+  
+In this article I showed how to validate, convert, or fix bibliographic data dumped in MARC format. Next time I will show some advanced examples how to analyze MARC records on modern standard PC hardware.  
+
+---
+
+## // Z39.50 for Dummies - Part 5
+
+by Wolfram Schneider on 2010/01/13  
+(http://www.indexdata.com/blog/2010/01/z3950-dummies-part-5)  
+  
+This is part 5 of the series [Z39.50 for dummies](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1). In the [4th part](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4) I showed how to run convert MARC21 records to line format or XML.  
+  
+In this article I will show you how to analyze MARC data on a modern PC hardware. PC are very fast now and incredibly cheap. You can rent a quad-core Intel machine with 8GB RAM and unlimited traffic for 40 Euro/month (+VAT) in a data center.  
+  
+If the computer is fast enough, you don’t have to spend too much time on complex algorithms. You can use the raw power of your computer and do a brute force approach.  
+  
+In the following example I will use the 7 million records from a dump of the Library of Congress (LoC) catalog. For details, please read the previous article [Z39.50 for Dummies - Part 4](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-44).  
+
+```
+$ for i in *.dat; do
+    yaz-marcdump -f marc-8 -t utf-8 -o line
+  done > loc.txt
+
+$ du -hs loc.txt
+4.9G
+```
+
+The line dump of the LoC is 4.9GB large and fits into main memory - great!  
+
+```
+# count for the last name “Calaminus”
+$ egrep -c Calaminus loc.txt
+```
+
+4 hits, the search took 4 seconds real time  
+
+```
+# count records with <span class="caps">ISBN</span> number
+$ egrep -c ^020 loc.txt
+3999863
+```
+
+There are nearly 4 million ISBN numbers (out of 7 million records). The search took 11 seconds.  
+
+```
+# count <span class="caps">URL</span>s
+$ egrep -c http:// loc.txt
+265540
+```
+
+There are 265,540 URLs in the LoC records.  
+
+```
+# check for subject headings for the city of 
+# Sausalito, California using regular expression
+$ egrep -c ‘^[67][0-<span class="caps">9[0</span>-9].*Sausalito’ loc.txt
+19
+```
+
+There are 19 subject headings for Sausalito  
+
+```
+# search with a typo in name (a => o)
+$ egrep Sausolito loc.txt
+```
+
+No hits due a typo in the name, try it with [agrep](http://en.wikipedia.org/wiki/Agrep), a grep program with approximate matching capabilities:  
+
+```
+$ agrep -c -1 Sausolito loc.txt
+282
+```
+
+282 hits, the search took 8 seconds  
+  
+The examples above are for software developers and experienced librarians. They are helpful for a quick check of your bibliographic records, for data mining, analyzing or to double-check if your indexer works correctly.  
+  
+If you want setup a public system for end-users you need of course a real full text engine as our [zebra](http://www.indexdata.com/zebra) software.  
+
+---
+
+Read the other articles of the series Z39.50 for Dummies: [Part I](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1), [Part II](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2), [Part III](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-3), [Part IV](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4), [Part V](https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-5)  

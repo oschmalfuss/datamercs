@@ -1,7 +1,7 @@
 ---
 title: "A rough guide to cold brew"
 description: |
-  While to the common librarian, Cory Doctorow is merely known as champion for Open Access, the Creative Commons, the EFF etc., he is also a hell of a barrista, introducing many a young scholar - the author included - to the carnality of cold brew.  
+  While to the common librarian Cory Doctorow is merely known as champion for Open Access, the Creative Commons, the EFF etc., he is also a hell of a barrista, introducing many a young scholar - the author included - to the carnality of cold brew.  
   So, here is the rough guide for future reference. 
 preview: cold_brew_cats.jpg
 author:
@@ -20,7 +20,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### essential reading
+### // essential reading
 
 [HOWTO attain radical hotel-room coffee independence](https://boingboing.net/2011/11/14/howto-attain-radical-hotel-roo.html)
 
@@ -28,9 +28,10 @@ easier
 
 [Cheap, easy, no-mess cold-brew coffee](https://boingboing.net/2013/07/20/cheap-easy-no-mess-cold-brew.html)  
 
-but frankly: simply use your French Press and let the coffe brew over night in your fridge!  
+but frankly: simply use your French Press and let the coarse ground coffee brew over night in your fridge...  
+Enjoy!  
 
-### A prosaic how-to, or love letter
+### // A prosaic how-to, or love letter
 
 as given [here](https://craphound.com/homeland/Cory_Doctorow_-_Homeland.html) to its best by *Cory Doctorow*, in
 

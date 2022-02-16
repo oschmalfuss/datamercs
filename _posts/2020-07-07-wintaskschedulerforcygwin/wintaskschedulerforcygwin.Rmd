@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = F)
 For process automation it is not necessary to rely on Outlook reminders if you're on Windows and cannot (or want not) run Cron as a service to schedule scripts or programs:  
 Windows brings its native service called *"Scheduled Tasks"* (or *"Aufgabenplanung"* in the German version)
 
-## Open "Scheduled Tasks" App
+## // Open "Scheduled Tasks" App
 
 * hit ``` Windows Key + R ``` to open command prompt, enter ```taskschd.msc```, which works regardless of Win version/ language
 * alternatively
@@ -31,7 +31,7 @@ Windows brings its native service called *"Scheduled Tasks"* (or *"Aufgabenplanu
   + or locate the "_EXE_" in ```C:\Windows\System32\taskschd.msc```
   + ...
 
-## Set up a new Job  
+## // Set up a new Job  
 Right-click on an empty space in the Tasks' overview and select "new task" (i.e. "Einfache Aufgabe erstellen").  
 In "Actions" (i.e. "Aktionen") enter the path to cygwin in the “Program/script” field, e.g.  
 ``` C:\cygwin64\bin\bash.exe ``` 

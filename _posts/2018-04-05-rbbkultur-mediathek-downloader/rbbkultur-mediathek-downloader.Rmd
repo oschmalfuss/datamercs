@@ -21,8 +21,11 @@ knitr::opts_chunk$set(echo = F)
 
 # rbbKultur - Mediathek-Downloader
 
-## Introduction
-For archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters' archives, i.e. "Mediathek".
+## // Introduction
+For archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters' archives, i.e. "Mediathek".  
+This only works, when the program is archived as a whole file in a convenient format like mp3 or mp4, and not in a chunked m3u streaming format.
+This we will see in step 4. below. So if we encounter m3u, we will use VLC instead to capture and convert the stream, see:  
+**link to VLC howto**
 
 ## 1. select Program
 * rbbKultur - Mediathek
@@ -36,11 +39,16 @@ For archival or educational purposes it might be useful to know how to download 
     + FireFox: CTRL+SHIFT+C
     + Chrome: CTRL+SHIFT+I
 
-## 3. Start player
+## 3. Start Mediathek player
+* i.e. start the podcast or video once we have the _Developer Tools_ open, so that we can analyze the traffic under _Network_ 
 
 ## 4. back in Developer Tools
-* under _NETWORK_ right click on the _File_ (media/ mpeg)
+* under _Network_ right click on the _File_ (media/ mpeg)
 * then _Copy URL_ or _copy as cURL_
+
+```{r fig_example, layout="l-screen-inset",fig.align = 'center'}
+knitr::include_graphics("copy_curl.png")
+```
 
 ## 5. Download via bash script
 * adjust script  

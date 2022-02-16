@@ -92,6 +92,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="description" itemprop="description" content="HowTo run bash scripts via Cygwin as Scheduled Task (i.e. &quot;Aufgabenplanung&quot;) in Windows"/>
 
 <link rel="canonical" href="https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/"/>
+<link rel="icon" type="image/png" href="../../logo.png"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2020-07-07"/>
@@ -2133,7 +2134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1 id="howto-run-bash-script-via-cygwin-as-scheduled-task-i.e.-aufgabenplanung-in-windows">HowTo run bash script via Cygwin as Scheduled Task (i.e. “Aufgabenplanung”) in Windows</h1>
 <p>For process automation it is not necessary to rely on Outlook reminders if you’re on Windows and cannot (or want not) run Cron as a service to schedule scripts or programs:<br />
 Windows brings its native service called <em>“Scheduled Tasks”</em> (or <em>“Aufgabenplanung”</em> in the German version)</p>
-<h2 id="open-scheduled-tasks-app">Open “Scheduled Tasks” App</h2>
+<h2 id="open-scheduled-tasks-app">// Open “Scheduled Tasks” App</h2>
 <ul>
 <li>hit <code>Windows Key + R</code> to open command prompt, enter <code>taskschd.msc</code>, which works regardless of Win version/ language</li>
 <li>alternatively
@@ -2143,7 +2144,7 @@ Windows brings its native service called <em>“Scheduled Tasks”</em> (or <em>
 <li>…</li>
 </ul></li>
 </ul>
-<h2 id="set-up-a-new-job">Set up a new Job</h2>
+<h2 id="set-up-a-new-job">// Set up a new Job</h2>
 <p>Right-click on an empty space in the Tasks’ overview and select “new task” (i.e. “Einfache Aufgabe erstellen”).<br />
 In “Actions” (i.e. “Aktionen”) enter the path to cygwin in the “Program/script” field, e.g.<br />
 <code>C:\cygwin64\bin\bash.exe</code></p>

@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dwnfunction.png","rbbkultur-mediathek-downloader_files/anchor-4.2.2/anchor.min.js","rbbkultur-mediathek-downloader_files/bowser-1.9.3/bowser.min.js","rbbkultur-mediathek-downloader_files/distill-2.2.21/template.v2.js","rbbkultur-mediathek-downloader_files/header-attrs-2.11/header-attrs.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.min.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.min.map","rbbkultur-mediathek-downloader_files/popper-2.6.0/popper.min.js","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy-bundle.umd.min.js","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy-light-border.css","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy.css","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy.umd.min.js","rbbkultur-mediathek-downloader_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["copy_curl.png","dwnfunction.png","rbbkultur-mediathek-downloader_files/anchor-4.2.2/anchor.min.js","rbbkultur-mediathek-downloader_files/bowser-1.9.3/bowser.min.js","rbbkultur-mediathek-downloader_files/distill-2.2.21/template.v2.js","rbbkultur-mediathek-downloader_files/header-attrs-2.11/header-attrs.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.min.js","rbbkultur-mediathek-downloader_files/jquery-3.6.0/jquery-3.6.0.min.map","rbbkultur-mediathek-downloader_files/popper-2.6.0/popper.min.js","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy-bundle.umd.min.js","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy-light-border.css","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy.css","rbbkultur-mediathek-downloader_files/tippy-6.2.7/tippy.umd.min.js","rbbkultur-mediathek-downloader_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1484,8 +1484,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <h1 id="rbbkultur---mediathek-downloader">rbbKultur - Mediathek-Downloader</h1>
-<h2 id="introduction">Introduction</h2>
-<p>For archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters’ archives, i.e. “Mediathek”.</p>
+<h2 id="introduction">// Introduction</h2>
+<p>For archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters’ archives, i.e. “Mediathek”.<br />
+This only works, when the program is archived as a whole file in a convenient format like mp3 or mp4, and not in a chunked m3u streaming format. This we will see in step 4. below. So if we encounter m3u, we will use VLC instead to capture and convert the stream, see:<br />
+<strong>link to VLC howto</strong></p>
 <h2 id="select-program">1. select Program</h2>
 <ul>
 <li>rbbKultur - Mediathek</li>
@@ -1504,12 +1506,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>Chrome: CTRL+SHIFT+I</li>
 </ul></li>
 </ul>
-<h2 id="start-player">3. Start player</h2>
+<h2 id="start-mediathek-player">3. Start Mediathek player</h2>
+<ul>
+<li>i.e. start the podcast or video once we have the <em>Developer Tools</em> open, so that we can analyze the traffic under <em>Network</em></li>
+</ul>
 <h2 id="back-in-developer-tools">4. back in Developer Tools</h2>
 <ul>
-<li>under <em>NETWORK</em> right click on the <em>File</em> (media/ mpeg)</li>
+<li>under <em>Network</em> right click on the <em>File</em> (media/ mpeg)</li>
 <li>then <em>Copy URL</em> or <em>copy as cURL</em></li>
 </ul>
+<div class="layout-chunk" data-layout="l-screen-inset">
+<p><img src="copy_curl.png" width="666" style="display: block; margin: auto;" /></p>
+</div>
 <h2 id="download-via-bash-script">5. Download via bash script</h2>
 <ul>
 <li>adjust script</li>

@@ -14,16 +14,16 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <aside>
-Need someone to talk about meta data!?  
+Need someone to talk about metadata!?  
 Call your friendly neighbourhood librarian at info@datamercs.net and we’ll be in touch shortly.
 </aside>
 
 
-# 2018
+# // 2018
 
   * Podiumsdiskussion: "[Metadaten zwischen Autopsie und Automatisierung - welche Qualität brauchen wir?](https://www.professionalabstracts.com/dbt2018/iplanner/#/presentation/379)"
   
-# 2017
+# // 2017
 
   * "*Open-Content-Lizenzen im Angriff – Wir stellen uns der Herausforderung*"  
   [Lizenzangaben und Rechtedokumentationen im Dialog – Datenflüsse nachhaltig gestalten; Veranstaltung der Deutschen Nationalbibliothek Frankfurt am Main am 7. November 2017](https://www.dnb.de/lizenzenimdialog)

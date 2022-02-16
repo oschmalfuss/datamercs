@@ -1,5 +1,6 @@
 name: "."
 title: "OS DataMercs"
+favicon: logo.png
 description: |
   OS DataMercs
 output_dir: "_site"

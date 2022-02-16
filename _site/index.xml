@@ -6,6 +6,11 @@
     <atom:link href="https://www.datamercs.net/index.xml" rel="self" type="application/rss+xml"/>
     <description>OS DataMercs
 </description>
+    <image>
+      <title>OS DataMercs</title>
+      <url>https://www.datamercs.net/logo.png</url>
+      <link>https://www.datamercs.net</link>
+    </image>
     <generator>Distill</generator>
     <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
     <item>
@@ -16,6 +21,15 @@
       <guid>https://www.datamercs.net/posts/welcome</guid>
       <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Z39.50 for Dummies</title>
+      <dc:creator>Wolfram Schneider</dc:creator>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</link>
+      <description>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which tought me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</description>
+      <guid>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</guid>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Win Task Scheduler for cygwin</title>
@@ -39,7 +53,7 @@
       <title>A rough guide to cold brew</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew</link>
-      <description>While to the common librarian, Cory Doctorow is merely known as champion for Open Access, the Creative Commons, the EFF etc., he is also a hell of a barrista, introducing many a young scholar - the author included - to the carnality of cold brew.  
+      <description>While to the common librarian Cory Doctorow is merely known as champion for Open Access, the Creative Commons, the EFF etc., he is also a hell of a barrista, introducing many a young scholar - the author included - to the carnality of cold brew.  
 So, here is the rough guide for future reference.</description>
       <guid>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew</guid>
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>

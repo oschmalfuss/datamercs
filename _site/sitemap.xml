@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://www.datamercs.net/about.html</loc>
-    <lastmod>2022-02-15T14:58:59+01:00</lastmod>
+    <lastmod>2022-02-15T22:29:25+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/contact.html</loc>
-    <lastmod>2022-02-14T23:44:06+01:00</lastmod>
+    <lastmod>2022-02-15T22:32:44+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/</loc>
@@ -14,30 +14,34 @@
   </url>
   <url>
     <loc>https://www.datamercs.net/publications.html</loc>
-    <lastmod>2022-02-15T14:13:51+01:00</lastmod>
+    <lastmod>2022-02-15T22:30:49+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/recources.html</loc>
-    <lastmod>2022-02-15T18:29:49+01:00</lastmod>
+    <lastmod>2022-02-15T22:26:03+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/welcome/</loc>
-    <lastmod>2022-02-15T18:15:51+01:00</lastmod>
+    <lastmod>2022-02-15T23:23:20+01:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/</loc>
+    <lastmod>2022-02-16T01:19:55+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/</loc>
-    <lastmod>2022-02-14T17:49:27+01:00</lastmod>
+    <lastmod>2022-02-15T22:20:35+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/</loc>
-    <lastmod>2022-02-14T21:33:41+01:00</lastmod>
+    <lastmod>2022-02-15T23:05:01+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew/</loc>
-    <lastmod>2022-02-15T15:20:02+01:00</lastmod>
+    <lastmod>2022-02-15T22:38:33+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2013-05-23-marcedit-under-ubuntu-linux/</loc>
-    <lastmod>2022-02-15T00:42:55+01:00</lastmod>
+    <lastmod>2022-02-15T22:34:53+01:00</lastmod>
   </url>
 </urlset>
