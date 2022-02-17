@@ -11,6 +11,12 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+### // tldr;
+
+DataMercs operate in a transparent manner while respecting the principles of freedom of information and protection of privacy.  
+This is basically a private blog/ workshop report.  
+The site does not employ cookies or collects any personal data, apart from the technical necessities like IP addresses in the server log or unless you send me an email.  
+
 ## Impressum // Imprint
 
 ### // Angaben gemäß §5 TMG:
@@ -41,5 +47,6 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
   
 ## Bildrechte
 © Olaf Schmalfuß  
+
 
 
