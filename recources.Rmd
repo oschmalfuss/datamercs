@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliographic) // [DNB](https://www.dnb.de/marc21) // [OCLC](https://www.oclc.org/bibformats/en/about.html)  
 [KBART](https://www.niso.org/standards-committees/kbart) - Knowledge Bases and Related Tools Recommended Practice  
 [ONIX](https://www.editeur.org/8/ONIX/) for Books Product Information Message  
+[ISBD](https://www.ifla.org/international-standard-bibliographic-description) - International Standard Bibliographic Description  
 [JATS - Journal Article Tag Suite // BITS](https://jats.nlm.nih.gov)  
 
 ## // Catalogues
@@ -28,7 +29,7 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 [DNB OPAC](https://portal.dnb.de/opac.htm)  
 [LoC OPAC](https://catalog.loc.gov/vwebv/searchAdvanced) // [LC Subject Headings (LCSH)](https://id.loc.gov/authorities/subjects.html)  
 [Datenbank-Infosystem (DBIS)](https://dbis.ur.de/)  
-[VIAF](https://viaf.org/) Virtual International Authority File  
+[VIAF](https://viaf.org/) - Virtual International Authority File  
 [Zeitschriftendatenbank (ZDB)](https://zdb-katalog.de/index.xhtml)  
 
 ## // APIs
@@ -44,7 +45,7 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 [MarcEdit](https://marcedit.reeset.net/)  
 [R](https://www.r-project.org) // [RStudio](https://www.rstudio.com/products/rstudio/)  
 
-## // De Gruyter
+## // De Gruyter's (interim) metadata portal
 
 [DG metadata portal](https://oschmalfuss.github.io/degruyter/FTP-Index.html) - packages' MARCs and KBARTs  
 [DG eBook records](https://oschmalfuss.github.io/degruyter/DG-title-records.html) - title level records  
