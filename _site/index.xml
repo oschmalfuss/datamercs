@@ -50,6 +50,15 @@
       <media:content url="https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png" medium="image" type="image/png" width="520" height="340"/>
     </item>
     <item>
+      <title>bash 'test' command</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-11-09-bash-test-command</link>
+      <description>A mental note and short reminder on how to use the "test" command in bash if-loops or using the &amp;&amp; and || operators for conditional scripting.</description>
+      <guid>https://www.datamercs.net/posts/2017-11-09-bash-test-command</guid>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-11-09-bash-test-command/helptest.png" medium="image" type="image/png" width="640" height="320"/>
+    </item>
+    <item>
       <title>A rough guide to cold brew</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew</link>

@@ -1,0 +1,187 @@
+---
+title: "bash 'test' command"
+description: |
+  A mental note and short reminder on how to use the "test" command in bash if-loops or using the && and || operators for conditional scripting.
+preview: helptest.png
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2017-11-09
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+This is a short introduction - and personel reminder - on how to use the `test` command.  
+The Google "[Shell Style Guide](https://google.github.io/styleguide/shellguide.html)" prefers double `[[ … ]]` over the older (but POSIX portable) single `[ … ]` or literal `test` and I won't question this. ^[ `[[ … ]]` reduces errors as no pathname expansion or word splitting takes place between `[[` and `]]`. In addition, `[[ … ]]` allows for regular expression matching, while `[ … ]` does not. ]  
+  
+The `test` command returns 0 (True) or 1 (False), which we can use conditionally in *if-loops* or using the *&&* and *||* operators, and one could also simply examine the return value by displaying `$?` e.g.
+
+```{bash eval=F, echo=T}
+$ [[ "foo" != "bar" ]]; echo $?
+0
+
+$ [[ "foo" == "bar" ]]; echo $?
+1
+
+$ [[ "foo" == "foo" ]]; echo $?
+0
+
+$ [[ "foo" != "foo" ]]; echo $?
+1
+
+$ [[ 5 > 2 ]]; echo $?
+0
+
+```
+
+There are tons of applications, but we will mostly use it to `grep` for certain outputs or check `variables` or for the existence of files.  
+Consult `help test` for further details.  
+
+## Using 'test' in loops / conditional statements
+
+### if-else
+
+```{bash eval=F, echo=T}
+
+var=baz # this is out test input, i.e. [[ "foo" == $var ]] will return "False" (i.e. "1"): [[ "foo" == $var ]]; echo $? vs. [[ "baz" == $var ]]; echo $?
+
+if [[ "foo" == $var ]]; then
+  echo "VAR equals foo"
+elif [[ "bar" == $var ]]; then
+  echo "VAR equals bar"
+else
+  echo "we got it all wrong and VAR equals something else"
+fi
+
+```
+
+The use of `echo` here is just a substitute for any command that might be used here.
+
+### && and || operators
+
+There is a more cunning, and cryptic, way of writing if-statements using the **&&** and **||** operators.  
+**&&** and **||** are actually *LOGICAL* operators, i.e.
+
+>  && = AND  
+>  || = OR
+
+the general logic for scripting or chaining commands would be
+
+```{bash eval=F, echo=T}
+"FOO ; BAR"      # Run FOO and then BAR, regardless of success of FOO
+"FOO && BAR"     # Run BAR if FOO succeeded, i.e. returns "True"
+"FOO || BAR"     # Run BAR if FOO failed, i.e. returns "False"
+"FOO &"          # Run FOO in the background.
+"FOO | BAR"      # pipe the output of FOO into BAR for further processing
+```
+
+to substitute an if-else-loop use as follows
+
+```{bash eval=F, echo=T}
+# the nifty way
+[[ "foo" != "bar" ]] && echo "true, foo != bar" || echo "if false, obviously VAR must have been foo then as well"
+
+# which is the same as
+if [[ "foo" != "bar" ]]; then
+  echo "true, foo != bar"
+else
+  echo "if false, obviously VAR must have been foo then as well"
+fi
+
+```
+
+these operators can also be used to chain multiple tests/ conditions together into one `test` e.g.
+
+```{bash eval=F, echo=T}
+$ var=baz
+# OR; is one or the other "True"
+$ [[ "foo" == $var || "baz" == $var ]] && echo "true" || echo "false"
+true
+# AND; both must be "True"
+$ [[ "foo" == $var && "baz" == $var ]] && echo "true" || echo "false"
+false
+```
+
+
+## Using 'test' for checking files - test existence
+For example, when I'm downloading, extracting and forwarding files based on a list of ISBNs and do not know whether I'll find a package for each of the given ISBNs, then I need to know the failed ISBN, so that I do not include it within my extra metadata file, in which I only want to provide data for succeeded ISBNs.
+
+```{bash eval=F, echo=T}
+ISBNLIST=ISBNs4NYU.txt
+BASEDIR=$(pwd)
+WORKDIR=$BASEDIR/ProQuest_Deposit_$(date +%F); mkdir $WORKDIR; cp $ISBNLIST $WORKDIR; cd $WORKDIR
+
+# Download WebPDFs directly out of the PDW
+for ISBN in $(cat $ISBNLIST); do
+  echo $ISBN
+  # getting "documentId"
+  DOCUMENTID=$(curl -s --proxy "http://proxy-URL:1337" https://product-data-warehouse-URL/publication/$ISBN | grep '"id"' | head -n1 | grep -oP '(?<="id" : ").+?(?=")')
+  # downloading ZIP
+  curl -s --proxy "http://proxy-URL:1337" https://product-data-warehouse-URL/document/$DOCUMENTID/zip -o $ISBN.zip
+  # unzip WebPDF only
+  unzip -q -j $ISBN.zip *$DOCUMENTID.pdf
+  # rename to ISBN.pdf
+  mv $DOCUMENTID.pdf $ISBN.pdf
+  # if WebPDF exists, then upload to target FTP
+  if [[ -f $ISBN.pdf ]]; then
+    curl -T $ISBN.pdf -u UN:PW ftp://ftp.data-recipient.com/upload/
+    echo "$ISBN" >> isbn_list_4_onix.txt
+    else echo "$ISBN" >> WebPDF_missing.txt
+  fi
+  # clean-up
+  rm $ISBN.zip $ISBN.pdf
+done
+
+cd $BASEDIR
+
+```
+
+I usually only need `-f`, but again check `help test` for other options like
+
+> File operators:  
+> -d FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file is a directory.  
+> -e FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file exists [regardless of type, e.g. file, directory, device etc.].  
+> -f FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file exists and is a regular file [and not a directory or device etc.].  
+
+This check could also be negated, so that the outcome is "True" when the file does NOT exist:
+
+```{bash eval=F, echo=T}
+if [[ ! -f $ISBN.pdf ]]; then
+    echo "$ISBN.pdf does not exist."
+fi
+```
+
+## Using 'test' for checking variables
+For example, prompt user to specify a file, like an ISBN list, when there was no command line argument (i.e. `$1`) given in the first place:
+
+```{bash eval=F, echo=T}
+# check for input variable, if empty prompt for file in current directory, else move on with the given input variable
+if [[ -z "$1" ]]; then
+  echo; echo "Please select ISBN list: (choose number)"; echo
+  select L in *; do test -n "$L" && break; echo ">>> Invalid Selection"; done
+else
+  L=$1
+fi
+```
+
+> String operators:  
+> -z STRING &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if string is empty.  
+> -n STRING &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if string is NOT empty.  
+
+```{bash eval=F, echo=T}
+# nifty alternative
+[[ -z "$var" ]] && echo "true, VAR is empty" || echo "false, VAR is Not empty"
+```
+  
+&nbsp;   
+&nbsp;   
+**to be continued ...**
