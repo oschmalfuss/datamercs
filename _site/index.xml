@@ -47,7 +47,7 @@
       <description>HowTo download "Mediathek" features for archival purposes</description>
       <guid>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader</guid>
       <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
-      <media:content url="https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png" medium="image" type="image/png" width="520" height="340"/>
+      <media:content url="https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png" medium="image" type="image/png" width="432" height="274"/>
     </item>
     <item>
       <title>bash 'test' command</title>
@@ -57,6 +57,15 @@
       <guid>https://www.datamercs.net/posts/2017-11-09-bash-test-command</guid>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2017-11-09-bash-test-command/helptest.png" medium="image" type="image/png" width="640" height="320"/>
+    </item>
+    <item>
+      <title>Howto batch rename on the command line</title>
+      <dc:creator>Olaf Schmalfuss</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</link>
+      <description>Renaming files is one of the everyday tasks, for which many people genuinely scramble and download the most dubious programs from the internet, while one could actually do this pretty easy with command line tools.  
+Here we will put down some quick and easy bash and PowerShell examples that anybody can do!</description>
+      <guid>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</guid>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>A rough guide to cold brew</title>

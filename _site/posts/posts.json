@@ -70,10 +70,10 @@
     "categories": [],
     "contents": "\r\nrbbKultur - Mediathek-Downloader\r\n// Introduction\r\nFor archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters’ archives, i.e. “Mediathek”.\r\nThis only works, when the program is archived as a whole file in a convenient format like mp3 or mp4, and not in a chunked m3u streaming format. This we will see in step 4. below. So if we encounter m3u, we will use VLC instead to capture and convert the stream, see:link to VLC howto\r\n1. select Program\r\nrbbKultur - Mediathek\r\n\r\nhttps://www.kulturradio.de/zum_nachhoeren/\r\n\r\nchose date and program\r\n2. inspect element\r\ni.e. launch Developer Tools\r\nFireFox: CTRL+SHIFT+C\r\nChrome: CTRL+SHIFT+I\r\n\r\n3. Start Mediathek player\r\ni.e. start the podcast or video once we have the Developer Tools open, so that we can analyze the traffic under Network\r\n4. back in Developer Tools\r\nunder Network right click on the File (media/ mpeg)\r\nthen Copy URL or copy as cURL\r\n\r\n\r\n\r\n5. Download via bash script\r\nadjust script\r\n\r\nrbb_downloader()\r\n  {\r\n    if [ -z \"$1\" ]\r\n      then echo \"Dateiname fehlt\"\r\n    elif [ -z \"$2\" ]\r\n      then  \"Download URL fehlt\"\r\n    else\r\n      DWNDIR=/tmp/Downloads/AlteMusik\r\n      AMDOWN=$1\r\n      rbbmediapmdp=$2\r\n      curl $rbbmediapmdp -o $DWNDIR/\"$AMDOWN\"\r\n      ls -htl $DWNDIR\r\n  fi\r\n  }\r\n  \r\n# usage:\r\nrbb_downloader \"File_Name\" \"Download_URL\"\r\n\r\noptional: save in bashrc\r\n\r\nC:\\cygwin64\\home\\schmalfuss\\.bashrc\r\n\r\nrun\r\ne.g. \r\n\r\n\r\nrbb_downloader \"Alte Musik - 2020-07-08 - Heinrich Isaac - Lieder und Motetten.mp3\" \"https://rbbmediapmdp-a.akamaihd.net/content/74/da/74da3627-5312-4f34-b681-93c48f12202d/0a858af8-b788-430b-9f5a-b5c678701a18_53d97702-265a-4586-a6d8-c8c7ad9bac80.mp3\"\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png",
-    "last_modified": "2022-02-15T23:05:01+01:00",
+    "last_modified": "2022-02-24T21:15:27+01:00",
     "input_file": {},
-    "preview_width": 520,
-    "preview_height": 340
+    "preview_width": 432,
+    "preview_height": 274
   },
   {
     "path": "posts/2017-11-09-bash-test-command/",
@@ -93,6 +93,23 @@
     "input_file": {},
     "preview_width": 640,
     "preview_height": 320
+  },
+  {
+    "path": "posts/2017-08-24-howto-batch-rename-on-the-command-line/",
+    "title": "Howto batch rename on the command line",
+    "description": "Renaming files is one of the everyday tasks, for which many people genuinely scramble and download the most dubious programs from the internet, while one could actually do this pretty easy with command line tools.  \nHere we will put down some quick and easy bash and PowerShell examples that anybody can do!",
+    "author": [
+      {
+        "name": "Olaf Schmalfuss",
+        "url": "https://www.datamercs.net"
+      }
+    ],
+    "date": "2017-08-24",
+    "categories": [],
+    "contents": "\r\n\r\nContents\r\nIntroduction\r\nrenaming files in bash\r\nrenaming files in PowerShell\r\nrename using mapping list\r\n\r\nIntroduction\r\nRenaming files is a quite common everyday task, especially when you receive many files in different formats that have to be aligned to your in-house standards, or when on the other hand you have to send out lots of files and have to meet the data recipients specification, which coincidentally I both have to do quite regularly.\r\nThus, here’re some assorted oneliners for future reference, quick copy&pastes or for sharing.\r\nrenaming files in bash\r\nWhile there are certainly dedicated libraries for renaming files, like ‘rename’, renaming can be achieved basically with native bash functions only, using cp or mv together with sed or shell parameter expansion↗\r\nIn the following example we need to mass rename files from\r\n\r\nepub_dgo_9783110947649.zip to epub_dgo_9783110947649.zip\r\n\r\ni.e. ‘simply’ changing ‘dgo’ to ‘arv’, but this could also be used to change or normalize file extensions, like ‘.tiff’ to ‘.tif’ etc.\r\nObviously, use cp instead of mv if you want to keep your original files or if unsure whether the ${parameter/pattern/string} replacement will work;-)\r\n\r\n# rename scripts (from 1337 to legible)\r\n\r\n#1#\r\nfor f in *; do mv \"$f\" \"${f/dgo/arv}\"; done\r\n\r\n#1.2 change file extension from '.html' to '.txt'\r\nfor f in *.html; do mv \"$f\" \"${f%.html}.txt\"; done\r\n#1.3 or simply append ext\r\nfor f in *; do mv \"$f\" \"${f}.txt\"; done\r\n\r\n#2#\r\nfor f in * ; do mv $f $(echo $f | sed 's/dgo/arv/'); done\r\n\r\n#3#\r\nfor f in *; do\r\n  fnew=$(sed 's/dgo/arv/' <<< $f)\r\n  mv $f $fnew\r\ndone\r\n\r\nrenaming files in PowerShell\r\nIf you are on Windows and have no bash options like cygwin or the Windows Subsystem for Linux then you can easily achieve the same result using PowerShell.\r\nGiven the same example from above, i.e. changing ‘dgo’ to ‘arv’, just try the following:\r\n\r\n#4# PowerShell rename\r\ndir | rename-item –newname { $_.name.replace(\"dgo\",\"arv\") }\r\n\r\nrename using mapping list\r\nIf there’re varying patterns or people like to create a mapping list using Excel instead, with the OLD_NAME next to the NEW_NAME in two columns, we can use that mapping as well in a tab separated TXT/ TSV file (e.g. rename.tsv) to batch rename files.\r\nThe code is basically adding the mv function again to each line and piping that mv -vi \"OLD_NAME\" \"NEW_NAME\"; back into bash for execution:\r\n\r\nsed 's/^/mv -vi \"/;s/\\t/\" \"/;s/$/\";/' < rename.tsv | bash -\r\n\r\nThe double quotes ( ” ) allow for unexpected white spaces in the file names - better be safe but sorry.\r\n\\(^_^)\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-02-24T23:04:53+01:00",
+    "input_file": {}
   },
   {
     "path": "posts/2013-07-21-a-rough-guide-to-cold-brew/",
