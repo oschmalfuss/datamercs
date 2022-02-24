@@ -11,7 +11,9 @@ author:
 date: 2017-11-09
 output:
   distill::distill_article:
-    self_contained: false
+    toc: true
+    toc_depth: 3
+    toc_float: true
 ---
 
 
@@ -20,8 +22,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Introduction
-This is a short introduction - and personel reminder - on how to use the `test` command.  
-The Google "[Shell Style Guide](https://google.github.io/styleguide/shellguide.html)" prefers double `[[ … ]]` over the older (but POSIX portable) single `[ … ]` or literal `test` and I won't question this. ^[ `[[ … ]]` reduces errors as no pathname expansion or word splitting takes place between `[[` and `]]`. In addition, `[[ … ]]` allows for regular expression matching, while `[ … ]` does not. ]  
+This is a short introduction - and personal reminder - on how to use the `test` command.  
+The Google "[Shell Style Guide](https://google.github.io/styleguide/shellguide.html)"↗ prefers double `[[ … ]]` over the older (but POSIX portable) single `[ … ]` or literal `test` and I won't question this. ^[ `[[ … ]]` reduces errors as no pathname expansion or word splitting takes place between `[[` and `]]`. In addition, `[[ … ]]` allows for regular expression matching, while `[ … ]` does not. ]  
   
 The `test` command returns 0 (True) or 1 (False), which we can use conditionally in *if-loops* or using the *&&* and *||* operators, and one could also simply examine the return value by displaying `$?` e.g.
 
@@ -52,7 +54,7 @@ Consult `help test` for further details.
 
 ```{bash eval=F, echo=T}
 
-var=baz # this is out test input, i.e. [[ "foo" == $var ]] will return "False" (i.e. "1"): [[ "foo" == $var ]]; echo $? vs. [[ "baz" == $var ]]; echo $?
+var=baz # this is our test input, i.e. [[ "foo" == $var ]] will return "False" (i.e. "1"): [[ "foo" == $var ]]; echo $? vs. [[ "baz" == $var ]]; echo $?
 
 if [[ "foo" == $var ]]; then
   echo "VAR equals foo"
@@ -64,11 +66,11 @@ fi
 
 ```
 
-The use of `echo` here is just a substitute for any command that might be used here.
+The use of `echo` here is just a substitute for any other command that might be used here.
 
 ### && and || operators
 
-There is a more cunning, and cryptic, way of writing if-statements using the **&&** and **||** operators.  
+There is a more cunning, and cryptic or 31337, way of writing if-statements using the **&&** and **||** operators.  
 **&&** and **||** are actually *LOGICAL* operators, i.e.
 
 >  && = AND  
@@ -84,7 +86,7 @@ the general logic for scripting or chaining commands would be
 "FOO | BAR"      # pipe the output of FOO into BAR for further processing
 ```
 
-to substitute an if-else-loop use as follows
+to substitute an if-else-loop with && and || use as follows
 
 ```{bash eval=F, echo=T}
 # the nifty way
@@ -113,7 +115,7 @@ false
 
 
 ## Using 'test' for checking files - test existence
-For example, when I'm downloading, extracting and forwarding files based on a list of ISBNs and do not know whether I'll find a package for each of the given ISBNs, then I need to know the failed ISBN, so that I do not include it within my extra metadata file, in which I only want to provide data for succeeded ISBNs.
+For example, when I'm downloading, extracting and forwarding files based on a list of ISBNs and do not know whether I'll find a package for each of the given ISBNs, then I need to know the failed ISBN, so that I do not include it within my extra metadata file, in which I only want to provide data for succeeded ISBNs. Obviously, I'm aware that I could include a `test` at an earlier stage already, but this is my workshop;-)
 
 ```{bash eval=F, echo=T}
 ISBNLIST=ISBNs4NYU.txt
@@ -145,12 +147,15 @@ cd $BASEDIR
 
 ```
 
-I usually only need `-f`, but again check `help test` for other options like
+I usually only need `-f`, but again check `help test` for other useful options like
 
 > File operators:  
 > -d FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file is a directory.  
 > -e FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file exists [regardless of type, e.g. file, directory, device etc.].  
 > -f FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file exists and is a regular file [and not a directory or device etc.].  
+> -s FILE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; True if file exists and is not empty.  
+> A -nt B &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test if file A is newer than file B, by modification date.  
+> A -ot B &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test if file A is older than file B.  
 
 This check could also be negated, so that the outcome is "True" when the file does NOT exist:
 
@@ -161,7 +166,7 @@ fi
 ```
 
 ## Using 'test' for checking variables
-For example, prompt user to specify a file, like an ISBN list, when there was no command line argument (i.e. `$1`) given in the first place:
+For example, I want to prompt the user to specify a file, like an ISBN list, when there was no command line argument (i.e. `$1`) given in the first place:
 
 ```{bash eval=F, echo=T}
 # check for input variable, if empty prompt for file in current directory, else move on with the given input variable
@@ -181,7 +186,9 @@ fi
 # nifty alternative
 [[ -z "$var" ]] && echo "true, VAR is empty" || echo "false, VAR is Not empty"
 ```
-  
+
+## further reading
+This IBM tutorial on [Bash test and comparison functions](https://developer.ibm.com/tutorials/l-bash-test/)↗ is also very helpful.
 &nbsp;   
 &nbsp;   
 **to be continued ...**
