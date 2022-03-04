@@ -12,15 +12,24 @@
       <link>https://www.datamercs.net</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Welcome to OS DataMercs</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/welcome</link>
-      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services</description>
+      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.</description>
       <guid>https://www.datamercs.net/posts/welcome</guid>
-      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>rough guide to Git Large File Storage (LFS)</title>
+      <dc:creator>Olaf Schmalfuss</dc:creator>
+      <link>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</link>
+      <description>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.</description>
+      <guid>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</guid>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png" medium="image" type="image/png" width="511" height="272"/>
     </item>
     <item>
       <title>Z39.50 for Dummies</title>
@@ -60,12 +69,21 @@
     </item>
     <item>
       <title>Howto batch rename on the command line</title>
-      <dc:creator>Olaf Schmalfuss</dc:creator>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</link>
       <description>Renaming files is one of the everyday tasks, for which many people genuinely scramble and download the most dubious programs from the internet, while one could actually do this pretty easy with command line tools.  
 Here we will put down some quick and easy bash and PowerShell examples that anybody can do!</description>
       <guid>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</guid>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line/manrename.png" medium="image" type="image/png" width="640" height="320"/>
+    </item>
+    <item>
+      <title>Working with KBART files</title>
+      <dc:creator>Olaf Schmalfuss</dc:creator>
+      <link>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</link>
+      <description>KBART files are standardized title lists in .TXT format, that specify electronic collections. This is to provide a short overview on what to expect from this metadata format and how to work with it as publisher or librarian.</description>
+      <guid>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</guid>
+      <pubDate>Tue, 03 Feb 2015 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>A rough guide to cold brew</title>

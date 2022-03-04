@@ -1,0 +1,107 @@
+---
+title: "Working with KBART files"
+description: |
+  KBART files are standardized title lists in .TXT format, that specify electronic collections. This is to provide a short overview on what to expect from this metadata format and how to work with it as publisher or librarian.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuss"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2015-02-03
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+KBART, which stands for “Knowledge Bases and Related Tools,” is a [NISO Recommended Practice](https://www.niso.org/standards-committees/kbart)↗.  
+Very simply, KBART recommends best practices for the communication of electronic resource title list and coverage data from content providers to knowledge base (KB) suppliers. KBART specifies file format, delivery mechanisms and fields to include, and it applies to both serials and monographs.  
+Thus, a single KBART file is basically a standardized list, separated by TAB in .TXT format.  
+By specification KBARTs are not intended for rich bibliographic description, but work in tandem together with MARC records and chunk level data like BITS and JATS XML to provide the collection level information for full scale title information and discoverability within our model of the [trinity of discovery](https://www.datamercs.net/posts/welcome/)↗.  
+
+### What is a knowledge base?
+A knowledge base is an extensive database maintained by a knowledge base supplier that contains information about electronic resources such as title lists, coverage dates, inbound linking syntax, etc. Knowledge bases typically organize the resources provided by a content provider into collections or databases that reflect specific content provider offerings, for example packages of e-journals, e-books, or other materials. Knowledge bases can be customized by individual institutions to reflect their local collections.  
+Knowledge bases are used to provide data for OpenURL link resolvers and to populate library discovery systems with an institution’s e-resource holdings data. Many libraries also use knowledge base data in library catalogues, for e-journal title lists, in electronic resource management systems (ERMs), and in other tools.  
+Knowledge base suppliers ingest the data into their KBs, and libraries then select the packages and titles that they have access to.  
+Libraries can also use KBART to create files for custom local and consortial packages and load them into their local knowledge bases. Some librarians also find KBART title list files useful for understanding a content provider’s offerings or determining the contents of a standard package they have purchased.
+
+[see also KBART FAQ](https://www.niso.org/standards-committees/kbart/kbart-frequently-asked-questions)↗  
+
+## KBART at De Gruyter
+
+are being created for
+
+* all past and present eBook packages
+  + including certain customised consortia packages
+  + except those for internal usage only (>>> blacklist)
+* all active eJournal packages
+* all databases, in one database KBART file
+* Open Access KBARTs, one for eBooks one for eJournals
+* two collection files, one for eBooks one for eJournals
+* one KBART for all "out of print" eBooks
+
+The workflow and toolchain I created for that will be laid out, as far as possible, at a later stage, bringing together data from multiple sources, utilizing SQL, bash and RStudio, loading the data to all relevant data recipients, i.e. KBs and end customers etc. via FTP and email, and host the data on a customized metadata portal for public access and self-service^[https://oschmalfuss.github.io/degruyter/FTP-Index.html ↗].  
+This development was necessary after switching from a couple of fixed front list eBook packages a year to more and more complex and dynamic products, like PDA/ EBA and publisher partners' packages.
+
+## Working with KBART
+
+### how to open a KBART file (with Excel)
+
+While this question seems a little odd, about how to open a simple .TXT file, in reality it appears that the common librarian, or sales or marketing person, is actually not necessarily that used to working with .TXTs, that I got so many questions on how to read or use such a file in Excel, that I even might make an instructional video about that, just for reference.  
+Yet admittedly, there might be the one or other obstacle that we could address here already, on ...
+
+#### ... the art of how to open a KBART file in Excel
+
+after downloading the .TXT file
+
+* right click, open with
+* drag into (closed) Excel, i.e. onto the icon
+  + not possible with the Excel icon...
+  + ... but working with LibreOffice
+* drag into (open) Excel 
+* open in notepad, then copy&paste all into Excel (which is what I usually do)
+* open from inside Excel
+* import from inside Excel
+* rename .txt to .xls/.xlsx
+
+BUT “dragging&dropping” into as well as “right-click, open-with” Excel poses a special, UTF-8 related problem, as Excel is not smart enough to recognize the encoding this way, and naturally, we are dealing with lots of German, French and Greek characters in scientific literature, which causes special characters and *Umlauts* to get mangled in Excel.  
+  
+A solution for that would be to convert or encode the KBART file to **UTF-8 WITH BOM** first, for example in [notepad++](https://notepad-plus-plus.org/)↗  
+
+And while according to the Unicode standard the use of a “Byte Order Mark” (BOM) is neither required nor recommended for UTF-8^[https://www.unicode.org/versions/Unicode12.1.0/ch02.pdf#G27981 ↗], it can be crucial for UTF-8 recognition in Excel, and may make all the difference between Gibberish and German.  
+Thus, it’s “allowed” in contexts where a particular protocol (e.g. Microsoft conventions for .txt files) may require use of the BOM on certain Unicode data streams, such as KBART/.TXT files. When you need to conform to such a protocol, use a BOM^[https://www.unicode.org/faq/utf_bom.html#bom9 ↗].
+
+[LibreOffice](https://www.libreoffice.org/)↗ on the other hand just works, yet won’t open right away, but will ask first.
+
+For me the easiest solution is to open in notepad++ first, the copy&paste all into Excel, making sure that **only** TAB is used as delimiter, et voilà!
+
+### how to customzie, i.e. filter a KBART file
+
+#### filter KBART against a list of ISBNs
+
+For pick&choose collections, where no off-the-shelf package and thus no dedicated KBART file is available, we'll filter the complete KBART file based on an ISBN list, with each ISBN on its own line and EOL in UNIX format, i.e. `\n`, e.g. 'filter_file.txt'.  
+Also, we will keep one of the column names from the header in the first line, to `grep` the header of the KBART as well, e.g. 'ONLINE_IDENTIFIER'
+
+```{bash, eval=F, echo=T}
+# our 'filter_file.txt' looks as follows:
+$ cat filter_file.txt
+ONLINE_IDENTIFIER
+ISBN1
+ISBN2
+ISBN3
+...
+..
+.
+
+# assuming the complete KBART is in the same folder as the filter_file, we'll use 'LC_ALL=C fgrep' for faster execution:
+$ LC_ALL=C fgrep -i -f filter_file.txt degruyter_global_ebooks_* > DG_KBART_$(date +%F).txt
+
+```
+

@@ -18,11 +18,15 @@
   </url>
   <url>
     <loc>https://www.datamercs.net/recources.html</loc>
-    <lastmod>2022-02-18T14:59:07+01:00</lastmod>
+    <lastmod>2022-02-25T22:21:28+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/welcome/</loc>
-    <lastmod>2022-02-15T23:23:20+01:00</lastmod>
+    <lastmod>2022-03-04T23:13:37+01:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/</loc>
+    <lastmod>2022-03-05T00:14:54+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/</loc>
@@ -42,7 +46,11 @@
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line/</loc>
-    <lastmod>2022-02-24T23:04:53+01:00</lastmod>
+    <lastmod>2022-02-25T16:46:17+01:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files/</loc>
+    <lastmod>2022-03-04T23:15:55+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew/</loc>

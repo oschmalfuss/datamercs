@@ -1,0 +1,50 @@
+---
+title: "Working with DOIs/ the crossRef-API"
+description: |
+  A short description of the post.
+draft: true
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuss"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2022-03-04
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+https://github.com/CrossRef/rest-api-doc
+
+
+
+##Useful Links
+
+## resolving DOIs
+https://dx.doi.org/$DOI  
+https://doi.org/$DOI  
+
+### find a Journal-DOI by ISSN
+
+https://search.crossref.org/?from_ui=yes&type-name=Journal&q=$ISSN  
+e.g. https://search.crossref.org/?from_ui=yes&type-name=Journal&q=2191-0278  
+
+### find an eBook DOI by ISBN
+
+http://api.crossref.org/works?filter=isbn:$ISBN  
+
+## Analyzing DOIs
+
+https://api.crossref.org/works/$DOI  
+https://doi.org/api/handles/$DOI  
+https://hdl.handle.net/$DOI  
+https://search.crossref.org/?q=$DOI  
+
+

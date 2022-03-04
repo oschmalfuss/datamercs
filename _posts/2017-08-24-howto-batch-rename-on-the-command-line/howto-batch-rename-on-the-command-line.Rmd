@@ -3,9 +3,12 @@ title: "Howto batch rename on the command line"
 description: |
   Renaming files is one of the everyday tasks, for which many people genuinely scramble and download the most dubious programs from the internet, while one could actually do this pretty easy with command line tools.  
   Here we will put down some quick and easy bash and PowerShell examples that anybody can do!
+preview: manrename.png
 author:
-  - name: Olaf Schmalfuss
-    url: https://www.datamercs.net
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
 date: 2017-08-24
 output:
   distill::distill_article:

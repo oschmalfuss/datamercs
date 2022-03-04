@@ -87,51 +87,54 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>OS DataMercs: Welcome to OS DataMercs</title>
+<title>OS DataMercs: rough guide to Git Large File Storage (LFS)</title>
 
-<meta property="description" itemprop="description" content="OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services."/>
+<meta property="description" itemprop="description" content="Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here&#39;s a rough guide on howto set-up Git-LFS and uninstall from a project again."/>
 
-<link rel="canonical" href="https://www.datamercs.net/posts/welcome/"/>
+<link rel="canonical" href="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"/>
 <link rel="icon" type="image/png" href="../../logo.png"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2022-03-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2022-03-04"/>
-<meta name="article:author" content="Olaf Schmalfuß"/>
+<meta property="article:published" itemprop="datePublished" content="2022-02-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-02-28"/>
+<meta name="article:author" content="Olaf Schmalfuss"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="OS DataMercs: Welcome to OS DataMercs"/>
+<meta property="og:title" content="OS DataMercs: rough guide to Git Large File Storage (LFS)"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services."/>
-<meta property="og:url" content="https://www.datamercs.net/posts/welcome/"/>
-<meta property="og:image" content="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg"/>
+<meta property="og:description" content="Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here&#39;s a rough guide on howto set-up Git-LFS and uninstall from a project again."/>
+<meta property="og:url" content="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"/>
+<meta property="og:image" content="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png"/>
+<meta property="og:image:width" content="511"/>
+<meta property="og:image:height" content="272"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="OS DataMercs"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="OS DataMercs: Welcome to OS DataMercs"/>
-<meta property="twitter:description" content="OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services."/>
-<meta property="twitter:url" content="https://www.datamercs.net/posts/welcome/"/>
-<meta property="twitter:image" content="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg"/>
+<meta property="twitter:title" content="OS DataMercs: rough guide to Git Large File Storage (LFS)"/>
+<meta property="twitter:description" content="Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here&#39;s a rough guide on howto set-up Git-LFS and uninstall from a project again."/>
+<meta property="twitter:url" content="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"/>
+<meta property="twitter:image" content="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png"/>
+<meta property="twitter:image:width" content="511"/>
+<meta property="twitter:image:height" content="272"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="OS DataMercs: Welcome to OS DataMercs"/>
-<meta name="citation_fulltext_html_url" content="https://www.datamercs.net/posts/welcome/"/>
-<meta name="citation_online_date" content="2022/03/04"/>
-<meta name="citation_publication_date" content="2022/03/04"/>
-<meta name="citation_author" content="Olaf Schmalfuß"/>
-<meta name="citation_author_institution" content="OS DataMercs"/>
+<meta name="citation_title" content="OS DataMercs: rough guide to Git Large File Storage (LFS)"/>
+<meta name="citation_fulltext_html_url" content="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"/>
+<meta name="citation_online_date" content="2022/02/28"/>
+<meta name="citation_publication_date" content="2022/02/28"/>
+<meta name="citation_author" content="Olaf Schmalfuss"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to OS DataMercs"]},{"type":"character","attributes":{},"value":["OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services."]},{"type":"character","attributes":{},"value":["trinity of discovery.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","orcid_id","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Olaf"]},{"type":"character","attributes":{},"value":["Schmalfuß"]},{"type":"character","attributes":{},"value":["0000-0002-1919-3848"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net"]},{"type":"character","attributes":{},"value":["OS DataMercs"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net"]}]}]},{"type":"character","attributes":{},"value":["2022-03-04"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/welcome/"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/welcome/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["rough guide to Git Large File Storage (LFS)"]},{"type":"character","attributes":{},"value":["Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again."]},{"type":"character","attributes":{},"value":["GITLFS.png"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","orcid_id","url"]}},"value":[{"type":"character","attributes":{},"value":["Olaf"]},{"type":"character","attributes":{},"value":["Schmalfuss"]},{"type":"character","attributes":{},"value":["0000-0002-1919-3848"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net"]}]}]},{"type":"character","attributes":{},"value":["2022-02-28"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["trinity of discovery.jpg","welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/header-attrs-2.11/header-attrs.js","welcome_files/jquery-3.6.0/jquery-3.6.0.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.map","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["GITLFS.png","rough-guide-to-git-large-file-storage-lfs_files/anchor-4.2.2/anchor.min.js","rough-guide-to-git-large-file-storage-lfs_files/bowser-1.9.3/bowser.min.js","rough-guide-to-git-large-file-storage-lfs_files/distill-2.2.21/template.v2.js","rough-guide-to-git-large-file-storage-lfs_files/header-attrs-2.11/header-attrs.js","rough-guide-to-git-large-file-storage-lfs_files/jquery-3.6.0/jquery-3.6.0.js","rough-guide-to-git-large-file-storage-lfs_files/jquery-3.6.0/jquery-3.6.0.min.js","rough-guide-to-git-large-file-storage-lfs_files/jquery-3.6.0/jquery-3.6.0.min.map","rough-guide-to-git-large-file-storage-lfs_files/popper-2.6.0/popper.min.js","rough-guide-to-git-large-file-storage-lfs_files/tippy-6.2.7/tippy-bundle.umd.min.js","rough-guide-to-git-large-file-storage-lfs_files/tippy-6.2.7/tippy-light-border.css","rough-guide-to-git-large-file-storage-lfs_files/tippy-6.2.7/tippy.css","rough-guide-to-git-large-file-storage-lfs_files/tippy-6.2.7/tippy.umd.min.js","rough-guide-to-git-large-file-storage-lfs_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2079,7 +2082,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to OS DataMercs","description":"OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.","authors":[{"author":"Olaf Schmalfuß","authorURL":"https://www.datamercs.net","affiliation":"OS DataMercs","affiliationURL":"https://www.datamercs.net","orcidID":"0000-0002-1919-3848"}],"publishedDate":"2022-03-04T00:00:00.000+01:00","citationText":"Schmalfuß, 2022"}
+{"title":"rough guide to Git Large File Storage (LFS)","description":"Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.","authors":[{"author":"Olaf Schmalfuss","authorURL":"https://www.datamercs.net","affiliation":"&nbsp;","affiliationURL":"#","orcidID":"0000-0002-1919-3848"}],"publishedDate":"2022-02-28T00:00:00.000+01:00","citationText":"Schmalfuss, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2114,47 +2117,174 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to OS DataMercs</h1>
+<h1>rough guide to Git Large File Storage (LFS)</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.</p></p>
+<p><p>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here’s a rough guide on howto set-up Git-LFS and uninstall from a project again.</p></p>
 </div>
 
 <div class="d-byline">
   
   true
   
-<br/>2022-03-04
+<br/>2022-02-28
 </div>
 
 <div class="d-article">
-<h1 id="trinity-of-discovery">// Trinity of Discovery</h1>
-<p>The “Trinity of Discovery” exhibits our holistic approach to metadata delivery and creation, and sets the framework to a title’s - may it be eBook or journal - (meta) data needs.<br />
-It is also what most libraries would expect to receive from a publisher one way or another, either directly or through third party services or union catalogues:<br />
-meta data and discovery from the smallest chunk down to collection level, because</p>
-<blockquote>
-<p>»We are not going to buy any of your eBooks if users cannot discover them.«<br />
-(an unnamed head of aqcuisition)</p>
-</blockquote>
-<p>MARC records, KBARTs, ONIX and JATS XML are key, especially to scientific publishing houses!<br />
-Naturally, one could go beyond that, if we talked about linked data, which would even aim at the most atomic bits of data points, but since most publishers usually have hardly even the basics covered, the <em>trinity</em> shall serve as our North star here.<br />
-Thus, this site aims to showcase several tools and workflows around that, so that even the smallest publisher, or inclined librarian, can build upon that and implement their own (half-) automated data pipelines, from ERP to .MRC;-)</p>
-<div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="trinity%20of%20discovery.jpg" style="display: block; margin: auto;" /></p>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#set-up">Set-up</a>
+<ul>
+<li><a href="#commit-and-push-to-github">commit and push to GitHub</a></li>
+<li><a href="#check-files">check files</a></li>
+<li><a href="#push-all-referenced-git-lfs-files">push all referenced Git-LFS files</a></li>
+</ul></li>
+<li><a href="#issues-with-git-lfs">Issues with Git-LFS</a>
+<ul>
+<li><a href="#how-to-uninstall-git-lfs">how to uninstall Git-LFS</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="introduction">Introduction</h2>
+<p>GitHub limits the size of files allowed in repositories to up to 100MB. For working with larger files like data sets or binaries such as MARC record sets, we have to find a solution around that limit. In comes <a href="https://git-lfs.github.com/">Git Large File Storage (LFS)</a>↗.<br />
+Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.</p>
+<h2 id="set-up">Set-up</h2>
+<ol type="1">
+<li>download Git-LFS here <a href="https://git-lfs.github.com/" class="uri">https://git-lfs.github.com/</a> and install.</li>
+<li>open <code>Git Bash</code></li>
+<li>verify that the installation was successful:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs install</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Git <span class="ex">LFS</span> initialized.</span></code></pre></div>
+</div>
+<ol start="4" type="1">
+<li><code>cd</code> into the repository’s directory we’d like to use with Git-LFS.</li>
+<li>select the file types or files we’d like Git-LFS to manage (or directly edit .gitattributes)</li>
+</ol>
+<ul>
+<li>associate a whole file type, e.g. .ZIP, with Git-LFS by file extension:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. associate all .ZIP files with Git-LFS:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs track <span class="st">&quot;*.zip&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Adding <span class="ex">path</span> <span class="pp">*</span>.zip</span></code></pre></div>
+</div>
+<ul>
+<li>associate a single file with Git-LFS:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs track <span class="at">--filename</span> [path to file]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Tracking</span> <span class="st">&quot;[path to file]&quot;</span></span></code></pre></div>
+</div>
+<h3 id="commit-and-push-to-github">commit and push to GitHub</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add [path to file]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;update MARC&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div>
+</div>
+<h3 id="check-files">check files</h3>
+<p>list all the (large) files manage by Git-LFS.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd [path to repository]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs ls-files</span></code></pre></div>
+</div>
+<h3 id="push-all-referenced-git-lfs-files">push all referenced Git-LFS files</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs push <span class="at">--all</span> origin</span></code></pre></div>
+</div>
+<h2 id="issues-with-git-lfs">Issues with Git-LFS</h2>
+<p>So while on paper we get the benefit of being able to handle 100MB+ files, Git-LFS also suddenly adds limitations to your repository’s total size as well as to the bandwidth, i.e. 1GB each, resulting in the following error message:</p>
+<blockquote>
+<p>Uploading LFS objects: 0% (0/1), 0 B | 0 B/s, done. batch response: This repository is over its data quota. Account responsible for LFS bandwidth should purchase more data packs to restore access.</p>
+</blockquote>
+<p>This can happen really fast, especially if you have lots of med sized files and work not as organized or efficient in your repository … as an librarian maybe…<br />
+Therefore, it is also good to know how to uninstall Git-LFS and start over more organized moving forward.<br />
+The other solution would be a paid subscription.</p>
+<h3 id="how-to-uninstall-git-lfs">how to uninstall Git-LFS</h3>
+<p>Simply removing the files from the project does not work, as the Git-LFS objects still exist on the remote storage and will continue to count toward the Git-LFS storage quota. To remove Git-LFS objects from a repository, delete and recreate the repository.</p>
+<ul>
+<li>remove hooks</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs uninstall</span></code></pre></div>
+</div>
+<ul>
+<li>remove the LFS filters from .gitattributes</li>
+<li>list LFS files using</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs ls-files <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-r</span> <span class="st">&#39;s/^.{13}//&#39;</span> <span class="op">&gt;</span> lfs_files.txt</span></code></pre></div>
+</div>
+<ul>
+<li>run <code>git rm --cached</code> for each file</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> rm <span class="at">--cached</span> <span class="st">&quot;</span><span class="va">$line</span><span class="st">&quot;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> <span class="op">&lt;</span> lfs_files.txt</span></code></pre></div>
+</div>
+<ul>
+<li>run <code>git add</code> for each file</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> add <span class="st">&quot;</span><span class="va">$line</span><span class="st">&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> <span class="op">&lt;</span> lfs_files.txt</span></code></pre></div>
+</div>
+<ul>
+<li>commit everything</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add .gitattributes</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">&quot;de-lfs&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin</span></code></pre></div>
+</div>
+<ul>
+<li>check that no LFS files remain</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs ls-files</span></code></pre></div>
+</div>
+<ul>
+<li>remove LFS cache and temp file</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/lfs lfs_files.txt</span></code></pre></div>
+</div>
+<ul>
+<li>et voilà</li>
+</ul>
+<h4 id="new-easy-solution">new &amp; easy solution</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs uninstall</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># then manually remove the LFS filters from .gitattributes</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs untrack <span class="st">&quot;*.zip&quot;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add <span class="at">--renormalize</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">&quot;de-lfs&quot;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin</span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Welcome%20to%20OS%20DataMercs&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2Fwelcome%2F">
+      <a href="https://twitter.com/share?text=rough%20guide%20to%20Git%20Large%20File%20Storage%20%28LFS%29&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2022-02-28-rough-guide-to-git-large-file-storage-lfs%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2Fwelcome%2F&amp;title=Welcome%20to%20OS%20DataMercs">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2022-02-28-rough-guide-to-git-large-file-storage-lfs%2F&amp;title=rough%20guide%20to%20Git%20Large%20File%20Storage%20%28LFS%29">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fwww.datamercs.net%2Fposts%2Fwelcome%2F">
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2022-02-28-rough-guide-to-git-large-file-storage-lfs%2F">
         <i class="fab fa-facebook"></i>
       </a>
     </span>
@@ -2173,12 +2303,12 @@ Thus, this site aims to showcase several tools and workflows around that, so tha
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Schmalfuß (2022, March 4). OS DataMercs: Welcome to OS DataMercs. Retrieved from https://www.datamercs.net/posts/welcome/</pre>
+  <pre class="citation-appendix short">Schmalfuss (2022, Feb. 28). OS DataMercs: rough guide to Git Large File Storage (LFS). Retrieved from https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{schmalfuß2022welcome,
-  author = {Schmalfuß, Olaf},
-  title = {OS DataMercs: Welcome to OS DataMercs},
-  url = {https://www.datamercs.net/posts/welcome/},
+  <pre class="citation-appendix long">@misc{schmalfuss2022rough,
+  author = {Schmalfuss, Olaf},
+  title = {OS DataMercs: rough guide to Git Large File Storage (LFS)},
+  url = {https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/},
   year = {2022}
 }</pre>
 </div>

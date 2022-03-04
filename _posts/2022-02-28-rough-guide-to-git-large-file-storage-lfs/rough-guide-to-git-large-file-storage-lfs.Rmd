@@ -1,0 +1,160 @@
+---
+title: "rough guide to Git Large File Storage (LFS)"
+description: |
+  Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.
+preview: "GITLFS.png"
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuss"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2022-02-28
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+GitHub limits the size of files allowed in repositories to up to 100MB. For working with larger files like data sets or binaries such as MARC record sets, we have to find a solution around that limit. In comes [Git Large File Storage (LFS)](https://git-lfs.github.com/)↗.  
+Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.  
+
+## Set-up
+
+1. download Git-LFS here https://git-lfs.github.com/ and install.
+2. open `Git Bash`
+3. verify that the installation was successful:
+
+```{bash, eval=F, echo=T}
+$ git lfs install
+> Git LFS initialized.
+```
+
+4. `cd` into the repository's directory we'd like to use with Git-LFS.
+5. select the file types or files we'd like Git-LFS to manage (or directly edit .gitattributes)
+  + associate a whole file type, e.g. .ZIP, with Git-LFS by file extension:
+  
+```{bash, eval=F, echo=T}
+# e.g. associate all .ZIP files with Git-LFS:
+
+$ git lfs track "*.zip"
+> Adding path *.zip
+```
+
+  + associate a single file with Git-LFS:
+  
+```{bash, eval=F, echo=T}
+$ git lfs track --filename [path to file]
+Tracking "[path to file]"
+```
+
+### commit and push to GitHub
+
+```{bash, eval=F, echo=T}
+git add [path to file]
+git commit -m "update MARC"
+git push origin main
+```
+
+### check files
+
+list all the (large) files manage by Git-LFS.
+
+```{bash, eval=F, echo=T}
+$ cd [path to repository]
+$ git lfs ls-files
+```
+
+### push all referenced Git-LFS files
+
+```{bash, eval=F, echo=T}
+$ git lfs push --all origin
+```
+
+## Issues with Git-LFS
+
+So while on paper we get the benefit of being able to handle 100MB+ files, Git-LFS also suddenly adds limitations to your repository's total size as well as to the bandwidth, i.e. 1GB each, resulting in the following error message:  
+
+> Uploading LFS objects:   0% (0/1), 0 B | 0 B/s, done.
+> batch response: This repository is over its data quota. Account responsible for LFS bandwidth should purchase more data packs to restore access.
+
+This can happen really fast, especially if you have lots of med sized files and work not as organized or efficient in your repository ... as an librarian maybe...  
+Therefore, it is also good to know how to uninstall Git-LFS and start over more organized moving forward.  
+The other solution would be a paid subscription.
+
+### how to uninstall Git-LFS
+
+Simply removing the files from the project does not work, as the Git-LFS objects still exist on the remote storage and will continue to count toward the Git-LFS storage quota. To remove Git-LFS objects from a repository, delete and recreate the repository.
+
+* remove hooks
+
+```{bash, eval=F, echo=T}
+$ git lfs uninstall
+```
+
+* remove the LFS filters from .gitattributes
+* list LFS files using
+
+```{bash, eval=F, echo=T}
+$ git lfs ls-files | sed -r 's/^.{13}//' > lfs_files.txt
+```
+
+* run ```git rm --cached``` for each file
+
+```{bash, eval=F, echo=T}
+while read line; do
+  git rm --cached "$line"
+done < lfs_files.txt
+```
+
+* run ```git add``` for each file
+
+```{bash, eval=F, echo=T}
+while read line; do
+  git add "$line"
+done < lfs_files.txt
+```
+
+* commit everything
+
+```{bash, eval=F, echo=T}
+$ git add .gitattributes
+$ git commit -m "de-lfs"
+$ git push origin
+```
+
+* check that no LFS files remain
+
+```{bash, eval=F, echo=T}
+$ git lfs ls-files
+```
+
+* remove LFS cache and temp file
+
+```{bash, eval=F, echo=T}
+$ rm -rf .git/lfs lfs_files.txt
+```
+
+* et voilà
+
+
+#### new & easy solution
+
+```{bash, eval=F, echo=T}
+
+$ git lfs uninstall
+
+# then manually remove the LFS filters from .gitattributes
+
+$ git lfs untrack "*.zip"
+$ git add --renormalize 
+$ git commit -m "de-lfs"
+$ git push origin
+```

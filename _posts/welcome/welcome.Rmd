@@ -1,7 +1,7 @@
 ---
 title: "Welcome to OS DataMercs"
 description: |
-  OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services
+  OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.
 preview: "trinity of discovery.jpg"
 author:
 - first_name: "Olaf"
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = F)
 
 # // Trinity of Discovery
 
-The "Trinity of Discovery" exhibits our holistic approach to metadata delivery and creation and sets the framework to a title's, may it be eBook or journal, (meta) data needs.  
+The "Trinity of Discovery" exhibits our holistic approach to metadata delivery and creation, and sets the framework to a title's - may it be eBook or journal - (meta) data needs.  
 It is also what most libraries would expect to receive from a publisher one way or another, either directly or through third party services or union catalogues:  
 meta data and discovery from the smallest chunk down to collection level, because  
 
