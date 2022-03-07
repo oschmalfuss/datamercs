@@ -2151,7 +2151,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h2 id="introduction">Introduction</h2>
 <p>GitHub limits the size of files allowed in repositories to up to 100MB. For working with larger files like data sets or binaries such as MARC record sets, we have to find a solution around that limit. In comes <a href="https://git-lfs.github.com/">Git Large File Storage (LFS)</a>↗.<br />
-Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.</p>
+Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.<br />
+see more info here: <a href="https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github" class="uri">https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github</a></p>
 <h2 id="set-up">Set-up</h2>
 <ol type="1">
 <li>download Git-LFS here <a href="https://git-lfs.github.com/" class="uri">https://git-lfs.github.com/</a> and install.</li>
@@ -2180,13 +2181,13 @@ Git-LFS is an open source Git extension for versioning files above 100MB by repl
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs track <span class="at">--filename</span> [path to file]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Tracking</span> <span class="st">&quot;[path to file]&quot;</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Tracking <span class="st">&quot;[path to file]&quot;</span></span></code></pre></div>
 </div>
 <h3 id="commit-and-push-to-github">commit and push to GitHub</h3>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add [path to file]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;update MARC&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add [path to file]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">&quot;update MARC&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre></div>
 </div>
 <h3 id="check-files">check files</h3>
 <p>list all the (large) files manage by Git-LFS.</p>
@@ -2209,20 +2210,20 @@ The other solution would be a paid subscription.</p>
 <h3 id="how-to-uninstall-git-lfs">how to uninstall Git-LFS</h3>
 <p>Simply removing the files from the project does not work, as the Git-LFS objects still exist on the remote storage and will continue to count toward the Git-LFS storage quota. To remove Git-LFS objects from a repository, delete and recreate the repository.</p>
 <ul>
-<li>remove hooks</li>
+<li>remove LFS hooks</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs uninstall</span></code></pre></div>
 </div>
 <ul>
-<li>remove the LFS filters from .gitattributes</li>
+<li>remove the LFS filters from <em>.gitattributes</em></li>
 <li>list LFS files using</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git lfs ls-files <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-r</span> <span class="st">&#39;s/^.{13}//&#39;</span> <span class="op">&gt;</span> lfs_files.txt</span></code></pre></div>
 </div>
 <ul>
-<li>run <code>git rm --cached</code> for each file</li>
+<li>run <em>git rm –cached</em> for each file</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
@@ -2230,7 +2231,7 @@ The other solution would be a paid subscription.</p>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> <span class="op">&lt;</span> lfs_files.txt</span></code></pre></div>
 </div>
 <ul>
-<li>run <code>git add</code> for each file</li>
+<li>run <em>git add</em> for each file</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>

@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Introduction
 GitHub limits the size of files allowed in repositories to up to 100MB. For working with larger files like data sets or binaries such as MARC record sets, we have to find a solution around that limit. In comes [Git Large File Storage (LFS)](https://git-lfs.github.com/)↗.  
 Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.  
+see more info here: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
 
 ## Set-up
 
@@ -52,15 +53,15 @@ $ git lfs track "*.zip"
   
 ```{bash, eval=F, echo=T}
 $ git lfs track --filename [path to file]
-Tracking "[path to file]"
+> Tracking "[path to file]"
 ```
 
 ### commit and push to GitHub
 
 ```{bash, eval=F, echo=T}
-git add [path to file]
-git commit -m "update MARC"
-git push origin main
+$ git add [path to file]
+$ git commit -m "update MARC"
+$ git push origin main
 ```
 
 ### check files
@@ -93,20 +94,20 @@ The other solution would be a paid subscription.
 
 Simply removing the files from the project does not work, as the Git-LFS objects still exist on the remote storage and will continue to count toward the Git-LFS storage quota. To remove Git-LFS objects from a repository, delete and recreate the repository.
 
-* remove hooks
+* remove LFS hooks
 
 ```{bash, eval=F, echo=T}
 $ git lfs uninstall
 ```
 
-* remove the LFS filters from .gitattributes
+* remove the LFS filters from *.gitattributes*
 * list LFS files using
 
 ```{bash, eval=F, echo=T}
 $ git lfs ls-files | sed -r 's/^.{13}//' > lfs_files.txt
 ```
 
-* run ```git rm --cached``` for each file
+* run *git rm --cached* for each file
 
 ```{bash, eval=F, echo=T}
 while read line; do
@@ -114,7 +115,7 @@ while read line; do
 done < lfs_files.txt
 ```
 
-* run ```git add``` for each file
+* run *git add* for each file
 
 ```{bash, eval=F, echo=T}
 while read line; do

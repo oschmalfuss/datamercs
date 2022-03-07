@@ -28,7 +28,7 @@
       <link>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</link>
       <description>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.</description>
       <guid>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</guid>
-      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Feb 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png" medium="image" type="image/png" width="511" height="272"/>
     </item>
     <item>
