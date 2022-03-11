@@ -47,6 +47,6 @@ In the "Start in" field enter
 
 Add a description and give your task a meaningful name, so that when you come back to it in a year you know what it's for and you're done! 
 
-```{r fig_example, layout="l-screen-inset",fig.align = 'center'}
+```{r fig_example, layout="l-page",fig.align = 'center'}
 knitr::include_graphics("example.png")
 ```
