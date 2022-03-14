@@ -1,0 +1,47 @@
+---
+title: "Create a GitHub website with R Markdown and Distill in less than 30 minutes"
+description: |
+  This is a short description on how this website came into being and how anyone can create a website using nothing more than RStudio, R Markdown, the distill R package and GitHub.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2022-02-22
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Introduction
+
+Following a minimalist approach to a not sucking, uncluttered internet, I was one of those guys with HTML only pages or simple Google sites. But over time I found that approach neither as efficient nor fun any longer and thus looked for other alternatives to get some of my older posts back online again.  
+In comes RStudio that I started heavily using for automating reports and as an escape route from MS Excel. Working with R Markdown anyway I started looking into blogdown and then came across Distill in one of the tutorials I watched.  
+Distill for R Markdown is a web publishing format optimized for scientific and technical communication.  
+If you are trying your first website, or just need a fairly simple one that is quick to set up, this is a good place to start. To see a few examples of websites created with distill, check out the cleverly named the [distillery website](https://jhelvy.github.io/distillery/).  
+All you need is RStudio, the Distill package and a GitHub account to get yourself a minimalist homepage to showcase your projects, CV and more.  
+Another, even more minimalist approach for building and hosting a very simple website is described here, where I created a metadata portal for downloading MARC records and KBART files, which is basically only a huge table in a R Markdown file and again hosted on GitHub.  
+The advantage of using Distill is that we have the logic of utilizing a blog built in and that we do not have the need to maintain links all over the place manually.  It's not for people in need of a complex set-up though, with lots of control over layout or other advanced web features.  
+One step of complexity and customizability more towards that, would be the use of blogdown and Hugo, possibly in tandem with Netlify, which is a typical set-up you will see in the community.  
+Here we will build a website that’s fairly simple and easy to set up and maintain, but still gives some ability to configure things, and the website can be hosted without much resources (and for free).
+
+## // Pre-requisites
+
+The base R package and Rstudio need to be installed first, and one would need a GitHub account or some other web space, where we want to host the site.
+
+## // Installation
+
+
+```{r eval=F, echo=T}
+install.packages("distill")
+```
+
+
+
+

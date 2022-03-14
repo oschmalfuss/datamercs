@@ -2136,17 +2136,17 @@ Here we will put down some quick and easy bash and PowerShell examples that anyb
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#renaming-files-in-bash">renaming files in bash</a></li>
-<li><a href="#renaming-files-in-powershell">renaming files in PowerShell</a></li>
-<li><a href="#rename-using-mapping-list">rename using mapping list</a></li>
+<li><a href="#introduction">// Introduction</a></li>
+<li><a href="#renaming-files-in-bash">// renaming files in bash</a></li>
+<li><a href="#renaming-files-in-powershell">// renaming files in PowerShell</a></li>
+<li><a href="#rename-using-mapping-list">// rename using mapping list</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">// Introduction</h2>
 <p>Renaming files is a quite common everyday task, especially when you receive many files in different formats that have to be aligned to your in-house standards, or when on the other hand you have to send out lots of files and have to meet the data recipients specification, which coincidentally I both have to do quite regularly.<br />
 Thus, here’re some assorted oneliners for future reference, quick copy&amp;pastes or for sharing.</p>
-<h2 id="renaming-files-in-bash">renaming files in bash</h2>
+<h2 id="renaming-files-in-bash">// renaming files in bash</h2>
 <p>While there are certainly dedicated libraries for renaming files, like ‘rename’, renaming can be achieved basically with native bash functions only, using <code>cp</code> or <code>mv</code> together with <code>sed</code> or <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">shell parameter expansion</a>↗<br />
 In the following example we need to mass rename files from</p>
 <blockquote>
@@ -2174,14 +2174,14 @@ Obviously, use <code>cp</code> instead of <code>mv</code> if you want to keep yo
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mv</span> <span class="va">$f</span> <span class="va">$fnew</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 </div>
-<h2 id="renaming-files-in-powershell">renaming files in PowerShell</h2>
+<h2 id="renaming-files-in-powershell">// renaming files in PowerShell</h2>
 <p>If you are on Windows and have no bash options like <em>cygwin</em> or the <em>Windows Subsystem for Linux</em> then you can easily achieve the same result using PowerShell.<br />
 Given the same example from above, i.e. changing ‘dgo’ to ‘arv’, just try the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#4# PowerShell rename</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span> <span class="kw">|</span> <span class="ex">rename-item</span> –newname { <span class="va">$_</span>.name.replace<span class="er">(</span><span class="st">&quot;dgo&quot;</span><span class="ex">,</span><span class="st">&quot;arv&quot;</span><span class="kw">)</span> <span class="er">}</span></span></code></pre></div>
 </div>
-<h2 id="rename-using-mapping-list">rename using mapping list</h2>
+<h2 id="rename-using-mapping-list">// rename using mapping list</h2>
 <p>If there’re varying patterns or people like to create a mapping list using Excel instead, with the OLD_NAME next to the NEW_NAME in two columns, we can use that mapping as well in a <em>tab separated</em> TXT/ TSV file (e.g. rename.tsv) to batch rename files.<br />
 The code is basically adding the <code>mv</code> function again to each line and piping that <code>mv -vi &quot;OLD_NAME&quot; &quot;NEW_NAME&quot;;</code> back into <code>bash</code> for execution:</p>
 <div class="layout-chunk" data-layout="l-body">

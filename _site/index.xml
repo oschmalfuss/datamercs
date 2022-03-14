@@ -35,7 +35,7 @@
       <title>A rough guide to VPNs</title>
       <dc:creator>Olaf Schmalfuss</dc:creator>
       <link>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</link>
-      <description>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There are lots of services, mostly commercial, but also some free and academic options.  
+      <description>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There many of services, mostly commercial, but also some free and academic options.  
 While VPNs are a solid solution in an institutional environment to access one's company's network, or for circumventing censorship or geo-blocking, there're wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.  
 This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*.</description>
       <guid>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</guid>
@@ -58,6 +58,14 @@ This article is not intended to deeply elaborate on that, but serves as a person
       <guid>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin</guid>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/example.png" medium="image" type="image/png" width="1258" height="839"/>
+    </item>
+    <item>
+      <title>download YouTube without browser extension using only VLC</title>
+      <dc:creator>Olaf Schmalfuss</dc:creator>
+      <link>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</link>
+      <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos that usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
+      <guid>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</guid>
+      <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>rbbKultur - Mediathek-Downloader</title>

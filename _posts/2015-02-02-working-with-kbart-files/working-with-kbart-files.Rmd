@@ -20,13 +20,13 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Introduction
+## // Introduction
 KBART, which stands for “Knowledge Bases and Related Tools,” is a [NISO Recommended Practice](https://www.niso.org/standards-committees/kbart)↗.  
 Very simply, KBART recommends best practices for the communication of electronic resource title list and coverage data from content providers to knowledge base (KB) suppliers. KBART specifies file format, delivery mechanisms and fields to include, and it applies to both serials and monographs.  
 Thus, a single KBART file is basically a standardized list, separated by TAB in .TXT format.  
 By specification KBARTs are not intended for rich bibliographic description, but work in tandem together with MARC records and chunk level data like BITS and JATS XML to provide the collection level information for full scale title information and discoverability within our model of the [trinity of discovery](https://www.datamercs.net/posts/welcome/)↗.  
 
-### What is a knowledge base?
+### // What is a knowledge base?
 A knowledge base is an extensive database maintained by a knowledge base supplier that contains information about electronic resources such as title lists, coverage dates, inbound linking syntax, etc. Knowledge bases typically organize the resources provided by a content provider into collections or databases that reflect specific content provider offerings, for example packages of e-journals, e-books, or other materials. Knowledge bases can be customized by individual institutions to reflect their local collections.  
 Knowledge bases are used to provide data for OpenURL link resolvers and to populate library discovery systems with an institution’s e-resource holdings data. Many libraries also use knowledge base data in library catalogues, for e-journal title lists, in electronic resource management systems (ERMs), and in other tools.  
 Knowledge base suppliers ingest the data into their KBs, and libraries then select the packages and titles that they have access to.  
@@ -34,7 +34,7 @@ Libraries can also use KBART to create files for custom local and consortial pac
 
 [see also KBART FAQ](https://www.niso.org/standards-committees/kbart/kbart-frequently-asked-questions)↗  
 
-## KBART at De Gruyter
+## // KBART at De Gruyter
 
 are being created for
 
@@ -50,14 +50,14 @@ are being created for
 The workflow and toolchain I created for that will be laid out, as far as possible, at a later stage, bringing together data from multiple sources, utilizing SQL, bash and RStudio, loading the data to all relevant data recipients, i.e. KBs and end customers etc. via FTP and email, and host the data on a customized metadata portal for public access and self-service^[https://oschmalfuss.github.io/degruyter/FTP-Index.html ↗].  
 This development was necessary after switching from a couple of fixed front list eBook packages a year to more and more complex and dynamic products, like PDA/ EBA and publisher partners' packages.
 
-## Working with KBART
+## // Working with KBART
 
-### how to open a KBART file (with Excel)
+### // how to open a KBART file (with Excel)
 
 While this question seems a little odd, about how to open a simple .TXT file, in reality it appears that the common librarian, or sales or marketing person, is actually not necessarily that used to working with .TXTs, that I got so many questions on how to read or use such a file in Excel, that I even might make an instructional video about that, just for reference.  
 Yet admittedly, there might be the one or other obstacle that we could address here already, on ...
 
-#### ... the art of how to open a KBART file in Excel
+#### // ... the art of how to open a KBART file in Excel
 
 after downloading the .TXT file
 
@@ -82,9 +82,9 @@ Thus, it’s “allowed” in contexts where a particular protocol (e.g. Microso
 
 For me the easiest solution is to open in notepad++ first, the copy&paste all into Excel, making sure that **only** TAB is used as delimiter, et voilà!
 
-### how to customzie, i.e. filter a KBART file
+### // how to customzie, i.e. filter a KBART file
 
-#### filter KBART against a list of ISBNs
+#### // filter KBART against a list of ISBNs
 
 For pick&choose collections, where no off-the-shelf package and thus no dedicated KBART file is available, we'll filter the complete KBART file based on an ISBN list, with each ISBN on its own line and EOL in UNIX format, i.e. `\n`, e.g. 'filter_file.txt'.  
 Also, we will keep one of the column names from the header in the first line, to `grep` the header of the KBART as well, e.g. 'ONLINE_IDENTIFIER'

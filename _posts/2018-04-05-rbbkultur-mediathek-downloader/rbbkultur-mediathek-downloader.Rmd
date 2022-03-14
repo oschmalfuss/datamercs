@@ -46,7 +46,7 @@ This we will see in step 4. below. So if we encounter m3u, we will use VLC inste
 * under _Network_ right click on the _File_ (media/ mpeg)
 * then _Copy URL_ or _copy as cURL_
 
-```{r fig_example, layout="l-screen-inset",fig.align = 'center'}
+```{r fig_example, layout="l-body-outset",fig.align = 'center'}
 knitr::include_graphics("copy_curl.png")
 ```
 

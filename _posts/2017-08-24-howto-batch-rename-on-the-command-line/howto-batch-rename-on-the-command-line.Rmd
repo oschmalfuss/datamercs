@@ -22,11 +22,11 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Introduction
+## // Introduction
 Renaming files is a quite common everyday task, especially when you receive many files in different formats that have to be aligned to your in-house standards, or when on the other hand you have to send out lots of files and have to meet the data recipients specification, which coincidentally I both have to do quite regularly.  
 Thus, here're some assorted oneliners for future reference, quick copy&pastes or for sharing.
 
-## renaming files in bash
+## // renaming files in bash
 While there are certainly dedicated libraries for renaming files, like 'rename', renaming can be achieved basically with native bash functions only, using `cp` or `mv` together with `sed` or [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)↗  
 In the following example we need to mass rename files from
 
@@ -56,7 +56,7 @@ for f in *; do
 done
 ```
 
-## renaming files in PowerShell
+## // renaming files in PowerShell
 If you are on Windows and have no bash options like *cygwin* or the *Windows Subsystem for Linux* then you can easily achieve the same result using PowerShell.  
 Given the same example from above, i.e. changing 'dgo' to 'arv', just try the following:
 
@@ -65,7 +65,7 @@ Given the same example from above, i.e. changing 'dgo' to 'arv', just try the fo
 dir | rename-item –newname { $_.name.replace("dgo","arv") }
 ```
 
-## rename using mapping list
+## // rename using mapping list
 If there're varying patterns or people like to create a mapping list using Excel instead, with the OLD_NAME next to the NEW_NAME in two columns, we can use that mapping as well in a *tab separated* TXT/ TSV file (e.g. rename.tsv) to batch rename files.  
 The code is basically adding the `mv` function again to each line and piping that `mv -vi "OLD_NAME" "NEW_NAME";` back into `bash` for execution:
 
