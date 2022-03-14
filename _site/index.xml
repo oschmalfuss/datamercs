@@ -60,10 +60,10 @@ This article is not intended to deeply elaborate on that, but serves as a person
       <media:content url="https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/example.png" medium="image" type="image/png" width="1258" height="839"/>
     </item>
     <item>
-      <title>download YouTube without browser extension using only VLC</title>
+      <title>download YouTube (videos | mp3) without browser extension using only VLC</title>
       <dc:creator>Olaf Schmalfuss</dc:creator>
       <link>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</link>
-      <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos that usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
+      <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos or converting to mp3 that are usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
       <guid>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</guid>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
     </item>
