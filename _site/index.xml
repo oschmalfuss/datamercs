@@ -40,13 +40,23 @@ While VPNs are a solid solution in an institutional environment to access one's 
 This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*.</description>
       <guid>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</guid>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/01_bullshit_vpn.png" medium="image" type="image/png" width="654" height="652"/>
+    </item>
+    <item>
+      <title>Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation</link>
+      <description>Seitdem am 1. Juli 2021 die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland entfiel, werden scheinbar auch Geschenksendungen, die weiter bis zu einem Wert von 45 EUR zoll- und einfuhrumsatzsteuerfrei sind, systematisch abgerechnet, zumal die Post den "Service" der Zollanmeldung übernommen hat und jegliche Gebühren - plus 6 EUR Auslagenpauschale - fraglos vorstreckt und dann per Postboten eintreibt, auch wenn die Pakete klar als Geschenk gekennzeichnet sind.  
+Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.</description>
+      <guid>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation</guid>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Z39.50 for Dummies</title>
       <dc:creator>Wolfram Schneider</dc:creator>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</link>
-      <description>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which tought me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</description>
+      <description>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</description>
       <guid>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</guid>
       <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
     </item>
@@ -66,6 +76,7 @@ This article is not intended to deeply elaborate on that, but serves as a person
       <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos or converting to mp3 that are usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
       <guid>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</guid>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/VLC-open_network_stream_0.png" medium="image" type="image/png" width="856" height="673"/>
     </item>
     <item>
       <title>rbbKultur - Mediathek-Downloader</title>
@@ -86,6 +97,17 @@ This article is not intended to deeply elaborate on that, but serves as a person
       <media:content url="https://www.datamercs.net/posts/2017-11-09-bash-test-command/helptest.png" medium="image" type="image/png" width="640" height="320"/>
     </item>
     <item>
+      <title>bash cat - the poor man's text editor</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor</link>
+      <description>Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:
+All you need is some "cat magic"
+Here is how!</description>
+      <guid>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor</guid>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor/cat_magic.png" medium="image" type="image/png" width="196" height="100"/>
+    </item>
+    <item>
       <title>Howto batch rename on the command line</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</link>
@@ -96,12 +118,29 @@ Here we will put down some quick and easy bash and PowerShell examples that anyb
       <media:content url="https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line/manrename.png" medium="image" type="image/png" width="640" height="320"/>
     </item>
     <item>
+      <title>Open source OCR on bash with ImageMagick and Tesseract</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract</link>
+      <description>Handy script to ocr PDFs on the commandline with nothing but the FOSS tools ImageMagick and tesseract.</description>
+      <guid>https://www.datamercs.net/posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract</guid>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>RDA - the librarian's (double) standard</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2015-11-16-rda-the-librarians-double-standard</link>
+      <description>While librarians call for openess when it comes to standards and access - the current standard is de facto closed, i.e. hidden behind a pay wall. Nevertheless we'll try implenting and look behind the scenes in this workshop report.</description>
+      <guid>https://www.datamercs.net/posts/2015-11-16-rda-the-librarians-double-standard</guid>
+      <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Working with KBART files</title>
       <dc:creator>Olaf Schmalfuss</dc:creator>
       <link>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</link>
       <description>KBART files are standardized title lists in .TXT format, that specify electronic collections. This is to provide a short overview on what to expect from this metadata format and how to work with it as publisher or librarian.</description>
       <guid>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</guid>
       <pubDate>Tue, 03 Feb 2015 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files/nisokbart.png" medium="image" type="image/png" width="491" height="272"/>
     </item>
     <item>
       <title>A rough guide to cold brew</title>

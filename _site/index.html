@@ -51,16 +51,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -74,9 +75,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1029,10 +1030,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1862,6 +1859,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1876,6 +1879,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1975,6 +2003,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1997,7 +2027,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2036,7 +2066,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2268,7 +2298,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img/>
+<img src="posts/2021-12-18-a-rough-guide-to-vpns/01_bullshit_vpn.png"/>
 </div>
 <div class="description">
 <h2>A rough guide to VPNs</h2>
@@ -2276,6 +2306,24 @@ function init_posts_list() {
 <p>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There many of services, mostly commercial, but also some free and academic options.  
 While VPNs are a solid solution in an institutional environment to access one's company's network, or for circumventing censorship or geo-blocking, there're wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.  
 This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*.</p>
+</div>
+</a>
+<a href="posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Sept. 28, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Olaf Schmalfuß</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?</h2>
+<div class="dt-tags"></div>
+<p>Seitdem am 1. Juli 2021 die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland entfiel, werden scheinbar auch Geschenksendungen, die weiter bis zu einem Wert von 45 EUR zoll- und einfuhrumsatzsteuerfrei sind, systematisch abgerechnet, zumal die Post den "Service" der Zollanmeldung übernommen hat und jegliche Gebühren - plus 6 EUR Auslagenpauschale - fraglos vorstreckt und dann per Postboten eintreibt, auch wenn die Pakete klar als Geschenk gekennzeichnet sind.  
+Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.</p>
 </div>
 </a>
 <a href="posts/2020-08-15-z3950-for-dummies/" class="post-preview">
@@ -2293,7 +2341,7 @@ This article is not intended to deeply elaborate on that, but serves as a person
 <div class="description">
 <h2>Z39.50 for Dummies</h2>
 <div class="dt-tags"></div>
-<p>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which tought me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</p>
+<p>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</p>
 </div>
 </a>
 <a href="posts/2020-07-07-wintaskschedulerforcygwin/" class="post-preview">
@@ -2305,7 +2353,7 @@ This article is not intended to deeply elaborate on that, but serves as a person
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2020-07-07-wintaskschedulerforcygwin/example.png"/>
+<img data-src="posts/2020-07-07-wintaskschedulerforcygwin/example.png"/>
 </div>
 <div class="description">
 <h2>Win Task Scheduler for cygwin</h2>
@@ -2322,7 +2370,7 @@ This article is not intended to deeply elaborate on that, but serves as a person
 </div>
 </div>
 <div class="thumbnail">
-<img/>
+<img data-src="posts/2018-05-05-download-youtube-using-only-vlc/VLC-open_network_stream_0.png"/>
 </div>
 <div class="description">
 <h2>download YouTube (videos | mp3) without browser extension using only VLC</h2>
@@ -2364,6 +2412,25 @@ This article is not intended to deeply elaborate on that, but serves as a person
 <p>A mental note and short reminder on how to use the "test" command in bash if-loops or using the &amp;&amp; and || operators for conditional scripting.</p>
 </div>
 </a>
+<a href="posts/2017-09-11-bash-cat-the-poor-mans-text-editor/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Sept. 11, 2017</div>
+<div class="dt-authors">
+<div class="dt-author">Olaf Schmalfuß</div>
+</div>
+</div>
+<div class="thumbnail">
+<img data-src="posts/2017-09-11-bash-cat-the-poor-mans-text-editor/cat_magic.png"/>
+</div>
+<div class="description">
+<h2>bash cat - the poor man's text editor</h2>
+<div class="dt-tags"></div>
+<p>Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:
+All you need is some "cat magic"
+Here is how!</p>
+</div>
+</a>
 <a href="posts/2017-08-24-howto-batch-rename-on-the-command-line/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
@@ -2382,6 +2449,40 @@ This article is not intended to deeply elaborate on that, but serves as a person
 Here we will put down some quick and easy bash and PowerShell examples that anybody can do!</p>
 </div>
 </a>
+<a href="posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">April 14, 2016</div>
+<div class="dt-authors">
+<div class="dt-author">Olaf Schmalfuß</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Open source OCR on bash with ImageMagick and Tesseract</h2>
+<div class="dt-tags"></div>
+<p>Handy script to ocr PDFs on the commandline with nothing but the FOSS tools ImageMagick and tesseract.</p>
+</div>
+</a>
+<a href="posts/2015-11-16-rda-the-librarians-double-standard/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Nov. 16, 2015</div>
+<div class="dt-authors">
+<div class="dt-author">Olaf Schmalfuß</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>RDA - the librarian's (double) standard</h2>
+<div class="dt-tags"></div>
+<p>While librarians call for openess when it comes to standards and access - the current standard is de facto closed, i.e. hidden behind a pay wall. Nevertheless we'll try implenting and look behind the scenes in this workshop report.</p>
+</div>
+</a>
 <a href="posts/2015-02-02-working-with-kbart-files/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
@@ -2391,7 +2492,7 @@ Here we will put down some quick and easy bash and PowerShell examples that anyb
 </div>
 </div>
 <div class="thumbnail">
-<img/>
+<img data-src="posts/2015-02-02-working-with-kbart-files/nisokbart.png"/>
 </div>
 <div class="description">
 <h2>Working with KBART files</h2>
@@ -2453,7 +2554,8 @@ So, here is the rough guide for future reference.</p>
 <pre><code>...  
 &quot;They can do it all. MARC, KBART, XML, and the customer service was far above anything I&#39;ve ever seen.  
 I can&#39;t wait to work with them on another project.&quot;  </code></pre>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

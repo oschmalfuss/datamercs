@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -94,8 +95,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <link rel="icon" type="image/png" href="logo.png"/>
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-03-14"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-03-14"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-09-01"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-09-01"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="OS DataMercs: Standards &amp; Resources"/>
@@ -113,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Standards & Resources"]},{"type":"character","attributes":{},"value":["Useful Resources for Practitioners\n"]},{"type":"character","attributes":{},"value":["2022-03-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Standards & Resources"]},{"type":"character","attributes":{},"value":["Useful Resources for Practitioners\n"]},{"type":"character","attributes":{},"value":["2022-09-01"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1034,10 +1035,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1867,6 +1864,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1881,6 +1884,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1980,6 +2008,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -2002,7 +2032,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2041,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2061,7 +2091,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Standards & Resources","description":"Useful Resources for Practitioners","authors":[],"publishedDate":"2022-03-14T00:00:00.000+01:00"}
+{"title":"Standards & Resources","description":"Useful Resources for Practitioners","authors":[],"publishedDate":"2022-09-01T00:00:00.000+02:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2108,42 +2138,68 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#standards">// Standards</a></li>
-<li><a href="#catalogues">// Catalogues</a></li>
-<li><a href="#apis">// APIs</a></li>
-<li><a href="#tools">// Tools</a></li>
-<li><a href="#de-gruyters-interim-metadata-portal">// De Gruyter’s (interim) metadata portal</a></li>
+<li><a href="#standards" id="toc-standards">// Standards</a></li>
+<li><a href="#catalogues" id="toc-catalogues">// Catalogues</a></li>
+<li><a href="#apis" id="toc-apis">// APIs</a></li>
+<li><a href="#tools" id="toc-tools">// Tools</a></li>
+<li><a href="#de-gruyters-interim-metadata-portal"
+id="toc-de-gruyters-interim-metadata-portal">// De Gruyter’s (interim)
+metadata portal</a></li>
 </ul>
 </nav>
 </div>
 <h2 id="standards">// Standards</h2>
-<p>MARC21 Format for Bibliographic Data - <a href="https://www.loc.gov/marc/bibliographic">LoC</a> // <a href="https://www.dnb.de/marc21">DNB</a> // <a href="https://www.oclc.org/bibformats/en/about.html">OCLC</a><br />
-<a href="https://www.niso.org/standards-committees/kbart">KBART</a> - Knowledge Bases and Related Tools Recommended Practice<br />
-<a href="https://www.editeur.org/8/ONIX/">ONIX</a> for Books Product Information Message<br />
-<a href="https://www.ifla.org/international-standard-bibliographic-description">ISBD</a> - International Standard Bibliographic Description<br />
-<a href="https://jats.nlm.nih.gov">JATS - Journal Article Tag Suite // BITS</a></p>
+<p>MARC21 Format for Bibliographic Data - <a
+href="https://www.loc.gov/marc/bibliographic">LoC</a> // <a
+href="https://www.dnb.de/marc21">DNB</a> // <a
+href="https://www.oclc.org/bibformats/en/about.html">OCLC</a><br />
+<a href="https://www.niso.org/standards-committees/kbart">KBART</a> -
+Knowledge Bases and Related Tools Recommended Practice<br />
+<a href="https://www.editeur.org/8/ONIX/">ONIX</a> for Books Product
+Information Message<br />
+<a
+href="https://www.ifla.org/international-standard-bibliographic-description">ISBD</a>
+- International Standard Bibliographic Description<br />
+<a href="https://jats.nlm.nih.gov">JATS - Journal Article Tag Suite //
+BITS</a></p>
 <h2 id="catalogues">// Catalogues</h2>
-<p><a href="https://kxp.k10plus.de/">Gemeinsamer Verbundkatalog (k10plus)</a><br />
-<a href="http://ezb.uni-regensburg.de/">Elektronische Zeitschriftenbibliothek (EZB)</a><br />
-<a href="https://www.base-search.net">BASE</a> - Bielefeld Academic Search Engine<br />
+<p><a href="https://kxp.k10plus.de/">Gemeinsamer Verbundkatalog (GVK/
+k10plus)</a><br />
+<a href="http://ezb.uni-regensburg.de/">Elektronische
+Zeitschriftenbibliothek (EZB)</a><br />
+<a href="https://www.base-search.net">BASE</a> - Bielefeld Academic
+Search Engine<br />
 <a href="https://portal.dnb.de/opac.htm">DNB OPAC</a><br />
-<a href="https://catalog.loc.gov/vwebv/searchAdvanced">LoC OPAC</a> // <a href="https://id.loc.gov/authorities/subjects.html">LC Subject Headings (LCSH)</a><br />
+<a href="https://catalog.loc.gov/vwebv/searchAdvanced">LoC OPAC</a> //
+<a href="https://id.loc.gov/authorities/subjects.html">LC Subject
+Headings (LCSH)</a><br />
 <a href="https://dbis.ur.de/">Datenbank-Infosystem (DBIS)</a><br />
-<a href="https://viaf.org/">VIAF</a> - Virtual International Authority File<br />
-<a href="https://zdb-katalog.de/index.xhtml">Zeitschriftendatenbank (ZDB)</a></p>
+<a href="https://viaf.org/">VIAF</a> - Virtual International Authority
+File<br />
+<a href="https://zdb-katalog.de/index.xhtml">Zeitschriftendatenbank
+(ZDB)</a></p>
 <h2 id="apis">// APIs</h2>
 <p><a href="https://api.crossref.org/">Crossref API</a><br />
-<a href="https://www.loc.gov/standards/sru/">SRU</a> - Search/Retrieve via URL // <a href="https://verbundwiki.gbv.de/display/VZG/Schnittstellen">Z39.50-Zugang des GBV</a><br />
+<a href="https://www.loc.gov/standards/sru/">SRU</a> - Search/Retrieve
+via URL // <a
+href="https://verbundwiki.gbv.de/display/VZG/Schnittstellen">Z39.50-Zugang
+des GBV</a><br />
 <a href="https://developer.api.oclc.org/">WorldCat - bib Read</a></p>
 <h2 id="tools">// Tools</h2>
 <p><a href="https://cygwin.com/install.html">cygwin</a><br />
 <a href="https://app.diagrams.net">draw.io</a><br />
 <a href="https://marcedit.reeset.net/">MarcEdit</a><br />
-<a href="https://www.r-project.org">R</a> // <a href="https://www.rstudio.com/products/rstudio/">RStudio</a></p>
-<h2 id="de-gruyters-interim-metadata-portal">// De Gruyter’s (interim) metadata portal</h2>
-<p><a href="https://oschmalfuss.github.io/degruyter/FTP-Index.html">DG metadata portal</a> - packages’ MARCs and KBARTs<br />
-<a href="https://oschmalfuss.github.io/degruyter/DG-title-records.html">DG eBook records</a> - title level records</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<a href="https://www.r-project.org">R</a> // <a
+href="https://www.rstudio.com/products/rstudio/">RStudio</a></p>
+<h2 id="de-gruyters-interim-metadata-portal">// De Gruyter’s (interim)
+metadata portal</h2>
+<p><a href="https://oschmalfuss.github.io/degruyter/FTP-Index.html">DG
+metadata portal</a> - packages’ MARCs and KBARTs<br />
+<a
+href="https://oschmalfuss.github.io/degruyter/DG-title-records.html">DG
+eBook records</a> - title level records</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -1,0 +1,24 @@
+---
+title: "developing a MARC core set for scientific publishing"
+description: |
+  A short description of the post.
+author:
+  - name: Olaf SchmalfuÃŸ
+    url: https://www.datamercs.net
+date: 2022-06-14
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

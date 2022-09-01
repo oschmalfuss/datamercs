@@ -1505,7 +1505,7 @@ Thus, here’re some assorted oneliners for future reference, quick copy&amp;pas
 <p>While there are certainly dedicated libraries for renaming files, like ‘rename’, renaming can be achieved basically with native bash functions only, using <code>cp</code> or <code>mv</code> together with <code>sed</code> or <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">shell parameter expansion</a>↗<br />
 In the following example we need to mass rename files from</p>
 <blockquote>
-<p><em>epub_<strong>dgo</strong>_9783110947649.zip</em> to <em>epub_<strong>dgo</strong>_9783110947649.zip</em></p>
+<p><em>epub_<strong>dgo</strong>_9783110947649.zip</em> to <em>epub_<strong>arv</strong>_9783110947649.zip</em></p>
 </blockquote>
 <p>i.e. ‘simply’ changing ‘dgo’ to ‘arv’, but this could also be used to change or normalize file extensions, like ‘.tiff’ to ‘.tif’ etc.<br />
 Obviously, use <code>cp</code> instead of <code>mv</code> if you want to keep your original files or if unsure whether the <code>${parameter/pattern/string}</code> replacement will work;-)</p>

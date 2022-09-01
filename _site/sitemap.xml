@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://www.datamercs.net/about.html</loc>
-    <lastmod>2022-02-15T22:29:25+01:00</lastmod>
+    <lastmod>2022-05-04T13:08:27+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/contact.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://www.datamercs.net/recources.html</loc>
-    <lastmod>2022-02-25T22:21:28+01:00</lastmod>
+    <lastmod>2022-08-18T13:10:38+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/welcome/</loc>
@@ -30,11 +30,15 @@
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/</loc>
-    <lastmod>2022-03-11T10:59:43+01:00</lastmod>
+    <lastmod>2022-06-03T13:27:52+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation/</loc>
+    <lastmod>2022-06-03T13:21:49+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/</loc>
-    <lastmod>2022-02-16T01:19:55+01:00</lastmod>
+    <lastmod>2022-06-03T13:23:01+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/</loc>
@@ -53,12 +57,24 @@
     <lastmod>2022-02-24T16:51:35+01:00</lastmod>
   </url>
   <url>
+    <loc>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor/</loc>
+    <lastmod>2022-09-01T10:05:10+02:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line/</loc>
-    <lastmod>2022-03-11T15:24:24+01:00</lastmod>
+    <lastmod>2022-04-01T22:54:56+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract/</loc>
+    <lastmod>2022-04-08T23:47:51+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamercs.net/posts/2015-11-16-rda-the-librarians-double-standard/</loc>
+    <lastmod>2022-05-30T09:49:28+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files/</loc>
-    <lastmod>2022-03-11T15:23:21+01:00</lastmod>
+    <lastmod>2022-06-08T17:23:10+02:00</lastmod>
   </url>
   <url>
     <loc>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew/</loc>

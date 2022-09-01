@@ -21,8 +21,74 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-https://github.com/CrossRef/rest-api-doc
+## // Introduction
 
+DOIs (i.e. short for Digital Object Identifier) are supposed to provide persistent linking to an electronic resource^[DOI stands for Digital Object Identifier and is an open standard. A DOI is an alphanumeric name that identifies digital content, such as a book or journal article. The DOI is paired with the object's electronic address, or URL, in an updateable central directory, and is published in place of the URL in order to avoid broken links while allowing the content to move as needed. DOIs point to the authoritative version of content on the publisher's website and to publisher-designated resources. Yet for the user working in an institutional context, it is often useful to be directed to other resources. For example, the institution may not subscribe to the e-journal itself but may still be able to offer the user access to the desired article through an aggregated database or through print holdings. In addition, the library may wish to provide a range of linking options beyond what is available at the publisher's website.]. So ideally, these are also the URLs that are given in all metadata deliveries, i.e  MARC21 in this case.  
+DOIs will typically be created according to some sort of specification or syntax, with a publisher prefix and an ID, e.g. the ISBN in case of eBooks, and put into the content package, for example into the BITS-XML.  
+  
+> DOI:  
+> https://doi.org/[DOI_here]  
+> (before: https://dx.doi.org/[DOI_here])  
+
+The registration then happens via message to CrossRef^[CrossRef is a system for the persistent identification of scholarly content and cross-publisher citation linking to the full-text and related resources using the DOI. CrossRef DOIs link to publisher response pages, which include the full bibliographic citation and abstract, as well as full-text access (for authenticated users or at no charge, as determined by the publisher). The publisher response page often includes other linking options, such as pay-per-view access, journal table of contents and homepage, and associated resources. CrossRef is a collaborative membership network, and not a product for purchase.], so that the DOI will resolve, i.e. redirect, to the actual location of the content. But what if anything goes wrong, when the queue is too long or one does not have the rights to register on behalf of some third party publisher partner, yet we need to distribute the metadata anyway!? Surely we do not want to provide un-resolving URLs within our MARC records, especially when we know that records will hardly be updated in external (library) catalogues. Therefore we need to make sure that only registered and resolving DOIs will be used and (reluctantly) fall back to local URLs in case DOIs are not yet registered, as we do not know when this will be done.
+This is why we put together a collection of useful APIs and scripts for the typical questions that customers and colleagues might have, e.g. 
+
+  * Are these DOIs registered?
+  * Which DOIs lead to a co-access page?
+  * What are the DOIs to a list of ISBNs?
+
+## // The CrossRef-API
+https://github.com/CrossRef/rest-api-doc  
+https://api.crossref.org/works/{DOI_here}  
+https://doi.org/api/handles/[DOI_here]  
+
+> Response Codes https://www.doi.org/factsheets/DOIProxy.html  
+>     1 : Success. (HTTP 200 OK)  
+>     2 : Error. Something unexpected went wrong during handle resolution. (HTTP 500 Internal Server Error)  
+>     100 : Handle Not Found. (HTTP 404 Not Found)  
+>     200 : Values Not Found. The handle exists but has no values (or no values according to the types and indices specified). (HTTP 200 OK)  
+>     301 : That prefix doesn't live here (http 400 Bad Request)
+
+## // Check DOI Registration
+
+```{bash eval=F, echo=T}
+doi_check_via_handle(){
+for DOI in $(cat $1); do
+  doi_response=$(curl -sk "$DOIHNDL$DOI")
+  responseCode=$(jq -r '."responseCode"' <<< $doi_response)
+  redirurl=$(jq -r '."values"[0]."data"."value"' <<< $doi_response 2>/dev/null)
+  coaccess=$(jq -r '."values"[]."data"."value"' <<< $doi_response 2>/dev/null | grep 'coaccess' | grep -oP '(?<=href=").+?(?=")')
+  echo -e "\e[93m $DOI\e[0m >> \e[96m$responseCode\e[0m"
+  echo -e "$DOI\t$responseCode\t$redirurl\t$coaccess" >> $REPORT
+done
+}
+# 1000 DOIs: 2 minutes and 56 seconds
+```
+
+```{bash eval=F, echo=T}
+doi_check_via_http_header(){
+for DOI in $(cat $1); do
+  doi_response=$(curl -skI "$DOIURL/$DOI")
+  responseCode=$(grep -oP '(?<=HTTP/2 ).+' <<< $doi_response)
+  redirurl=$(grep -oP '(?<=location: ).+' <<< $doi_response)
+  echo -e "\e[93m $DOI\e[0m >> \e[96m$responseCode\e[0m"
+  echo -e "$DOI\t$responseCode\t$redirurl" >> $REPORT
+done
+}
+# 1000 DOIs: 2 minutes and 41 seconds
+```
+
+## // Check DOIs for Co-Access 
+
+https://www.crossref.org/documentation/content-registration/creating-and-managing-dois/multiple-resolution/#00135
+
+
+## // find an eBook-DOI for an ISBN
+http://api.crossref.org/works?filter=isbn:$ISBN  
+
+## // find a Journal-DOI by ISSN
+https://search.crossref.org/?from_ui=yes&type-name=Journal&q=$ISSN  
+e.g. https://search.crossref.org/?from_ui=yes&type-name=Journal&q=2191-0278 
 
 
 ##Useful Links
@@ -31,14 +97,6 @@ https://github.com/CrossRef/rest-api-doc
 https://dx.doi.org/$DOI  
 https://doi.org/$DOI  
 
-### find a Journal-DOI by ISSN
-
-https://search.crossref.org/?from_ui=yes&type-name=Journal&q=$ISSN  
-e.g. https://search.crossref.org/?from_ui=yes&type-name=Journal&q=2191-0278  
-
-### find an eBook DOI by ISBN
-
-http://api.crossref.org/works?filter=isbn:$ISBN  
 
 ## Analyzing DOIs
 

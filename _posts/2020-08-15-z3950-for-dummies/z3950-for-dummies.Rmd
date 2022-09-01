@@ -1,7 +1,7 @@
 ---
 title: "Z39.50 for Dummies"
 description: |
-  This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which tought me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!
+  This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!
 author:
 - name: "Wolfram Schneider"
   url: https://wolfram.schneider.org

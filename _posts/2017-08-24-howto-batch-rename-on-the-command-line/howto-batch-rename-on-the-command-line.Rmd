@@ -30,7 +30,7 @@ Thus, here're some assorted oneliners for future reference, quick copy&pastes or
 While there are certainly dedicated libraries for renaming files, like 'rename', renaming can be achieved basically with native bash functions only, using `cp` or `mv` together with `sed` or [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)↗  
 In the following example we need to mass rename files from
 
-> *epub_**dgo**_9783110947649.zip* to *epub_**dgo**_9783110947649.zip*
+> *epub_**dgo**_9783110947649.zip* to *epub_**arv**_9783110947649.zip*
 
 i.e. 'simply' changing 'dgo' to 'arv', but this could also be used to change or normalize file extensions, like '.tiff' to '.tif' etc.  
 Obviously, use `cp` instead of `mv` if you want to keep your original files or if unsure whether the `${parameter/pattern/string}` replacement will work;-)

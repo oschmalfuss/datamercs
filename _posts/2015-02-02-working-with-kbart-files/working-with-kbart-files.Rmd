@@ -2,6 +2,7 @@
 title: "Working with KBART files"
 description: |
   KBART files are standardized title lists in .TXT format, that specify electronic collections. This is to provide a short overview on what to expect from this metadata format and how to work with it as publisher or librarian.
+preview: nisokbart.png
 author:
 - first_name: "Olaf"
   last_name: "Schmalfuss"
@@ -69,7 +70,7 @@ after downloading the .TXT file
 * open in notepad, then copy&paste all into Excel (which is what I usually do)
 * open from inside Excel
 * import from inside Excel
-* rename .txt to .xls/.xlsx
+* rename .txt to .xls
 
 BUT “dragging&dropping” into as well as “right-click, open-with” Excel poses a special, UTF-8 related problem, as Excel is not smart enough to recognize the encoding this way, and naturally, we are dealing with lots of German, French and Greek characters in scientific literature, which causes special characters and *Umlauts* to get mangled in Excel.  
   

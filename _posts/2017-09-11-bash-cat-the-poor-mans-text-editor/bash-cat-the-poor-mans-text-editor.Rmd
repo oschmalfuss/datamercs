@@ -1,0 +1,65 @@
+---
+title: "bash cat - the poor man's text editor"
+description: |
+  Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:
+  All you need is some "cat magic"
+  Here is how!
+preview: cat_magic.png
+author:
+  - name: Olaf Schmalfuß
+    url: https://www.datamercs.net
+date: 2017-09-11
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Concatenate and WRITE files
+
+Not many people realize that on `bash` you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write multi-line text on the command line, but that for most cases good ol' [cat](https://www.gnu.org/software/coreutils/manual/html_node/cat-invocation.html) is all you needed.  
+  
+All you need to do is `cat` into a(n empty) file and close with **CTRL+d**  
+  
+One can add some extra text with **>>** again 
+
+```
+
+$ cat > text.txt
+The Lord of the Rings
+is one of those things
+if you like it you do
+
+# CTRL+d to finish
+
+# let's add some more text to the same file
+$ cat >> text.txt
+if you don't then you boo
+
+# CTRL+d to finish
+
+# result:
+$ cat text.txt
+The Lord of the Rings
+is one of those things
+if you like it you do
+if you don't then you boo
+
+
+# same in heredoc logic
+cat << EOF > text.txt
+The Lord of the Rings
+is one of those things
+if you like it you do
+if you don't then you boo
+EOF
+
+```
+
+
+
+

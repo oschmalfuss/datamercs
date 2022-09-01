@@ -1,0 +1,188 @@
+---
+title: "Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?"
+description: |
+  Seitdem am 1. Juli 2021 die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland entfiel, werden scheinbar auch Geschenksendungen, die weiter bis zu einem Wert von 45 EUR zoll- und einfuhrumsatzsteuerfrei sind, systematisch abgerechnet, zumal die Post den "Service" der Zollanmeldung übernommen hat und jegliche Gebühren - plus 6 EUR Auslagenpauschale - fraglos vorstreckt und dann per Postboten eintreibt, auch wenn die Pakete klar als Geschenk gekennzeichnet sind.  
+  Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2021-09-28
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: false
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Einführung - Zoll und DHL Hand in Hand
+
+Fehler oder Kalkül? Ab dem 1. Juli 2021 entfiel (offenbar zur Eindämmung des Online-Geschäfts via Alibaba & co.) die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland nach Deutschland, sodass für alle Warensendungen (bis auf wenige Ausnahmen) nun Abgaben fällig werden^[vgl. "Neuerungen ab 01. Juli 2021" hier: https://www.deutschepost.de/de/b/briefe-ins-ausland/zollinformation/neuerungen-2021.html]. 
+  
+Gleichzeitig übernahm ganz service-orientiert die Deutsche Post "als Ihr Transportdienstleister" die Zollanmeldung für alle derartigen Warensendungen (gegen 6 EUR Auslagenpauschale), und so scheinen nun völlig ungeprüft einfach alle Auslandssendungen ungeachtet jeglicher Zollinhaltserklärung erstmal systematisch verzollt und nicht mehr wie zuvor, im Falle klar gekennzeichneter Geschenksendungen, regulär durch- oder wenigstens zur etwaigen Klärung zum lokalen Zollamt geschickt zu werden - so zumindest in 100% aller Pakete seither hier.  
+Das spart natürlich Aufwand und der Zoll kann jetzt erst einmal widerspruchslos kassieren. Die Post streicht die 6 EUR pro Paket extra ein und der Empfänger hat das Nachsehen, denn zur Reklamation wird der nun zu leistende (Zeit-) Aufwand die Rückforderung i.d.R.  wohl übersteigen:-\\ 
+  
+Und so erweist sich auch für uns diese Regelung als recht ungünstig, da die Oma aus dem Ausland ihren Enkeln gerne einmal kleinere [Care-Pakete](https://de.wikipedia.org/wiki/Westpaket)↗ zukommen lässt, sodass selbst bei eigentlich zu vernachlässigenden Zollbeträgen jew. noch die besagten 6 EUR DHL-Auslagenpauschale hinzukommen, wo das Nachsehen dann doch ein Ende hat. Denn weiterhin gilt:  
+
+> "Geschenksendungen im Wert von bis zu 45 Euro sind zoll- und einfuhrumsatzsteuerfrei ^[https://www.zoll.de/DE/Privatpersonen/Postsendungen-Internetbestellungen/Sendungen-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Geschenksendungen/geschenksendungen_node.html#doc289556bodyText3].  
+> [ABER:] Die Befreiung von den Einfuhrabgaben kann nur gewährt werden, wenn dies durch den Post- und Kurierdienstleister beantragt wird. Die Zollverwaltung geht in der Regel von einer ordnungsgemäßen Zollanmeldung der Post- und Kurierdienstleister aus.^[https://www.zoll.de/DE/Privatpersonen/Postsendungen-Internetbestellungen/Sendungen-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Geschenksendungen/geschenksendungen_node.html#doc289556bodyText1]"
+
+Das heißt, an irgendeiner Stelle hätte wohl die ordnungsgemäße Verarbeitung auch für Geschenksendungen durchaus stattfinden sollen, wobei die KI offenkundlich sogar chin. Adressen maschinell auslesen können soll, aber für standardisierte Häkchen auf einem CN22-Formular die entsprechende Zeile im OCR-Code sicherlich nur versehentlich auskommentiert wurde^[https://www.siemens-logistics.com/de/news/pressemitteilungen/siemens-erhaelt-auftrag-der-deutschen-post-fuer-internationales-drehkreuz], o.ä. ... Ein Schelm, der Böses dabei denkt!  
+  
+Daher soll an dieser Stelle der Prozess für die Rückforderung(en) zur künftigen Referenz einmal festgehalten werden, nicht zuletzt, um es den o.g. Institutionen nicht zu einfach zu machen, und letztlich handelt es sich auch "nur" um drei Schritte:
+
+1. für einen "Antrag auf Erstattung oder Erlass" beim Zoll benötigen wir von der Post zunächst den originalen [DHL-Abgabenbescheid](https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/abgabenbescheid-anfordern.html)↗:
+
+> "Wenn Sie gegen die erhobenen Zollgebühren bzw. Einfuhrabgaben Einspruch einlegen möchten, wenden Sie sich bitte **an das zuständige Zollamt**. Die Kontaktdaten finden Sie auf dem jeweiligen Abgabebescheid. Bitte beachten Sie, dass ein **Einspruch innerhalb von 4 Wochen** ab Festlegung des Abgabebescheids erfolgen muss. [...]  
+> Falls Ihnen noch kein Abgabebescheid vorliegt, können Sie diesen unter [dhl.de/einfuhr](https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/abgabenbescheid-anfordern.html)↗ anfordern oder Sie scannen den QR-Code. Dieser befindet sich auf Ihrer Sendung beim Aufkleber Einfuhrabgabenbescheid."
+
+2. damit stellen wir beim Zoll (per [Formular 0223](https://www.formulare-bfinv.de/ffw/action/invoke.do?id=0223den)↗ u.a.) den "[Antrag auf Erstattung oder Erlass](https://www.zoll.de/DE/Fachthemen/Zoelle/Abgabenerhebung/Erlass-Erstattung/Verfahren/verfahren_node.html)"↗ via Email und erhalten neben der Einfuhrabgabenrückzahlung auch einen korrigierten Einfuhrabgabenbescheid
+3. per [Ticket](https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/formular-nachentgelt.html)↗ kann bei DHL dann die Auslagenpauschale zurückgefordert werden:
+
+> "Wir erstatten Ihnen dann gerne die Auslagenpauschale in Höhe von 6,00 EUR, sobald wir den geänderten Einfuhrabgabenbescheid von Ihnen erhalten haben. Diesen können Sie uns ganz einfach per E-Mail zukommen lassen."
+  
+Was vorher also zwischen Zoll und DHL quasi über den Schreibtisch lief, muss andersherum nun natürlich über div. bürokratische und technische Hürden separat zurückgedreht werden...  
+
+Alternativ kann man sich auch als "Selbstverzoller" registrieren lassen, was aber schließlich auch (ggf. wg. Zeit und Benzin wieder mehr) Ressourcen verbraucht: https://www.dhl.de/de/privatkunden/hilfe-kundenservice/sendungsverfolgung/formular-selbstverzollung.html
+
+## // 0. Dokumentation
+
+Noch bevor man das Paket auspackt, sollte idealerweise schon für Schritt drei das gesamte Paket von allen Seiten fotografiert werden. Sinn oder Unsinn, aber das wird für den Antrag gefordert und ohne könnte der "Formfehler" wohl im schlechtesten Fall - wenn auch hier bislang unbelegt - evtl. die Rückforderung der DHL Auslagenpauschale gefährden.  
+Weiter digitalisieren wir die Customs Declaration CN22 für die Anfrage beim Zoll in Schritt zwei.
+
+## // 1. original DHL-Abgabenbescheid anfordern
+
+https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/abgabenbescheid-anfordern.html
+
+> Nachname  
+> Vorname  
+> Straße  
+> Hausnummer  
+> Postleitzahl  
+> Ort  
+> (DHL)Sendungsnummer  
+
+## // 2. Zoll - Erlass- bzw. Erstattungsverfahren
+
+https://www.zoll.de/DE/Fachthemen/Zoelle/Abgabenerhebung/Erlass-Erstattung/Verfahren/verfahren_node.html
+
+2.1 "Antrag auf Erstattung oder Erlass" (Formular 0223) s. https://www.formulare-bfinv.de/ffw/action/invoke.do?id=0223  
+  
+2.2 der Zoll braucht eine Einwillingung für die "Elektronische Kommunikation mit der Zollverwaltung gemäß § 87a Abgabenordnung", damit die Kommunikatione über Email erfolgen kann.  
+Ein Muster gibt es hier, worin jedoch das Hauptzollamt Köln bereits vorausgefüllt ist, wohingegen internat. Pakete wohl meist über Frankfurt a.M. reinommen:  
+https://media.frag-den-staat.de/files/foi/497520/MusterschreibenzurEinwilligungnach87aAbs.1Satz3AO.pdf  
+Das (wohlformatierte) PDF kann aber in OpenOffice (oder Word) geöffnet und entsprechend umgeschrieben werden.  
+  
+2.3 Der Antrag selbst erfolgt dann per Email an die Adresse aus dem DHL-Abgabenbescheid, z.B.:
+
+> to: poststelle.hza-ffm@zoll.bund.de  
+> subject: Antrag auf Erstattung ZP130120223302/12345, Sendung UN029912345JP (DHL 64028612345)  
+  
+> Sehr geehrte Damen und Herren,  
+>   
+> hiermit möchte ich Einspruch gegen den m.E. fehlerhaften Zollbescheid ZP130120223302/12345 vom 26.07.2021 für die Sendung UN029912345JP > (DHL 64028612345) einlegen:  
+> Bei der Sendung handelt es sich um ein klar gekennzeichnetes Geschenk, i.e. ein Buch von [*Sender*] für [*Empfänger*] (s. Anhang).  
+> Der Warenwert wurde von Ihnen auf 37,50 EUR festgesetzt, und dann eine EUSt von 7,12 EUR erhoben.  
+> Aber „Geschenksendungen im Wert von bis zu 45 Euro sind zoll- und einfuhrumsatzsteuerfrei“:    
+> https://www.zoll.de/DE/Privatpersonen/Postsendungen-Internetbestellungen/Sendungen-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Geschenksendungen/geschenksendungen_node.html  
+>  
+> Daher möchten wir Sie  
+> 1.	um die Erstattung Einfuhrabgaben sowie  
+> 2.	um einen korrigierten Einfuhrabgabenbescheid  
+> bitten, sodass wir uns auch die Auslagepauschale in Höhe von 6,00 EUR bei der DHL erstatten lassen können.  
+>   
+> Geldinstitut: Hausbank  
+> IBAN: DE49112233445566  
+> BIC: HBKDEXXX  
+> 
+> Für Rückfragen und weitere Informationen stehen wir Ihnen jederzeit zur Verfügung.
+> 
+> Mit freundlichen Grüßen,  
+> [*Empfänger*]
+> 
+> Anlagen:  
+> > Formular 0223 (0223.pdf)  
+> > Einwilligung in die unverschlüsselte elektronische Kommunikation per E-Mail gemäß § 87a Abgabenordnung (MusterschreibenzurEinwilligungnach87aAbs.1Satz3AO.pdf)  
+> > original DHL-Abgabenbescheid (DHL-Abgabenbescheid.pdf)  
+> > Customs Declaration CN22 (Customs_Declaration_CN22.jpg)  
+>
+
+## // 3. DHL-Auslagenpauschale
+
+Sobald der korrigierte Einfuhrabgabenbescheid vorliegt, kann für die Sendung bei der DHL [hier](https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/formular-nachentgelt.html
+)↗ ein neues "Anliegen" eröffnet werden:  
+
+> "bitte ein neues Anliegen eröffnen. Sobald Sie hier alle Unterlagen haben nutzen Sie folgenden Link https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/formular-nachentgelt.html. "
+
+Dieser offizielle Weg scheint in der Praxis aber nur bedingt zu funktionieren, weshalb wir alternativ mit Bezug auf einen vergangenen Fall ggf. wieder per Email anfragen (s.u.).  
+  
+Es werden künstliche Hürden eingebaut, wie etwa maximale Dateigrößen von 1MB, was bei Handyphotos leicht überschritten wird.  
+Es werden Photos aller sechs Seiten des Paketes, Label und Aufschriften gefordert^[Bitte laden Sie hier Fotos der kompletten Sendung hoch, auf denen Folgendes zu erkennen ist:  
+  * Alle 6 Seiten des Pakets  
+  * Alle aufgebrachten Label (gut lesbar)  
+  * Die vollständige Paketaufschriftseite mit Rücksendegrund (bitte keine Teilausschnitte)  ], aber nach fünf Einzel-Uploads verschwindet der Upload-Button für die Dateiauswahl...  
+Also müssen alle Photos auf Größe gebracht und entweder in eine PDF-Datei oder in eine Collage konvertiert werden.  
+Wie das unter `bash` ginge, einmal hier. Wir benötigen dazu das Paket [ImageMagick](https://imagemagick.org/script/montage.php):
+
+```{bash eval=F, echo=T}
+# resize pictures to max file size, e.g. 1MB
+for pic in *.jpg; do
+  convert $pic -define jpeg:extent=1024kb "$(basename $pic .jpg)_res.jpg"
+done
+```
+
+```{bash eval=F, echo=T}
+# collage, landscape, 3 columns x 2 rows 
+montage -mode concatenate -tile 3x2 -geometry +30+30 *.jpg -gravity center -background none -bordercolor none -define jpeg:extent=1024kb Sendung_64028612345_6-Seiten.jpg
+```
+
+Weiter laden wir hier wieder die Zollinhaltserklärung CN 23 bei Paketen bzw. CN 22 bei Päckchen hoch.  
+Unter Angabe der vollst. Sender-, Empfänger- sowie unserer Kontoinformationen erhalten wir schließlich nach Absenden des Formulars, sofern über die ganzen Dateioperationen noch kein Timeout erreicht wurde, (idealerweise) die folgende Bestätigung an die angegebene Email-Adresse:
+
+> Vielen Dank!
+> Guten Tag,
+> vielen Dank für Ihre Nachricht. Aufgrund der aktuell **unerwartet hohen Anzahl**^[warum wohl!?] von Anfragen kann sich die Bearbeitung Ihres Anliegens verzögern.
+> Auch wenn es derzeit etwas länger dauert, werden wir uns so schnell wie möglich um Ihr Anliegen kümmern.
+> Bitte haben Sie dafür Verständnis, dass die Bearbeitung bis zu 10 Werktage dauern kann.
+> Wir bedanken uns für Ihre entgegengebrachte Geduld und hoffen auf Ihr Verständnis.
+> Mit freundlichen Grüßen
+> Ihr DHL Kundenservice
+
+Allerdings keine Ticketnummer, o.ä., weshalb es zielführender ggf. sein kann, über ein altes Ticket nachzuhaken oder gleich einen neuen Fall zu eröffnen.
+
+> to: IhreAntwort@dhl.de  
+> subject: Antrag auf Erstattung ZP130120223302/12345, Sendung UN029912345JP (DHL 64028612345)  
+
+> Sehr geehrte Damen und Herren,  
+>  
+> bezugnehmend auf Ticket #0000-123456 möchte ich Ihnen gerne den korrigierten Einfuhrabgabenbescheid ZP130120223302/12345 für die Sendung UN029912345JP (DHL 64028612345) zukommen lassen (s. "ZP130120223302-12345_korr.pdf" anbei) und um die Erstattung der 6 EUR Auslagenpauschale bitten.  
+> Meine Bankdaten lauten wie folgt:
+>   
+> Geldinstitut: Hausbank  
+> IBAN: DE49112233445566  
+> BIC: HBKDEXXX   
+>   
+> Für Rückfragen und weitere Informationen stehe ich Ihnen jederzeit zur Verfügung.  
+>   
+> Mit freundlichen Grüßen  
+> [*Empfänger*]
+>
+> Anlagen:  
+> > Paketinfo (Sendung - 64028612345 - UN029912345JP - Paket.pdf)  
+> > korrigierter Abgabenbescheid (korr - ZP130120223302-12345 - 64028612345 - UN029912345JP.pdf)  
+> > Customs Declaration CN22 (Customs_Declaration_CN22.jpg)  
+>
+
+"Excellence. Simply delivered." Bis zum nächsten Mal...  
+  
+¯\\_(ツ)_/¯  
+  
+

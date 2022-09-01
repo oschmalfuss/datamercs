@@ -1,0 +1,39 @@
+---
+title: "Rights information in metadata"
+description: |
+  A short description of the post.
+author:
+  - name: Olaf Schmalfuß
+    url: https://www.datamercs.net
+date: 2022-08-31
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+the legal labelling of the individual data elements themselves: i.e. we can release the entirety of our data under CC0, but exclude individual elements, such as an included review from a third party publication or a linked graphic, and label them with a different licence from the outset for possible further processing
+
+
+https://www.dnb.de/EN/Professionell/Metadatendienste/Exportformate/MARC21/marc21.html
+
+
+# Empfehlungen für Rechteinformationen in Metadaten (2.0)
+https://wiki.dnb.de/pages/viewpage.action?pageId=148607377
+
+https://wiki.dnb.de/x/kpmACg
+
+https://wiki.dnb.de/pages/viewpage.action?pageId=176200082
+
+https://wiki.dnb.de/display/DINIAGKIM/MAchine-Readable+Cataloging+-+MARC
+
+https://www.loc.gov/marc/mac/2018/2018-dp10.html
+https://www.loc.gov/marc/mac/2018/2018-dp11.html

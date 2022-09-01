@@ -1,0 +1,126 @@
+---
+title: "a short introduction to BISAC"
+description: |
+  A short description of the post.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2022-03-25
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+** //BISAC
+
+https://bisg.org/page/BISACSubjectCodes
+
+The BISAC Subject Headings List, also known as the BISAC Subject Codes List, is a standard used by many companies throughout the supply chain to categorize books based on topical content. The Subject Heading applied to a book can determine where the work is shelved in a brick and mortar store or the genre(s) under which it can be searched for in an internal or online database.
+
+The complete BISAC Subject Headings List is available online at no cost for one-to-one look-up. You may also request an End Users' License to download versions of the Subject Headings List in Excel, PDF and Word for unlimited use or for incorporation in your company's internal databases.
+
+
+
+The full BISAC subject category scheme is available from BISG (https://bisg.org), and this mapping (https://www.editeur.org/151/Thema-v1.4/#Mappings) is presented with its kind permission. The full Thema scheme is available from EDItEUR (https://www.editeur.org), and may also be viewed via the multilingual Thema online browser (https://ns.editeur.org/thema). Use of Thema itself is free of charge under the terms of EDItEUR's usual licence (https://doi.org/10.4400/nwgj).
+
+A particular product may have one or more BISAC subject codes assigned. Each BISAC 2018 code is listed in the blue column of the mapping table. For each BISAC code, there are one or several equivalent Thema codes for both subjects and qualifiers, listed in the green and orange columns of the mapping table (in this mapping, there could theoretically be up to four Thema subject codes and up to four Thema qualifier codes for each BISAC code. In practice, the number of Thema codes will typically be no more than twice the number of BISAC codes). For each of the book's BISAC codes, list the equivalent Thema codes.
+
+2. Order of the codes is significant. Typically, a book may have a single BISAC code nominated as the 'main' subject code in the BISAC scheme, and may also have one or more subsidiary BISAC codes. The Thema code taken from the column labelled Thema code 1 (column C) for the main BISAC code should be labelled the 'main' subject code in the Thema scheme. All other Thema codes for the first BISAC code, and all Thema codes for any subsidiary BISAC codes should be treated as subsidiary Thema codes. Thus there should be only one 'main' Thema code.
+
+4. In general for the Thema scheme, you should ensure that you do not list a Thema code and one of its ancestors in the Thema hierarchy. In this case, the list of Thema codes should be reviewed and -- typically – you should remove the ancestor code (for example, if the mapped list contains both WCNX and WC, remove the latter). In a few cases, you may wish to remove the more detailed code – but note the Thema guidance that you should 'use  the most detailed appropriate category'.
+
+5. Note that in Thema, while there must be only one subject code considered as the 'main' subject code (see 2. above), there can in addition be one main qualifier of each type. Where the mapped Thema codes include multiple qualifiers (codes beginning with a number), you may consider nominating one Thema qualifier of each type as the 'main' qualifier of that type. This should be the first qualifier of each type (1–6) when considering the Thema equivalents of the first couple of assigned BISAC codes in order. Qualifiers mapped from any third or subsequent BISAC codes should not be marked as 'main' qualifiers without manual inspection.
+
+
+There is no fee to select and use BISAC codes to categorize your publication. A paid license is only required if you need to download the entire list for use in business systems. 
+
+
+Selecting A BISAC Code
+Not sure which BISAC code is right for your book? If so, you've come to the right page. We have a full FAQ section for all other BISAC-related question as well. 
+
+The Two-Step Process
+We have a simple two-step process that starts on our Complete BISAC Subject Heading List page. 
+
+Step 1: Determine the major heading that best describes the content of your book. Click on one of the headings listed on the Complete BISAC Subject Heading page for more specific headings within that category.
+
+Once you've selected a major heading (for example, Fiction) you move onto step 2:
+
+Step 2: Determine the specific term that describes your book. In reviewing the choices, note that an asterisk (*) identifies a heading that is new for the current edition.
+
+What if my book has more than one subject matter?
+You may select more than one subject code. BISG best practices recommend that you select no more than three BISAC codes for any title. Choosing fewer than three is also best practice, when the codes chosen fully describe the book.
+
+BISG also recommends that you use the most specific codes possible for your book. The practice of supplying both a specific and a general subject heading on a given product is discouraged; use of the most specific heading possible is strongly encouraged.
+The more specific the codes, the more useful it is to you and your book. 
+
+BISG's Subject Codes Committee meets once a month all year to discuss the BISAC codes. The codes are updated annually, typically in late October or early November. A current code list cannot be changed, but new codes may be added to the next code list.
+
+BIC und BISAC
+Ähnlich wie bei den thema-Klassifikationen handelt es sich bei BIC und BISAC um Angaben, mit denen Sie einen Titel klassifizieren können. Bei BIC handelt es sich um die in Großbritannien genutzte Klassifikation, welche als Grundlage für die thema-Klassifikation diente. BISAC hingegen ist das amerikanische Pendant.
+
+
+** // thema
+
+Thema is the new global subject classification for books and e-books, which has already gathered wide
+international support. Forward-looking publishers, booksellers, intermediaries and systems and service providers
+are adopting the Thema subject category scheme as a part of their business process.
+
+while the book market itself is ever-more global, subject
+classifications are mostly national – there are hundreds of different schemes around the world, and even within
+the English-language market, the schism between the BIC subject scheme and the BISAC scheme developed by
+the Book Industry Study Group means that many publishers double-up on work and cost, and retailers are forced
+to map (often very approximately) from one scheme to another. The need for a single scheme usable by the
+trade in all countries is obvious.
+
+Thema aims to be global in scope, cross-cultural and multi-lingual, applicable to all parts of the book supply
+chain, and flexible enough to allow each market to retain its unique cultural voice, while remaining a unified and
+simple-to-adopt standard. It can be used alongside existing national schemes 
+
+Thema is developed and managed by EDItEUR (the organisation that also develops ONIX), with guidance from an
+international committee
+
+Standard
+mappings are freely available from the EDItEUR website. A ‘reverse’ mapping – from Thema to BIC – is also
+available from EDItEUR, and a reverse mapping for BISAC is available from Nielsen. Reverse mappings allow an
+organisation to do its primary frontlist classification using Thema, and to provide mapped ‘legacy’ subject codes
+using the older schemes automatically
+
+WHAT IS THEMA?
+
+Während der Frankfurter Buchmesse 2012 wurden die Aktivitäten von Thema zum ersten Mal vorgestellt. Grundlage bildete die seit langem bewährte englische Buchklassifikation BIC (Standard Subject Categories). Zu Beginn startete die neue Buchklassifikation mit ca. 4500 Kategorien. Im Frühjahr 2020 veröffentlichte EDItEUR die aktuelle Version 1.4, die nunmehr über knapp 8.200 Kategorien verfügt – von Reisemedizin über Dark Fantasy bis hin zu Projektunterricht. Thema ist damit deutlich granularer als die Warengruppensystematik mit ihren knapp 550 Klassen.
+
+Da Thema zusammen mit Schlagwörtern und der Warengruppensystematik essentiell für die Auffindbarkeit von Büchern ist, gehört es zu den statusrelevanten Feldern im VLB.
+
+Die Thema-Klassifikation ist hierarchisch aufgebaut. Dadurch ist sie sehr feingliedrig und lässt gleichzeitig auch wieder Zusammenfassungen nach Oberbegriffen zu.
+Innerhalb der Qualifier gibt es nationale Erweiterungen. Diese werden durch Bindestriche „-“ begrenzt. Im vorliegenden Beispiel handelt es sich um das Kennzeichen für Deutschland „DE“, das nur dann auftaucht, wenn es nationale Qualifier „unterhalb“ des Landes gibt, wie in diesem Fall „Hessen“.
+
+Thema-Code und Thema-Text
+Wie die Warengruppen besitzen auch die Thema-Klassen einen Thema-Code und einen Thema-Text. Bei FBA Moderne und zeitgenössische Belletristik (ab 1945) ist “FBA” der Thema-Code und “Moderne und zeitgenössische Belletristik (ab 1945)” ist der Thema-Text.
+
+Thema is a multilingual subject category scheme designed to meet the needs of publishers, retailers and trade intermediaries in all sectors of the global book publishing business. It is managed by an international group of stakeholders, and is free to use. Thema aims to enhance the merchandising, discoverability and potential sales of books by simplifying the communication of accurate and detailed subject information across international markets and reducing the need to maintain numerous national subject schemes.
+
+Thema is a global scheme and is based on hierarchical code structures. It is a general purpose scheme and is not intended to replace specialist or library schemes but is designed to replace national general purpose book trade schemes over time. In the medium-term, the benefit is that users need only map between their own scheme and Thema, rather than to and from numerous other schemes used by trading partners.
+
+BIC runs the UK Thema National Group, which feeds directly into the International Thema Steering Committee.
+
+## // Warengruppen-Systematik (WGS)
+Die Warengruppen-Systematik wurde von den Barsortimenten entwickelt und seit 1997 im Buchhandel eingesetzt. Sie orientierte sich
+stark an logistischen Bedürfnissen. Inzwischen hat sich aber die Nutzung der Daten entscheidend geändert: Die WarengruppenSystematik dient als Grundlage für alle Statistiken über die wirtschaftliche Entwicklung einzelner Segmente im Buchhandel.
+
+The full WGSneu subject category scheme is available from VLB (see https://vlb.de/assets/images/wgsneuversion2_0.pdf), and this mapping is presented with its kind permission. The full Thema scheme is available from EDItEUR (https://www.editeur.org), and may also be viewed via the multilingual Thema online browser (https://ns.editeur.org/thema). Use of Thema itself is free of charge under the terms of EDItEUR's usual licence (https://doi.org/10.4400/nwgj).
+
+Please note that this is a mapping from a rough classification (WGS) to a detailed classification (Thema). We therefore strongly recommend checking the result in order to refine it if necessary.
+
+Die Interessensgruppe Produktmetadaten des Deutschen Börsenvereins e. V. hat im Oktober 2017 einen Leitfaden erstellt, um Verlage bei der optimalen Vergabe von thema-Kategorien für ihre Buchtitel zu unterstützen. Er enthält wichtige Hinweise zur thema-Klassifikation sowie eine Checkliste für eine möglichst einheitliche Vergabe von thema-Subjects (Inhalt) und thema-Qualifiern (Zusatz).
+
+https://www.boersenverein.de/interessengruppen/ig-produktmetadaten/

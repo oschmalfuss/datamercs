@@ -1,0 +1,100 @@
+---
+title: "Open source OCR on bash with ImageMagick and Tesseract"
+description: |
+  Handy script to ocr PDFs on the commandline with nothing but the FOSS tools ImageMagick and tesseract.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2016-04-14
+output: 
+  distill::distill_article:
+    toc: true
+    number_sections: true
+    toc_depth: 4
+    code_folding: true
+  toc_float: 
+    collapsed: false
+    smooth_scroll: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Introduction
+
+If customers, colleagues or sales partners throw a PDF at you, usually an invoice with a list of titles, and want a record set for that, we usually assume that at least the PDF is full-text and lets us copy and paste (or [import into R]()↗), so that we can retrieve the list of ISBNs from that for further processing.  
+  
+Who would believe that there are still scanned invoices being provided, for which neither party has the time nor musings to manually type the ISBNs off of that, to hand over a more convenient list to your friendly neighbourhood librarian?  
+  
+Truth is, it happens more often than not, which is why we needed to find a way to OCR (i.e. Optical Character Recognition) such files, ideally without any costly, proprietary software like Abbyy FineReader, but simply in bash.  
+  
+In come [ImageMagick](https://imagemagick.org/)↗ and [tesseract](https://code.google.com/p/tesseract-ocr/)↗, two [free and open source](https://www.gnu.org/philosophy/free-sw.html)↗ solutions, which we can wrap into a handy script.  
+Altogether, this is a simplified implementation of https://ubuntuforums.org/showthread.php?t=880471
+
+## // Installation on cygwin
+
+Simply install https://cygwin.com/packages/summary/ImageMagick.html and the desired tesseract language package(s) *tesseract-ocr-deu*, *tesseract-ocr-eng*, https://cygwin.com/packages/summary/tesseract-ocr-languages-src.html, as base *tesseract-ocr* is a dependency anyway.  
+Same on your favourite package manager in Linux.
+
+## // OCR my PDF script
+
+```{bash eval=F, echo=T}
+#!/bin/bash
+#title:       ocr_my_pdf_v02.sh
+#description:	OCRs PDFs to txt, simplified implementation of http://ubuntuforums.org/showthread.php?t=880471
+#dependencies: imagemagick, tesseract
+#invocation:  ./ocr_my_pdf_v02.sh YOUR-PDF-HERE.pdf
+
+DPI=300
+TESS_LANG=deu+eng # use multiple languages together for recognition, switch order to set primary language
+
+INPUT_FILENAME=${@%.pdf}
+SCRIPT_NAME=$(basename "$0" .sh)
+TMP_DIR=${SCRIPT_NAME}-tmp
+OUTPUT_FILENAME=${INPUT_FILENAME}-ocrd@DPI${DPI}
+
+mkdir ${TMP_DIR}
+cp ${@} ${TMP_DIR}
+cd ${TMP_DIR}
+
+convert -density ${DPI} -depth 8 -alpha Off ${@} "${INPUT_FILENAME}.tif"
+#convert -resize 300% ${@} "${INPUT_FILENAME}.tif"
+tesseract "${INPUT_FILENAME}.tif" "${OUTPUT_FILENAME}" -l ${TESS_LANG} --psm 6
+
+mv ${OUTPUT_FILENAME}.txt ..
+cd ..
+rm -rf ${TMP_DIR}
+```
+
+Here're some further options to play with
+
+```{bash eval=F, echo=T}
+
+# OCR #
+#1. enlarge! (ImageMagick)
+convert index.png -resize 300% index2.png
+#2. OCR (tesseract)
+tesseract index2.png index2.txt
+
+# tesseract page segmentation mode --psm
+#0 = Orientation and script detection (OSD) only.
+#1 = Automatic page segmentation with OSD.
+#2 = Automatic page segmentation, but no OSD, or OCR
+#3 = Fully automatic page segmentation, but no OSD. (Default)
+#4 = Assume a single column of text of variable sizes.
+#5 = Assume a single uniform block of vertically aligned text.
+#6 = Assume a single uniform block of text.
+#7 = Treat the image as a single text line.
+#8 = Treat the image as a single word.
+#9 = Treat the image as a single word in a circle.
+#10 = Treat the image as a single character.
+
+```
+
+Also, might consider doing something with getopts here, see  
+https://wiki.bash-hackers.org/howto/getopts_tutorial  
+https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash

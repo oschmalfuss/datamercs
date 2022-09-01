@@ -104,14 +104,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There many of services, mostly commercial, but also some free and academic options.  &#10;While VPNs are a solid solution in an institutional environment to access one&#39;s company&#39;s network, or for circumventing censorship or geo-blocking, there&#39;re wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.  &#10;This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*."/>
 <meta property="og:url" content="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/"/>
+<meta property="og:image" content="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/01_bullshit_vpn.png"/>
+<meta property="og:image:width" content="654"/>
+<meta property="og:image:height" content="652"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="OS DataMercs"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="OS DataMercs: A rough guide to VPNs"/>
 <meta property="twitter:description" content="Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There many of services, mostly commercial, but also some free and academic options.  &#10;While VPNs are a solid solution in an institutional environment to access one&#39;s company&#39;s network, or for circumventing censorship or geo-blocking, there&#39;re wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.  &#10;This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*."/>
 <meta property="twitter:url" content="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/"/>
+<meta property="twitter:image" content="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/01_bullshit_vpn.png"/>
+<meta property="twitter:image:width" content="654"/>
+<meta property="twitter:image:height" content="652"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="OS DataMercs: A rough guide to VPNs"/>
@@ -128,7 +134,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["01_bullshit_vpn.png","02_fastest_vpn.png","03_biting_the_bullet.png","04_vpntracking.png","05_howto_vpn_vs_tor.png","06_leaks_ipv6.png","07_public_vs_private_ip.png","08_pwned_vs_owned.png","a-rough-guide-to-vpns_files/anchor-4.2.2/anchor.min.js","a-rough-guide-to-vpns_files/bowser-1.9.3/bowser.min.js","a-rough-guide-to-vpns_files/distill-2.2.21/template.v2.js","a-rough-guide-to-vpns_files/header-attrs-2.11/header-attrs.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.min.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.min.map","a-rough-guide-to-vpns_files/popper-2.6.0/popper.min.js","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy-bundle.umd.min.js","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy-light-border.css","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy.css","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy.umd.min.js","a-rough-guide-to-vpns_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["01_bullshit_vpn.png","02_fastest_vpn.png","03_biting_the_bullet.png","04_vpntracking.png","05_howto_vpn_vs_tor.png","06_leaks_ipv6.png","07_public_vs_private_ip.png","08_pwned_vs_owned.png","a-rough-guide-to-vpns_files/anchor-4.2.2/anchor.min.js","a-rough-guide-to-vpns_files/bowser-1.9.3/bowser.min.js","a-rough-guide-to-vpns_files/distill-2.2.21/template.v2.js","a-rough-guide-to-vpns_files/header-attrs-2.11/header-attrs.js","a-rough-guide-to-vpns_files/header-attrs-2.14/header-attrs.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.min.js","a-rough-guide-to-vpns_files/jquery-3.6.0/jquery-3.6.0.min.map","a-rough-guide-to-vpns_files/popper-2.6.0/popper.min.js","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy-bundle.umd.min.js","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy-light-border.css","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy.css","a-rough-guide-to-vpns_files/tippy-6.2.7/tippy.umd.min.js","a-rough-guide-to-vpns_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -1048,10 +1054,6 @@ figure img.external {
   margin-top: 1.5em;
 }
 
-.figure img {
-  width: 100%;
-}
-
 .figure .caption {
   color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
@@ -1881,6 +1883,12 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
+      if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+        var fn = $(this).children()[0]
+        $(this).html(fn.shadowRoot.querySelector("sup"))
+        $(this).id = fn.id
+        fn.remove()
+      }
       var refs = $(this).attr('data-cites').split(" ");
       var refHtml = refs.map(function(ref) {
         return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1895,6 +1903,31 @@ function init_distill() {
         placement: 'bottom-start'
       });
     });
+
+    // fix footnotes in tables (#411)
+    // replacing broken distill.pub feature
+    $('table d-footnote').each(function() {
+      // we replace internal showAtNode methode which is triggered when hovering a footnote
+      this.hoverBox.showAtNode = function(node) {
+        // ported from https://github.com/distillpub/template/pull/105/files
+        calcOffset = function(elem) {
+            let x = elem.offsetLeft;
+            let y = elem.offsetTop;
+            // Traverse upwards until an `absolute` element is found or `elem`
+            // becomes null.
+            while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                x += elem.offsetLeft;
+                y += elem.offsetTop;
+            }
+
+            return { left: x, top: y };
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+        const bbox = node.getBoundingClientRect();
+        const offset = calcOffset(node);
+        this.show([offset.left + bbox.width, offset.top + bbox.height]);
+      }
+    })
 
     // clear polling timer
     clearInterval(tid);
@@ -1994,6 +2027,8 @@ function init_common() {
   // mark non-body figures created by knitr chunks as 100% width
   $('.layout-chunk').each(function(i, val) {
     var figures = $(this).find('img, .html-widget');
+    // ignore leaflet img layers (#106)
+    figures = figures.filter(':not(img[class*="leaflet"])')
     if ($(this).attr('data-layout') !== "l-body") {
       figures.css('width', '100%');
     } else {
@@ -2016,7 +2051,7 @@ function init_common() {
   // get rid of index.html references in header
   if (window.location.protocol !== "file:") {
     $('.distill-site-header a[href]').each(function(i,val) {
-      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
     });
   }
 
@@ -2055,7 +2090,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2114,9 +2149,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1>A rough guide to VPNs</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There many of services, mostly commercial, but also some free and academic options.<br />
-While VPNs are a solid solution in an institutional environment to access one’s company’s network, or for circumventing censorship or geo-blocking, there’re wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.<br />
-This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a <em>thought piece</em>.</p></p>
+<p><p>Since YouTube influencer marketing you know you need a VPN
+(i.e. virtual private network). There many of services, mostly
+commercial, but also some free and academic options.<br />
+While VPNs are a solid solution in an institutional environment to
+access one’s company’s network, or for circumventing censorship or
+geo-blocking, there’re wild claims being made when it comes to potential
+capabilities of VPNs or internet threats in general.<br />
+This article is not intended to deeply elaborate on that, but serves as
+a personal memo as well as a <em>thought piece</em>.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2137,74 +2178,164 @@ This article is not intended to deeply elaborate on that, but serves as a person
 <li><a href="#vpn-gate-server-list">VPN Gate server list</a></li>
 <li><a href="#vpn-client">VPN Client</a></li>
 </ul></li>
-<li><a href="#reality-check---why-you-shouldnt-trust-vpns">Reality check - why you shouldn’t trust VPNs</a>
+<li><a href="#reality-check---why-you-shouldnt-trust-vpns">Reality check
+- why you shouldn’t trust VPNs</a>
 <ul>
-<li><a href="#but-whats-the-solution-to-vpns">But what’s the solution to VPNs?</a></li>
-<li><a href="#all-you-need-to-know-about-very-pwnable-networks-vpns">All you need to know about Very Pwnable Networks (VPNs)</a></li>
+<li><a href="#but-whats-the-solution-to-vpns">But what’s the solution to
+VPNs?</a></li>
+<li><a href="#all-you-need-to-know-about-very-pwnable-networks-vpns">All
+you need to know about Very Pwnable Networks (VPNs)</a></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There are lots of services, mostly commercial after all, but also some free and academic options.</p>
-<p>While VPNs are definitely a solution in an institutional/ company setting to access one’s company’s intranet remotely, or for safely circumventing national censorship and geo-blocking by streaming or national broadcasting services, there’re wild claims being made when it comes to potential capabilities of VPNs or use cases.</p>
-<p>This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a small thought piece in the <em>sanity check</em> below.</p>
-<p>For more knowledgeable information on VPNs, see the <a href="https://www.eff.org/">EFF</a>’s article on <a href="https://ssd.eff.org/en/module/choosing-vpn-thats-right-you">Choosing the VPN That’s Right for You</a>↗.</p>
+<p>Since YouTube influencer marketing you know you need a VPN
+(i.e. virtual private network). There are lots of services, mostly
+commercial after all, but also some free and academic options.</p>
+<p>While VPNs are definitely a solution in an institutional/ company
+setting to access one’s company’s intranet remotely, or for safely
+circumventing national censorship and geo-blocking by streaming or
+national broadcasting services, there’re wild claims being made when it
+comes to potential capabilities of VPNs or use cases.</p>
+<p>This article is not intended to deeply elaborate on that, but serves
+as a personal memo as well as a small thought piece in the <em>sanity
+check</em> below.</p>
+<p>For more knowledgeable information on VPNs, see the <a
+href="https://www.eff.org/">EFF</a>’s article on <a
+href="https://ssd.eff.org/en/module/choosing-vpn-thats-right-you">Choosing
+the VPN That’s Right for You</a>↗.</p>
 <h2 id="vpn-gate">VPN Gate</h2>
-<p><a href="https://www.vpngate.net/en/about_overview.aspx">VPN Gate Academic Experiment Project</a>↗ is an online service as an academic research at Graduate School of University of Tsukuba, Japan. The purpose of this research is to expand the knowledge of “Global Distributed Public VPN Relay Servers”.<br />
-The project is not only for consumption, but anyone is encouraged to <a href="https://www.vpngate.net/en/join.aspx">participate</a>↗.<br />
+<p><a href="https://www.vpngate.net/en/about_overview.aspx">VPN Gate
+Academic Experiment Project</a>↗ is an online service as an academic
+research at Graduate School of University of Tsukuba, Japan. The purpose
+of this research is to expand the knowledge of “Global Distributed
+Public VPN Relay Servers”.<br />
+The project is not only for consumption, but anyone is encouraged to <a
+href="https://www.vpngate.net/en/join.aspx">participate</a>↗.<br />
 Do we trust it? No. Do we use it? For our purposes, yes.</p>
 <h3 id="vpn-gate-server-list">VPN Gate server list</h3>
-<p>list of 7000+ public VPN relay servers by volunteers around the world:</p>
+<p>list of 7000+ public VPN relay servers by volunteers around the
+world:</p>
 <blockquote>
-<p><a href="https://www.vpngate.net/en/" class="uri">https://www.vpngate.net/en/</a></p>
+<p><a href="https://www.vpngate.net/en/"
+class="uri">https://www.vpngate.net/en/</a></p>
 </blockquote>
 <blockquote>
 <p>U/N: vpn<br />
 P/W: vpn</p>
 </blockquote>
 <h3 id="vpn-client">VPN Client</h3>
-<p><a href="https://www.softether.org/">SoftEther VPN</a>↗ is an Open-Source, free, cross-platform multi-protocol VPN program, developed as an academic project from <a href="https://www.softether.org/">University of Tsukuba</a>↗, under the Apache License 2.0.</p>
+<p><a href="https://www.softether.org/">SoftEther VPN</a>↗ is an
+Open-Source, free, cross-platform multi-protocol VPN program, developed
+as an academic project from <a
+href="https://www.softether.org/">University of Tsukuba</a>↗, under the
+Apache License 2.0.</p>
 <p>Download, install and set-up:</p>
 <blockquote>
-<p><a href="https://github.com/SoftEtherVPN/SoftEtherVPN" class="uri">https://github.com/SoftEtherVPN/SoftEtherVPN</a></p>
+<p><a href="https://github.com/SoftEtherVPN/SoftEtherVPN"
+class="uri">https://github.com/SoftEtherVPN/SoftEtherVPN</a></p>
 </blockquote>
-<h2 id="reality-check---why-you-shouldnt-trust-vpns">Reality check - why you shouldn’t trust VPNs</h2>
-<p>VPN advertisements are common on social media these days and making the wildest claims about privacy, security and anonymity. Basically just with the click of a button, you’re safe and virtually invisible on the internet, surfing “through an unbreakable tunnel that no one can look into, be it cybercriminals, governments, or internet service providers”!?<br />
-Naturally, this is not true, as technically one is basically only changing IPs<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and very importantly <em>WHO</em> is tracking your internet usage now. Switching (trust) from a local Internet Service provider (ISP) to another third party service with usually unclear jurisdictions.</p>
-<p>Of course, all VPN providers will claim that according to their policy they’d encrypt your data, never keep any history logs, DNS requests or other personal information and whatnot, but one should treat that as nothing more than marketing, especially when the service has any ties to any of the <a href="https://en.wikipedia.org/wiki/Five_Eyes">FVEY</a>↗ alliance members and ask: who hasn’t!?<br />
-This question is relevant, because companies operating from the US or the UK (for example) can be forced to spy on users without having any legal way to disclose that fact to their users, possibly bound with a gag order that cannot be violated without risking severe legal consequences. Of course, they will comply, while marketing wise they’ll phrase it such they didn’t.<br />
-Moreover, even if a service operates from a safe haven, what about their (physical) infrastructure: does the VPN provider actually OWN those machines? Or are they rather outsourced and rented from a 3rd party located in a 3rd (or even 4th) party network, or running services on virtual machines hosted by third parties? Does anyone believe that VPN providers can easily offer exit machines in two dozen countries by deploying hardware they own and operate in datacentres they can trust?<br />
-In an ideal setting, your VPN provider owns all of the hardware AND the network it operates, yet, after all, most VPN providers are primarily businesses! And the primary objective of most businesses is revenue and driving costs down…<br />
-As a result, one of the easiest ways to infiltrate and exploit VPN infrastructure is simply to offer cheap (possibly even tax-payer subsidised) server hosting, “tailored for your company’s needs”.<br />
-And even worse, some “VPN” services are simply outright <a href="https://privacysavvy.com/vpn/guides/vpn-scams/">scams</a>↗.</p>
-<p>Besides unscrupulous organizations that make online privacy harder for the general population, like the various government agencies wiretapping and breaking into systems to steal our data, or ISP/ VPN services that mess with user traffic and inject ads to earn some extra revenue by exploiting their customers for advertising, the technology itself is not inherently safe easy to deal with either, e.g. due to</p>
+<h2 id="reality-check---why-you-shouldnt-trust-vpns">Reality check - why
+you shouldn’t trust VPNs</h2>
+<p>VPN advertisements are common on social media these days and making
+the wildest claims about privacy, security and anonymity. Basically just
+with the click of a button, you’re safe and virtually invisible on the
+internet, surfing “through an unbreakable tunnel that no one can look
+into, be it cybercriminals, governments, or internet service
+providers”!?<br />
+Naturally, this is not true, as technically one is basically only
+changing IPs<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> and very importantly <em>WHO</em> is
+tracking your internet usage now. Switching (trust) from a local
+Internet Service provider (ISP) to another third party service with
+usually unclear jurisdictions.</p>
+<p>Of course, all VPN providers will claim that according to their
+policy they’d encrypt your data, never keep any history logs, DNS
+requests or other personal information and whatnot, but one should treat
+that as nothing more than marketing, especially when the service has any
+ties to any of the Five/ Fourteen Eyes alliance (<a
+href="https://en.wikipedia.org/wiki/Five_Eyes">FVEY</a>↗) members and
+ask: who hasn’t!?<br />
+This question is relevant, because (remember <a
+href="https://www.eff.org/de/pages/upstream-prism">Upstream and
+PRISM</a>↗!?) companies operating from any of the alliance states can be
+forced to spy on users without having any legal way to disclose that
+fact to their users, possibly bound with a gag order that cannot be
+violated without risking severe legal consequences
+(i.e. <em>Prism</em>). In <em>upstream</em> surveillance, the agencies’
+partners like AT&amp;T tap into the wires directly and copy all of the
+data flowing through the data highway. Of course, the companies will
+comply, while marketing-wise they’ll phrase it such they didn’t.<br />
+Moreover, even if a service operates from a safe haven, what about their
+(physical) infrastructure: does the VPN provider actually OWN those
+machines? Or are they rather outsourced and rented from a 3rd party
+located in a 3rd (or even 4th) party network, or running services on
+virtual machines hosted by third parties? Does anyone believe that VPN
+providers can easily offer exit machines in two dozen countries by
+deploying hardware they own and operate in datacentres they can
+trust?<br />
+In an ideal setting, your VPN provider owns all of the hardware AND the
+network it operates, yet, after all, most VPN providers are primarily
+businesses! And the primary objective of most businesses is revenue and
+driving costs down…<br />
+As a result, one of the easiest ways to infiltrate and exploit VPN
+infrastructure is simply to offer cheap (possibly even tax-payer
+subsidised) server hosting, “tailored for your company’s needs”.<br />
+And even worse, some “VPN” services are simply outright <a
+href="https://privacysavvy.com/vpn/guides/vpn-scams/">scams</a>↗.</p>
+<p>Besides unscrupulous organizations that make online privacy harder
+for the general population, like the various government agencies
+wiretapping and breaking into systems to steal our data, or ISP/ VPN
+services that mess with user traffic and inject ads to earn some extra
+revenue by exploiting their customers for advertising, the technology
+itself is not inherently safe easy to deal with either, e.g. due to</p>
 <ul>
-<li><a href="https://dnsleaktest.com/">DNS leaks</a>↗, <a href="https://ipv6leak.com/">IPv6 leaks</a>↗</li>
+<li><a href="https://dnsleaktest.com/">DNS leaks</a>↗, <a
+href="https://ipv6leak.com/">IPv6 leaks</a>↗</li>
 <li>Problems with the cryptographic routines used, like
 <ul>
-<li><a href="https://www.openssl.org/news/vulnerabilities.html">OpenSSL</a>↗, such as Heartbleed, POODLE, FREAK, Logjam etc.</li>
-<li>the literal <a href="http://arstechnica.com/tech-policy/2014/12/nsa-has-vpns-in-vulcan-death-grip-no-really-thats-what-they-call-it/">VULCANDEATHGRIP</a>↗</li>
+<li><a
+href="https://www.openssl.org/news/vulnerabilities.html">OpenSSL</a>↗,
+such as Heartbleed, POODLE, FREAK, Logjam etc.</li>
+<li>the literal <a
+href="http://arstechnica.com/tech-policy/2014/12/nsa-has-vpns-in-vulcan-death-grip-no-really-thats-what-they-call-it/">VULCANDEATHGRIP</a>↗</li>
 <li>…</li>
 </ul></li>
-<li>Browser related <a href="https://panopticlick.eff.org/">leaks</a>↗ and bad <a href="https://www.howsmyssl.com">crypto config</a>↗</li>
+<li>Browser related <a href="https://panopticlick.eff.org/">leaks</a>↗
+and bad <a href="https://www.howsmyssl.com">crypto config</a>↗</li>
 <li>Un- or improperly configured firewalls</li>
-<li><a href="https://sec.eff.org/glossary/browser-fingerprint">browser fingerprinting</a>↗, ad- and social media network tracking</li>
+<li><a href="https://sec.eff.org/glossary/browser-fingerprint">browser
+fingerprinting</a>↗, ad- and social media network tracking</li>
 <li>malicious websites or compromised networks</li>
 <li>etc</li>
 </ul>
-<p>Again, for more knowledgeable information see the <a href="https://www.eff.org/">EFF</a>’s guide on <a href="https://ssd.eff.org/en/module/choosing-vpn-thats-right-you">Choosing the VPN That’s Right for You</a>↗.</p>
-<h3 id="but-whats-the-solution-to-vpns">But what’s the solution to VPNs?</h3>
+<p>Again, for more knowledgeable information see the <a
+href="https://www.eff.org/">EFF</a>’s guide on <a
+href="https://ssd.eff.org/en/module/choosing-vpn-thats-right-you">Choosing
+the VPN That’s Right for You</a>↗.</p>
+<h3 id="but-whats-the-solution-to-vpns">But what’s the solution to
+VPNs?</h3>
 <ul>
 <li>don’t fall for it and manage your expectations accordingly</li>
-<li><a href="https://www.torproject.org/">TOR</a>↗ might come handy as well</li>
-<li>Treat every service on the internet as if they had an API to Big Brother, which they most likely do. While it looks inconspicuous on the front end, in the back-end your data might already be consolidated.</li>
+<li><a href="https://www.torproject.org/">TOR</a>↗ might come handy as
+well</li>
+<li>Treat every service on the internet as if they had an API to Big
+Brother, which they most likely do. While it looks inconspicuous on the
+front end, in the back-end your data might already be consolidated.</li>
 <li>operate in <em>meat-space</em></li>
 <li>visit a library!</li>
 </ul>
-<h3 id="all-you-need-to-know-about-very-pwnable-networks-vpns">All you need to know about Very Pwnable Networks (VPNs)</h3>
-<p>While primarily intended as advertisements for their VPN service “<a href="https://en.wikipedia.org/wiki/IPredator">IPredator</a>”, co-founded by Pirate Bay co-founder Peter Sunde, the comics actually raised some valid points to consider, that obviously largely served as the inspiration for the above.<br />
-As neither their site nor their services are available any longer, this “comic” (or “textbook”!?) can now be found below again for educational purposes:</p>
+<h3 id="all-you-need-to-know-about-very-pwnable-networks-vpns">All you
+need to know about Very Pwnable Networks (VPNs)</h3>
+<p>While primarily intended as advertisements for their VPN service “<a
+href="https://en.wikipedia.org/wiki/IPredator">IPredator</a>”,
+co-founded by Pirate Bay co-founder Peter Sunde, the comics actually
+raised some valid points to consider, that obviously largely served as
+the inspiration for the above.<br />
+As neither their site nor their services are available any longer, this
+“comic” (or “textbook”!?) can now be found below again for educational
+purposes:</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="01_bullshit_vpn.png" width="327" style="display: block; margin: auto;" /></p>
 </div>
@@ -2229,11 +2360,19 @@ As neither their site nor their services are available any longer, this “comic
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="08_pwned_vs_owned.png" width="327" style="display: block; margin: auto;" /></p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<section class="footnotes" role="doc-endnotes">
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Using a VPN masks the IP address assigned by your ISP from the sites that you access, adding a layer of privacy. Along with masking your origin IP address, it also encrypts your data while in transit to the site you are accessing, which actually is useful especially when connected to an insecure Wi-Fi network in a café, airport, library, or somewhere else.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Using a VPN masks the IP address
+assigned by your ISP from the sites that you access, adding a layer of
+privacy. Along with masking your origin IP address, it also encrypts
+your data while in transit to the site you are accessing, which actually
+is useful especially when connected to an insecure Wi-Fi network in a
+café, airport, library, or somewhere else.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->
@@ -2241,14 +2380,14 @@ As neither their site nor their services are available any longer, this “comic
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=A%20rough%20guide%20to%20VPNs&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F">
-        <i class="fab fa-twitter"></i>
+      <a href="https://twitter.com/share?text=A%20rough%20guide%20to%20VPNs&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F" aria-label="share on twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F&amp;title=A%20rough%20guide%20to%20VPNs">
-        <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F&amp;title=A%20rough%20guide%20to%20VPNs" aria-label="share on linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F">
-        <i class="fab fa-facebook"></i>
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fwww.datamercs.net%2Fposts%2F2021-12-18-a-rough-guide-to-vpns%2F" aria-label="share on facebook">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
     </span>
   </p>

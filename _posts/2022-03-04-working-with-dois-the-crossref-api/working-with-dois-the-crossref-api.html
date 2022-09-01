@@ -1487,31 +1487,92 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#resolving-dois">resolving DOIs</a>
-<ul>
-<li><a href="#find-a-journal-doi-by-issn">find a Journal-DOI by ISSN</a></li>
-<li><a href="#find-an-ebook-doi-by-isbn">find an eBook DOI by ISBN</a></li>
-</ul></li>
+<li><a href="#introduction">// Introduction</a></li>
+<li><a href="#the-crossref-api">// The CrossRef-API</a></li>
+<li><a href="#check-doi-registration">// Check DOI Registration</a></li>
+<li><a href="#check-dois-for-co-access">// Check DOIs for Co-Access</a></li>
+<li><a href="#find-an-ebook-doi-for-an-isbn">// find an eBook-DOI for an ISBN</a></li>
+<li><a href="#find-a-journal-doi-by-issn">// find a Journal-DOI by ISSN</a></li>
+<li><a href="#resolving-dois">resolving DOIs</a></li>
 <li><a href="#analyzing-dois">Analyzing DOIs</a></li>
 </ul>
 </nav>
 </div>
-<p><a href="https://github.com/CrossRef/rest-api-doc" class="uri">https://github.com/CrossRef/rest-api-doc</a></p>
+<h2 id="introduction">// Introduction</h2>
+<p>DOIs (i.e. short for Digital Object Identifier) are supposed to provide persistent linking to an electronic resource<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. So ideally, these are also the URLs that are given in all metadata deliveries, i.e MARC21 in this case.<br />
+DOIs will typically be created according to some sort of specification or syntax, with a publisher prefix and an ID, e.g. the ISBN in case of eBooks, and put into the content package, for example into the BITS-XML.</p>
+<blockquote>
+<p>DOI:<br />
+<a href="https://doi.org/%5BDOI_here%5D" class="uri">https://doi.org/[DOI_here]</a><br />
+(before: <a href="https://dx.doi.org/%5BDOI_here%5D" class="uri">https://dx.doi.org/[DOI_here]</a>)</p>
+</blockquote>
+<p>The registration then happens via message to CrossRef<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, so that the DOI will resolve, i.e. redirect, to the actual location of the content. But what if anything goes wrong, when the queue is too long or one does not have the rights to register on behalf of some third party publisher partner, yet we need to distribute the metadata anyway!? Surely we do not want to provide un-resolving URLs within our MARC records, especially when we know that records will hardly be updated in external (library) catalogues. Therefore we need to make sure that only registered and resolving DOIs will be used and (reluctantly) fall back to local URLs in case DOIs are not yet registered, as we do not know when this will be done. This is why we put together a collection of useful APIs and scripts for the typical questions that customers and colleagues might have, e.g. </p>
+<ul>
+<li>Are these DOIs registered?</li>
+<li>Which DOIs lead to a co-access page?</li>
+<li>What are the DOIs to a list of ISBNs?</li>
+</ul>
+<h2 id="the-crossref-api">// The CrossRef-API</h2>
+<p><a href="https://github.com/CrossRef/rest-api-doc" class="uri">https://github.com/CrossRef/rest-api-doc</a><br />
+<a href="https://api.crossref.org/works/%7BDOI_here%7D" class="uri">https://api.crossref.org/works/{DOI_here}</a><br />
+<a href="https://doi.org/api/handles/%5BDOI_here%5D" class="uri">https://doi.org/api/handles/[DOI_here]</a></p>
+<blockquote>
+<p>Response Codes <a href="https://www.doi.org/factsheets/DOIProxy.html" class="uri">https://www.doi.org/factsheets/DOIProxy.html</a><br />
+1 : Success. (HTTP 200 OK)<br />
+2 : Error. Something unexpected went wrong during handle resolution. (HTTP 500 Internal Server Error)<br />
+100 : Handle Not Found. (HTTP 404 Not Found)<br />
+200 : Values Not Found. The handle exists but has no values (or no values according to the types and indices specified). (HTTP 200 OK)<br />
+301 : That prefix doesn’t live here (http 400 Bad Request)</p>
+</blockquote>
+<h2 id="check-doi-registration">// Check DOI Registration</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">doi_check_via_handle()</span><span class="kw">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> DOI <span class="kw">in</span> <span class="va">$(</span><span class="fu">cat</span> <span class="va">$1)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">doi_response</span><span class="op">=</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-sk</span> <span class="st">&quot;</span><span class="va">$DOIHNDL$DOI</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">responseCode</span><span class="op">=</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;.&quot;responseCode&quot;&#39;</span> <span class="op">&lt;&lt;&lt;</span> <span class="va">$doi_response)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">redirurl</span><span class="op">=</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;.&quot;values&quot;[0].&quot;data&quot;.&quot;value&quot;&#39;</span> <span class="op">&lt;&lt;&lt;</span> <span class="va">$doi_response</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">coaccess</span><span class="op">=</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;.&quot;values&quot;[].&quot;data&quot;.&quot;value&quot;&#39;</span> <span class="op">&lt;&lt;&lt;</span> <span class="va">$doi_response</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;coaccess&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-oP</span> <span class="st">&#39;(?&lt;=href=&quot;).+?(?=&quot;)&#39;</span><span class="va">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;\e[93m </span><span class="va">$DOI</span><span class="st">\e[0m &gt;&gt; \e[96m</span><span class="va">$responseCode</span><span class="st">\e[0m&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;</span><span class="va">$DOI</span><span class="st">\t</span><span class="va">$responseCode</span><span class="st">\t</span><span class="va">$redirurl</span><span class="st">\t</span><span class="va">$coaccess</span><span class="st">&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$REPORT</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000 DOIs: 2 minutes and 56 seconds</span></span></code></pre></div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">doi_check_via_http_header()</span><span class="kw">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> DOI <span class="kw">in</span> <span class="va">$(</span><span class="fu">cat</span> <span class="va">$1)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">doi_response</span><span class="op">=</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-skI</span> <span class="st">&quot;</span><span class="va">$DOIURL</span><span class="st">/</span><span class="va">$DOI</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">responseCode</span><span class="op">=</span><span class="va">$(</span><span class="fu">grep</span> <span class="at">-oP</span> <span class="st">&#39;(?&lt;=HTTP/2 ).+&#39;</span> <span class="op">&lt;&lt;&lt;</span> <span class="va">$doi_response)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">redirurl</span><span class="op">=</span><span class="va">$(</span><span class="fu">grep</span> <span class="at">-oP</span> <span class="st">&#39;(?&lt;=location: ).+&#39;</span> <span class="op">&lt;&lt;&lt;</span> <span class="va">$doi_response)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;\e[93m </span><span class="va">$DOI</span><span class="st">\e[0m &gt;&gt; \e[96m</span><span class="va">$responseCode</span><span class="st">\e[0m&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;</span><span class="va">$DOI</span><span class="st">\t</span><span class="va">$responseCode</span><span class="st">\t</span><span class="va">$redirurl</span><span class="st">&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$REPORT</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000 DOIs: 2 minutes and 41 seconds</span></span></code></pre></div>
+</div>
+<h2 id="check-dois-for-co-access">// Check DOIs for Co-Access</h2>
+<h2 id="find-an-ebook-doi-for-an-isbn">// find an eBook-DOI for an ISBN</h2>
+<p><a href="http://api.crossref.org/works?filter=isbn:$ISBN" class="uri">http://api.crossref.org/works?filter=isbn:$ISBN</a></p>
+<h2 id="find-a-journal-doi-by-issn">// find a Journal-DOI by ISSN</h2>
+<p><a href="https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=$ISSN" class="uri">https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=$ISSN</a><br />
+e.g. <a href="https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=2191-0278" class="uri">https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=2191-0278</a></p>
 <p>##Useful Links</p>
 <h2 id="resolving-dois">resolving DOIs</h2>
 <p><a href="https://dx.doi.org/$DOI" class="uri">https://dx.doi.org/$DOI</a><br />
 <a href="https://doi.org/$DOI" class="uri">https://doi.org/$DOI</a></p>
-<h3 id="find-a-journal-doi-by-issn">find a Journal-DOI by ISSN</h3>
-<p><a href="https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=$ISSN" class="uri">https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=$ISSN</a><br />
-e.g. <a href="https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=2191-0278" class="uri">https://search.crossref.org/?from_ui=yes&amp;type-name=Journal&amp;q=2191-0278</a></p>
-<h3 id="find-an-ebook-doi-by-isbn">find an eBook DOI by ISBN</h3>
-<p><a href="http://api.crossref.org/works?filter=isbn:$ISBN" class="uri">http://api.crossref.org/works?filter=isbn:$ISBN</a></p>
 <h2 id="analyzing-dois">Analyzing DOIs</h2>
 <p><a href="https://api.crossref.org/works/$DOI" class="uri">https://api.crossref.org/works/$DOI</a><br />
 <a href="https://doi.org/api/handles/$DOI" class="uri">https://doi.org/api/handles/$DOI</a><br />
 <a href="https://hdl.handle.net/$DOI" class="uri">https://hdl.handle.net/$DOI</a><br />
 <a href="https://search.crossref.org/?q=$DOI" class="uri">https://search.crossref.org/?q=$DOI</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>DOI stands for Digital Object Identifier and is an open standard. A DOI is an alphanumeric name that identifies digital content, such as a book or journal article. The DOI is paired with the object’s electronic address, or URL, in an updateable central directory, and is published in place of the URL in order to avoid broken links while allowing the content to move as needed. DOIs point to the authoritative version of content on the publisher’s website and to publisher-designated resources. Yet for the user working in an institutional context, it is often useful to be directed to other resources. For example, the institution may not subscribe to the e-journal itself but may still be able to offer the user access to the desired article through an aggregated database or through print holdings. In addition, the library may wish to provide a range of linking options beyond what is available at the publisher’s website.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>CrossRef is a system for the persistent identification of scholarly content and cross-publisher citation linking to the full-text and related resources using the DOI. CrossRef DOIs link to publisher response pages, which include the full bibliographic citation and abstract, as well as full-text access (for authenticated users or at no charge, as determined by the publisher). The publisher response page often includes other linking options, such as pay-per-view access, journal table of contents and homepage, and associated resources. CrossRef is a collaborative membership network, and not a product for purchase.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -24,7 +24,7 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 
 ## // Catalogues
 
-[Gemeinsamer Verbundkatalog (k10plus)](https://kxp.k10plus.de/)  
+[Gemeinsamer Verbundkatalog (GVK/ k10plus)](https://kxp.k10plus.de/)  
 [Elektronische Zeitschriftenbibliothek (EZB)](http://ezb.uni-regensburg.de/)  
 [BASE](https://www.base-search.net) - Bielefeld Academic Search Engine  
 [DNB OPAC](https://portal.dnb.de/opac.htm)  

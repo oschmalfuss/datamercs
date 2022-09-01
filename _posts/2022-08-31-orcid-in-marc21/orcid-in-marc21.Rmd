@@ -1,0 +1,66 @@
+---
+title: "ORCID in MARC21"
+description: |
+  A short description of the post.
+author:
+  - name: Olaf Schmalfuß
+    url: https://www.datamercs.net
+date: 2022-08-31
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#ORCID
+
+
+https://www.loc.gov/marc/mac/2018/2018-dp07.html
+
+100 1# $a Ockerbloom, John Mark. $1 https://orcid.org/0000-0001-6568-3357 $2 orcid
+
+https://www.loc.gov/marc/bibliographic/bdx00.html
+
+$0 - Authority record control number or standard number
+
+See description of this subfield in Appendix A: Control Subfields:
+
+$0 - Authority record control number or standard number
+
+Subfield $0 contains the system control number of the related authority or classification record, or a standard identifier. These identifiers may be in the form of text or a Uniform Resource Identifier (URI). If the identifier is text, the control number or identifier is preceded by the appropriate MARC Organization code (for a related authority record) or the Standard Identifier source code (for a standard identifier scheme), enclosed in parentheses. When the identifier is given in the form of a Web retrieval protocol, e.g., HTTP URI, no preceding parenthetical is used.
+
+Subfield $0 may contain a URI that identifies a name or label for an entity. When dereferenced, the URI points to information describing that name. A URI that directly identifies the entity itself is contained in subfield $1.
+
+
+$1 - Real World Object URI
+
+See description of this subfield in Appendix A: Control Subfields:
+
+$1 - Real World Object URI
+
+Subfield $1 contains a URI that identifies an entity, sometimes referred to as a Thing, a Real World Object or RWO, whether actual or conceptual. When dereferenced, the URI points to a description of that entity. A URI that identifies a name or label for an entity is contained in $0.
+
+$2 - Source of heading or term
+
+MARC code that identifies the source list from which the heading was assigned. For field 100, 700, 800 name or name-title headings, code from: Name and Title Authority Source Codes. For field 600, subfield $2 is used only when the second indicator position contains value 7 (Source specified in subfield $2), and contains a code from: Subject Heading and Term Source Codes.
+
+100	1#$aZhao, Yingzhu.$0http://id.loc.gov/authorities/names/n2013039662$2naf
+600	17$aNixon, Richard M.,$d1913-$2henn
+700	1#$aBeethoven, Ludwig van,$d1770-1827.$tVeränderungen über einen Walzer$0http://id.loc.gov/authorities/names/n81127885$2naf
+
+
+100	1#$aZhao, Yingzhu.$0http://id.loc.gov/authorities/names/n2013039662$2naf
+
+
+
+https://www.loc.gov/marc/mac/2019/2019-02.html
+
+
+FUNDREF
+https://www.loc.gov/marc/marbi/1997/97-12.html
+

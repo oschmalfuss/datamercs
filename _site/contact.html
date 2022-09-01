@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1028,10 +1029,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1861,6 +1858,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1875,6 +1878,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1974,6 +2002,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1996,7 +2026,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2035,7 +2065,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2102,45 +2132,119 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#tldr">// tldr;</a></li>
-<li><a href="#impressum-imprint">Impressum // Imprint</a>
+<li><a href="#tldr" id="toc-tldr">// tldr;</a></li>
+<li><a href="#impressum-imprint" id="toc-impressum-imprint">Impressum //
+Imprint</a>
 <ul>
-<li><a href="#angaben-gemäß-5-tmg">// Angaben gemäß §5 TMG:</a></li>
-<li><a href="#datenschutz">// Datenschutz</a></li>
-<li><a href="#haftung-für-inhalte">// Haftung für Inhalte</a></li>
-<li><a href="#haftung-für-links">// Haftung für Links</a></li>
-<li><a href="#urheberrecht">// Urheberrecht</a></li>
-<li><a href="#auskunfts--und-widerrufsrecht">// Auskunfts- und Widerrufsrecht</a></li>
+<li><a href="#angaben-gemäß-5-tmg" id="toc-angaben-gemäß-5-tmg">//
+Angaben gemäß §5 TMG:</a></li>
+<li><a href="#datenschutz" id="toc-datenschutz">// Datenschutz</a></li>
+<li><a href="#haftung-für-inhalte" id="toc-haftung-für-inhalte">//
+Haftung für Inhalte</a></li>
+<li><a href="#haftung-für-links" id="toc-haftung-für-links">// Haftung
+für Links</a></li>
+<li><a href="#urheberrecht" id="toc-urheberrecht">//
+Urheberrecht</a></li>
+<li><a href="#auskunfts--und-widerrufsrecht"
+id="toc-auskunfts--und-widerrufsrecht">// Auskunfts- und
+Widerrufsrecht</a></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h3 id="tldr">// tldr;</h3>
-<p>DataMercs operate in a transparent manner while respecting the principles of freedom of information and protection of privacy.<br />
+<p>DataMercs operate in a transparent manner while respecting the
+principles of freedom of information and protection of privacy.<br />
 This is basically a private blog/ workshop report.<br />
-The site does not employ cookies or collects any personal data, apart from the technical necessities like IP addresses in the server log or unless you send me an email.</p>
+The site does not employ cookies or collects any personal data, apart
+from the technical necessities like IP addresses in the server log or
+unless you send me an email.</p>
 <h2 id="impressum-imprint">Impressum // Imprint</h2>
 <h3 id="angaben-gemäß-5-tmg">// Angaben gemäß §5 TMG:</h3>
 <p>Olaf Schmalfuß<br />
 <em>M.A. Library and Information Science</em><br />
 12305 Berlin<br />
-<a href="mailto:info@datamercs.net" class="email">info@datamercs.net</a></p>
-<p>Aufgrund des Kleinunternehmerstatus gem. §19 UStG erheben wir keine Umsatzsteuer und weisen diese daher auch nicht aus. Alle angegebenen Preise sind Endpreise zzgl. Liefer-/Versandkosten.</p>
+<a href="mailto:info@datamercs.net"
+class="email">info@datamercs.net</a></p>
+<p>Aufgrund des Kleinunternehmerstatus gem. §19 UStG erheben wir keine
+Umsatzsteuer und weisen diese daher auch nicht aus. Alle angegebenen
+Preise sind Endpreise zzgl. Liefer-/Versandkosten.</p>
 <h3 id="datenschutz">// Datenschutz</h3>
-<p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.<br />
-In Verbindung mit Ihrem Zugriff werden in unserem Server für Zwecke der Datensicherheit vorübergehend Daten gespeichert, die möglicherweise eine Identifizierung zulassen (zum Beispiel IP-Adresse, Datum, Uhrzeit und Name der angeforderten Datei). Eine Auswertung, mit Ausnahme für statistische Zwecke in anonymisierter Form, erfolgt nicht.<br />
-Sollten Sie bei uns Informationsmaterialien bestellen, benötigen wir von Ihnen Name, E-Mail-Adresse sowie Angaben zur Lieferung und Rechnungsstellung. So können wir Ihre Bestellung bearbeiten und ausführen. Diese Daten werden für die Dauer der Auftragsabwicklung in elektronischer Form gespeichert. Eine weitergehende Nutzung personenbezogener Daten oder eine Weitergabe an Dritte erfolgt ohne Ihre ausdrückliche Einwilligung nicht.<br />
-Mit der Bestellung willigen Sie in die genannte Verarbeitung Ihrer personenbezogenen Daten ein, soweit dies für den Zweck des Vertrages erforderlich ist. Sie können diese Einwilligung schriftlich oder per E-Mail uns gegenüber jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+<p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe
+personenbezogener Daten möglich. Soweit auf unseren Seiten
+personenbezogene Daten (beispielsweise Name, Anschrift oder
+E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf
+freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche
+Zustimmung nicht an Dritte weitergegeben.<br />
+In Verbindung mit Ihrem Zugriff werden in unserem Server für Zwecke der
+Datensicherheit vorübergehend Daten gespeichert, die möglicherweise eine
+Identifizierung zulassen (zum Beispiel IP-Adresse, Datum, Uhrzeit und
+Name der angeforderten Datei). Eine Auswertung, mit Ausnahme für
+statistische Zwecke in anonymisierter Form, erfolgt nicht.<br />
+Sollten Sie bei uns Informationsmaterialien bestellen, benötigen wir von
+Ihnen Name, E-Mail-Adresse sowie Angaben zur Lieferung und
+Rechnungsstellung. So können wir Ihre Bestellung bearbeiten und
+ausführen. Diese Daten werden für die Dauer der Auftragsabwicklung in
+elektronischer Form gespeichert. Eine weitergehende Nutzung
+personenbezogener Daten oder eine Weitergabe an Dritte erfolgt ohne Ihre
+ausdrückliche Einwilligung nicht.<br />
+Mit der Bestellung willigen Sie in die genannte Verarbeitung Ihrer
+personenbezogenen Daten ein, soweit dies für den Zweck des Vertrages
+erforderlich ist. Sie können diese Einwilligung schriftlich oder per
+E-Mail uns gegenüber jederzeit mit Wirkung für die Zukunft
+widerrufen.</p>
 <h3 id="haftung-für-inhalte">// Haftung für Inhalte</h3>
-<p>Die auf den Web-Seiten abrufbaren Beiträge dienen nur der allgemeinen Information und nicht der Beratung in konkreten Fällen. Wir sind bemüht, für die Richtigkeit und Aktualität aller auf der Website enthaltenen Informationen und Daten gemäß § 7 Abs.1 TMG zu sorgen. Für die Korrektheit, die Vollständigkeit, die Aktualität oder Qualität der bereitgestellten Informationen und Daten wird jedoch keine Gewähr nach § 8 bis 10 TMG übernommen. Die Haftung für den Inhalt der abrufbaren Informationen wird ausgeschlossen, soweit es sich nicht um vorsätzliche oder grob fahrlässige Falschinformation handelt. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+<p>Die auf den Web-Seiten abrufbaren Beiträge dienen nur der allgemeinen
+Information und nicht der Beratung in konkreten Fällen. Wir sind bemüht,
+für die Richtigkeit und Aktualität aller auf der Website enthaltenen
+Informationen und Daten gemäß § 7 Abs.1 TMG zu sorgen. Für die
+Korrektheit, die Vollständigkeit, die Aktualität oder Qualität der
+bereitgestellten Informationen und Daten wird jedoch keine Gewähr nach §
+8 bis 10 TMG übernommen. Die Haftung für den Inhalt der abrufbaren
+Informationen wird ausgeschlossen, soweit es sich nicht um vorsätzliche
+oder grob fahrlässige Falschinformation handelt. Verpflichtungen zur
+Entfernung oder Sperrung der Nutzung von Informationen nach den
+allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche
+Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
+Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
+Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
 <h3 id="haftung-für-links">// Haftung für Links</h3>
-<p>Wir sind für den Inhalt von Webseiten, die über einen Hyperlink erreicht werden, nicht verantwortlich. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Wir machen uns die Inhalte dieser Internetseiten ausdrücklich nicht zu eigen und können deshalb für die inhaltliche Korrektheit, Vollständigkeit und Verfügbarkeit keine Gewähr leisten. Wir haben bei der erstmaligen Verknüpfung zwar den fremden Inhalt daraufhin überprüft, ob durch ihn eine mögliche zivilrechtliche oder strafrechtliche Verantwortlichkeit ausgelöst wird. Wir sind aber nicht dazu verpflichtet, die Inhalte, auf die wir unserem Angebot verweisen, ständig auf Veränderungen zu überprüfen, die eine Verantwortlichkeit neu begründen könnten. Erst wenn wir feststellen oder von anderen darauf hingewiesen werden, dass ein konkretes Angebot, zu dem wir einen Link bereitgestellt haben, eine zivil- oder strafrechtliche Verantwortlichkeit auslöst, werden wir den Verweis auf dieses Angebot aufheben, soweit uns dies technisch möglich und zumutbar ist.</p>
+<p>Wir sind für den Inhalt von Webseiten, die über einen Hyperlink
+erreicht werden, nicht verantwortlich. Für den Inhalt der verlinkten
+Seiten sind ausschließlich deren Betreiber verantwortlich. Wir machen
+uns die Inhalte dieser Internetseiten ausdrücklich nicht zu eigen und
+können deshalb für die inhaltliche Korrektheit, Vollständigkeit und
+Verfügbarkeit keine Gewähr leisten. Wir haben bei der erstmaligen
+Verknüpfung zwar den fremden Inhalt daraufhin überprüft, ob durch ihn
+eine mögliche zivilrechtliche oder strafrechtliche Verantwortlichkeit
+ausgelöst wird. Wir sind aber nicht dazu verpflichtet, die Inhalte, auf
+die wir unserem Angebot verweisen, ständig auf Veränderungen zu
+überprüfen, die eine Verantwortlichkeit neu begründen könnten. Erst wenn
+wir feststellen oder von anderen darauf hingewiesen werden, dass ein
+konkretes Angebot, zu dem wir einen Link bereitgestellt haben, eine
+zivil- oder strafrechtliche Verantwortlichkeit auslöst, werden wir den
+Verweis auf dieses Angebot aufheben, soweit uns dies technisch möglich
+und zumutbar ist.</p>
 <h3 id="urheberrecht">// Urheberrecht</h3>
-<p>Die durch den Betreiber dieser Seite erstellten Inhalte und Werke auf diesen Webseiten unterliegen dem deutschen Urheberrecht. Sämtliche Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Kopien von diesen Seiten sind nur für den privaten Bereich gestattet, nicht jedoch für kommerzielle Zwecke.</p>
-<h3 id="auskunfts--und-widerrufsrecht">// Auskunfts- und Widerrufsrecht</h3>
-<p>Sie haben jederzeit das Recht, sich unentgeltlich und unverzüglich über die zu Ihrer Person erhobenen Daten zu erkundigen. Ebenfalls können Sie Ihre Zustimmung zur Verwendung Ihrer angegebenen persönlichen Daten mit Wirkung für die Zukunft widerrufen. Hierfür wenden Sie sich bitte an den im Impressum angegebenen Diensteanbieter.</p>
-<p>Verwiesen sei auf den <a href="https://www.disclaimer.de/disclaimer.htm">Haftungsausschluss</a>↗</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Die durch den Betreiber dieser Seite erstellten Inhalte und Werke auf
+diesen Webseiten unterliegen dem deutschen Urheberrecht. Sämtliche
+Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung,
+Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des
+jeweiligen Autors bzw. Erstellers. Kopien von diesen Seiten sind nur für
+den privaten Bereich gestattet, nicht jedoch für kommerzielle
+Zwecke.</p>
+<h3 id="auskunfts--und-widerrufsrecht">// Auskunfts- und
+Widerrufsrecht</h3>
+<p>Sie haben jederzeit das Recht, sich unentgeltlich und unverzüglich
+über die zu Ihrer Person erhobenen Daten zu erkundigen. Ebenfalls können
+Sie Ihre Zustimmung zur Verwendung Ihrer angegebenen persönlichen Daten
+mit Wirkung für die Zukunft widerrufen. Hierfür wenden Sie sich bitte an
+den im Impressum angegebenen Diensteanbieter.</p>
+<p>Verwiesen sei auf den <a
+href="https://www.disclaimer.de/disclaimer.htm">Haftungsausschluss</a>↗</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

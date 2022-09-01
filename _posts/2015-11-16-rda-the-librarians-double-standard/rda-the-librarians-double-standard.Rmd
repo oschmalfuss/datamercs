@@ -1,0 +1,120 @@
+---
+title: "RDA - the librarian's (double) standard"
+description: |
+  While librarians call for openess when it comes to standards and access - the current standard is de facto closed, i.e. hidden behind a pay wall. Nevertheless we'll try implenting and look behind the scenes in this workshop report.
+author:
+  - name: Olaf Schmalfuß
+    url: https://www.datamercs.net
+date: 2015-11-16
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Introduction
+
+De Gruyter is also the home of the Library and Information Science imprint Saur, and of the [IFLA Publications](https://www.ifla.org/ifla-publications-series/). Thus, we have quite a name and track-record in the library community, which is why we are very much dedicated to supporting libraries in managing their collections by providing fast and unrestricted access to high quality metadata.
+
+This also meant (and means) for my work, when taking over and re-designing De Gruyter’s complete MARC workflow in 2013, that we not only have to follow, but stay at the fore front and lead the way when it comes to new standards – or the adoption of it!  
+  
+And in comes RDA ([“Resource Description and Access“](https://www.loc.gov/aba/rda/)) as the facto successor of the [RAK-WB](https://d-nb.info/971769729/34) (as well as AARC2 for the English speaking world), for which De Gruyter collaborates with the American Library Association (ALA) on publishing and distributing the new standard as well its RDA Toolkit ^[
+> Publisher De Gruyter collaborates with the American Library Association (ALA) on publishing and distributing the new standard RDA: Resource Description and Access
+February 1, 2012
+De Gruyter and the ALA have signed an agreement, according to which the publisher will be responsible for the publication and global distribution of the German-language version of the new set of cataloguing standards for print and digital media in libraries and beyond, RDA: Resource Description and Access. The publisher will also sell licenses for the multilingual online version RDA Toolkit in German-speaking countries.
+Major international libraries and library associations in the USA, Canada, Australia and Great Britain have been pushing for the introduction of RDA, which is expected to be recognised internationally as the successor of the Anglo-American Cataloguing Rules (AACR2) and meet the demands for a much more tightly networked information landscape.
+(https://www.degruyter.com/dg/newsitem/13/de-gruyter-kooperiert-mit-der-american-library-association-ala-der-verlag-wird-das-neue-regelwerk-rda-resource-description-and-access-herausgeben-und-vertreiben)
+]
+
+RDA is being developed by the Joint Steering Committee for Development of RDA (JSC) as part of its strategic plan (2005-2009) to replace the Anglo-American Cataloguing Rules, 2nd Edition Revised (AACR2), which were first published in 1978, basically with an “AARC3”. 
+
+At the same time, the German Standards Committee decided to internationalise German standards back in late 2004, including switching over to MARC 21 and actively participating in RDA’s genesis process. And so, the German National Library (DNB) is currently working on a German translation for German-speaking countries.  
+The decision to implement RDA in the USA has been recommended for 2013. The Library of Congress, National Library of Medicine, and National Library of Agriculture will fully implement RDA on March 31, 2013.
+
+The RDA was created to meet the demands of today’s digital environment as well as align with international data models, such as [Functional Requirements for Bibliographic Records (FRBR)]() and the Functional Requirements for [Authority Data (FRAD)](), and provide the rule set that librarians use to catalogue library items and to create MARC records.  
+
+
+## // RDA transition at DG
+
+Two terms that are important to differentiate are **content standards** and **encoding standards**:
+
+  * *Content standards* are the rules and regulations, such as the Anglo-American Cataloguing Rules (AACR2) or RAK-WB, and this is what’s changing to RDA!
+  * *Encoding standards* are the implementations of these rules.  Examples are MARC21, Dublin Core, and XML. 
+
+Thus, in preparation for the transition to RDA, De Gruyter would have to ensure that our IT infrastructure could handle the additional MARC fields.  Furthermore, those cataloguing De Gruyter’s books would need to become familiar with RDA rules.  
+RDA can be implemented in various forms/ encoding standards, but in the Library environment, it will still be implemented using MARC, as it had to be kept compatible to existing AARC databases.  
+And so, the packaging, i.e. MARC21 will stay the same – it “just” needs some adjustments on the inside.  
+At first glance, there were some concerns that updating De Gruyter’s MARC records to RDA compliant MARC records would be the most resource intensive endeavour out of the transition.  
+Two possible options that were proposed, to either copy catalogue from LoC or remap the current MARC records to the new RDA MARC records.  
+Yet, since I had already gone through the endeavour of updating our MARC records for a large consortium deal and overhauling the complete process of creation altogether, the option of simply “patching” the existing records and building in the new rule set into the process turned out to be the easier of the two solutions. Because, looking into what actually did change and needed enhancement, when it comes to RDA, was frankly rather negligible.
+
+### // looking into the new rules
+
+The [RDA Toolkit](https://www.rdatoolkit.org/) is being promoted by LoC as an easy method to explore RDA, but which is also one of the major critique points, when it comes to the philosophy of supposedly *open standards* and the barrier to adoption.  
+The RDA Toolkit provides the text of RDA in a searchable format, AACR2 in a searchable format, procedural documentation on how to modify workflows when transitioning to RDA, and RDA mapping to MARC and other encoding standards.  
+Further, training material are available on the Library of Congress website (https://www.loc.gov/aba/rda/) as well as a mapping list of the elements in RDA and their mapping to MARC: https://www.loc.gov/aba/rda/pdf/core_elements.pdf  
+These standards will not replace those that govern the MARC record structure, but “simply” several new fields will be added.  
+
+### // what’s new in RDA
+
+… as compared to the current standard, i.e. [RAK-WB](https://d-nb.info/971769729/34) in our case? It’s not that a title isn’t a title any longer, an author an author or a copyright year a copyright year!
+
+At first glance, RDA *simply* contains **more** information than the German RAK-WB, i.e.
+
+  * more entities
+  * unlimited number of authors/responsibilities
+  * qualifiers, to identify contributors’ roles or the nature of the content/ media types. An example of the additions are (336) for RDA content types,   (337) for RDA media types, and (338) for RDA carrier types.  These fields are used to describe materials further and will replace the General Material   Designators.
+  * subject headings and classification become mandatory
+  * cataloguing stays in the language of the work
+  * option to include extensive table of contents
+
+And further, RDA appears to be even less strict altogether and provides more freedom to the cataloguer, as we can stay true to the source, i.e. the title page and do not necessarily have to “normalize” (but could do that if we chose to in additional fields), which is a plus, when it comes to data conversion.  
+Because let’s be true, the masses of newly created eBooks are not catalogued one by one manually from the title page, which we sometimes wished we could do, but the data from the ERP system will be broken down and converted into the respective MARC fields, with some additional quality (or sanity checks) later on. 
+  
+And so, here’s what needed to be added to our [DG MARC core set](https://docs.google.com/document/u/1/d/17gA4ae1SZybFfseUqf0r5fyewpkJH3Q_G82BLyc26ec/pub):
+
+  * `=040  \\$aDE-B1597$beng$cDE-B1597$erda`
+  * `=336  \\$atext$btxt$2rdacontent`
+  * `=337  \\$acomputer$bc$2rdamedia`
+  * `=338  \\$aonline resource$bcr$2rdacarrier`
+  * `=347  \\$atext file$bPDF$2rda`
+  * `=505  00` literal structured TOCs for further search entries (basically SEO) instead of the links to the PDFs
+  * Relators for responsibilities: http://id.loc.gov/vocabulary/relators
+
+So from a practical perspective, what’s the benefit for simply adding the new fields and just replacing coded data fields for plain text ones?  
+Actually, I am not sure either, but with more linking introduced, we might want to re-focus our cataloguing away from a record based logic and towards based on entities and relationships, thinking in graphs, which will eventually lead into [BibFrame](https://www.loc.gov/bibframe/), the next standard on the horizon.
+
+
+## // Critics
+
+There has been some opposition to the transition stating that RDA is not a robust enough standard. In response, the three national libraries implemented a test of RDA at various institutions. After which those who received RDA training were asked whether there should be a transition and roughly 70% said yes with some changes.  
+Further, while as a profession, librarians continue to push for open access, open data and the free exchange of information, the new bibliographic standard to replace AACR2 was released basically as a **closed standard**, sitting behind a subscription paywall!  
+That is the antithesis to opening the library data through datasets and APIs, especially when other open (publicly available) standards are quite common in the library sphere already, e.g.
+
+  * [Dublin Core](http://dublincore.org/)
+  * [ISBD](http://www.ifla.org/en/publications/international-standard-bibliographic-description)
+  * [KBART](https://www.niso.org/standards-committees/kbart)
+  * [MADS](http://www.loc.gov/standards/mads/)
+  * [MARC21](http://www.loc.gov/marc/)
+  * [MODS](http://www.loc.gov/standards/mods/)
+  * [ONIX](https://www.editeur.org/8/ONIX/)
+  * [RDF](http://www.w3.org/standards/techs/rdf#w3c_all)
+  * [XML](https://www.w3.org/TR/REC-xml/)
+
+While the RDA vocabularies might be openly available (if you can find them [here](http://rdvocab.info)), for developers, they are essentially useless without the standards documents that give them meaning.
+
+This massively hinders not only librarians in developing countries, but also the adoption of the new standard in general!
+
+... a true (double) standard - let's see where it goes...
+
+## // further reading
+
+For more information in German, refer also to Heidrun Wiesenmüller's page to the textbook ["Basiswissen RDA"](http://dx.doi.org/10.1515/9783110311471): https://www.basiswissen-rda.de/
+
+
