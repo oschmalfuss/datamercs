@@ -15,7 +15,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true
-    self_contained: false
+    self_contained: true
 draft: false
 ---
 

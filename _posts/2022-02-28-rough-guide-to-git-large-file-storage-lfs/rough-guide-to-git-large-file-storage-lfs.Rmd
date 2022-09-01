@@ -14,7 +14,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true
-    self_contained: false
+    self_contained: true
 ---
 
 
@@ -22,12 +22,12 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Introduction
+## // Introduction
 GitHub limits the size of files allowed in repositories to up to 100MB. For working with larger files like data sets or binaries such as MARC record sets, we have to find a solution around that limit. In comes [Git Large File Storage (LFS)](https://git-lfs.github.com/)↗.  
 Git-LFS is an open source Git extension for versioning files above 100MB by replacing them with text pointers inside Git, while storing the file contents outside of the normal Git project on a remote server like GitHub.com.  
 see more info here: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
 
-## Set-up
+## // Set-up
 
 1. download Git-LFS here https://git-lfs.github.com/ and install.
 2. open `Git Bash`
@@ -56,7 +56,7 @@ $ git lfs track --filename [path to file]
 > Tracking "[path to file]"
 ```
 
-### commit and push to GitHub
+### // commit and push to GitHub
 
 ```{bash, eval=F, echo=T}
 $ git add [path to file]
@@ -64,7 +64,7 @@ $ git commit -m "update MARC"
 $ git push origin main
 ```
 
-### check files
+### // check files
 
 list all the (large) files manage by Git-LFS.
 
@@ -73,13 +73,13 @@ $ cd [path to repository]
 $ git lfs ls-files
 ```
 
-### push all referenced Git-LFS files
+### // push all referenced Git-LFS files
 
 ```{bash, eval=F, echo=T}
 $ git lfs push --all origin
 ```
 
-## Issues with Git-LFS
+## // Issues with Git-LFS
 
 So while on paper we get the benefit of being able to handle 100MB+ files, Git-LFS also suddenly adds limitations to your repository's total size as well as to the bandwidth, i.e. 1GB each, resulting in the following error message:  
 
@@ -90,7 +90,7 @@ This can happen really fast, especially if you have lots of med sized files and 
 Therefore, it is also good to know how to uninstall Git-LFS and start over more organized moving forward.  
 The other solution would be a paid subscription.
 
-### how to uninstall Git-LFS
+### // how to uninstall Git-LFS
 
 Simply removing the files from the project does not work, as the Git-LFS objects still exist on the remote storage and will continue to count toward the Git-LFS storage quota. To remove Git-LFS objects from a repository, delete and recreate the repository.
 
@@ -146,7 +146,7 @@ $ rm -rf .git/lfs lfs_files.txt
 * et voilà
 
 
-#### new & easy solution
+#### // new & easy solution
 
 ```{bash, eval=F, echo=T}
 

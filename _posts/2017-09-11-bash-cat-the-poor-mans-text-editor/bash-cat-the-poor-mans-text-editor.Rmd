@@ -11,7 +11,7 @@ author:
 date: 2017-09-11
 output:
   distill::distill_article:
-    self_contained: false
+    self_contained: true
 ---
 
 
@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## // Concatenate and WRITE files
+## // cat: concatenate and WRITE files
 
 Not many people realize that on `bash` you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write multi-line text on the command line, but that for most cases good ol' [cat](https://www.gnu.org/software/coreutils/manual/html_node/cat-invocation.html) is all you needed.  
   

@@ -12,14 +12,14 @@
       <link>https://www.datamercs.net</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Welcome to OS DataMercs</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/welcome</link>
       <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.</description>
       <guid>https://www.datamercs.net/posts/welcome</guid>
-      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -28,7 +28,7 @@
       <link>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</link>
       <description>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.</description>
       <guid>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</guid>
-      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Feb 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png" medium="image" type="image/png" width="511" height="272"/>
     </item>
     <item>
@@ -40,7 +40,7 @@ While VPNs are a solid solution in an institutional environment to access one's 
 This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*.</description>
       <guid>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</guid>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/01_bullshit_vpn.png" medium="image" type="image/png" width="654" height="652"/>
+      <media:content url="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/distill-preview.png" medium="image" type="image/png" width="654" height="652"/>
     </item>
     <item>
       <title>Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?</title>
@@ -76,7 +76,7 @@ Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritte
       <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos or converting to mp3 that are usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
       <guid>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</guid>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
-      <media:content url="https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/VLC-open_network_stream_0.png" medium="image" type="image/png" width="856" height="673"/>
+      <media:content url="https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/distill-preview.png" medium="image" type="image/png" width="856" height="673"/>
     </item>
     <item>
       <title>rbbKultur - Mediathek-Downloader</title>
