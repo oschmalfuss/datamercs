@@ -12,15 +12,24 @@
       <link>https://www.datamercs.net</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Nov 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Welcome to OS DataMercs</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/welcome</link>
-      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.</description>
+      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, teaching and providing most recognized metadata services.</description>
       <guid>https://www.datamercs.net/posts/welcome</guid>
-      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>GitHub Desktop window not launching</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching</link>
+      <description>GitHub Desktop seems to be launching on double click, but no UI window opens. This is a quick reminder on how to fix this.</description>
+      <guid>https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching</guid>
+      <pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching/RelaunchGitHubDesktop.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>rough guide to Git Large File Storage (LFS)</title>
@@ -28,7 +37,7 @@
       <link>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</link>
       <description>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.</description>
       <guid>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</guid>
-      <pubDate>Sun, 27 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png" medium="image" type="image/png" width="511" height="272"/>
     </item>
     <item>
@@ -50,6 +59,7 @@ This article is not intended to deeply elaborate on that, but serves as a person
 Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.</description>
       <guid>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation</guid>
       <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation/Post-Zollregulativ.png" medium="image" type="image/png" width="878" height="700"/>
     </item>
     <item>
       <title>Z39.50 for Dummies</title>
@@ -97,7 +107,7 @@ Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritte
       <media:content url="https://www.datamercs.net/posts/2017-11-09-bash-test-command/helptest.png" medium="image" type="image/png" width="640" height="320"/>
     </item>
     <item>
-      <title>bash cat - the poor man's text editor</title>
+      <title>bash 'cat' - the poor man's text editor</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor</link>
       <description>Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:

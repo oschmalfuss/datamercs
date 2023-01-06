@@ -1,5 +1,5 @@
 ---
-title: "bash cat - the poor man's text editor"
+title: "bash 'cat' - the poor man's text editor"
 description: |
   Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:
   All you need is some "cat magic"

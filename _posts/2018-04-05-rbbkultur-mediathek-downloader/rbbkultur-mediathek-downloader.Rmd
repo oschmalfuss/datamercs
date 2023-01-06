@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = F)
 For archival or educational purposes it might be useful to know how to download content from public radio and TV broadcasters' archives, i.e. "Mediathek".  
 This only works, when the program is archived as a whole file in a convenient format like mp3 or mp4, and not in a chunked m3u streaming format.
 This we will see in step 4. below. So if we encounter m3u, we will use VLC instead to capture and convert the stream, see:  
-**link to VLC howto**
+[HowTo download audio from m3u or m4s with VLC](https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/#download-video-audio-from-m3u-or-m4s-with-vlc)
 
 ## 1. select Program
 * rbbKultur - Mediathek

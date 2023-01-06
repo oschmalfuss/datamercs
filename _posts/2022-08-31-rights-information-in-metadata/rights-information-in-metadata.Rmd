@@ -37,3 +37,43 @@ https://wiki.dnb.de/display/DINIAGKIM/MAchine-Readable+Cataloging+-+MARC
 
 https://www.loc.gov/marc/mac/2018/2018-dp10.html
 https://www.loc.gov/marc/mac/2018/2018-dp11.html
+
+
+
+
+# licensed elements - DDC
+
+Darf ich DDC-Notationen für die eigene Sammlung kostenfrei vergeben?
+Grundsätzlich können DDC-Notationen ohne Lizenzierung für die Klassifizierung von Objekten verwendet werden.
+
+Der vollständige Inhalt der DDC, das heißt alles, was über einzelne DDC-Notationen und Klassenbenennungen hinausgeht, ist durch das Online Computer Library Center (OCLC) urheberrechtlich geschützt.
+
+Can I assign DDC numbers free of charge for my own collection?
+In principle, no license is required to classify media using DDC numbers.
+
+The complete content of the DDC system, i.e. everything that goes beyond individual DDC numbers and class headings, is protected by copyright by OCLC.
+https://www.dnb.de/EN/Professionell/DDC-Deutsch/ddc-deutsch_node.html
+
+DDC Deutsch – data use
+In principle, the individual DDC numbers can be used without licenses.
+
+The classification application WebDewey Deutsch incorporates the full content of DDC Deutsch. The use of WebDewey Deutsch is fee-based, and licenses can be obtained from the German National Library.
+
+More about WebDewey Deutsch
+
+The part of DDC Deutsch incorporated into WebDewey Search is freely accessible under license Creative Commons BY-NC-ND 3.0; this means it can be used or forwarded for non-commercial purposes. This is conditional on OCLC being named as the rights holder and on the data content not being edited or modified.
+
+More about WebDewey Search
+https://www.dnb.de/EN/Professionell/DDC-Deutsch/UebersetzungNutzung/uebersetzungNutzung_node.html#doc266192bodyText3
+
+
+Licensing
+Since the DDC system was created more than 135 years ago, it's easy to assume that the Dewey name is in the public domain. However, it never has been, and since 1988, OCLC Online Computer Library Center has held the trademark on the Dewey name.
+https://www.oclc.org/en/dewey/resources.html
+
+
+OCLC claims copyright and trademark on the DDC, and while the summary of DDC can be freely read on the Web, its use appears to be governed by this license, which states, among other things, that users may “not copy, reproduce, alter, modify, create derivative works, or publicly display any content (except for your own non-commercial use)”.  It further clarifies that “‘non-commercial use’ … is not to be construed as permitting use of the DDC that (although internal) supports or otherwise facilitates your commercial activities.”  (Note also that the linked license applies only to the DDC summary, not to the complete DDC.  If you want a license for the full DDC, you’ll need to contact OCLC.)
+
+"Use of the DDC and Attribution. Use of the DDC is subject to the OCLC ResearchWorks license. Please note that the "non-commercial use" authorized by Section 1 of the OCLC ResearchWorks license is not to be construed as permitting use of the DDC that (although internal) supports or otherwise facilitates your commercial activities.  All use of the DDC requires that the following proprietary rights notice be displayed on the initial page of the relevant interface or in an equally prominent and appropriate place:
+All copyright rights in the Dewey Decimal Classification system are owned by OCLC. Dewey, Dewey Decimal Classification, DDC and WebDewey are registered trademarks of OCLC."
+https://www.oclc.org/research/activities/browser/terms.html

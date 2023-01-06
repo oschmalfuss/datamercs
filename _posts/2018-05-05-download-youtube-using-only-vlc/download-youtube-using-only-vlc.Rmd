@@ -109,9 +109,11 @@ knitr::include_graphics("VLC-open_network_stream_3.png")
 knitr::include_graphics("VLC-open_network_stream_4.png")
 ```
 
-## // Download video | audio from m3u with VLC
+## // Download video | audio from m3u or m4s with VLC
 
-The same procedures can be used to play, download or convert **M3U** streams directly in VLC.  
+The same procedures can be used to play, download or convert **M3U** streams (or other) directly in VLC.  
 M3U files are basically a type of playlist, where the location of each item on the playlist is placed on a new line, and which are widely used by (German) public broadcasting for streams, instead the of un-split mp3 or mp4 files we could find otherwise in the *Mediathek*.  
-For that, simply download the m3u TXT file to local or paste the m3u's link into the **network URL** again (via **Ctrl + N**) and follow the steps above.  
+For that, simply download the m3u TXT file to local or paste the m3u's link into the **network URL** again (via **Ctrl + N**) and follow the steps given under [// Download audio from YouTube with VLC](https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/#download-audio-from-youtube-with-vlc) above.  
+For [DASH](https://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd) (Dynamic Adaptive Streaming over HTTP) and its related **.m4s** media segment files, one has to identify the initialization segment, like **pc_hd_abr_v2_nonuk_dash_master.mpd** in BBC's radio programmes. Conversion again follows the steps above.  
+
   

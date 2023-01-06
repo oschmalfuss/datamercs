@@ -1,0 +1,52 @@
+---
+title: "Standards & Resources"
+description: |
+  Useful Resources for Practitioners
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## // Standards
+
+MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliographic) // [DNB](https://www.dnb.de/marc21) // [OCLC](https://www.oclc.org/bibformats/en/about.html)  
+[KBART](https://www.niso.org/standards-committees/kbart) - Knowledge Bases and Related Tools Recommended Practice  
+[ONIX](https://www.editeur.org/8/ONIX/) for Books Product Information Message  
+[ISBD](https://www.ifla.org/international-standard-bibliographic-description) - International Standard Bibliographic Description  
+[JATS - Journal Article Tag Suite // BITS](https://jats.nlm.nih.gov)  
+
+## // Catalogues
+
+[Gemeinsamer Verbundkatalog (GVK/ k10plus)](https://kxp.k10plus.de/)  
+[Elektronische Zeitschriftenbibliothek (EZB)](http://ezb.uni-regensburg.de/)  
+[BASE](https://www.base-search.net) - Bielefeld Academic Search Engine  
+[DNB OPAC](https://portal.dnb.de/opac.htm)  
+[LoC OPAC](https://catalog.loc.gov/vwebv/searchAdvanced) // [LC Subject Headings (LCSH)](https://id.loc.gov/authorities/subjects.html)  
+[Datenbank-Infosystem (DBIS)](https://dbis.ur.de/)  
+[VIAF](https://viaf.org/) - Virtual International Authority File  
+[Zeitschriftendatenbank (ZDB)](https://zdb-katalog.de/index.xhtml)  
+
+## // APIs
+
+[Crossref API](https://api.crossref.org/)  
+[SRU](https://www.loc.gov/standards/sru/) - Search/Retrieve via URL // [Z39.50-Zugang des GBV](https://verbundwiki.gbv.de/display/VZG/Schnittstellen)  
+[WorldCat - bib Read](https://developer.api.oclc.org/)  
+
+## // Tools
+
+[cygwin](https://cygwin.com/install.html)  
+[draw.io](https://app.diagrams.net)  
+[MarcEdit](https://marcedit.reeset.net/)  
+[R](https://www.r-project.org) // [RStudio](https://www.rstudio.com/products/rstudio/)  
+
+## // De Gruyter's (interim) metadata portal
+
+[DG metadata portal](https://oschmalfuss.github.io/degruyter/FTP-Index.html) - packages' MARCs and KBARTs  
+[DG eBook records](https://oschmalfuss.github.io/degruyter/DG-title-records.html) - title level records  

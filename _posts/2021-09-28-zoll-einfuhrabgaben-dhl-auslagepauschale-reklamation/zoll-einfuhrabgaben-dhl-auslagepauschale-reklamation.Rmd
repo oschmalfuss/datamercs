@@ -3,6 +3,7 @@ title: "Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslag
 description: |
   Seitdem am 1. Juli 2021 die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland entfiel, werden scheinbar auch Geschenksendungen, die weiter bis zu einem Wert von 45 EUR zoll- und einfuhrumsatzsteuerfrei sind, systematisch abgerechnet, zumal die Post den "Service" der Zollanmeldung übernommen hat und jegliche Gebühren - plus 6 EUR Auslagenpauschale - fraglos vorstreckt und dann per Postboten eintreibt, auch wenn die Pakete klar als Geschenk gekennzeichnet sind.  
   Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.
+preview: "Post-Zollregulativ.png"
 author:
 - first_name: "Olaf"
   last_name: "Schmalfuß"
@@ -25,18 +26,19 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## // Einführung - Zoll und DHL Hand in Hand
 
-Fehler oder Kalkül? Ab dem 1. Juli 2021 entfiel (offenbar zur Eindämmung des Online-Geschäfts via Alibaba & co.) die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland nach Deutschland, sodass für alle Warensendungen (bis auf wenige Ausnahmen) nun Abgaben fällig werden^[vgl. "Neuerungen ab 01. Juli 2021" hier: https://www.deutschepost.de/de/b/briefe-ins-ausland/zollinformation/neuerungen-2021.html]. 
+Fehler oder Kalkül? Ab dem 1. Juli 2021 entfiel (offenbar zur Eindämmung des Online-Geschäfts via Alibaba & co.) die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland nach Deutschland, sodass nun für alle Warensendungen (bis auf wenige Ausnahmen) Abgaben fällig werden^[vgl. "Neuerungen ab 01. Juli 2021" hier: https://www.deutschepost.de/de/b/briefe-ins-ausland/zollinformation/neuerungen-2021.html]. 
   
 Gleichzeitig übernahm ganz service-orientiert die Deutsche Post "als Ihr Transportdienstleister" die Zollanmeldung für alle derartigen Warensendungen (gegen 6 EUR Auslagenpauschale), und so scheinen nun völlig ungeprüft einfach alle Auslandssendungen ungeachtet jeglicher Zollinhaltserklärung erstmal systematisch verzollt und nicht mehr wie zuvor, im Falle klar gekennzeichneter Geschenksendungen, regulär durch- oder wenigstens zur etwaigen Klärung zum lokalen Zollamt geschickt zu werden - so zumindest in 100% aller Pakete seither hier.  
-Das spart natürlich Aufwand und der Zoll kann jetzt erst einmal widerspruchslos kassieren. Die Post streicht die 6 EUR pro Paket extra ein und der Empfänger hat das Nachsehen, denn zur Reklamation wird der nun zu leistende (Zeit-) Aufwand die Rückforderung i.d.R.  wohl übersteigen:-\\ 
+Das spart natürlich Aufwand und der Zoll kann jetzt erst einmal widerspruchslos kassieren. Die Post streicht die 6 EUR pro Paket extra ein und der Empfänger hat das Nachsehen, denn zur Reklamation wird der nun zu leistende (Zeit-) Aufwand die Rückforderung i.d.R. wohl übersteigen:-\\ 
   
 Und so erweist sich auch für uns diese Regelung als recht ungünstig, da die Oma aus dem Ausland ihren Enkeln gerne einmal kleinere [Care-Pakete](https://de.wikipedia.org/wiki/Westpaket)↗ zukommen lässt, sodass selbst bei eigentlich zu vernachlässigenden Zollbeträgen jew. noch die besagten 6 EUR DHL-Auslagenpauschale hinzukommen, wo das Nachsehen dann doch ein Ende hat. Denn weiterhin gilt:  
 
 > "Geschenksendungen im Wert von bis zu 45 Euro sind zoll- und einfuhrumsatzsteuerfrei ^[https://www.zoll.de/DE/Privatpersonen/Postsendungen-Internetbestellungen/Sendungen-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Geschenksendungen/geschenksendungen_node.html#doc289556bodyText3].  
 > [ABER:] Die Befreiung von den Einfuhrabgaben kann nur gewährt werden, wenn dies durch den Post- und Kurierdienstleister beantragt wird. Die Zollverwaltung geht in der Regel von einer ordnungsgemäßen Zollanmeldung der Post- und Kurierdienstleister aus.^[https://www.zoll.de/DE/Privatpersonen/Postsendungen-Internetbestellungen/Sendungen-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Geschenksendungen/geschenksendungen_node.html#doc289556bodyText1]"
 
-Das heißt, an irgendeiner Stelle hätte wohl die ordnungsgemäße Verarbeitung auch für Geschenksendungen durchaus stattfinden sollen, wobei die KI offenkundlich sogar chin. Adressen maschinell auslesen können soll, aber für standardisierte Häkchen auf einem CN22-Formular die entsprechende Zeile im OCR-Code sicherlich nur versehentlich auskommentiert wurde^[https://www.siemens-logistics.com/de/news/pressemitteilungen/siemens-erhaelt-auftrag-der-deutschen-post-fuer-internationales-drehkreuz], o.ä. ... Ein Schelm, der Böses dabei denkt!  
+Das heißt, an irgendeiner Stelle hätte wohl durchaus die ordnungsgemäße Verarbeitung auch für Geschenksendungen stattfinden sollen, wobei die eingesetzte "KI" offenkundlich sogar chin. Adressen maschinell auslesen können soll, aber für standardisierte Häkchen auf einem CN22-Formular die entsprechende Zeile im OCR-Code sicherlich nur versehentlich auskommentiert wurde^[https://www.siemens-logistics.com/de/news/pressemitteilungen/siemens-erhaelt-auftrag-der-deutschen-post-fuer-internationales-drehkreuz], o.ä. ... Ein Schelm, der Böses dabei denkt!  
   
+### // tldr;
 Daher soll an dieser Stelle der Prozess für die Rückforderung(en) zur künftigen Referenz einmal festgehalten werden, nicht zuletzt, um es den o.g. Institutionen nicht zu einfach zu machen, und letztlich handelt es sich auch "nur" um drei Schritte:
 
 1. für einen "Antrag auf Erstattung oder Erlass" beim Zoll benötigen wir von der Post zunächst den originalen [DHL-Abgabenbescheid](https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/abgabenbescheid-anfordern.html)↗:
@@ -71,15 +73,19 @@ https://www.dhl.de/de/privatkunden/hilfe-kundenservice/formulare/abgabenbescheid
 > (DHL)Sendungsnummer  
 
 ## // 2. Zoll - Erlass- bzw. Erstattungsverfahren
+Offizielle Seite dazu beim Zoll:
 
-https://www.zoll.de/DE/Fachthemen/Zoelle/Abgabenerhebung/Erlass-Erstattung/Verfahren/verfahren_node.html
+> https://www.zoll.de/DE/Fachthemen/Zoelle/Abgabenerhebung/Erlass-Erstattung/Verfahren/verfahren_node.html
 
-2.1 "Antrag auf Erstattung oder Erlass" (Formular 0223) s. https://www.formulare-bfinv.de/ffw/action/invoke.do?id=0223  
+2.1 "Antrag auf Erstattung oder Erlass" (Formular 0223)  
+Online ausfüllen und als PDF "ausdrucken" hier: https://www.formulare-bfinv.de/ffw/action/invoke.do?id=0223  
+Das PDF muss signiert/ "unterschrieben" werden, wie z.B. für Adobe Reader [hier erklärt](https://helpx.adobe.com/de/acrobat/using/fill-and-sign.html)↗.   
   
 2.2 der Zoll braucht eine Einwillingung für die "Elektronische Kommunikation mit der Zollverwaltung gemäß § 87a Abgabenordnung", damit die Kommunikatione über Email erfolgen kann.  
 Ein Muster gibt es hier, worin jedoch das Hauptzollamt Köln bereits vorausgefüllt ist, wohingegen internat. Pakete wohl meist über Frankfurt a.M. reinommen:  
 https://media.frag-den-staat.de/files/foi/497520/MusterschreibenzurEinwilligungnach87aAbs.1Satz3AO.pdf  
 Das (wohlformatierte) PDF kann aber in OpenOffice (oder Word) geöffnet und entsprechend umgeschrieben werden.  
+Das PDF muss signiert/ "unterschrieben" werden, wie z.B. für Adobe Reader [hier erklärt](https://helpx.adobe.com/de/acrobat/using/fill-and-sign.html)↗.   
   
 2.3 Der Antrag selbst erfolgt dann per Email an die Adresse aus dem DHL-Abgabenbescheid, z.B.:
 

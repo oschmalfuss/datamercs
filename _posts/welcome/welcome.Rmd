@@ -1,7 +1,7 @@
 ---
 title: "Welcome to OS DataMercs"
 description: |
-  OS DataMercs is inspired to elevate the publishing industry by consulting, encouraging and providing most recognized metadata services.
+  OS DataMercs is inspired to elevate the publishing industry by consulting, teaching and providing most recognized metadata services.
 preview: "trinity of discovery.jpg"
 author:
 - first_name: "Olaf"
@@ -24,14 +24,23 @@ knitr::opts_chunk$set(echo = F)
 
 The "Trinity of Discovery" exhibits our holistic approach to metadata delivery and creation, and sets the framework to a title's - may it be eBook or journal - (meta) data needs.  
 It is also what most libraries would expect to receive from a publisher one way or another, either directly or through third party services or union catalogues:  
-meta data and discovery from the smallest chunk down to collection level, because  
+Meta data and discovery from the smallest chunk down to collection level, because  
 
-> »We are not going to buy any of your eBooks if users cannot discover them.«  
+> »We are not going to buy any of your eBooks if users cannot discover them!«  
 > (an unnamed head of aqcuisition)
 
-MARC records, KBARTs, ONIX and JATS XML are key, especially to scientific publishing houses!  
+MARC records, KBARTs, ONIX and JATS XML are key, and even sales relevant, especially to scientific publishing houses!  
 Naturally, one could go beyond that, if we talked about linked data, which would even aim at the most atomic bits of data points, but since most publishers usually have hardly even the basics covered, the *trinity* shall serve as our North star here.  
-Thus, this site aims to showcase several tools and workflows around that, so that even the smallest publisher, or inclined librarian, can build upon that and implement their own (half-) automated data pipelines, from ERP to .MRC;-)  
+  
+Guided by "Five Laws of Library Science" (published by Shiyali Ramainrita (S. R.) Ranganathan (1892-1972), an Indian mathematician and library science scholar, in 1931^[Ranganathan, S. R.: The five laws of library science. London: Edward Goldston, Ltd.; Madras: Madras Library Association, 1931. https://hdl.handle.net/2027/uc1.$b99721 ↗]), which are:
+
+> 1. Books are for use.
+> 2. Every person his or her book!
+> 3. Every book its reader.
+> 4. Save the time of the reader.
+> 5. A Library is a growing organism.
+
+this site aims to showcase several tools and workflows around that, so that even the smallest publisher, or inclined librarian, can build upon that and implement their own (half-) automated data pipelines, *From ERP to .MRC*;-)  
 
 ```{r fig_example, layout="l-body-outset",fig.align = 'center'}
 knitr::include_graphics("trinity of discovery.jpg")
