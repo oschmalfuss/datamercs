@@ -9,17 +9,18 @@
   <meta name="generator" content="distill" />
 
   <style type="text/css">
-  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
-  body {
-    visibility: hidden;
-  }
-  </style>
+
+body {
+visibility: hidden;
+}
+</style>
 
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -35,54 +36,55 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ad0000; } /* Alert */
-code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #ad0000; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
-code span.ch { color: #20794d; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #5e5e5e; } /* Comment */
-code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-code span.dt { color: #ad0000; } /* DataType */
-code span.dv { color: #ad0000; } /* DecVal */
-code span.er { color: #ad0000; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #ad0000; } /* Float */
-code span.fu { color: #4758ab; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
-code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
-code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
-code span.ss { color: #20794d; } /* SpecialString */
-code span.st { color: #20794d; } /* String */
-code span.va { color: #111111; } /* Variable */
-code span.vs { color: #20794d; } /* VerbatimString */
-code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+code span { color: #00769e; } 
+code span.al { color: #ad0000; } 
+code span.an { color: #5e5e5e; } 
+code span.at { color: #657422; } 
+code span.bn { color: #ad0000; } 
+code span.bu { } 
+code span.cf { color: #00769e; } 
+code span.ch { color: #20794d; } 
+code span.cn { color: #8f5902; } 
+code span.co { color: #5e5e5e; } 
+code span.cv { color: #5e5e5e; font-style: italic; } 
+code span.do { color: #5e5e5e; font-style: italic; } 
+code span.dt { color: #ad0000; } 
+code span.dv { color: #ad0000; } 
+code span.er { color: #ad0000; } 
+code span.ex { } 
+code span.fl { color: #ad0000; } 
+code span.fu { color: #4758ab; } 
+code span.im { } 
+code span.in { color: #5e5e5e; } 
+code span.kw { color: #00769e; } 
+code span.op { color: #5e5e5e; } 
+code span.ot { color: #00769e; } 
+code span.pp { color: #ad0000; } 
+code span.sc { color: #5e5e5e; } 
+code span.ss { color: #20794d; } 
+code span.st { color: #20794d; } 
+code span.va { color: #111111; } 
+code span.vs { color: #20794d; } 
+code span.wa { color: #5e5e5e; font-style: italic; } 
 </style>
 
 
@@ -126,7 +128,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Z39.50 for Dummies"]},{"type":"character","attributes":{},"value":["This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Wolfram Schneider"]},{"type":"character","attributes":{},"value":["https://wolfram.schneider.org"]},{"type":"character","attributes":{},"value":["Index Data"]},{"type":"character","attributes":{},"value":["https://www.indexdata.com"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olaf"]},{"type":"character","attributes":{},"value":["Schmalfuß"]},{"type":"character","attributes":{},"value":["0000-0002-1919-3848"]}]}]},{"type":"character","attributes":{},"value":["2020-08-15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Z39.50 for Dummies"]},{"type":"character","attributes":{},"value":["This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Wolfram Schneider"]},{"type":"character","attributes":{},"value":["https://wolfram.schneider.org"]},{"type":"character","attributes":{},"value":["Index Data"]},{"type":"character","attributes":{},"value":["https://www.indexdata.com"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olaf"]},{"type":"character","attributes":{},"value":["Schmalfuß"]},{"type":"character","attributes":{},"value":["0000-0002-1919-3848"]}]}]},{"type":"character","attributes":{},"value":["2020-08-15"]},{"type":"character","attributes":{},"value":["Metadata Standards","Technical Guides","Z39.50 & Protocols"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/"]},{"type":"character","attributes":{},"value":["https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -478,8 +480,8 @@ d-title {
 </style>
 
 <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
 <script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
 <script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
@@ -808,6 +810,7 @@ d-title .dt-tags {
 d-article table.gt_table td,
 d-article table.gt_table th {
   border-bottom: none;
+  font-size: 100%;
 }
 
 .html-widget {
@@ -848,9 +851,21 @@ d-article table.gt_table th {
   display: none !important;
 }
 
+hr.section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0px;
+}
+
+
+d-byline {
+  border-top: none;
+}
+
 d-article {
   padding-top: 2.5rem;
   padding-bottom: 30px;
+  border-top: none;
 }
 
 d-appendix {
@@ -945,6 +960,11 @@ d-article div.sourceCode pre {
 d-article div.sourceCode pre {
   padding-left: 18px;
   font-size: 14px;
+}
+
+/* tweak for Pandoc numbered line within distill */
+d-article pre.numberSource code > span {
+    left: -2em;
 }
 
 d-article pre {
@@ -1706,6 +1726,12 @@ function init_distill() {
   // create d-title
   $('.d-title').changeElementType('d-title');
 
+  // separator
+  var separator = '<hr class="section-separator" style="clear: both"/>';
+  // prepend separator above appendix
+  $('.d-byline').before(separator);
+  $('.d-article').before(separator);
+
   // create d-byline
   var byline = $('<d-byline></d-byline>');
   $('.d-byline').replaceWith(byline);
@@ -1783,8 +1809,9 @@ function init_distill() {
   $('.distill-force-highlighting-css').parent().remove();
 
   // remove empty line numbers inserted by pandoc when using a
-  // custom syntax highlighting theme
-  $('code.sourceCode a:empty').remove();
+  // custom syntax highlighting theme, except when numbering line
+  // in code chunk
+  $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
   // load distill framework
   load_distill_framework();
@@ -1810,12 +1837,13 @@ function init_distill() {
     // add orcid ids
     $('.authors-affiliations').find('.author').each(function(i, el) {
       var orcid_id = front_matter.authors[i].orcidID;
+      var author_name = front_matter.authors[i].author
       if (orcid_id) {
         var a = $('<a></a>');
         a.attr('href', 'https://orcid.org/' + orcid_id);
         var img = $('<img></img>');
         img.addClass('orcid-id');
-        img.attr('alt', 'ORCID ID');
+        img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
         img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
         a.append(img);
         $(this).append(a);
@@ -1880,15 +1908,21 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-        var fn = $(this).children()[0]
+      const citeChild = $(this).children()[0]
+      // Do not process if @xyz has been used without escaping and without bibliography activated
+      // https://github.com/rstudio/distill/issues/466
+      if (citeChild === undefined) return true
+
+      if (citeChild.nodeName == "D-FOOTNOTE") {
+        var fn = citeChild
         $(this).html(fn.shadowRoot.querySelector("sup"))
         $(this).id = fn.id
         fn.remove()
       }
       var refs = $(this).attr('data-cites').split(" ");
       var refHtml = refs.map(function(ref) {
-        return "<p>" + $('#ref-' + ref).html() + "</p>";
+        // Could use CSS.escape too here, we insure backward compatibility in navigator
+        return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
       }).join("\n");
       window.tippy(this, {
         allowHTML: true,
@@ -3159,13 +3193,15 @@ distill-header .nav a {
 
 <div class="d-title">
 <h1>Z39.50 for Dummies</h1>
+
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:Metadata_Standards" class="dt-tag">Metadata Standards</a>
+  <a href="../../index.html#category:Technical_Guides" class="dt-tag">Technical Guides</a>
+  <a href="../../index.html#category:Z39.50_&amp;_Protocols" class="dt-tag">Z39.50 &amp; Protocols</a>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>This (cleaning up the vaults) is a shameless re-post of a now no
-longer available blogpost by Wolfram Schneider from Index Data,
-originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a
-lot about implementing Z39.50 and the YAZ toolkit. I even printed it out
-back in the day and it is still worth reading today!</p></p>
+<p><p>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</p></p>
 </div>
 
 <div class="d-byline">
@@ -3182,18 +3218,13 @@ back in the day and it is still worth reading today!</p></p>
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#z39.50-for-dummies">// Z39.50 for Dummies</a>
+<li><a href="#z39.50-for-dummies" id="toc-z39.50-for-dummies">// Z39.50 for Dummies</a>
 <ul>
-<li><a href="#z39.50-for-dummies-series---part-1">// Z39.50 for Dummies
-Series - Part 1</a></li>
-<li><a href="#z39.50-for-dummies-part-2">// Z39.50 for Dummies Part
-2</a></li>
-<li><a href="#z39.50-for-dummies-series---part-3">// Z39.50 for Dummies
-Series - Part 3</a></li>
-<li><a href="#z39.50-for-dummies---part-4">// Z39.50 for Dummies - Part
-4</a></li>
-<li><a href="#z39.50-for-dummies---part-5">// Z39.50 for Dummies - Part
-5</a></li>
+<li><a href="#z39.50-for-dummies-series---part-1" id="toc-z39.50-for-dummies-series---part-1">// Z39.50 for Dummies Series - Part 1</a></li>
+<li><a href="#z39.50-for-dummies-part-2" id="toc-z39.50-for-dummies-part-2">// Z39.50 for Dummies Part 2</a></li>
+<li><a href="#z39.50-for-dummies-series---part-3" id="toc-z39.50-for-dummies-series---part-3">// Z39.50 for Dummies Series - Part 3</a></li>
+<li><a href="#z39.50-for-dummies---part-4" id="toc-z39.50-for-dummies---part-4">// Z39.50 for Dummies - Part 4</a></li>
+<li><a href="#z39.50-for-dummies---part-5" id="toc-z39.50-for-dummies---part-5">// Z39.50 for Dummies - Part 5</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -3201,41 +3232,18 @@ Series - Part 3</a></li>
 <h1 id="z39.50-for-dummies">// Z39.50 for Dummies</h1>
 <p>by Wolfram Schneider on 2009/08/27<br />
 (<a href="http://www.indexdata.com/blog/2009/08/z3950-dummies" class="uri">http://www.indexdata.com/blog/2009/08/z3950-dummies</a>)</p>
-<p>One of the things Index Data is known for is the <a href="http://www.indexdata.com/yaz">YAZ toolkit</a> - an open source
-programmers’ toolkit supporting the development of Z39.50/SRW/SRU
-clients and servers. The first release was in 1995 and I’ve been using
-it for my own metasearch engine <a href="http://opus.tu-bs.de/zack/index.en.html">ZACK Gateway</a> since
-1998, long before I joined Index Data.</p>
-<p>Z39.50 is a client-server protocol for searching and retrieving
-information from remote computer databases. It is a mature low level
-protocol like HTTP and FTP. You don’t implement Z39.50 yourself, you use
-the YAZ utilities and the libraries and frameworks for in other
-languages (C++, PHP, Perl, etc.).</p>
-<p>There are many people who thinks that Z39.50 is a dead standard, and
-hard to understand. That is not true. Z39.50 is still growing in use,
-stable and very fast. It is the only widely available protocol for
-metasearch.</p>
-<p>Using Z39.50 is not harder than using FTP. I think that the overhead
-for learning Z39.50 is less than a half day for an experienced
-programmer. Every problem which you have later is not related to the
-Z39.50 protocol itself, it is related to underlying system behind the
-Z39.50 server. Keep in mind that Z39.50 is an API to access
-(bibliographic) databases. It does not define how the data is structured
-and indexed in the database.</p>
-<h2 id="z39.50-for-dummies-series---part-1">// Z39.50 for Dummies Series
-- Part 1</h2>
-<p>I will now start a Z39.50 for Dummies series and show some example
-how to access a remote database.</p>
-<p>I’m using in the following demos the <a href="http://www.indexdata.com/yaz/doc/zoomsh.html">zoomsh</a> program
-from the <a href="http://www.indexdata.com/yaz/">YAZ toolkit</a></p>
-<p>Let’s start with a simple question: does the Library of Congress have
-the book “library mashups”? (I strongly recommend you buy this book - I
-wrote chapter 19):</p>
+<p>One of the things Index Data is known for is the <a href="http://www.indexdata.com/yaz">YAZ toolkit</a> - an open source programmers’ toolkit supporting the development of Z39.50/SRW/SRU clients and servers. The first release was in 1995 and I’ve been using it for my own metasearch engine <a href="http://opus.tu-bs.de/zack/index.en.html">ZACK Gateway</a> since 1998, long before I joined Index Data.</p>
+<p>Z39.50 is a client-server protocol for searching and retrieving information from remote computer databases. It is a mature low level protocol like HTTP and FTP. You don’t implement Z39.50 yourself, you use the YAZ utilities and the libraries and frameworks for in other languages (C++, PHP, Perl, etc.).</p>
+<p>There are many people who thinks that Z39.50 is a dead standard, and hard to understand. That is not true. Z39.50 is still growing in use, stable and very fast. It is the only widely available protocol for metasearch.</p>
+<p>Using Z39.50 is not harder than using FTP. I think that the overhead for learning Z39.50 is less than a half day for an experienced programmer. Every problem which you have later is not related to the Z39.50 protocol itself, it is related to underlying system behind the Z39.50 server. Keep in mind that Z39.50 is an API to access (bibliographic) databases. It does not define how the data is structured and indexed in the database.</p>
+<h2 id="z39.50-for-dummies-series---part-1">// Z39.50 for Dummies Series - Part 1</h2>
+<p>I will now start a Z39.50 for Dummies series and show some example how to access a remote database.</p>
+<p>I’m using in the following demos the <a href="http://www.indexdata.com/yaz/doc/zoomsh.html">zoomsh</a> program from the <a href="http://www.indexdata.com/yaz/">YAZ toolkit</a></p>
+<p>Let’s start with a simple question: does the Library of Congress have the book “library mashups”? (I strongly recommend you buy this book - I wrote chapter 19):</p>
 <pre><code>$ zoomsh &quot;connect z3950.loc.gov:7090/voyager&quot; &#39;search &quot;library mashups&quot;&#39; quit
 
 z3950.loc.gov:7090/voyager: 2 hits</code></pre>
-<p>That’s all! Only one line on the command line. A SRU or SOAP request
-would not be shorter.</p>
+<p>That’s all! Only one line on the command line. A SRU or SOAP request would not be shorter.</p>
 <p>Now, retrieve the record:</p>
 <pre><code>$ zoomsh &quot;connect z3950.loc.gov:7090/voyager&quot; &#39;search &quot;library mashups&quot;&#39; &quot;show 0 1&quot; &quot;quit&quot;
 
@@ -3267,8 +3275,7 @@ data / $c edited by Nicole C. Engard.
 650 0 $a Web site development.
 700 1 $a Engard, Nicole C., $d 1979-
 963 $a Amy Reeve; phone: 609-654-6266; email: areeve @ infotoday.com; bc: nellor @ infotoday.com</code></pre>
-<p>The default exchange format for bibliographic records in Z39.50 is
-MARC21. This is maybe not what you want to parse yourself.</p>
+<p>The default exchange format for bibliographic records in Z39.50 is MARC21. This is maybe not what you want to parse yourself.</p>
 <p>Ok, now let’s download the record in XML format:</p>
 <pre><code>$ zoomsh &quot;connect z3950.loc.gov:7090/voyager&quot; &#39;search &quot;library mashups&quot;&#39; &quot;show 0 1 xml&quot; &quot;quit&quot;
 
@@ -3291,26 +3298,17 @@ z3950.loc.gov:7090/voyager: 2 hits
 
 [large XML output...]
 &lt;/record&gt;</code></pre>
-<p>You can parse the XML output with your favorite tools, usually an
-XSLT style sheet.</p>
+<p>You can parse the XML output with your favorite tools, usually an XSLT style sheet.</p>
 <p>Next time I will show you how to run a meta search in one line.</p>
 <p>-Wolfram</p>
-<p><strong>UPDATE</strong>: The latest release of YAZ, inspired by this
-blog post, supports client-side mapping of MARC to MARCXML, so you can
-dump XML records even from targets that do not support XML.</p>
+<p><strong>UPDATE</strong>: The latest release of YAZ, inspired by this blog post, supports client-side mapping of MARC to MARCXML, so you can dump XML records even from targets that do not support XML.</p>
 <hr />
 <h2 id="z39.50-for-dummies-part-2">// Z39.50 for Dummies Part 2</h2>
 <p>by Wolfram Schneider on 2009/08/31<br />
 (<a href="http://www.indexdata.com/blog/2009/08/z3950-dummies-part-2" class="uri">http://www.indexdata.com/blog/2009/08/z3950-dummies-part-2</a>)</p>
-<p>In the last blog post <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50
-for Dummies</a> I gave an introduction on how to use the zoomsh program
-to access the Z39.50 Server of the Library of Congress.</p>
-<p>Today I will show you how to run a simple metasearch on the command
-line. You want to know which library has the book with the ISBN
-0-13-949876-1 (UNIX network programming / W. Richard Stevens)? You can
-run the zoomsh in a shell loop.</p>
-<p>Put the list of databases (zURL’s) line by line in the text file
-zurl.txt:</p>
+<p>In the last blog post <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50 for Dummies</a> I gave an introduction on how to use the zoomsh program to access the Z39.50 Server of the Library of Congress.</p>
+<p>Today I will show you how to run a simple metasearch on the command line. You want to know which library has the book with the ISBN 0-13-949876-1 (UNIX network programming / W. Richard Stevens)? You can run the zoomsh in a shell loop.</p>
+<p>Put the list of databases (zURL’s) line by line in the text file zurl.txt:</p>
 <pre><code>z3950.loc.gov:7090/voyager
 melvyl.cdlib.org:210/CDL90
 library.ox.ac.uk:210/ADVANCE
@@ -3327,44 +3325,23 @@ z3950.loc.gov:7090/voyager: 0 hits
 melvyl.cdlib.org:210/CDL90: 1 hits
 library.ox.ac.uk:210/ADVANCE: 1 hits
 z3950.library.wisc.edu:210/madison: 0 hits </code></pre>
-<p>Of course it takes time to run one search request after another. How
-about a parallel search? Modern xargs(1) commands on BSD based Operating
-Systems (MacOS, FreeBSD) and the GNU xargs supports to run several
-processes at a time.</p>
-<p>This example runs up to 2 search request at a time and is 2 times
-faster than the shell script above:</p>
+<p>Of course it takes time to run one search request after another. How about a parallel search? Modern xargs(1) commands on BSD based Operating Systems (MacOS, FreeBSD) and the GNU xargs supports to run several processes at a time.</p>
+<p>This example runs up to 2 search request at a time and is 2 times faster than the shell script above:</p>
 <pre><code>$ xargs -n1 -P2 perl -e &#39;exec &quot;zoomsh&quot;, &quot;connect $ARGV[0]&quot;, &quot;search \@attr 1=7 0-13-949876-1&quot;, &quot;quit&quot;&#39; &amp;lt; zurl.txt
 
 melvyl.cdlib.org:210/CDL90: 1 hits
 library.ox.ac.uk:210/ADVANCE: 1 hits
 z3950.loc.gov:7090/voyager: 0 hits
 z3950.library.wisc.edu:210/madison: 0 hits</code></pre>
-<p>You see here that the order of responses is different, the fastest
-databases wins and displayed first.</p>
-<p>I think it is safe to run up to 20 searches in parallel on modern
-hardware. Note that there is a lot of process overhead here, for each
-request 2 processes will be executed. If a connection hangs you must
-wait until you hit the time out.</p>
-<p>This was an example how easy it is to run your own metasearch on the
-command line. If you want setup a real metasearch for your organization
-I recommend to try out our metasearch middleware <a href="http://www.indexdata.com/pazpar2">pazpar2</a>, featuring merging,
-relevance ranking, record sorting, and faceted results. In a nutshell,
-pazpar2 is a web-oriented Z39.50 client. It will search a lot of targets
-in parallel and provide on-the-fly integration of the results. The
-interface is entirely webservice-based, and you can use it from any
-development environment. The pazpar2 home page is <a href="http://www.indexdata.com/pazpar2" class="uri">http://www.indexdata.com/pazpar2</a></p>
+<p>You see here that the order of responses is different, the fastest databases wins and displayed first.</p>
+<p>I think it is safe to run up to 20 searches in parallel on modern hardware. Note that there is a lot of process overhead here, for each request 2 processes will be executed. If a connection hangs you must wait until you hit the time out.</p>
+<p>This was an example how easy it is to run your own metasearch on the command line. If you want setup a real metasearch for your organization I recommend to try out our metasearch middleware <a href="http://www.indexdata.com/pazpar2">pazpar2</a>, featuring merging, relevance ranking, record sorting, and faceted results. In a nutshell, pazpar2 is a web-oriented Z39.50 client. It will search a lot of targets in parallel and provide on-the-fly integration of the results. The interface is entirely webservice-based, and you can use it from any development environment. The pazpar2 home page is <a href="http://www.indexdata.com/pazpar2" class="uri">http://www.indexdata.com/pazpar2</a></p>
 <hr />
-<h2 id="z39.50-for-dummies-series---part-3">// Z39.50 for Dummies Series
-- Part 3</h2>
+<h2 id="z39.50-for-dummies-series---part-3">// Z39.50 for Dummies Series - Part 3</h2>
 <p>by Wolfram Schneider on 2009/09/09<br />
 (<a href="http://www.indexdata.com/blog/2009/09/z3950-dummies-series-part-3" class="uri">http://www.indexdata.com/blog/2009/09/z3950-dummies-series-part-3</a>)</p>
-<p>This is part 3 of the Z39.50 series for dummies. In the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">first
-part</a> I explained what Z39.50 is and how to run a simple search. In
-the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2">second
-part</a> I showed how to run a simple meta search on the command
-line.</p>
-<p>I searched for the book: <em>UNIX network programming / W. Richard
-Stevens, ISBN 0-13-949876-1</em> in four large libraries:</p>
+<p>This is part 3 of the Z39.50 series for dummies. In the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">first part</a> I explained what Z39.50 is and how to run a simple search. In the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2">second part</a> I showed how to run a simple meta search on the command line.</p>
+<p>I searched for the book: <em>UNIX network programming / W. Richard Stevens, ISBN 0-13-949876-1</em> in four large libraries:</p>
 <pre><code>$ for zurl in `cat zurl.txt`
 do
  zoomsh &quot;connect $zurl&quot; \
@@ -3375,8 +3352,7 @@ z3950.loc.gov:7090/voyager: 0 hits
 melvyl.cdlib.org:210/CDL90: 1 hits
 library.ox.ac.uk:210/ADVANCE: 1 hits
 z3950.library.wisc.edu:210/madison: 0 hits</code></pre>
-<p>Only 2 out of 4 libraries own this must-have book. Can this be true?
-Well, lets modify the ISBN and search without dashes (‘-’)</p>
+<p>Only 2 out of 4 libraries own this must-have book. Can this be true? Well, lets modify the ISBN and search without dashes (‘-’)</p>
 <pre><code>$ for zurl in `cat zurl.txt`
 do
  zoomsh &quot;connect $zurl&quot; \
@@ -3387,50 +3363,22 @@ z3950.loc.gov:7090/voyager: 1 hits
 melvyl.cdlib.org:210/CDL90: 1 hits
 library.ox.ac.uk:210/ADVANCE: 1 hits
 z3950.library.wisc.edu:210/madison: 1 hits</code></pre>
-<p>Bingo - every library has a copy of UNIX network programming by W.
-Richard Stevens!</p>
-<p>Z39.50 defines the syntax to search in a database. It does not define
-the semantic of a search, how an ISBN is structured.</p>
-<p>If you build a search engine on top of Z39.50 you need an additional
-layer to handle the semantic of a search for each database. (You need
-this layer too to add workaround for broken implementations)</p>
-<p>In this example above we must remove the dashes in an ISBN search for
-the Library of Congress and University of Wisconsin-Madinson
-Libraries.</p>
-<p>Another thing which you must be aware: libraries use for historical
-reasons different character sets: utf-8, iso8859-1, iso5426 and marc8.
-You must convert your search query to the right character set for each
-library, for searching and retrieving the records.</p>
-<p>In this article I described the challenges to run a meta search on
-top of Z39.50. All these problems are due the underlying databases and
-not Z39.50 - you will have the same problems if you use a web based XML
-services such as SRU or a proprietary, vendor-based API. The truth is
-that running a metasearch is not a trivial task.</p>
+<p>Bingo - every library has a copy of UNIX network programming by W. Richard Stevens!</p>
+<p>Z39.50 defines the syntax to search in a database. It does not define the semantic of a search, how an ISBN is structured.</p>
+<p>If you build a search engine on top of Z39.50 you need an additional layer to handle the semantic of a search for each database. (You need this layer too to add workaround for broken implementations)</p>
+<p>In this example above we must remove the dashes in an ISBN search for the Library of Congress and University of Wisconsin-Madinson Libraries.</p>
+<p>Another thing which you must be aware: libraries use for historical reasons different character sets: utf-8, iso8859-1, iso5426 and marc8. You must convert your search query to the right character set for each library, for searching and retrieving the records.</p>
+<p>In this article I described the challenges to run a meta search on top of Z39.50. All these problems are due the underlying databases and not Z39.50 - you will have the same problems if you use a web based XML services such as SRU or a proprietary, vendor-based API. The truth is that running a metasearch is not a trivial task.</p>
 <hr />
 <h2 id="z39.50-for-dummies---part-4">// Z39.50 for Dummies - Part 4</h2>
 <p>by Wolfram Schneider on 2009/10/12<br />
 (<a href="http://www.indexdata.com/blog/2009/10/z3950-dummies-part-4" class="uri">http://www.indexdata.com/blog/2009/10/z3950-dummies-part-4</a>)</p>
-<p>This is part 4 of the series <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50
-for dummies</a>.</p>
-<p>Libraries store and exchange bibliographic data in MARC records. A
-MARC record is a <a href="http://en.wikipedia.org/wiki/MARC_standards">MAchine-Readable
-Cataloging record</a>. It was developed at the <a href="http://www.loc.gov/marc/">Library of Congress</a> (LoC) beginning
-in the 1960s.</p>
-<p>A dump of the LoC catalog (and other libraries) is available at the
-Internet Archive in the collection <a href="http://www.archive.org/details/marcrecords">marcrecords</a>. The
-<a href="http://www.archive.org/details/marc_records_scriblio_net">LoC
-catalog dump</a> is split into 29 files, part01.dat to part29.dat. Each
-file is roughly 200MB large.</p>
-<p>The great news is that the data from LoC is public domain (already
-paid by the US taxpayers, thank you!) and you can use the data for your
-own system.</p>
-<p>Before you can import data, you must validate, convert, or fix the
-bibliographic data. I will show now how you can do this with the Index
-Data <a href="http://www.indexdata.com/yaz/">YAZ toolkit</a>. The YAZ
-toolkit contains the program <a href="http://www.indexdata.com/yaz/doc/yaz-marcdump.html">yaz-marcdump</a>
-to dump MARC records.</p>
-<p>yaz-marcdump called without an option will print the records in line
-format:</p>
+<p>This is part 4 of the series <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50 for dummies</a>.</p>
+<p>Libraries store and exchange bibliographic data in MARC records. A MARC record is a <a href="http://en.wikipedia.org/wiki/MARC_standards">MAchine-Readable Cataloging record</a>. It was developed at the <a href="http://www.loc.gov/marc/">Library of Congress</a> (LoC) beginning in the 1960s.</p>
+<p>A dump of the LoC catalog (and other libraries) is available at the Internet Archive in the collection <a href="http://www.archive.org/details/marcrecords">marcrecords</a>. The <a href="http://www.archive.org/details/marc_records_scriblio_net">LoC catalog dump</a> is split into 29 files, part01.dat to part29.dat. Each file is roughly 200MB large.</p>
+<p>The great news is that the data from LoC is public domain (already paid by the US taxpayers, thank you!) and you can use the data for your own system.</p>
+<p>Before you can import data, you must validate, convert, or fix the bibliographic data. I will show now how you can do this with the Index Data <a href="http://www.indexdata.com/yaz/">YAZ toolkit</a>. The YAZ toolkit contains the program <a href="http://www.indexdata.com/yaz/doc/yaz-marcdump.html">yaz-marcdump</a> to dump MARC records.</p>
+<p>yaz-marcdump called without an option will print the records in line format:</p>
 <pre><code>$ yaz-marcdump part01.dat | more
 
 00720cam  22002051  4500
@@ -3450,18 +3398,13 @@ format:</p>
 650  0 $a Botany, Medical.
 650  0 $a Homeopathy $x Materia medica and therapeutics.
 [...]</code></pre>
-<p>First converts the MARC21 records in MARC-8 encoding to MARC21 in
-UTF-8 encoding:</p>
+<p>First converts the MARC21 records in MARC-8 encoding to MARC21 in UTF-8 encoding:</p>
 <pre><code>$ yaz-marcdump -f marc-8 -t utf-8 -o marc \
        part01.dat &gt; part.mrc</code></pre>
-<p>For MARC21, the leader offset 9 tells whether it is really MARC8
-(almost always the case) or whether it’s UTF-8. A MARC21 must have
-position 9=‘a’ (value 97). For this reason, the option -l for
-yaz-marcdump may come in handy:</p>
+<p>For MARC21, the leader offset 9 tells whether it is really MARC8 (almost always the case) or whether it’s UTF-8. A MARC21 must have position 9=‘a’ (value 97). For this reason, the option -l for yaz-marcdump may come in handy:</p>
 <pre><code>$ yaz-marcdump -f marc-8 -t utf-8 -o marc \
        -l 9=97 part01.dat &gt; part.mrc</code></pre>
-<p>If you prefer MARCXML instead MARC21 records you may convert the
-records:</p>
+<p>If you prefer MARCXML instead MARC21 records you may convert the records:</p>
 <pre><code>$ yaz-marcdump -o marcxml -f MARC-8 -t UTF-8 \
     part01.dat &gt; part.marcxml
 
@@ -3480,8 +3423,7 @@ records:</p>
     &lt;subfield code=&quot;a&quot;&gt;(OCoLC)5853149&lt;/subfield&gt;
   &lt;/datafield&gt;
 [...]</code></pre>
-<p>The Library of Congress has over 7 million records. That’s huge data,
-total 5.6GB raw data. If you compress that data it is only 1.7GB.</p>
+<p>The Library of Congress has over 7 million records. That’s huge data, total 5.6GB raw data. If you compress that data it is only 1.7GB.</p>
 <p>To convert compressed data, run yaz-marcdump in a UNIX pipe:</p>
 <pre><code>$ zcat part01.dat.gz | yaz-marcdump -f MARC-8 \
   -t UTF-8 -o marcxml /dev/stdin &gt; part01.marcxml </code></pre>
@@ -3497,49 +3439,30 @@ total 5.6GB raw data. If you compress that data it is only 1.7GB.</p>
 260    $a Sausalito, CA : $b Toland Communications, $c c2000.
 260    $a Sausalito, CA : $b In Between Books, $c 2001.
 [...]</code></pre>
-<p>The <a href="http://www.indexdata.com/yaz/doc/yaz-marcdump.html">yaz-marcdump</a>
-tool supports the character sets UTF-8, MARC-8, ISO8859-1, ISO5426 and
-some other encodings. For more information, see the <a href="http://www.indexdata.com/yaz/doc/yaz-iconv.html">yaz-iconv</a>
-manual pages.</p>
-<p>In this article I showed how to validate, convert, or fix
-bibliographic data dumped in MARC format. Next time I will show some
-advanced examples how to analyze MARC records on modern standard PC
-hardware.</p>
+<p>The <a href="http://www.indexdata.com/yaz/doc/yaz-marcdump.html">yaz-marcdump</a> tool supports the character sets UTF-8, MARC-8, ISO8859-1, ISO5426 and some other encodings. For more information, see the <a href="http://www.indexdata.com/yaz/doc/yaz-iconv.html">yaz-iconv</a> manual pages.</p>
+<p>In this article I showed how to validate, convert, or fix bibliographic data dumped in MARC format. Next time I will show some advanced examples how to analyze MARC records on modern standard PC hardware.</p>
 <hr />
 <h2 id="z39.50-for-dummies---part-5">// Z39.50 for Dummies - Part 5</h2>
 <p>by Wolfram Schneider on 2010/01/13<br />
 (<a href="http://www.indexdata.com/blog/2010/01/z3950-dummies-part-5" class="uri">http://www.indexdata.com/blog/2010/01/z3950-dummies-part-5</a>)</p>
-<p>This is part 5 of the series <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50
-for dummies</a>. In the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4">4th
-part</a> I showed how to run convert MARC21 records to line format or
-XML.</p>
-<p>In this article I will show you how to analyze MARC data on a modern
-PC hardware. PC are very fast now and incredibly cheap. You can rent a
-quad-core Intel machine with 8GB RAM and unlimited traffic for 40
-Euro/month (+VAT) in a data center.</p>
-<p>If the computer is fast enough, you don’t have to spend too much time
-on complex algorithms. You can use the raw power of your computer and do
-a brute force approach.</p>
-<p>In the following example I will use the 7 million records from a dump
-of the Library of Congress (LoC) catalog. For details, please read the
-previous article <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-44">Z39.50
-for Dummies - Part 4</a>.</p>
+<p>This is part 5 of the series <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Z39.50 for dummies</a>. In the <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4">4th part</a> I showed how to run convert MARC21 records to line format or XML.</p>
+<p>In this article I will show you how to analyze MARC data on a modern PC hardware. PC are very fast now and incredibly cheap. You can rent a quad-core Intel machine with 8GB RAM and unlimited traffic for 40 Euro/month (+VAT) in a data center.</p>
+<p>If the computer is fast enough, you don’t have to spend too much time on complex algorithms. You can use the raw power of your computer and do a brute force approach.</p>
+<p>In the following example I will use the 7 million records from a dump of the Library of Congress (LoC) catalog. For details, please read the previous article <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-44">Z39.50 for Dummies - Part 4</a>.</p>
 <pre><code>$ for i in *.dat; do
     yaz-marcdump -f marc-8 -t utf-8 -o line
   done &gt; loc.txt
 
 $ du -hs loc.txt
 4.9G</code></pre>
-<p>The line dump of the LoC is 4.9GB large and fits into main memory -
-great!</p>
+<p>The line dump of the LoC is 4.9GB large and fits into main memory - great!</p>
 <pre><code># count for the last name “Calaminus”
 $ egrep -c Calaminus loc.txt</code></pre>
 <p>4 hits, the search took 4 seconds real time</p>
 <pre><code># count records with &lt;span class=&quot;caps&quot;&gt;ISBN&lt;/span&gt; number
 $ egrep -c ^020 loc.txt
 3999863</code></pre>
-<p>There are nearly 4 million ISBN numbers (out of 7 million records).
-The search took 11 seconds.</p>
+<p>There are nearly 4 million ISBN numbers (out of 7 million records). The search took 11 seconds.</p>
 <pre><code># count &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;s
 $ egrep -c http:// loc.txt
 265540</code></pre>
@@ -3551,24 +3474,14 @@ $ egrep -c ‘^[67][0-&lt;span class=&quot;caps&quot;&gt;9[0&lt;/span&gt;-9].*Sa
 <p>There are 19 subject headings for Sausalito</p>
 <pre><code># search with a typo in name (a =&gt; o)
 $ egrep Sausolito loc.txt</code></pre>
-<p>No hits due a typo in the name, try it with <a href="http://en.wikipedia.org/wiki/Agrep">agrep</a>, a grep program with
-approximate matching capabilities:</p>
+<p>No hits due a typo in the name, try it with <a href="http://en.wikipedia.org/wiki/Agrep">agrep</a>, a grep program with approximate matching capabilities:</p>
 <pre><code>$ agrep -c -1 Sausolito loc.txt
 282</code></pre>
 <p>282 hits, the search took 8 seconds</p>
-<p>The examples above are for software developers and experienced
-librarians. They are helpful for a quick check of your bibliographic
-records, for data mining, analyzing or to double-check if your indexer
-works correctly.</p>
-<p>If you want setup a public system for end-users you need of course a
-real full text engine as our <a href="http://www.indexdata.com/zebra">zebra</a> software.</p>
+<p>The examples above are for software developers and experienced librarians. They are helpful for a quick check of your bibliographic records, for data mining, analyzing or to double-check if your indexer works correctly.</p>
+<p>If you want setup a public system for end-users you need of course a real full text engine as our <a href="http://www.indexdata.com/zebra">zebra</a> software.</p>
 <hr />
-<p>Read the other articles of the series Z39.50 for Dummies: <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Part
-I</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2">Part
-II</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-3">Part
-III</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4">Part
-IV</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-5">Part
-V</a></p>
+<p>Read the other articles of the series Z39.50 for Dummies: <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-1">Part I</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-part-2">Part II</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies-series---part-3">Part III</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-4">Part IV</a>, <a href="https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies/#z39.50-for-dummies---part-5">Part V</a></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">

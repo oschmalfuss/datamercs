@@ -10,10 +10,18 @@ author:
   url: https://www.datamercs.net
   affiliation: OS DataMercs
   affiliation_url: https://www.datamercs.net
-date: "`r Sys.Date()`"
+date: "2099-12-31"
+categories:
+  - "About"
+  - "Metadata Standards"
 output:
   distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
     self_contained: true
+    share: false
+draft: false
 ---
 
 ```{r setup, include=FALSE}

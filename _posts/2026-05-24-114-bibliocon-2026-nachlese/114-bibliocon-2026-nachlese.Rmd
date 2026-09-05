@@ -1,0 +1,79 @@
+---
+title: "114. BiblioCon 2026 - Nachlese"
+description: |
+ »Analogue Meets Algorithm« - A systemic review of BiblioCon2026 in Berlin. 
+  Why the accelerating democratisation of AI signals the end of linear business 
+  models for legacy vendors and publishers. The system librarians and algorithmic 
+  tinkerers have recaptured the front line - the Cyberpunk Librarians are back!
+
+preview: BiblioCon-2026_SHODAN.png
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuss"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-05-24
+categories:
+  - "Industry & Trends"
+  - "Conferences & Events"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+    share: false
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The [114th BiblioCon](https://2026.bibliocon.de) (formerly known as *Bibliothekartag*) took over the ESTREL Congress Center Berlin from 19 to 22 May 2026.
+
+Jointly run by the [BIB](https://www.bib-info.de) and [VDB](https://www.vdb-online.org) professional bodies, this is no longer merely the paramount continuing education vector for the domestic library landscape - alongside the [Library Congress](https://bideutschland.de/kongresse), BiblioCon has systematically evolved into the absolute pivot point for the German library landscape.
+
+For academic publishers and technology vendors alike, it now routinely eclipses the standard Book Fairs in pure commercial and strategic relevance.
+
+What used to be a niche academic club, has transformed into a high-octane, cross-sector marketplace. This year’s banner said it all:
+<br>
+
+> "Analogue Meets Algorithm."
+
+<br>
+
+Make no mistake: AI is in the air, and the room is getting thin for old-guard publishers, content syndicators, and legacy tech giants such as OCLC, ExLibris & co. If they can’t accelerate to deliver genuine, high-margin innovation, they’re dead in the water.
+
+AI is the ultimate equaliser: It strips away the scale advantage of the behemoths. In the near future, it will empower even minor, underfunded institutions to deploy highly customised, client-specific services.
+
+And as Ray Kurzweil's [Law of Accelerating Returns.](https://www.writingsbyraykurzweil.com/kurzweils-law-aka-the-law-of-accelerating-returns) reminds us, this evolution isn’t a linear crawl - it’s an *exponential* sprint.
+
+
+Resistance, or static business models, will yield predictable operational failure.
+
+<br>
+
+A notable shift in systemic priorities was observed. While recent years were heavily dominated by socio-cultural narratives and soft topics like DEI, decolonisation, and the concepts of "library as a space" - the technical vanguard has recaptured the perimeter. System librarians, algorithmic tinkerers, rogue developers, and information scientists have reassumed control, driving actual infrastructural evolution.
+
+The full operational grid of the conference can be reviewed via the BiblioCon2026 Programme Matrix, here: <https://bibliocon2026.abstractserver.com/program/#/program/1/horizontal>
+
+<br>
+
+As usual, the signal-to-noise ratio was mixed, but the highlights were spectacular.
+
+Selected modules delivered highly advanced prototypes that - unlike the typical, DFG-funded, dead-on-arrival prestige projects that die the moment the subsidy stops - do actually work, leveraging the lowered technical barriers to entry. Thanks to the democratisation of development tools, solo operators are delivering viable products, and demonstrate genuine disruptive potential.
+
+The *Cyberpunk Librarian* is back, weaponised and fully calibrated to dismantle big corporate data-monopolising dystopias for the sake of data liberty, for the *freedom of information*.
+
+<br>
+
+[Datamercs](https://www.datamercs.net) explicitly endorses this systemic shift with 100% operational alignment.
+
+We look forward to the 115. iteration in Nuremberg 2027, ideally occupying the opposing side of the speaker's podium. For science, for information, for Terra!
+
+<br>
+
+To ensure open, friction-free access to these assets, all conference proceedings have been systematically archived since 2014 in the VDB Open Access Library Journal ([o-bib](https://www.o-bib.de). *Das offene Bibliotheksjournal*) under a Creative Commons Attribution License (CC BY):
+
+<https://www.o-bib.de/bib>

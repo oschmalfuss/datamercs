@@ -9,6 +9,9 @@ author:
   orcid_id: 0000-0002-1919-3848
   url: https://www.datamercs.net
 date: 2022-02-28
+categories:
+  - "Data Operations & Automation"
+  - "Git"
 output:
   distill::distill_article:
     toc: true

@@ -1,0 +1,331 @@
+/* datamercs · BISAC→Thema · DT skin */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #07090d;
+  --surface: #0d1118;
+  --surface2: #131a24;
+  --surface3: #1a2330;
+  --border: #1e2a3a;
+  --border-hi: #2a3a50;
+  --text: #d4dce8;
+  --muted: #5a6a80;
+  --dim: #3a4a60;
+  --cyan: #00e5ff;
+  --cyan-glow: rgba(0, 229, 255, 0.18);
+  --magenta: #ff2d6a;
+  --green: #00ff9d;
+  --amber: #ffb020;
+  --white: #f0f4fa;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", ui-monospace, monospace;
+  --radius: 2px;
+}
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  background-image:
+    linear-gradient(rgba(0,229,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.015) 1px, transparent 1px) !important;
+  background-size: 48px 48px !important;
+}
+
+/* kill rmarkdown / bootstrap chrome */
+.main-container, .container-fluid, .row, main,
+.title, .author, .date, h1.title, #header {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.title, .author, .date, h1.title, #header { display: none !important; }
+
+/* ── portal chrome ───────────────────────────────────────────────────── */
+#portal-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: linear-gradient(180deg, #0a0e14 0%, var(--surface) 100%);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 var(--cyan-glow), 0 8px 24px rgba(0,0,0,.5);
+  padding: 10px 20px 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.brand-mark {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.brand-mark::before { content: "◈ "; color: var(--magenta); }
+.brand h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin: 0;
+}
+.brand h1 em { font-style: normal; color: var(--cyan); font-weight: 600; }
+
+.meta-line {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.meta-line span { color: var(--dim); }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+#q {
+  flex: 1 1 280px;
+  min-width: 200px;
+  padding: 9px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  outline: none;
+}
+#q:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px var(--cyan), 0 0 16px var(--cyan-glow);
+}
+#q::placeholder { color: var(--dim); }
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  height: 36px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  user-select: none;
+}
+.toggle input { display: none; }
+.toggle .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--dim);
+}
+.toggle.active {
+  border-color: var(--magenta);
+  color: var(--magenta);
+  background: rgba(255, 45, 106, 0.08);
+}
+.toggle.active .dot {
+  background: var(--magenta);
+  box-shadow: 0 0 8px var(--magenta);
+}
+
+.btn {
+  padding: 8px 12px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius);
+  color: var(--cyan);
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+.btn:hover { background: var(--cyan-glow); color: var(--white); }
+
+.stats {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+.stats b { color: var(--green); font-weight: 600; }
+.stats .sep { color: var(--dim); margin: 0 4px; }
+
+.re-err {
+  display: none;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(255, 45, 106, 0.1);
+  border: 1px solid #c41e50;
+  color: var(--magenta);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.re-err.show { display: block; }
+
+.notice {
+  margin: 12px 20px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--amber);
+  font-size: 0.78rem;
+  color: var(--muted);
+  max-width: 960px;
+  line-height: 1.55;
+}
+.notice strong { color: var(--amber); }
+
+/* ── DataTables overrides ────────────────────────────────────────────── */
+.table-wrap { padding: 0 12px 40px; }
+
+.dataTables_wrapper {
+  font-family: var(--font-ui) !important;
+  color: var(--text) !important;
+}
+
+/* hide DT's own search — we drive filter from #q */
+.dataTables_filter { display: none !important; }
+
+.dataTables_length,
+.dataTables_info,
+.dataTables_paginate {
+  color: var(--muted) !important;
+  font-size: 0.8rem !important;
+  margin: 10px 0 !important;
+}
+.dataTables_length select {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 4px 8px;
+}
+
+table.dataTable {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  background: transparent !important;
+}
+table.dataTable thead th {
+  background: var(--surface3) !important;
+  color: var(--muted) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.65rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-bottom: 1px solid var(--border-hi) !important;
+  border-top: 1px solid var(--border) !important;
+  padding: 9px 10px !important;
+}
+table.dataTable thead th.sorting:hover,
+table.dataTable thead th.sorting_asc,
+table.dataTable thead th.sorting_desc {
+  color: var(--cyan) !important;
+}
+
+table.dataTable tbody td {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 7px 10px !important;
+  vertical-align: top !important;
+  color: var(--text) !important;
+}
+table.dataTable tbody tr:hover td {
+  background: rgba(0, 229, 255, 0.04) !important;
+}
+table.dataTable.stripe tbody tr.odd td,
+table.dataTable.display tbody tr.odd td {
+  background: rgba(255,255,255,0.012) !important;
+}
+table.dataTable.stripe tbody tr.odd:hover td,
+table.dataTable.display tbody tr.odd:hover td {
+  background: rgba(0, 229, 255, 0.05) !important;
+}
+
+td.bisac {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+td.section { color: var(--amber); font-size: 0.85rem; }
+td.ddc, td.lcsh {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #7a8fa8;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 5px;
+  margin-right: 4px;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 1px;
+  background: rgba(0, 229, 255, 0.07);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.badge-q {
+  border-color: rgba(255, 45, 106, 0.35);
+  background: rgba(255, 45, 106, 0.07);
+  color: #ff6b9d;
+}
+
+.dataTables_paginate .paginate_button {
+  background: var(--surface2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius) !important;
+  margin: 0 2px !important;
+}
+.dataTables_paginate .paginate_button.current {
+  border-color: var(--cyan) !important;
+  color: var(--cyan) !important;
+  background: var(--cyan-glow) !important;
+}
+.dataTables_paginate .paginate_button:hover {
+  background: var(--surface3) !important;
+  color: var(--white) !important;
+  border-color: var(--border-hi) !important;
+}
+
+footer.portal-foot {
+  text-align: center;
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--border);
+}
+footer.portal-foot a {
+  color: var(--muted);
+  text-decoration: none;
+}
+footer.portal-foot a:hover { color: var(--cyan); }

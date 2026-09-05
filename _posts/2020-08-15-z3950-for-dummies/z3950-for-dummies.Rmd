@@ -11,6 +11,10 @@ author:
   last_name: "Schmalfuß"
   orcid_id: 0000-0002-1919-3848
 date: 2020-08-15
+categories:
+  - "Metadata Standards"
+  - "Technical Guides"
+  - "Z39.50 & Protocols"
 output:
   distill::distill_article:
     toc: true

@@ -41,6 +41,7 @@ The base R package and Rstudio need to be installed first, and one would need a 
 
 ```{r eval=F, echo=T}
 install.packages("distill")
+
 ```
 
 

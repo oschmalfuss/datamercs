@@ -1,0 +1,302 @@
+---
+title: "Ghost in the MARC: Cataloguing the Synthetic Shift in Bibliographic Metadata"
+description: |
+  Generative AI is rewriting the rules of published content and catalogue workflows. Moving past the noise of speculative disruption, this guide examines actionable standards for ONIX and MARC21. Discover how to properly designate AI software as related works, attribute human prompters, and apply robust provenance tracking without compromising metadata integrity.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-06-23
+preview: ghost-in-the-marc.png
+slug: "ghost-in-the-marc-ai-cataloguing"
+categories:
+  - "Metadata Standards"
+  - "MARC21"
+  - "ONIX"
+  - "Best Practice"
+  - "quick reference"
+  - "AI & Future Tech"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+    share: false
+    citation: false
+    draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+
+/* === Tighter spacing for lists === */
+d-article ul,
+d-article ol {
+  margin-top: 0.55em;
+  margin-bottom: 0.65em;
+}
+
+d-article li {
+  margin-bottom: 0.28em !important;
+  line-height: 1.42;
+}
+
+/* === Hide the short "Schmalfuß 2026" citation note === */
+dt-byline .citation,
+.article-header .citation,
+#citation,
+.citation,
+.distill-article-header .authors .citation,
+dt-byline .affiliation + .citation {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* === IBM Plex Mono === */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* === Inline code – clean cyberpunk librarian style === */
+:not(pre) > code {
+  font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", ui-monospace, monospace;
+  font-size: 0.82em;
+  font-weight: 500;
+  padding: 0.15em 0.38em;
+  margin: 0 0.12em;
+  background-color: #ffece4;
+  color: #003d5c;
+  border: 1px solid #7eb8d4;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 86, 120, 0.08);
+}
+
+h1 code, h2 code, h3 code, h4 code {
+  font-size: 0.78em;
+  padding: 0.1em 0.32em;
+}
+
+/* === Block code / MARC records – Fixed overflow & layout constraints === */
+pre {
+  font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", ui-monospace, monospace;
+  background-color: #ffece4 !important;
+  color: #1a1a2e !important;
+  border: 2px solid #c9a0dc;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(120, 60, 160, 0.08);
+  padding: 1.05em 1.25em;
+  
+  /* Critical overflow/bounding fixes */
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+  
+  white-space: pre !important;
+  word-break: normal;
+  word-wrap: normal;
+  display: block;
+}
+
+pre code, 
+div.sourceCode pre, 
+pre.sourceCode {
+  background: #ffece4 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.86em !important;
+  color: inherit !important;
+  display: block !important;
+  line-height: 1.5 !important;
+  white-space: pre !important;
+  max-width: 100% !important;
+}
+
+```
+
+# // ..
+
+> In the shadowed neon stacks of the information age, where algorithms quietly forge new works and human creators still hold the line, clear provenance has never been more critical. How do we flag generative AI involvement in published content without descending into chaos?  
+This guide cuts through the noise for two key standards: **ONIX** for the book trade and **MARC21** for library cataloguing.  
+No fluff. Just steel.
+
+# // ONIX: Clear Standards for Publishers
+
+[EDItEUR](https://www.editeur.org), the body behind [ONIX](https://www.editeur.org/8/ONIX/), has issued practical guidance in its *[Application Note: Aspects of AI in ONIX](https://www.editeur.org/files/ONIX%203/APPNOTE%20Aspects%20of%20AI%20in%20ONIX.pdf)*.  
+Core rule: disclose AI use when it goes beyond *de minimis* assistance. Transparency serves retailers, platforms, and readers.
+
+### 1. Contributor Roles & Entities (Codelist 17 / 19)
+
+* `<UnnamedPersons>09</UnnamedPersons>` ([List 19](https://ns.editeur.org/onix/en/19)): Officially designates **AI (Artificial Intelligence)**. Used when the creation of book content (text, images, or structural layout) is accomplished via a generative AI model or technique.
+* **The "Assisted By" Pairing Pattern**: Code [09](https://ns.editeur.org/onix/en/19/09) is designed to be paired in the contributor block with Contributor Role [Z01](https://ns.editeur.org/onix/en/17/Z01) ("Assisted by") from [Codelist 17](https://ns.editeur.org/onix/en/17) (e.g., matching human orchestration or hybrid prompting workflows).
+* **Synthetic Voices ([List 19](https://ns.editeur.org/onix/en/17))**: Codes [05](https://ns.editeur.org/onix/en/19/05), [06](https://ns.editeur.org/onix/en/19/06), [07](https://ns.editeur.org/onix/en/19/07) (Synthetic Voice General/Female/Neutral) and [08](https://ns.editeur.org/onix/en/19/08) (Authorized Voice Replica based on a human talent) handle automated audiobook narration.
+
+### 2. Usage & TDM Constraints for AI Training (Codelist 145)
+
+Managed via `<EpubUsageConstraint>` blocks using **[List 145 (Usage type)](https://ns.editeur.org/onix/en/145)** to explicitly grant or restrict machine harvesting:
+
+* **[Code 11](https://ns.editeur.org/onix/en/145/11):** **Text and data mining (TDM)** general permissions or opt-outs for automated computer analysis.
+* **[Code 13](https://ns.editeur.org/onix/en/145/13):** TDM restrictions specifically targeted at **training or enabling AI to enhance the private purchase experience**.
+* **[Code 14](https://ns.editeur.org/onix/en/145/14):** TDM restrictions specifically targeted at **training or enabling AI to enhance the private reading experience**.
+
+### 3. Status & Enforcement (Codelist 146)
+
+Paired with usage constraints from [**List 146**](https://ns.editeur.org/onix/en/146) to define whether the rule is an open permission or a strict prohibition:
+
+* **`01`:** Permitted [unlimited](https://ns.editeur.org/onix/en/146/01) (Open permission / no restrictions).
+* **`02`:** Permitted subject to [limit](https://ns.editeur.org/onix/en/146/02) (Allowed, but capped by characters, copies, etc., specified via `<EpubUsageLimit>`).
+* **`03`:** [Prohibited](https://ns.editeur.org/onix/en/146/03) (Strictly blocked / opt-out enforced, commonly used for TDM and AI training blocks).
+
+## Practical ONIX example
+
+```{xml echo=TRUE}
+<Contributor>
+  <SequenceNumber>1</SequenceNumber>
+  <ContributorRole>A01</ContributorRole>
+  <PersonName>Schmalfuß, Olaf</PersonName>
+  <ProfessionalAffiliation>
+    <Affiliation>DataMercs Cybernetics</Affiliation>
+  </ProfessionalAffiliation>
+</Contributor>
+<Contributor>
+  <SequenceNumber>2</SequenceNumber>
+  <ContributorRole>Z01</ContributorRole>
+  <UnnamedPersons>09</UnnamedPersons>
+  <BiographicalNote>Generated via Google Gemini large language model inference.</BiographicalNote>
+</Contributor>
+<EpubUsageConstraint>
+  <EpubUsageType>13</EpubUsageType>
+  <EpubUsageStatus>03</EpubUsageStatus>
+</EpubUsageConstraint>
+```
+
+
+## TL;DR
+
+- Treat generative AI as a contributor using `<UnnamedPersons>09</UnnamedPersons>` (the code for generative AI).
+- Combine with human roles where appropriate - e.g. primary author assisted by AI, or AI-generated elements such as covers, illustrations, or text sections.
+- For audiobooks, use specific codes from List 19 to indicate synthetic voices.
+- Additional options include usage constraints to opt out of text-and-data-mining (TDM) where relevant.
+
+This approach is already influencing supply chains, with some platforms labelling or restricting AI-heavy content.
+
+## Primary source
+[Aspects of AI in ONIX (PDF)](https://www.editeur.org/files/ONIX%203/APPNOTE%20Aspects%20of%20AI%20in%20ONIX.pdf) (EDItEUR, current as of 2026).
+
+# // MARC21: Provenance, Software, and Emerging Best Practices
+
+Library systems move more deliberately, with a strong emphasis on metadata integrity. Groundbreaking practical guidance from the PCC Standing Committee on Standards (*[FAQ: Cataloging of Resources Generated Using Artificial Intelligence Software](https://www.loc.gov/aba/pcc/scs/documents/FAQ-Cataloging-of-Resources-Generated-by-Artificial-Intelligence.pdf)*) has clarified how to handle synthetic contributions without breaking data structures.  
+The [American Library Association (ALA)](https://www.ala.org/) in their [Guidance on the Use of Artificial Intelligence in Libraries](https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries#generalguidance) highlight the **"Human-in-the-Loop"** mandate:  
+AI can draft `505` contents or summaries, but a human cataloguer must authenticate the record, ensuring ethical AI usage and preventing hallucinated subject headings from corrupting union catalogues.
+
+## Core elements & emerging practices
+
+1. **AI is a Tool/Software, Not an Agent/Author**: PCC guidelines specify that AI software *shall NOT* be treated as a creator/author ([100](https://www.loc.gov/marc/bibliographic/bd100.html)/[700](https://www.loc.gov/marc/bibliographic/bd700.html)). Instead, named AI software is treated as a **related work** (MARC [730](https://www.loc.gov/marc/bibliographic/bd730.html)).  
+**Wholly synthetic works** require strict software relationship tracking in 730, whereas **assisted works** emphasize the human prompter in 100/700.  
+**Virtual entities** or **algorithmic influencers** (like *Kizuna AI* acting as co-creator) blur the line between tool and agent. Catalog them as related works/entities in 730 while using controlled notes to clarify their operational boundaries.
+2. **Human Prompters/Editors as Agents**: Humans operating, prompting, or editing the AI output are recorded as authors/contributors (100/700) with relator terms (e.g., `$e prompter`, `$e editor`, `$e author`).
+3. **500 vs. 588 vs. 883 Distinction**
+     + **[500 Note](https://www.loc.gov/marc/bibliographic/bd500.html) (General Note)**: Details the use of AI in the *creation of the resource itself* (content/work level). Leverage controlled genre/subject terms such as `Computer poetry`, `AI art`, or `AI-assisted content` (LCGFT/AAT) to explicitly characterize the nature of the generated intellectual or artistic output.  
+     When a pipeline chains multiple models (e.g., text generation via *Gemini*, image conceptualization via *Grok*, and editing via a local script), sequence the 730 entries or summarize the multi-tier pipeline inside the 500 general note.
+     + **[588 Note](https://www.loc.gov/marc/bibliographic/bd588.html) (Source of Description Note)**: Focuses on the bibliographical provenance of the metadata record itself - such as stating that the *description* was derived from an AI-assisted analysis of the publication (e.g., summarizing or generating abstract text for the catalog record), distinguishing the cataloguing process from the underlying work.
+     + **[883 Field](https://www.loc.gov/marc/bibliographic/bd883.html) (Metadata Provenance)**: Serves as the machine-readable mechanism for tracking automated, algorithmic, or AI-assisted field generation within the record. It captures structured metadata generation processes via `$a`, generation dates, and algorithmic confidence metrics via `$c`, separating algorithmic provenance from descriptive human notes.
+
+### Deeper Dive into MARC Field 883 (Metadata Provenance)
+While field `883` remains the designated vehicle for machine-generated metadata provenance, it is still relatively bleeding-edge for many traditional libraries, implementation and support may variy across Integrated Library Systems (ILS).
+
+* **Structured Subfield Breakdown**:
+  * `$a` – Generating application or system name (e.g., `Gemini v2.5`)
+  * `$d` – Date of generation (YYYYMMDD format)
+  * `$q` – Generating agency or prompting entity (`DataMercs`)
+  * `$c` – Algorithmic confidence metric or generation parameters (`0.98 confidence`)
+  * `$u` – Uniform Resource Identifier pointing to the provenance/audit log (`https://datamercs.net/provenance/...`)
+* **System Caveat**: Note that legacy ILSs may strip or misindex field `883`. Always back up machine provenance with a human-verified `588` source of description note where interoperability is critical.
+
+OCLC’s Bibliographic Formats and Standards ([BFAS](https://www.oclc.org/bibformats/en/home.html)) and the [PCC Task Group on AI and Machine Learning](https://www.loc.gov/aba/pcc/taskgroup/task-groups.html) reinforce these practices, balancing transparency with rigorous quality control.
+
+## Practical MARC21 Examples
+
+To see how these principles translate into raw syntax, consider the following production-ready MARC21 bibliographic snippets aligned with the latest PCC and OCLC frameworks.
+
+## The Fictional "Self-Aware" MARC 21 Record
+
+```{marc echo=TRUE}
+000    01890nam a2200385i 4500
+001    9910987654321
+008    260725s2026    bera    b    000 0 eng d
+020 ## $a 9783110999998
+040 ## $a DE-100 $b eng $e rda $c DE-100
+100 1# $a Schmalfuß, Olaf, $e author, $e prompt engineer.
+245 10 $a Synthetic Worlds : $b A Neural Experiment in AI-Generated Cyber-Fiction / $c Olaf Schmalfuß, Gemini & Kizuna AI.
+264 #1 $a Berlin : $b DataMercs Cybernetics, $c 2026.
+300 ## $a 210 pages : $b illustrations (some color) ; $c 21 cm
+336 ## $a text $2 rdacontent
+336 ## $a still image $2 rdacontent
+337 ## $a unmediated $2 rdamedia
+338 ## $a volume $2 rdacarrier
+500 ## $a Prose and neural-net code snippets were generated collaboratively via large language model inference using Google Gemini based on iterative prompt engineering by Olaf Schmalfuß; synthetic visual conceptualization and persona vectors co-designed with Kizuna AI (Virtual Entity).
+520 ## $a An immersive literary and techno-cybernetic experiment exploring how neural text generation, human prompting matrices, and autonomous virtual entities reshape narrative topology, speculative structures, and the ontological architecture of the bibliographic metadata grid.
+588 ## $a Description based on machine-vision analysis of the resource package; abstract and controlled subject vectors synthesized via automated parsing, curated and verified by human editorial oversight.
+650 #0 $a Artificial intelligence $x Creative applications.
+650 #7 $a Cyberpunk fiction. $2 lcgft
+650 #7 $a Generative artificial intelligence $x Literary themes. $2 lcsh
+650 #7 $a Generative KI. $2 gnd
+650 #7 $a Human-AI interaction. $2 lcsh
+650 #7 $a Human-computer interaction. $2 mesh
+655 #7 $a Computer poetry. $2 lcgft
+655 #7 $a Synthetic media. $2 lcgft
+655 #7 $a Speculative fiction. $2 gnd
+730 0# $i Related work: $a Gemini (Neural network software)
+730 0# $i Related work: $a Kizuna AI (Virtual persona / Algorithmic character)
+883 ## $a Automated metadata enrichment and vector indexing $d 20260725 $q DataMercs $q Gemini v2.5 $c 0.98 confidence $u https://datamercs.net/provenance/log-20260725
+```
+
+## // Advanced Considerations: Authority Control, Provenance, and Edge Cases
+
+## Authority Control & Linked Data Modeling
+
+To maintain interoperability with next-generation discovery layers, AI software and virtual personas must be anchored to structured authority files rather than treated as simple text strings.
+
+* **MARC Authority / Hubs**: Establish the AI software or virtual entity as an authorized access point in a [130](https://www.loc.gov/marc/bibliographic/bd130.html) or [730](https://www.loc.gov/marc/bibliographic/bd730.html) authority record (mirroring PCC FAQ patterns), linking it to Wikidata or Library of Congress Name Authority File (LCNAF) URIs where available.
+* **BIBFRAME & Schema.org**: In a linked data environment, model the synthetic work via **BIBFRAME** (`bf:Work` related to a `bf:Software` entity via custom relationship properties) or **Schema.org** (`CreativeWork` utilizing properties like `softwareApplication` or `contributor` paired with `additionalType` for virtual personas).
+
+## TL;DR – Relevant Fields & Codes (Quick Reference)
+
+**MARC21**
+
+- **[100](https://www.loc.gov/marc/bibliographic/bd100.html) / [700](https://www.loc.gov/marc/bibliographic/bd700.html)** → Human creators, prompters, editors (with $e relationship designators)
+- **[500](https://www.loc.gov/marc/bibliographic/bd500.html) / [588](https://www.loc.gov/marc/bibliographic/bd588.html)** → Free-text notes on tools, prompts, and workflows
+- **[655](https://www.loc.gov/marc/bibliographic/bd655.html)** → Genre/form terms (Computer poetry, AI art, AI-assisted content etc.)
+- **[730](https://www.loc.gov/marc/bibliographic/bd730.html)** → AI software as Related Work ($i Related work)
+- **[883](https://www.loc.gov/marc/bibliographic/bd883.html)** → Machine-generated metadata provenance
+
+## Key Resources
+
+- [PCC FAQ on Cataloging AI-Generated Resources](https://www.loc.gov/aba/pcc/scs/documents/FAQ-Cataloging-of-Resources-Generated-by-Artificial-Intelligence)
+- [PCC Task Group Final Report](https://www.loc.gov/aba/pcc/taskgroup/AI-and-Machine-Learning-TG-final-report.pdf) (Last verified revision: Q2 2026)
+- [OCLC Bibliographic Formats and Standards (BFAS)](https://www.oclc.org/bibformats/en/home.html)
+
+# // Platform Realities & Legal Frameworks (EU AI Act)
+
+* **Retail & Discovery Surface Area**: Major commercial platforms (such as Amazon KDP and OverDrive) and library discovery layers (Primo, Summon) handle AI flags differently—ranging from automated content warnings and search filtering to mandatory disclosure boxes at ingestion. Suppressing or mislabeling synthetic metadata risks takedowns or algorithmic downranking.
+* **Regulatory Compliance**: Align metadata disclosures with **[EU AI Act](https://artificialintelligenceact.eu)** transparency obligations, ensuring that generated texts, translations, or synthetic media bear clear machine-readable markers (such as ONIX usage constraints and MARC provenance tags) to satisfy regulatory traceability requirements.
+
+# // In Summary
+
+ONIX offers ready-to-implement, market-oriented solutions – ideal for publishers and distributors.  
+MARC21 focuses on precise, integrity-first cataloguing, providing nuanced frameworks for treating AI as a related work alongside human operators.  
+In both realms, the rule is the same: **Transparency builds trust** in the age of the [EU AI Act](https://artificialintelligenceact.eu) and beyond.  
+Standards evolve. Check the sources. The archives endure when the records stay honest.
+
+---
+**Title Graphic:** "Ghost in the MARC"  
+*generated with Grok Imagine by [Grok (xAI)](https://grok.com) in collaboration with the author*

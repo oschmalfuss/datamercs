@@ -1,0 +1,103 @@
+articles:
+  - title: "Ghost in the MARC: Cataloguing the Synthetic Shift in Bibliographic Metadata"
+date: "2026-06-13"
+categories:
+  - "Metadata Standards"
+- "AI & Future Tech"
+
+- title: "A Pragmatic View: Der dbv-Leitfaden zu kolonialen Kontexten"
+date: "2026-06-13"
+categories:
+  - "Metadata Standards"
+- "Industry & Trends"
+
+- title: "114. BiblioCon 2026 - Nachlese"
+date: "2026-05-24"
+categories:
+  - "Industry & Trends"
+- "Conferences"
+
+- title: "Welcome to OS DataMercs"
+date: "2022-11-07"
+categories:
+  - "About"
+
+- title: "GitHub Desktop window not launching"
+date: "2022-02-28"
+categories:
+  - "Data Operations & Automation"
+- "Git"
+
+- title: "rough guide to Git Large File Storage (LFS)"
+date: "2021-12-18"
+categories:
+  - "Data Operations & Automation"
+- "Git"
+
+- title: "A rough guide to VPNs"
+date: "2021-09-28"
+categories:
+  - "Technical Guides"
+- "Security"
+
+- title: "Z39.50 for Dummies"
+date: "2020-07-07"
+categories:
+  - "Metadata Standards"
+- "Technical Guides"
+
+- title: "Win Task Scheduler for cygwin"
+date: "2018-05-05"
+categories:
+  - "Data Operations & Automation"
+
+- title: "download YouTube (videos | mp3) with VLC"
+date: "2018-04-05"
+categories:
+  - "Technical Guides"
+
+- title: "rbbKultur - Mediathek-Downloader"
+date: "2017-11-09"
+categories:
+  - "Technical Guides"
+
+- title: "bash 'test' command"
+date: "2017-09-11"
+categories:
+  - "Data Operations & Automation"
+- "Bash"
+
+- title: "bash 'cat' - the poor man's text editor"
+date: "2017-08-24"
+categories:
+  - "Data Operations & Automation"
+- "Bash"
+
+- title: "Howto batch rename on the command line"
+date: "2016-04-14"
+categories:
+  - "Data Operations & Automation"
+- "Bash"
+
+- title: "Open source OCR on bash with ImageMagick and Tesseract"
+date: "2015-11-16"
+categories:
+  - "Technical Guides"
+- "Data Operations & Automation"
+
+- title: "RDA - the librarian's (double) standard"
+date: "2015-02-03"
+categories:
+  - "Metadata Standards"
+
+- title: "Working with KBART files"
+date: "2013-07-21"
+categories:
+  - "Metadata Standards"
+- "E-Resources & Access"
+
+- title: "MarcEdit under Ubuntu Linux"
+date: "~2013"
+categories:
+  - "Metadata Standards"
+- "Technical Guides"

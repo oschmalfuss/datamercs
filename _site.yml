@@ -1,8 +1,8 @@
-name: "."
+name: "OS DataMercs"
 title: "OS DataMercs"
 favicon: logo.png
 description: |
-  OS DataMercs
+  Metadata Architecture & Consulting
 output_dir: "_site"
 base_url: https://www.datamercs.net
 #theme: osdm.css
@@ -30,5 +30,7 @@ navbar:
       href: index.xml
 collections:
   posts:
+    categories: true
+    categories_metadata: true
     share: [twitter, linkedin, instagram, facebook]
 output: distill::distill_article

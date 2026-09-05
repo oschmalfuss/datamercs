@@ -1,0 +1,261 @@
+---
+title: "BISAC 2025 → Thema 1.6"
+output:
+  html_document:
+    self_contained: true
+    theme: null
+    highlight: null
+    mathjax: null
+    toc: false
+    css: datamercs-bisac-thema.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(readxl)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(htmltools)
+```
+
+```{r load}
+# ── inputs (keep next to this Rmd) ─────────────────────────────────────
+xlsx_path <- "BISAC 2025 to Thema 1.6 Mapping_Public.xlsx"
+map_path  <- "bisac_section_mappings.tsv"
+
+raw <- read_excel(xlsx_path) |>
+  mutate(across(everything(), ~replace_na(as.character(.), "")))
+
+maps <- read_tsv(map_path, show_col_types = FALSE)
+
+# join section / DDC / LCSH by 3-letter prefix
+raw <- raw |>
+  mutate(prefix = substr(`BISAC Code`, 1, 3)) |>
+  left_join(maps, by = "prefix") |>
+  mutate(
+    section = coalesce(section, prefix),
+    ddc     = coalesce(ddc, "—"),
+    lcsh    = coalesce(lcsh, "—")
+  )
+
+# collapse Thema + qualifier columns into display strings
+collapse_pair <- function(df, code_cols, lit_cols) {
+  apply(df, 1, function(row) {
+    parts <- character(0)
+    for (i in seq_along(code_cols)) {
+      c <- row[[code_cols[i]]]
+      lit <- row[[lit_cols[i]]]
+      if (nzchar(c)) {
+        parts <- c(parts, if (nzchar(lit)) paste0(c, " — ", lit) else c)
+      }
+    }
+    paste(parts, collapse = " | ")
+  })
+}
+
+raw$thema <- collapse_pair(
+  raw,
+  paste0("Thema Code ", 1:4),
+  paste0("Thema Literal ", 1:4)
+)
+raw$qual <- collapse_pair(
+  raw,
+  paste0("Qual Code ", 1:4),
+  paste0("Qual Literal ", 1:4)
+)
+
+tbl <- raw |>
+  transmute(
+    seq = as.integer(seq),
+    bisac = `BISAC Code`,
+    section,
+    thema,
+    qual,
+    ddc,
+    lcsh
+  )
+
+n_codes <- nrow(tbl)
+
+```
+
+```{r chrome, results='asis', include=FALSE}
+
+cat(sprintf('
+<div id="portal-chrome">
+  <div class="brand">
+    <span class="brand-mark">datamercs</span>
+    <h1>BISAC 2025 → <em>Thema 1.6</em></h1>
+  </div>
+  <div class="meta-line">
+    OFFICIAL EDIT EUR / BISG PUBLIC MAPPING
+    <span>·</span> %s CODES
+    <span>·</span> DDC / LCSH FROM TSV
+    <span>·</span> DT + REGEX
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search all fields…" autocomplete="off" spellcheck="false">
+    <label class="toggle" id="reToggle" title="Regular expression search">
+      <input type="checkbox" id="re">
+      <span class="dot"></span>
+      Regex
+    </label>
+    <button type="button" class="btn" id="clear">Clear</button>
+    <div class="stats"><b id="shown">%s</b><span class="sep">/</span><span id="total">%s</span> codes</div>
+  </div>
+  <div class="re-err" id="reErr">Invalid regular expression</div>
+</div>
+<div class="notice">
+  <strong>DDC &amp; LCSH</strong> come from <code>bisac_section_mappings.tsv</code> (section-level heuristics).
+  Replace that TSV with licensed crosswalks when available. Regex uses DataTables search with <code>regex: true</code>.
+</div>
+<div class="table-wrap">
+'
+, format(n_codes, big.mark = ","), format(n_codes, big.mark = ","), format(n_codes, big.mark = ",")))
+
+```
+
+```{r table}
+# HTML helpers for Thema / qualifier badges
+fmt_codes <- JS("
+  function(data, type) {
+    if (type !== 'display' || !data) return data || '—';
+    return data.split(' | ').map(function(part) {
+      var m = part.match(/^([A-Z0-9\\-]+)\\s*—\\s*(.*)$/);
+      if (m) return '<span class=\"badge\">' + m[1] + '</span>' + m[2];
+      return part;
+    }).join('<br>');
+  }
+")
+
+fmt_qual <- JS("
+  function(data, type) {
+    if (type !== 'display' || !data) return data || '—';
+    return data.split(' | ').map(function(part) {
+      var m = part.match(/^([A-Z0-9\\-]+)\\s*—\\s*(.*)$/);
+      if (m) return '<span class=\"badge badge-q\">' + m[1] + '</span>' + m[2];
+      return part;
+    }).join('<br>');
+  }
+")
+
+datatable(
+  tbl,
+  rownames = T,
+  escape = FALSE,
+  class = "display stripe compact",
+  options = list(
+    pageLength = 50,
+    lengthMenu = c(25, 50, 100, 250, 500),
+    order = list(list(0, "asc")),
+    stateSave = FALSE,
+    autoWidth = FALSE,
+    # we drive search from #q — keep DT search enabled but hidden via CSS
+    searching = TRUE,
+    search = list(regex = FALSE, smart = TRUE, caseInsensitive = TRUE),
+    columnDefs = list(
+      list(className = "bisac", targets = 1),
+      list(className = "section", targets = 2),
+      list(className = "ddc", targets = 5),
+      list(className = "lcsh", targets = 6),
+      list(targets = 3, render = fmt_codes),
+      list(targets = 4, render = fmt_qual)
+    ),
+    language = list(
+      search = "",
+      lengthMenu = "Show _MENU_",
+      info = "_START_–_END_ of _TOTAL_",
+      infoFiltered = "(filtered from _MAX_)",
+      paginate = list(previous = "‹", `next` = "›")
+    ),
+    # callback: wire external search + regex toggle (DGB-style)
+    initComplete = JS("
+      function(settings, json) {
+        var api = this.api();
+        var q = document.getElementById('q');
+        var re = document.getElementById('re');
+        var reToggle = document.getElementById('reToggle');
+        var reErr = document.getElementById('reErr');
+        var shown = document.getElementById('shown');
+        var clearBtn = document.getElementById('clear');
+
+        function applySearch() {
+          var term = (q.value || '').trim();
+          var useRe = re.checked;
+          reErr.classList.remove('show');
+
+          if (useRe && term) {
+            try {
+              new RegExp(term); // validate
+            } catch (e) {
+              reErr.textContent = 'Invalid regex: ' + e.message;
+              reErr.classList.add('show');
+              api.search('').draw();
+              return;
+            }
+            // DataTables regex mode (no smart tokenizing)
+            api.search(term, true, false).draw();
+          } else {
+            // normal smart multi-token search
+            api.search(term, false, true).draw();
+          }
+          var info = api.page.info();
+          shown.textContent = info.recordsDisplay.toLocaleString();
+        }
+
+        q.addEventListener('input', applySearch);
+        re.addEventListener('change', function() {
+          reToggle.classList.toggle('active', re.checked);
+          q.placeholder = re.checked
+            ? 'RegExp (e.g. ^FIC.*|MED0[0-2])…'
+            : 'Search all fields…';
+          applySearch();
+        });
+        clearBtn.addEventListener('click', function() {
+          q.value = '';
+          re.checked = false;
+          reToggle.classList.remove('active');
+          q.placeholder = 'Search all fields…';
+          reErr.classList.remove('show');
+          applySearch();
+          q.focus();
+        });
+
+        // keep count in sync on any draw (paging / sort)
+        api.on('draw', function() {
+          var info = api.page.info();
+          shown.textContent = info.recordsDisplay.toLocaleString();
+        });
+
+        // / focuses search
+        document.addEventListener('keydown', function(e) {
+          if (e.key === '/' && document.activeElement !== q) {
+            e.preventDefault();
+            q.focus();
+            q.select();
+          }
+          if (e.key === 'Escape' && document.activeElement === q) q.blur();
+        });
+
+        applySearch();
+      }
+    ")
+  ),
+  colnames = c("#", "BISAC", "Section", "Thema subject(s)", "Qualifier(s)", "DDC ≈", "LCSH ≈")
+)
+```
+
+```{r foot, results='asis'}
+cat('
+</div>
+<footer class="portal-foot">
+  SOURCE · EDIT EUR / BISG “BISAC 2025 TO THEMA 1.6 MAPPING_PUBLIC.XLSX”
+  · MAPPINGS · <code>bisac_section_mappings.tsv</code>
+  · <a href="https://datamercs.net">DATAMERCS.NET</a>
+</footer>
+'
+)
+
+```

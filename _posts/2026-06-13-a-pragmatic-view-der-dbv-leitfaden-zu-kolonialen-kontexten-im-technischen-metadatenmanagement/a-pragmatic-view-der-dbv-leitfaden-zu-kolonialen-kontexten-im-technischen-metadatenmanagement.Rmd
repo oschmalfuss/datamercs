@@ -1,0 +1,144 @@
+---
+title: "A Pragmatic View: Der dbv-Leitfaden zu kolonialen Kontexten im technischen Metadatenmanagement"
+description: |
+  Der neue dbv-Leitfaden zu kolonialen Kontexten liegt vor. Bevor bewährte und global funktionierende Datenstrukturen im Namen einer retrospektiven Kontextualisierung dekonstruiert werden, empfiehlt sich eine rein technische Analyse - ohne in die typische 'Was haben die Römer je für uns getan?'-Dystopie zu verfallen. Ein nüchterner Blick auf das, was datentechnisch sinnvoll ist: Präzise Spezifikation statt narrativer Prosa.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuss"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-06-13
+preview: neuromlib_dbv.png
+slug: "marc21-koloniale-kontexte-pragmatismus"
+categories:
+  - "Metadata Standards"
+  - "Industry & Trends"
+  - "Best Practice"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+    share: false
+draft: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Im Juni 2026 veröffentlichen der Deutsche Bibliotheksverband (dbv) und die Vereinigung Österreichischer Bibliothekarinnen und Bibliothekare (VÖB) den seit 2024 erarbeiteten Leitfaden zu „[Kolonialen Kontexten in Bibliotheken](https://doi.org/10.18452/37497)“.[^1]
+
+[^1]: "Koloniale Kontexte in Bibliotheken: Ein Leitfaden für den Umgang mit Kolonialen Beständen" *Pressemitteilung des dbv vom 11.06.2026* <https://www.bibliotheksverband.de/koloniale-kontexte-bibliotheken-0>
+
+Der Leitfaden richtet sich an Öffentliche und Wissenschaftliche Bibliotheken im deutschsprachigen Raum, und versteht sich als praktische Orientierungshilfe und als Beitrag zu einer fortlaufenden Diskussion, zur Unterstützung der Entwicklung eigener Strategien beim Umgang mit kolonialen Beständen sowie Förderung eines reflektierten Umgangs mit historisch gewachsenen Beständen, und löst in der Fachwelt die absehbaren Grundsatzdebatten aus:
+
+Die einen wittern in jedem historischen Klassifikationssystem sofort ein koloniales Unterdrückungsinstrument, das es radikal zu zerschlagen gilt.[^2]
+Da stellt sich unweigerlich die klassische *Life of Brian*-Frage: Was hat uns die vermeintlich koloniale Wissensordnung eigentlich je gebracht?
+
+[^2]: **Why Decolonize Metadata?**
+    Legacy classification systems (like the Library of Congress Subject Headings) were historically built upon Western, white-centric, and colonial worldviews. This results in several systemic issues:
+    - **Erasure & Misnaming:** Using offensive, outdated terms (e.g., "Indians of North America" instead of self-determined Indigenous names).
+    - **Misclassification:** Categorizing Indigenous history and culture under "folklore" or "mythology" rather than history.
+    - **Missing Context:** Failing to attribute agency or properly identify individuals, erasing their race, gender, or cultural background.
+    c.f. <https://library.potsdam.edu/DiverseVoicesResearchStrategies>
+
+Abgesehen von der globalen Standardisierung, der universellen Auffindbarkeit, der jahrzehntelangen Interoperabilität, funktionierenden Verbundstrukturen und der Tatsache, dass unsere Systeme überhaupt verlässlich große Datenmengen performant verarbeiten – abgesehen davon natürlich: Nichts.[^3]
+
+[^3]: c.f. In Defence of Empire by Nigel Biggar: My (twice!) cancelled thoughts on the British Empire <https://www.nigelbiggar.co.uk/p/in-defence-of-empire>
+
+Wer die Prämisse einer flächendeckenden „Kolonialisierung“ unserer Kataloge anzweifelt, tut das mit gutem Recht: Bibliothekarische Wissensordnungen sind in erster Linie pragmatische Werkzeuge zur Informationsarchitektur, keine politischen Manifeste. Sie funktionieren, weil sie logisch konsistent sind.
+
+Dennoch liefert der Leitfaden dort einen echten datentechnischen Mehrwert, wo es um die präzise Spezifikation und punktuelle Kenntlichmachung geht, wo wirklich sinnvoll und notwendig. Als Data Operations Engineers biegen wir die Daten nicht für Ideologien gerade, sondern optimieren die Granularität dort, wo Unschärfen die Datenqualität bedrohen - ganz im Sinne eines DDC-kritischen Dr. S.R. Ranganathans.[^4]
+
+[^4]: c.f. Ranganathan criticized the DDC’s structural and terminological bias, which catered largely to "White races, Anglo-Saxon, [and] Protestant Christian Subjects". This led to unequal or disproportionate space given to Western history and religion at the expense of Eastern philosophies, languages, and cultures.
+    However, Ranganathan profoundly admired DDC's pioneering use of a place-value decimal notation and frequently credited it as his own inspiration. He believed that Melvil Dewey’s true genius was harnessing decimal place values for library organization, calling it the system that rescued classification from becoming a "rudderless vessel".
+    Despite CC's academic superiority, Ranganathan recognized DDC's dominance and worldwide standardization. He knew that DDC’s immense simplicity and widespread integration made it the most pragmatic shelf arrangement system in the world.
+    Ironically, Ranganathan’s "facet analysis" principles were so vital to information science that modern DDC editions (starting from DDC 17 onwards) have continuously incorporated faceted elements and standard subdivisions to remain relevant.
+
+Schauen wir uns an, wie wir diese Spezifikationen im MARC 21-Format sauber und ohne Systembruch umsetzen.
+
+## 1. Provenienz-Spezifikation: Fakten statt historischer Prosa (Feld 361)
+
+Man muss keine kolonialen Narrative bemühen, um zu erkennen, dass unstrukturierte Freitexte im [**Feld 561 \## \$a**](https://www.loc.gov/marc/bibliographic/bd561.html) der natürliche Feind jeder automatisierten Pipeline sind. Wenn Besitzverhältnisse oder historische Transaktionskontexte vage formuliert sind, leidet die maschinelle Auswertbarkeit und damit die Datenintegrität.
+
+Hier setzen wir das hochstrukturierte [**Feld 361 (Structured Ownership and Custodial History)**](https://www.loc.gov/marc/bibliographic/bd361.html) an. Es dient nicht der moralischen Wiedergutmachung, sondern der lückenlosen, maschinenlesbaren Erfassung von Provenienzketten für den eindeutigen Eigentumsnachweis: Wenn ein historischer Transferkontext existiert, wird er hier präzise isoliert.
+
+### Das Szenario
+
+Ein Objekt aus der historischen Sammlung der *Deutschen Kolonialgesellschaft*, dessen Erwerbungskontext im Jahr 1899 exakt spezifiziert und über Normdaten verknüpft werden soll.
+
+#### Flat-Format:
+
+``` plaintext
+361 2# $a Spezifischer Erwerbungskontext $b Deutsche Expeditionskorps $c Deutsch-Ostafrika $d 1899 $u [https://d-nb.info/gnd/4070334-4](https://d-nb.info/gnd/4070334-4) $0 (DE-588)4070334-4 $2 tpro
+561 ## $a 1899 durch Expeditionskorps in Deutsch-Ostafrika erworben; 1902 an die Bibliothek der Deutschen Kolonialgesellschaft (Berlin) übergeben; Zugang 1926. $5 DE-1a
+```
+
+#### MarcXML-Struktur:
+
+``` xml
+<record>
+ <!-- Präzise Dokumentation des historischen Transfers -->
+ <!-- Strukturierte Erfassung des Unrechtskontextes -->
+ <datafield tag="361" ind1="2" ind2=" ">
+ <subfield code="a">Spezifischer Erwerbungskontext</subfield>
+ <subfield code="b">Deutsches Expeditionskorps</subfield>
+ <subfield code="c">Deutsch-Ostafrika</subfield>
+ <subfield code="d">1899</subfield>
+ <!-- Eindeutiger Identifikator statt vager Ortsangabe -->
+ <!-- Harte Verknüpfung: GND-ID für das historische Geografikum -->
+ <subfield code="u">[https://d-nb.info/gnd/4070334-4](https://d-nb.info/gnd/4070334-4)</subfield>
+ <subfield code="0">(DE-588)4070334-4</subfield>
+ <!-- Validierung gegen den Thesaurus der Provenienzbegriffe -->
+ <subfield code="2">tpro</subfield>
+ </datafield>
+ 
+ <datafield tag="561" ind1=" " ind2=" ">
+ <subfield code="a">Im Jahr 1899 durch das deutsche Expeditionskorps in Deutsch-Ostafrika konfisziert; 1902 an die Bibliothek der Deutschen Kolonialgesellschaft übergeben. </subfield>
+ <subfield code="5">DE-1a</subfield>
+ </datafield>
+</record>
+```
+
+## 2. Erschließungstiefe optimieren: Vokabular-Erweiterung statt Vokabular-Zensur (Feld 65X)
+
+Die Zerschlagung etablierter Thesauri (wie der GND) zugunsten einer vermeintlich dekolonisierten Sprache, bzw. wechselnder sprachlicher Strömungen per se, führt ins informationstechnologische Chaos. Aber: Wo historische Bezeichnungen zu ungenau sind oder zeitgenössische Suchanfragen ins Leere laufen, ist eine Erweiterung der Datenfelder schlicht ökonomisch geboten.
+
+Über das Unterfeld **`$2` (Source of heading or term)** im [**Feld 650 (Topical Term)**](https://www.loc.gov/marc/bibliographic/bd650.html) und [**Feld 651 (Geographic Name)**](https://www.loc.gov/marc/bibliographic/bd651.html) ersetzen wir keine validen Daten, sondern wir reichern sie an. Wir generieren zusätzliche Einstiegspunkte für moderne Discoverysysteme, ohne die bewährte Struktur zu opfern.
+
+### Das Szenario
+
+Erschließung eines historischen Werks. Um sowohl der historischen Systematik als auch modernen, spezifischen Suchanfragen gerecht zu werden, nutzen wir parallele kontrollierte Vokabulare:
+
+``` plaintext
+650 #7 $a Luo (Volk) $0 (DE-588)4036605-4 $2 gnd
+651 #7 $a Nam Lolwe $g Viktoriasee $0 [https://www.wikidata.org/wiki/Q1911](https://www.wikidata.org/wiki/Q1911) $2 wikidata
+```
+
+*Der operative Ansatz:* Das System bleibt stabil. Wer nach dem etablierten Begriff sucht, findet den Datensatz. Wer nach der spezifischen Community-Bezeichnung sucht, ebenfalls. Das ist kein politisches Zugeständnis, sondern optimierte Retrieval-Performance.
+
+## 3. Sachliche Kontextualisierung statt moralischer Zeigefinger (Feld 500)
+
+Metadatenfelder sind keine Instrumente für pädagogische oder moralisierende Kommentare. Bibliotheken sind Informationsspeicher, keine Erziehungsinstitutionen. Was wir jedoch liefern müssen, ist wertungsfreie Transparenz für den Endnutzer, wenn historische Texte Begrifflichkeiten enthalten, die moderne Suchfilter blockieren oder ohne Kontext unverständlich sind.
+
+Statt emotionaler oder wertender Prosa nutzen wir die [**5XX-Notizfelder**](https://www.loc.gov/marc/bibliographic/bd5xx.html) für eine nüchterne, distanzierte Einordnung. Das schützt die Integrität der Institution und klärt den Nutzer auf – präzise und wertungsfrei:
+
+``` plaintext
+500 ## $a Hinweis: Der historische Originaltext (1905) verwendet die Terminologie der Entstehungszeit. Die Digitalisierung erfolgt als unverändertes zeithistorisches Dokument.
+520 ## $a Bericht über die militärischen und landwirtschaftlichen Aktivitäten im kolonialen Kontext aus der zeitgenössischen Perspektive des Autors (1905).
+```
+
+## Das Fazit für Data Operations
+
+Es gibt keine technische Notwendigkeit, das Rad neu zu erfinden oder funktionierende Wissensordnungen für den aktuellen Zeitgeist zu opfern. Die bestehenden globalen Erfassungssysteme sind hocheffizient.
+
+Der dbv-Leitfaden 2026 bietet uns jedoch dort, wo es *operativ notwendig* ist, die Werkzeuge für eine schärfere Datengranularität. Unsere Aufgabe im Metadatenmanagement ist es, die Systeme stabil, die Daten sauber und die Zugänge offen zu halten. MARC21 bietet dafür alle nötigen Spezifikationen. Nutzen wir sie rein pragmatisch - *For information, for Terra!*
+
+**Quellen:**
+
+*Deutscher Bibliotheksverband e. V. (dbv) & Vereinigung Österreichischer Bibliothekarinnen und Bibliothekare (VÖB). (2026). Koloniale Kontexte in Bibliotheken: Ein Leitfaden. DOI: [10.18452/37497](https://doi.org/10.18452/37497)*
+
+
