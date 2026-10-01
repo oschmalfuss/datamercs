@@ -1,0 +1,30 @@
+---
+title: "Insights"
+description: |
+  Articles, talks and publications on metadata, standards and scholarly publishing.
+site: distill::distill_website
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<aside>
+Need someone to talk about metadata!?  
+Call your friendly neighbourhood librarian at info@datamercs.net and we’ll be in touch shortly.
+</aside>
+
+## // Talks & publications {#talks}
+
+### // 2018
+
+  * Podiumsdiskussion: "[Metadaten zwischen Autopsie und Automatisierung - welche Qualität brauchen wir?](https://www.professionalabstracts.com/dbt2018/iplanner/#/presentation/379)"
+
+### // 2017
+
+  * "*Open-Content-Lizenzen im Angriff – Wir stellen uns der Herausforderung*"  
+  [Lizenzangaben und Rechtedokumentationen im Dialog – Datenflüsse nachhaltig gestalten; Veranstaltung der Deutschen Nationalbibliothek Frankfurt am Main am 7. November 2017](https://www.dnb.de/lizenzenimdialog)
+  * *Missing Link - 9. Bremer eBook-Tag* - Moderation: "[Bereitstellung und Aufbereitung von Metadaten](https://doi.org/10.1515/bd-2017-0085)" (together with Barbara Block (VZG))
+
+## // Articles {#articles}

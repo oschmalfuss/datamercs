@@ -1,0 +1,208 @@
+---
+title: "Quality is a column, not a vibe"
+description: |
+  AG Universitätsverlage, Qualitätsstandards für Open-Access-Bücher, version 3. A note for the people who already run the feed: most of the sheet is maintenance, five items are news, and the gap that matters is still CC0 without a delivery format. Berlin, DINI, the Kodex and Plan S are treated as known.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+date: 2026-10-01
+preview: oa_ebook.jpg
+categories:
+  - Standards & metadata
+  - Industry notes
+  - AI & provenance
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Source.** Arbeitsgemeinschaft Universitätsverlage. (2026). *Qualitätsstandards für Open-Access-Bücher* (Version 3). Zenodo. <https://doi.org/10.5281/zenodo.22938571>  
+Sheet dated July 2026, Zenodo stamp 24 September 2026. Compared here with version 2 (September 2022, <https://doi.org/10.5281/zenodo.7075761>). Seven pages, CC BY 4.0, German only as far as we found. The [AG homepage](https://ag-univerlage.de/) still links version 2.
+
+## The short version
+
+This is not written for someone who needs Berlin, DINI, the Kodex or Plan S explained. Those sit on the same shelf as the sheet. The addressee is the OA officer or metadata librarian who already runs the title page, the ONIX or MARC feed and the funder checklist — and the press or fund staffer who has to tick version 3 this week because DFG already pointed at version 2. The AG is overheard. The reader is the person who has to ship, or refuse to ship, the file.
+
+Is this news, or another working-group paper that shows up after the market has moved on? Our reading: **mostly the second, with a first-class exception.**
+
+Most of the necessary column writes down what that desk already does: an OA label on every format, a Creative Commons licence, cleared third-party images, deposit with the national library, a named OA contact.  
+The footnotes point at UNESCO, COPE and OASPA, the DOAS, the DFG code.  
+A useful floor, and a late one.  
+German offices have a proverb for the genre: *Wenn man nicht mehr weiter weiß, gründet man einen Arbeitskreis.* Too cheap as a verdict on this sheet — DFG already made version 2 a funding condition — and accurate as a warning about the recommended column.  
+A working group is cheaper than a feed.
+
+**Rule one of the job: don't change the deal.**  
+Version 3 changes the deal in a few places and does not announce it:  
+☛ Text and data mining got weaker.  
+☛ The funder line got weaker.  
+☛ One necessary item on good-practice procedures quietly left the column.  
+☛ And the one place where it raises the bar, CC0 on metadata, it raises without naming a pipe to carry it.  
+That last part is the story. You already know where the pipe was named.
+
+## What the sheet does with the sources you already have
+
+No primer. Only the mismatches. Version 3 cites the family and then splits or softens the sentence the family kept in one piece.
+
+| You already treat as settled | Version 3 does this instead |
+|---|---|
+| Berlin: irrevocable reuse, including derivatives; file plus permission in a standards-based repository | Cites Berlin in the preamble, then limits TDM to "the technical and legal conditions". Softer than the ancestor it names. |
+| Plan S: CC0 on metadata *and* a standard interoperable format, in the same mandatory sentence; funder ID in the record; licence in the file | CC0 becomes necessary. Formats stay recommended. Funder line becomes "enable capture". |
+| DINI: OAI-PMH is a minimum, and someone certifies | OAI-PMH, ONIX, MARC, REST sit in the recommended column. No seal. |
+| Kodex LL 13 / 17: document the data, make them accessible, archive them | Necessary to *ask*. Deposit stays recommended. |
+| Kodex + COPE/OASPA: named procedures, visible contacts | Dropped from the necessary column of §3. |
+| DFG 12.24: the AG sheet is already binding for funded OA books | Still no public list of who meets the necessary column. The PDF stands in for an audit. |
+
+Two consequences, both operational.
+
+You cannot invoke the *Berlin Declaration on Open Access* as the definition of OA and then hand the legal permission back to "the conditions". That is a deal change on a title the cataloguer already indexed as open.
+
+And DFG did not wait for version 3. Form 12.24 already treats the AG standards as binding for books. A funder can demand the PDF. You still cannot harvest the CC0 unless the feed exists. That is the only predecessor point that is not already in your head: the sheet is now the proxy audit for a floor the other documents stated more tightly.
+
+## v2 versus v3
+
+| Topic | v2 (2022) | v3 (2026) |
+|---|---|---|
+| Scope | Preamble: books in immediate OA, "Gold OA, Diamond OA" | Preamble: OA in the sense of the Berlin Declaration. The gold and diamond wording is gone. |
+| TDM | Necessary, §1.6: "technisch ermöglicht und rechtlich gestattet" | Necessary, §1.6: "im Rahmen der technischen und rechtlichen Bedingungen ermöglicht". The separate grant of legal permission is gone. Softened, not new. |
+| Machine-readable licence | Necessary, §2.4 | Necessary, §2.4. Unchanged. |
+| Funders and third parties | Necessary, §6.2: funders "werden … genannt" in the document and, where applicable, the metadata | Necessary, §1.8: the press "ermöglicht die Erfassung". Moved and softened. |
+| Research data | Recommended to deposit and link, §1.9 | Necessary to *ask* whether data exist and to advise, §1.7. Deposit and FAIR link stay recommended, §1.10. |
+| CC0 on metadata and abstracts | Recommended, §2.5 and §5.2 | Necessary, §6.2. Promoted. |
+| Metadata delivery formats (ONIX, Dublin Core, DataCite, Crossref, OAI-PMH, MARC) | Recommended, §5.4 and §5.5 | Recommended, §6.3 and §6.6. Adds REST-API and xMetaDissPlus, still names MARC. KBART is named in neither version. |
+| Controlled vocabularies (GND, DDC) | — | Recommended, §6.7. New. |
+| PID on the title | Necessary, §6.1 | Necessary, §7.1. Same floor. |
+| PID resolution | — | Necessary, §7.2: link checkers and registration-agency monitoring, defective links corrected promptly. New. |
+| Accessibility | Recommended as format quality, §4.4 | Necessary to follow the legal rules (BFSG), §5.2. WCAG 2.1 AA, PDF/UA and EN 301 549 stay recommended, §5.4. |
+| Machine-readable publication file | Necessary: one long-term-archivable format, §4.1 | Necessary: at least one *machine-readable* and long-term-archivable format, §5.1. |
+| Generative AI | — | New §4. Necessary §4.1 to §4.3, recommended §4.4 to §4.6. |
+| Good-practice procedures with named contacts | Necessary, §3.3 | Not in the necessary column of §3. Dropped. |
+| Rights retention, PRISM for review metadata | — | Recommended, §2.6 (citing DOAS) and §3.6. New. |
+
+## What actually moved
+
+Five items are new in the necessary column or were promoted into it.
+
+1. **CC0 on metadata and abstracts** (§6.2), unless the form of publication forbids it, for example meeting abstracts. In 2022 this was a recommendation. Now it is a requirement, and no delivery format sits next to it. The formats that would make CC0 *ship* (ONIX-XML, Dublin Core, DataCite, Crossref, OAI-PMH, REST, MARC, xMetaDissPlus) are all recommended (§6.3, §6.6). Plan S required both halves together. DINI required the OAI pipe as a minimum twenty years earlier.
+2. **DOI resolution monitoring** (§7.2). A dead DOI is now a quality failure, not a webmaster ticket.
+3. **BFSG** (§5.2). Accessibility as statute, not taste.
+4. **Ask about research data** (§1.7). The deposit itself stays recommended.
+5. **§4 generative AI.** Necessary: a house rule aligned with the parent institution; authors must disclose AI use in creating the submitted work, including the copyright question; no AI in the publishing process where ethical or legal objections stand. Recommended: advise authors, keep a durable record, give citation examples.
+
+Three of the five (2, 3, 5) put in writing what the law or the parent institution already demands. Only CC0 changes what a press has to *ship*.
+
+## What got quieter
+
+Text- and Data-Mining (TDM) was already necessary in 2022. Version 3 narrows it to "within the technical and legal conditions". That is a weaker duty than "technically enabled and legally permitted", and weaker than the Berlin grant the preamble now cites. Do not file it as progress.
+
+The funder line follows the same pattern. In 2022 funders had to be named. In 2026 the press has to *enable the capture* of that information. Enabling a field is not filling it. Plan S and the DFG funding rules still want the name in the record.
+
+And the necessary column of §3 lost the 2022 item on established good-practice procedures with named contacts. Version 3 keeps the reference to good research practice in the summary line, and demotes the substance. The DFG Kodex did not demote it.
+
+Small print: version 3 §1.7 points to "§1.9" for research-data recommendations. §1.9 is now DOAB and OAPEN. The item it means is §1.10. A cross-reference that misses its target in a standard about findability is a fair joke, and we will make it once.
+
+## The pointe: CC0 without a pipe
+
+§6.2 says the metadata and abstracts are CC0. §6.3 and §6.6 say the metadata *should* be available in a standard format, over a standard interface, and handed to libraries as MARC or xMetaDissPlus. Necessary licence, optional delivery.
+
+Our reading, from the feeds we see: a licence statement on a webpage is cheap — a feed that carries that licence in the record is work!  
+The sheet lets a press tick the cheap one and postpone the expensive one, and both count as "we follow the standards".  
+That is what we mean by a column, not a vibe: the necessary column names a promise; the recommended column holds the file that would keep it.
+
+Keep the scope straight: §5.1 now requires a machine-readable *publication* file. The gap is in the *metadata* delivery formats, not in the book file.  
+Plan S closed that gap for articles in 2019 by putting CC0 and the interoperable format in the same mandatory sentence. DINI closed it for repositories by making OAI-PMH a certificate condition. Version 3 cites the family and splits the sentence.
+
+## Five questions the sheet does not close
+
+1. **Who audits the necessary column?** No certification, no seal, no application queue. A funder can ask for the PDF. A cataloguer cannot ask which necessary items a press actually meets, because nobody publishes that. DINI still does the other job.
+2. **Who decides the "technical and legal conditions" for TDM?** The sheet leaves the conditions to the press. Where is that decision written down, and can a machine find it?
+3. **Who owns the PID job?** §7.2 requires monitoring and names no role. Unassigned, it lands on whoever holds the Crossref login.
+4. **Where does the AI disclosure live?** §4.2 requires it. No metadata path is named. Without a field, "transparent" does not harvest: imprint, ONIX, MARC or a footnote, each answer is a different pipeline.
+5. **Which DOI is current?** The AG homepage still cites version 2. A packing list only works when the public page and the deposit agree.
+
+## This week, not a strategy offsite
+
+If you run a DACH university press or an OA monograph fund:
+
+1. Diff the public title page against §1 and §2: licence string, licence URL, OA label on every format, deposit with the national library, a DOI that still resolves.
+2. Put CC0 on the metadata record you already send, and send it in one of the formats §6.3 and §6.6 name. The requirement is hollow until the feed exists. That is also how Plan S wrote the rule.
+3. Turn on a link checker for your DOIs. Version 3 makes silence on dead PIDs a standards miss.
+4. Write the three necessary AI sentences as a one-page house rule aligned with your university. Point authors to a place in the manuscript *and* a field in the ONIX record.
+5. Add the research-data question to the author questionnaire you already use (§1.7). One extra field. The Kodex still wants the data, not only the question.
+6. KBART is not in this PDF. MARC and ONIX are, as recommendations. Do not hang a platform migration on version 3.
+
+## Why read it anyway
+
+Because it is short, citable and open, because DFG already points fund staff at it, and because a checklist that people actually tick beats a manifesto nobody reads.  
+If your press or your fund touches OA books in German-speaking Europe, print the seven pages and mark the necessary column. Then look at what is missing next to it, and at the older documents that already named the missing file.
+
+An *Arbeitskreis* is not an *Arbeitsbeschaffungsmaßnahme* if the column can be ticked and the truck can be loaded. It becomes one when the licence is necessary and the feed is optional.
+
+## Reach
+
+Zenodo stamped version 3 on 24 September. The AG homepage still linked version 2 when we checked on 29 September.
+
+Tick the column or say you cannot. Load the truck with the file that exists.
+
+## Sources
+
+Arbeitsgemeinschaft Universitätsverlage. (2026). *Qualitätsstandards für Open-Access-Bücher* (Version 3). Zenodo. https://doi.org/10.5281/zenodo.22938571
+https://zenodo.org/records/22938571
+
+Arbeitsgemeinschaft der Universitätsverlage. (2022). *Qualitätsstandards für Open-Access-Bücher* (Version 2). Zenodo. https://doi.org/10.5281/zenodo.7075761
+https://zenodo.org/records/7075761
+
+Arbeitsgemeinschaft der Universitätsverlage. (2023). *Quality Standards for Open Access Books* (English translation of version 2). Zenodo. https://doi.org/10.5281/zenodo.7743833
+https://zenodo.org/records/7743833
+
+AG Universitätsverlage. Homepage (still pointing at version 2 when checked 29 September 2026).
+https://ag-univerlage.de/
+
+Max Planck Society. (2003). *Berlin Declaration on Open Access to Knowledge in the Sciences and Humanities*.
+https://openaccess.mpg.de/Berlin-Declaration
+
+cOAlition S. *Plan S: Technical Guidance and Requirements*.
+https://www.coalition-s.org/technical-guidance_and_requirements/
+
+Deutsche Forschungsgemeinschaft. (2019/2024). *Leitlinien zur Sicherung guter wissenschaftlicher Praxis. Kodex* (Version 1.2). https://doi.org/10.5281/zenodo.6472827
+https://zenodo.org/records/6472827
+Landing page: https://www.dfg.de/de/grundlagen-themen/grundlagen-und-prinzipien-der-foerderung/gwp/kodex
+
+Deutsche Forschungsgemeinschaft. *Merkblatt Open-Access-Publikationsförderung* (form 12.24).
+https://www.dfg.de/formulare/12_24/
+English: https://www.dfg.de/resource/blob/406184/12-24-en.pdf
+
+DINI AG Elektronisches Publizieren. (2025). *DINI-Zertifikat für Open-Access-Publikationsdienste 2025*. https://doi.org/10.18452/34210
+https://dini.de/dienste-projekte/dini-zertifikat
+
+UNESCO. (2021). *Recommendation on Open Science*.
+https://www.unesco.org/en/legal-affairs/recommendation-open-science
+UNESDOC: https://unesdoc.unesco.org/ark:/48223/pf0000379949
+
+COPE, DOAJ, OASPA & WAME. (2022). *Principles of Transparency and Best Practice in Scholarly Publishing* (Version 4).
+https://www.oaspa.org/resources/principles-of-transparency-and-best-practice-in-scholarly-publishing/
+
+Consortium of the DIAMAS Project. (2024). *The Diamond OA Standard (DOAS)* (Version 1.2). Zenodo. https://doi.org/10.5281/zenodo.13820036
+https://zenodo.org/records/13820036
+
+Fokusgruppe Open-Access-Monografienfonds. (2023). *Handlungsempfehlungen für Open-Access-Publikationsfonds zum Einsatz der Qualitätsstandards für Open-Access-Bücher der Arbeitsgemeinschaft Universitätsverlage*. Zenodo. https://doi.org/10.5281/zenodo.10256013
+https://zenodo.org/records/10256013
+
+Barrierefreiheitsstärkungsgesetz (BFSG) vom 16. Juli 2021 (BGBl. I S. 2970), zuletzt geändert durch Art. 32 G v. 6.5.2024.
+https://www.gesetze-im-internet.de/bfsg/
+PDF: https://www.gesetze-im-internet.de/bfsg/BFSG.pdf
+Cited here only because AG v3 §5.2 makes “the legal rules (BFSG)” necessary. The statute is not quoted.
+
+Verordnung zum Barrierefreiheitsstärkungsgesetz (BFSGV) vom 15. Juni 2022.
+https://www.gesetze-im-internet.de/bfsgv/
+
+<p class="news-credit">Byline: Olaf Schmalfuß (author of record). Tool disclosure: OSDS AI, via Grok Bot, was used for drafting and source checks; it is not a co-author.</p>

@@ -1,0 +1,38 @@
+---
+title: "About"
+description: |
+  OS DataMercs — metadata consulting and teaching for scholarly publishing.
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## OS DataMercs
+
+OS DataMercs is a metadata consultancy for scholarly publishing and libraries: **standards-first**, practical, and allergic to hype. We consult, teach, and help ship discovery-grade metadata — MARC21, ONIX, KBART, JATS/BITS — including how to record AI contribution without breaking the catalogue.
+
+## Services {#services}
+
+### Consulting
+Architecture and governance for product data and bibliographic metadata: modelling guidelines, quality processes, partner feeds, and ERP-to-discovery pipelines.
+
+### Teaching
+Workshops and guided practice for editorial, data, and library teams — usable the same week, not slide-deck tourism.
+
+### Delivery
+Hands-on metadata products and tooling support: audits, enrichment rules, KBART/MARC/ONIX delivery hygiene, provenance patterns for AI-assisted works.
+
+## Olaf Schmalfuß
+
+Librarian by training (M.A. Library and Information Science & German Linguistics, Humboldt-Universität zu Berlin) and data practitioner by trade. Since 2012 at De Gruyter Brill in Berlin — Technical Customer Service leadership, then Product Data, Metadata & Standards: product data warehouse, data governance & stewardship, Klopotek/SAP interfaces, and partner metadata (GBV, OCLC, EBSCO, Ex Libris, and others).
+
+Earlier: book trade and the library of the Max Planck Institute for the History of Science.
+
+**Contact:** [os@datamercs.net](mailto:os@datamercs.net) · [datamercs.net](https://www.datamercs.net) · [LinkedIn](https://www.linkedin.com/in/olaf-schmalfu%C3%9F) · [GitHub](https://github.com/oschmalfuss) · [ORCID](https://orcid.org/0000-0002-1919-3848)
+
+<!-- Optional one-line voice (lore, not layout): cyberpunk librarians / zealots of the stacks — keep off the chrome. -->

@@ -1,0 +1,27 @@
+# Streamlined categories for Distill (corporate-library readable)
+# Use these going forward; map old tags → new when retagging posts.
+
+canonical:
+  - Standards & metadata      # was: Metadata Standards, E-Resources & Access (standards bits)
+  - AI & provenance           # was: AI & Future Tech
+  - Industry notes            # was: Industry & Trends
+  - Events                    # was: Conferences & Events / Conferences
+  - Guides & tooling          # was: Technical Guides, Data Operations & Automation, Git, Bash, Security
+  - About DataMercs           # was: About
+
+# Optional keep-as-secondary (sidebar chips only if needed): Git, Bash
+# Do not invent cyberpunk category names on the public site.
+
+migration_map:
+  "Metadata Standards": "Standards & metadata"
+  "E-Resources & Access": "Standards & metadata"
+  "AI & Future Tech": "AI & provenance"
+  "Industry & Trends": "Industry notes"
+  "Conferences": "Events"
+  "Conferences & Events": "Events"
+  "Technical Guides": "Guides & tooling"
+  "Data Operations & Automation": "Guides & tooling"
+  "Git": "Guides & tooling"
+  "Bash": "Guides & tooling"
+  "Security": "Guides & tooling"
+  "About": "About DataMercs"

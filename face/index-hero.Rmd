@@ -1,0 +1,34 @@
+---
+title: "OS DataMercs"
+site: distill::distill_website
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- Shop-window hero: professional; cyber lore stays in essay voice, not chrome -->
+
+<div class="dm-hero">
+<p class="eyebrow">Metadata consulting · scholarly publishing &amp; libraries</p>
+<h1>Discovery-grade metadata for publishers and libraries.</h1>
+<p>We help scholarly publishers and library partners design, govern, and deliver MARC21, ONIX, KBART, and JATS/BITS — including clear practice for AI-assisted content and provenance.</p>
+</div>
+
+<div class="dm-data-band" aria-label="Focus areas">
+<span class="dm-chip">MARC21</span>
+<span class="dm-chip">ONIX</span>
+<span class="dm-chip">KBART</span>
+<span class="dm-chip">JATS / BITS</span>
+<span class="dm-chip">Data governance</span>
+<span class="dm-chip">AI provenance</span>
+</div>
+
+### Services
+
+**Consulting** — Standards, pipelines, and governance that fit your systems and partner feeds.  
+**Teaching** — Workshops your editorial and data teams can apply the same week.  
+**Delivery** — Repeatable metadata products: quality rules, formats, discovery readiness.
+
+> “They can do it all. MARC, KBART, XML, and the customer service was far above anything I've ever seen. I can't wait to work with them on another project.”

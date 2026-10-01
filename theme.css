@@ -1,0 +1,295 @@
+/* OS DataMercs · Distill theme.css v2 — shop window
+   Public site: clean, professional reading for corporate / library / publishing clients.
+   Full retro-cyber skin lives in theme-tools-cyber.css (BISAC→Thema & future tools).
+   Reference from _site.yml:  theme: theme.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface-muted: #f0eeea;
+  --border: #e2e0da;
+  --border-strong: #c8c5bc;
+  --text: #1c1b19;
+  --text-secondary: #4a4843;
+  --muted: #6e6b64;
+  --accent: #0b4f6c;          /* deep ink-teal — calm, not neon */
+  --accent-soft: #e6f1f5;
+  --link: #0b4f6c;
+  --link-hover: #083a50;
+  --code-bg: #f0eeea;
+  --code-text: #243447;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius: 4px;
+  --max-measure: 40rem;
+}
+
+html {
+  background: var(--bg) !important;
+}
+
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 17px !important;
+  line-height: 1.65 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--link) !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* ── site chrome ──────────────────────────────────────────────────────── */
+.distill-site-header,
+.distill-site-nav {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+.distill-site-header a,
+.distill-site-header .title,
+.distill-site-nav a {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+}
+
+.distill-site-header .title {
+  color: var(--text) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.distill-site-header a:hover,
+.distill-site-nav a:hover {
+  color: var(--accent) !important;
+}
+
+.distill-site-footer {
+  background: var(--surface-muted) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.85rem !important;
+}
+
+/* ── reading surface ──────────────────────────────────────────────────── */
+.d-title h1,
+.d-article h1,
+.layout-listing .title h1,
+h1.title {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.25 !important;
+}
+
+.d-article {
+  color: var(--text) !important;
+}
+
+.d-article p,
+.d-article li {
+  max-width: var(--max-measure);
+}
+
+.d-article h2,
+.d-article h3 {
+  font-family: var(--font-display) !important;
+  color: var(--text) !important;
+  letter-spacing: -0.015em !important;
+  margin-top: 1.75em !important;
+}
+
+.d-article h2 {
+  font-size: 1.45rem !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 0.35rem !important;
+}
+
+.metadata,
+.post-metadata,
+.publishedDate,
+.dt-authors,
+.dt-author {
+  font-family: var(--font-ui) !important;
+  font-size: 0.88rem !important;
+  color: var(--muted) !important;
+}
+
+.dt-tags .dt-tag,
+.categories a,
+.category-count {
+  font-family: var(--font-ui) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  padding: 0.2rem 0.65rem !important;
+  text-decoration: none !important;
+}
+
+/* posts list */
+.posts-list-caption {
+  font-family: var(--font-ui) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.posts-list .post-preview {
+  background: transparent !important;
+  border-top: 1px solid var(--border) !important;
+  padding: 1.35rem 0 !important;
+}
+
+.posts-list .post-preview .title {
+  font-family: var(--font-display) !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+.posts-list .post-preview .title a {
+  text-decoration: none !important;
+  color: var(--text) !important;
+}
+.posts-list .post-preview .title a:hover {
+  color: var(--accent) !important;
+}
+
+.posts-list .post-preview .description {
+  color: var(--text-secondary) !important;
+  font-size: 0.98rem !important;
+  max-width: var(--max-measure);
+}
+
+.posts-sidebar,
+.sidebar-section {
+  border-left: 1px solid var(--border) !important;
+  font-size: 0.88rem !important;
+  color: var(--muted) !important;
+}
+
+.posts-sidebar h3,
+.sidebar-section h3 {
+  font-family: var(--font-ui) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--text-secondary) !important;
+}
+
+/* code — quiet, readable */
+pre, code, .sourceCode, pre.sourceCode {
+  font-family: var(--font-mono) !important;
+  background: var(--code-bg) !important;
+  color: var(--code-text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+}
+
+blockquote {
+  border-left: 3px solid var(--accent) !important;
+  background: var(--surface) !important;
+  color: var(--text-secondary) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.05rem !important;
+  padding: 0.85rem 1.1rem !important;
+}
+
+.d-appendix, .appendix-bottom {
+  background: var(--surface-muted) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+}
+
+/* optional light homepage bands (professional, not HUD) */
+.dm-hero {
+  padding: 2.75rem 0 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.dm-hero .eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+.dm-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.45rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.dm-hero p {
+  max-width: var(--max-measure);
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.dm-data-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.dm-chip {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+.dm-chip--live,
+.dm-chip--std {
+  color: var(--accent);
+}
+
+.dm-hero-art {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  object-position: center 40%;
+  margin: 1.75rem 0 0;
+  border-radius: 2px;
+  border: 1px solid rgba(11, 79, 108, 0.18);
+  opacity: 0.92;
+}

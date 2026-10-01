@@ -1,0 +1,109 @@
+# BISAC 2025 → Thema 1.6 — deliverable pack (2026-09-07)
+
+Internal De Gruyter package (DataMercs-styled portal). Drop-in: copy this folder, place the Éditeur XLSX beside the Rmd (or keep it in the parent folder), knit locally.
+
+## File list
+
+| File | Role |
+|------|------|
+| `BISAC_2025_to_Thema_1.6_v2.Rmd` | Drop-in portal (self-contained `html_document`) |
+| `datamercs-bisac-thema.css` | Cyberpunk-librarian skin (GND id badges, confidence dots, LCSH wrap) |
+| `bisac_section_mappings_improved.tsv` | Per-BISAC DDC / LCSH / GND + provenance (`heading` = enrichment query label only; portal Heading comes from XLSX Thema Literal 1) |
+| `build_improved_mappings.py` | Reproducible TSV builder (optional re-run) |
+| `BISAC 2025 to Thema 1.6 Mapping_Public.xlsx` | **Official** Éditeur/BISG SoT — copy from parent or symlink |
+| `XLSX_LOCATION.txt` | Path note if XLSX is not copied in |
+| `_cache/` | lobid / id.loc.gov JSON cache (safe to delete; slows re-runs) |
+| `documentation.md` | This file |
+
+**Do not** treat knitted HTML in the parent folder as part of this pack unless you knit a new one here.
+
+## How to knit
+
+```r
+# from this deliverable directory, in R:
+setwd(".../bisac-to-thema-ddc-et-al/deliverable-2026-09-07")
+# Ensure XLSX is here OR in parent/
+rmarkdown::render("BISAC_2025_to_Thema_1.6_v2.Rmd")
+```
+
+Dependencies: `rmarkdown`, `readxl`, `readr`, `dplyr`, `tidyr`, `DT`, `htmltools`, `stringr`.
+
+The Rmd resolves inputs as: **same directory first**, then **parent directory**.
+
+## Official vs heuristic
+
+### Official (source of truth)
+
+- **BISAC → Thema 1.6** (codes, literals, qualifiers) from  
+  `BISAC 2025 to Thema 1.6 Mapping_Public.xlsx` (Éditeur / BISG public mapping).  
+  This file is **kept unchanged**.
+- **Heading** column in the portal = **Thema Literal 1** from that workbook (not a legacy TSV `section` field).
+
+### Heuristic / enriched (not licensed classification products)
+
+- **DDC** — Thema-bridge + BISAC/heading keyword rules + explicit overrides.  
+  **Not** OCLC WebDewey, **not** a licensed DDC distribution. Column `ddc_source` records provenance (`thema-bridge` | `keyword-override` | `legacy-fallback`).  
+  `ddc_confidence`: `high` | `medium` | `low`.
+- **LCSH** — heading-derived strings; where feasible matched via Library of Congress Linked Data suggest API (`id.loc.gov`). `lcsh_uri` when matched; `lcsh_source` = `id.loc.gov` | `keyword-override` | `legacy-fallback`.
+- **GND** — lobid GND search (`type:SubjectHeading`), User-Agent `datamercs-deckard`. Stores `gnd` preferredName, `gnd_id`, `gnd_uri`. German-label fallback if no hit. `gnd_source` = `lobid` | `legacy-fallback`.
+
+### Explicit overrides (correctness > vanity)
+
+| BISAC | Fix |
+|-------|-----|
+| `SPO027000` Martial arts | DDC **796.8** (not generic 796 / watersports GND bag) |
+| `SPO027010` Karate | DDC **796.815**; LCSH/GND → Karate |
+| `CKB006000` / `CKB130000` Spirits/cocktails | DDC **641.874** mixology (not generic 641.5 cookery GND bag) |
+| Watersports families | Stay **797.x**, not martial-arts bag |
+
+## Known remaining gaps
+
+- Many non-priority headings still use keyword/Thema DDC without human review.
+- Fiction / children’s / religion buckets remain coarse (e.g. lots of literary `813` / `028.5` / `200`-family).
+- lobid / LoC live enrichment was prioritised for overrides + SPO/CKB/food/sports and a capped set of unique heads; remainder may be cache- or fallback-based.
+- DDC strings are **public-convention heuristics**, not authorised WebDewey captions or number-building.
+- Some LoC/GND hits may be near-matches (homographs, broader terms).
+- Old TSV had only ~58 distinct DDCs and bag-like GND strings; this pack aims for substantially more distinct DDC and GND values, but coverage quality is uneven outside sports/cookery/priority families.
+
+## Rebuild the TSV
+
+```bash
+cd deliverable-2026-09-07
+python3 -m venv .venv && .venv/bin/pip install pandas openpyxl requests
+.venv/bin/python build_improved_mappings.py
+```
+
+Polite rate limit (~5 req/s), caches under `_cache/`. Re-running reuses cache.
+
+## Suggested next steps — MARC / production enrichment
+
+1. **OpenRefine + GND reconcile** (lobid reconciliation service) on the `gnd` / heading columns; accept/reject candidates.
+2. **Annif / DNB EMa**-style automated subject suggestion on title/abstract samples per BISAC family; compare to this heuristic table.
+3. **k10plus SRU** (or DNB SRU): for high-traffic BISAC codes, pull exemplar bibliographic records and aggregate frequent DDC/GND/LCSH to validate or replace heuristics.
+4. Where budget allows: licensed **WebDewey** / institutional DDC crosswalk for the long tail — replace `ddc_source` rows and flip confidence to curated.
+5. Optional MARC21 export sketch: map TSV → 082 (DDC, $2 ddc/eng/heur), 650 (LCSH), 689/650 $2 gnd with $0 URI — clearly flagged as non-authoritative until curated.
+
+No git commit / push / deploy instructions: local knit only.
+
+
+## Results snapshot (this build)
+
+Generated by `build_improved_mappings.py` (+ small GND post-fixes for overrides):
+
+| Metric | Old TSV | Improved TSV |
+|--------|---------|--------------|
+| Rows (BISAC codes) | 5863 | 5863 |
+| Distinct DDC | ~58 | **180** |
+| Distinct GND labels | ~54 | **2001** |
+| Distinct LCSH | ~4700 (often baggy) | **2446** (more specific) |
+| GND rows with `gnd_id` | 0 | hundreds (lobid-matched subset) |
+
+Override spot-checks:
+
+| BISAC | DDC | LCSH | GND |
+|-------|-----|------|-----|
+| SPO027000 Martial arts | 796.8 | Martial arts | Kampfsport (`4029448-1`) |
+| SPO027010 Karate | 796.815 | Karate | Karate (`4029630-1`) |
+| CKB006000 / CKB130000 cocktails | 641.874 | Cocktails | Cocktail (`4010342-0`) |
+| SPO051000 watersports | 797 | … | Sport (not martial bag) |
+| SPO059000 underwater | 797.2 | … | Schwimmen |

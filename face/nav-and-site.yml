@@ -1,0 +1,35 @@
+# Drop-in fragments for _site.yml (Deckard to merge)
+# Shop-window naming — sentence case, corporate-library readable
+
+name: "OS DataMercs"
+title: "OS DataMercs"
+favicon: logo.png
+description: |
+  Metadata consulting and teaching for scholarly publishing and libraries.
+base_url: https://www.datamercs.net
+theme: theme.css
+
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Services"
+      href: about.html#services
+    - text: "About"
+      href: about.html
+    - text: "Insights"
+      href: insights.html
+    - text: "Resources"
+      href: resources.html
+    - text: "Contact"
+      href: contact.html
+    - icon: fa fa-github
+      href: https://github.com/oschmalfuss
+    - text: "X"
+      icon: fab fa-x-twitter
+      href: https://x.com/DataMercsDotNet
+    - icon: fa fa-linkedin
+      href: https://www.linkedin.com/in/olaf-schmalfu%C3%9F
+    - icon: fa fa-rss
+      href: index.xml
+

@@ -1,0 +1,214 @@
+---
+title: "They swear it only looked"
+description: |
+  Publishers now promise AI will index the corpus but not train on it. That is true only for model weights. The text is still chunked, embedded, retrieved, and answered from - a second copy plus a reading that often never clicks through. A first clause, not a last one.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-09-10
+preview: AI_Jester.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    toc_depth: 2
+    toc_float: true
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### *A reality check for librarians tip-toeing into licensed AI*
+
+*DataMercs field note - September 2026*
+
+Publishers have a new magic sentence. You will hear it on every slide this autumn: *the model indexes the corpus for discovery; it does not train on it.*
+
+Cashmere says it to IOP Publishing. Consensus says it about De Gruyter Brill journals. Google says something similar about Expert Intelligence on Play Books. The sentence is designed to soothe a acquisitions committee that still remembers the scraping years and would rather not be the person who handed the family silver to a lab in California.
+
+The sentence is not a lie. It is a very specific truth wearing a larger coat.
+
+### What the contract actually forbids
+
+“*Not used for training*” means one technical thing: **the numbers inside the big model do not get updated on your PDFs.** No gradient step. No new edition of GPT-whatever that has quietly eaten *Semiotica* for breakfast. If the vendor isolates the pipeline and you can audit it, that promise is real.
+
+It is also the only promise that sentence reliably covers!
+
+It does **not** mean the machine never read the article. It does **not** mean nothing persistent was stored. It does **not** mean a student still has a reason to click through to the version of record.
+
+Think of three rooms in the same building. Marketing only talks about room one.
+
+**Room 1 - Training.**
+The factory floor. Billions of words go in. The model’s weights change.
+
+After that, the book lives on as statistical residue. You cannot un-bake the cake.
+
+This is what the licence tries to lock.
+
+**Room 2 - The index.**
+The text is sliced into chunks and turned into embeddings - long lists of numbers that remember *neighbourhoods of meaning*, not just keywords. Nothing in room 1 moves. But you have just made a second, machine-readable copy of the work and parked it in a database the chatbot can query forever.
+
+“*We don’t train*” is not “*we forgot the words.*” It is “*we filed them under a different budget code.*”
+
+Lawyers are already arguing whether those vectors are a reproduction or a derivative.
+
+EU commentary on text-and-data mining is equally unromantic: if you built the vector store *in order to emit the expression of the work*, the “we were only analysing” story gets thinner.
+
+**Room 3 - The session.**
+A reader asks a question. The system fetches passages, pastes them into the model’s short-term memory, and the model answers *as if it had studied the paper*. For that hour it has learned the argument. When the chat ends, the foundation model is unchanged. The user has a digest. The vendor often has a log.
+
+That is not a library catalogue. That is a reading room that photocopies on the way out and calls it “discovery.”
+
+### Why the slogan still sells
+
+Because the alternative - silent training on the entire scholarly web - was worse, and everyone in this industry knows it.
+
+A metered inference licence with “no training” language is a rights design: pay per look, keep the base model hungry, send a citation home.
+
+Compared with 2023-style crawl-and-pray, that is progress.
+
+Progress is not the same as a cognitive firewall.
+
+### Where the coat does not cover the ankles
+
+**The window is the memory.**
+Context windows now swallow chapters. In-context use is still use. The model will adopt the paper’s terms, follow its claims, and hand the student a substitute for sitting with the PDF.
+
+Weights unchanged - reading substituted.
+
+**The index is a copy you can search.**
+Embedding a monograph is not the same as training an LLM. Yet, it is also not “nothing happened.” You stored a working representation. If the vendor’s security is sloppy, researchers have already shown that RAG stores can be prompted into coughing source text back up. Instruction-tuned models are especially eager to “repeat the context.”
+
+That is a feature until it is *your* embargoed chapter.
+
+**Today’s chat is tomorrow’s fine-tune.**
+Prompts, retrieved snippets, and model answers are catnip for the *next* specialist model. Distillation - teaching a smaller system to imitate a larger one from outputs alone - does not need your PDF in the training mix. It needs enough traces of how the big model *used* your PDF.
+
+Unless the contract bans retention, eval reuse, and synthetic-data pipelines, “inference only” can grow a second brain in the annex.
+
+**You will not see inside the lab.**
+“*We promise no training*” is a process claim. Closed vendors do not hand you gradient logs. California is only now building a registry of people allowed to *check*.
+
+Until someone independent can inspect tenant isolation, the sentence is trust with a letterhead.
+
+**The click still dies.**
+This is the **crocodile**: impressions go up, click-throughs go down.
+
+AI overviews and answer engines eat the visit.
+
+OUP has already talked about double-digit drops on reference traffic. De Gruyter Brill is in the Kudos study that named the beast.
+
+Citation-back-to-source is the ethical sticker on the glass. If the answer is good enough, many users never tap the sticker.
+
+### A librarian’s translation
+
+| They say | You can treat as |
+|----|----|
+| *Not used for training* | Base-model weights should not be updated on this corpus |
+| *Indexed for discovery* | A persistent, queryable copy exists outside the LLM |
+| *Inference / RAG only* | The model reads retrieved passages *per question* and may paraphrase them |
+| *Readers are sent back to the source* | Unless the answer was enough |
+| *Fully tracked and compensated* | Ask who sees the logs, how long they live, and whether they can become training later |
+
+None of this means you should refuse every deal. It means you should stop buying the metaphor.
+
+A catalogue record points. A licensed RAG stack *answers*.
+
+Pointing and answering are different jobs:
+
+One still needs the library. The other is auditioning to replace the reading.
+
+### What DataMercs actually thinks
+
+We are not anti-AI. We are anti-fog.
+
+If a publisher or a consortium wants to put HSS full text into an answer engine, the adult version of the contract talks about all three rooms: weights, embeddings, session logs. It says how long snippets live, whether they can be used to train *anything* (including a cute little domain model with a different name), who audits isolation, and what happens when the answer is a substitute for the article.
+
+“*Not used for training*” is a good first clause. It is a terrible last one.
+
+The machine looked. It filed a copy. It answered out of that copy. It agreed not to bake the book into the next public brain.
+
+Whether that is enough for your authors, your board, and your users is a collection-development decision. It is not a mystery of computer science.
+
+Do not let three letters talk you out of reading the annex.
+
+------------------------------------------------------------------------
+
+### Footnotes (the dictionary Elon does not want to open)
+
+1.  **LLM** - Large language model. The chatbot’s engine: a giant statistical machine trained on text so it can continue text. GPT, Claude, Gemini, Grok, and friends.
+
+2.  **Training** - The expensive phase where the model’s internal numbers (weights) are updated so it “learns” patterns. After training, the original documents are not sitting in a folder; traces of them live in those numbers.
+
+3.  **Inference** - Using an already-trained model to answer a question. No weights updated. Still uses whatever you put in front of it *right now*.
+
+4.  **RAG** - Retrieval-augmented generation. Instead of hoping the model memorised your journal, the system *searches* a private store, pulls passages, and pastes them into the prompt. Marketing loves this because it sounds like “grounded in sources.” It is a reading + remix pipeline with a citation at the end if you insist.
+
+5.  **Embeddings** - A way to turn a paragraph into a list of numbers that capture meaning well enough to search. Not the LLM itself. Still derived from the full text. Still stored.
+
+6.  **Weights** - The billions of adjustable numbers that *are* the trained model. “No training” = these numbers do not change because of your corpus.
+
+7.  **Distillation** - Teaching a smaller or later model to imitate a bigger one by watching its answers, not by eating the original books. Your licensed text can leak into the student via the teacher’s homework.
+
+8.  **TDM** - Text and data mining. The EU legal bucket for “machines may analyse works.” Built for research analysis. Generative answer engines keep trying on the costume. Courts have not finished the fitting.
+
+9.  **AEO** - Answer-engine optimisation. SEO’s anxious cousin: making sure *your* version of record is the one the chatbot cites, not a pirate PDF or a hallucinated twin.
+
+10. **Crocodile effect** - Search impressions with teeth, click-throughs with none. The graph looks like a crocodile’s jaws. Coined in marketing; adopted by scholarly publishers who watched AI overviews swallow visits.
+
+11. **SOP** - Standard operating procedure. The boring document that should say who may re-use logs. If the AI deal has no SOP for data retention, you do not have a deal. You have a vibe.
+
+12. **Version of record** - The citable, paginated, publisher-hosted article the library paid for. Everything else is a postcard from that article.
+
+*DataMercs writes field notes for people who still think metadata is a moral act. Trust the annex, not the slide.*
+
+## References
+
+1.  Consensus. “Announcing our Partnership with De Gruyter Brill.” 5 August 2026.\
+    <https://consensus.app/home/blog/announcing-our-partnership-with-de-gruyter-brill/>\
+    Full-text index + AI analysis; “this content won’t be used to train AI models.”
+
+2.  De Gruyter Brill. “AI-Policy for Authors.” Updated September 2026.\
+    <https://www.degruyterbrill.com/publishing/for-authors/author-policies/artificial-intelligence>
+
+3.  Kudos / Charlie Rapple. “Taming the Crocodile: zero-click search solutions for publishers.” 20 January 2026.\
+    Launch partners include De Gruyter Brill, IOP Publishing, Springer Nature, Emerald, Silverchair.\
+    <https://blog.growkudos.com/news/taming-the-crocodile-zero-click-search-solutions-for-publishers>
+
+4.  Charlie Rapple. “Responding to the threat of zero-click search and AI summaries: how do we tame the crocodile?” *UKSG eNews* 603, 5 February 2026.\
+    Includes the OUP / John Campbell 19% click-through drop on academic reference.\
+    <https://www.uksg.org/newsletter/uksg-enews-603/responding-to-the-threat-of-zero-click-search-and-ai-summaries-how-do-we-tame-the-crocodile/>
+
+5.  Jack Grove. “AI search summaries cannibalise academic publishers’ web traffic.” *Times Higher Education*, 11 March 2025.\
+    Same OUP figure, from London Book Fair.\
+    <https://www.timeshighereducation.com/news/ai-search-summaries-cannibalise-academic-publishers-web-traffic>
+
+6.  Lucchi, N. et al. context in: “Generative AI and liability for copyright infringement under EU law.” *Cambridge Forum on AI: Law and Governance*, 2026.\
+    Training copies, embeddings, RAG, TDM / DSM Directive Art. 4.\
+    <https://www.cambridge.org/core/journals/cambridge-forum-on-ai-law-and-governance/article/generative-ai-and-liability-for-copyright-infringement-under-eu-law-state-of-play-and-emerging-issues/B5D5792FBF33B8625DF530E7241005F1>
+
+7.  “Training Data vs. Output: Why RAG Is Creating a New Copyright Battleground.” Lexology, 13 July 2026.\
+    Output/substitution, not only training-set copying.\
+    <https://www.lexology.com/library/detail.aspx?g=93ce3471-7d72-47c9-95bd-3cc4dd23eb47>
+
+8.  Zeng et al. “Follow My Instruction and Spill the Beans: Scalable Data Extraction from Retrieval-Augmented Generation Systems.” 2024.\
+    Prompt-injected leak of RAG stores.\
+    <https://arxiv.org/abs/2402.17840>
+
+9.  Clarivate. *Pulse of the Library 2026*. 9 September 2026.\
+    <https://clarivate.com/pulse-of-the-library/>
+
+10. Cashmere. “Cashmere and IOP Publishing to expand access to trusted physical sciences research through AI.” 9 September 2026. Listed on\
+    <https://cashmere.io/about>
+
+11. Reach Capital. “Fixing Publishing for the AI Era: Why We Invested in Cashmere.” 22 January 2026.\
+    Inference-time metering / MCP control room, not “the model forgot the book.”\
+    <https://www.reachcapital.com/resources/news/fixing-publishing-ai-why-we-invested-in-cashmere/>

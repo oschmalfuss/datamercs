@@ -1,0 +1,27 @@
+---
+title: "BISAC 2025 → Thema 1.6"
+description: |
+  Official EDItEUR mapping, with heuristic DDC, LCSH and GND. A tools page — not the shop-window face.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+A lookup for subject schemes, not a catalogue of titles. **BISAC 2025 → Thema 1.6** is the public EDItEUR / BISG mapping (source of truth). **DDC, LCSH and GND** are heuristics for internal use — useful to steer a classifier, not a WebDewey licence.
+
+The interactive table uses the tools chrome. Open it here:
+
+[Open the BISAC → Thema lookup](tools/bisac-thema.html)
+
+Further searching, if the row is not enough:
+
+- [Thema browser (English)](https://ns.editeur.org/thema/en) · [Thema-Browser (Deutsch)](https://ns.editeur.org/thema/de)
+- [Thema at EDItEUR](https://www.editeur.org/151/Thema)
+- [LCSH at id.loc.gov](https://id.loc.gov/authorities/subjects.html)
+- [OGND — SWB / K10plus Online-GND](https://swb.bsz-bw.de/DB=2.104/)
+- [lobid-gnd](https://lobid.org/gnd)

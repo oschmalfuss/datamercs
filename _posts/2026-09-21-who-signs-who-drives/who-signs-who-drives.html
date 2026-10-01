@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Who signs, who drives</title>
+
+  <meta property="description" itemprop="description" content="Owner signs. Steward drives. Custodian keeps the vehicle.&#10;DAMA-DMBOK already drew the line. Here is the operating RACI&#10;for publishers and libraries."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2026-09-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2026-09-21"/>
+  <meta name="article:author" content="Olaf Schmalfuß"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Who signs, who drives"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Owner signs. Steward drives. Custodian keeps the vehicle.&#10;DAMA-DMBOK already drew the line. Here is the operating RACI&#10;for publishers and libraries."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Who signs, who drives"/>
+  <meta property="twitter:description" content="Owner signs. Steward drives. Custodian keeps the vehicle.&#10;DAMA-DMBOK already drew the line. Here is the operating RACI&#10;for publishers and libraries."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","slug","draft","toc","toc_depth","preview","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Who signs, who drives"]},{"type":"character","attributes":{},"value":["Owner signs. Steward drives. Custodian keeps the vehicle.\nDAMA-DMBOK already drew the line. Here is the operating RACI\nfor publishers and libraries.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olaf Schmalfuß"]},{"type":"character","attributes":{},"value":["https://datamercs.net"]},{"type":"character","attributes":{},"value":["OS DataMercs"]},{"type":"character","attributes":{},"value":["https://datamercs.net"]},{"type":"character","attributes":{},"value":["0000-0002-1919-3848"]}]}]},{"type":"character","attributes":{},"value":["2026-09-21"]},{"type":"character","attributes":{},"value":["who-signs-who-drives"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]},{"type":"character","attributes":{},"value":["who-signs-who-drives-blog-landscape.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_float","self_contained","highlight"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["tango"]}]}]},{"type":"character","attributes":{},"value":["Standards & metadata","Guides & tooling"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["metadata-raci-who-signs-who-drives.svg","metadata-raci-worksheet.pdf","who-signs-who-drives_files/anchor-4.2.2/anchor.min.js","who-signs-who-drives_files/bowser-1.9.3/bowser.min.js","who-signs-who-drives_files/distill-2.2.21/template.v2.js","who-signs-who-drives_files/header-attrs-2.29/header-attrs.js","who-signs-who-drives_files/jquery-3.6.1/jquery-3.6.1.js","who-signs-who-drives_files/jquery-3.6.1/jquery-3.6.1.min.js","who-signs-who-drives_files/jquery-3.6.1/jquery-3.6.1.min.map","who-signs-who-drives_files/popper-2.6.0/popper.min.js","who-signs-who-drives_files/tippy-6.2.7/tippy-bundle.umd.min.js","who-signs-who-drives_files/tippy-6.2.7/tippy-light-border.css","who-signs-who-drives_files/tippy-6.2.7/tippy.css","who-signs-who-drives_files/tippy-6.2.7/tippy.umd.min.js","who-signs-who-drives_files/webcomponents-2.0.0/webcomponents.js","who-signs-who-drives-blog-landscape.jpg"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+    font-size: 100%;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0px;
+  }
+
+
+  d-byline {
+    border-top: none;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+    border-top: none;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  /* tweak for Pandoc numbered line within distill */
+  d-article pre.numberSource code > span {
+      left: -2em;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // separator
+    var separator = '<hr class="section-separator" style="clear: both"/>';
+    // prepend separator above appendix
+    $('.d-byline').before(separator);
+    $('.d-article').before(separator);
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme, except when numbering line
+    // in code chunk
+    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        var author_name = front_matter.authors[i].author
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="who-signs-who-drives_files/header-attrs-2.29/header-attrs.js"></script>
+  <script src="who-signs-who-drives_files/jquery-3.6.1/jquery-3.6.1.min.js"></script>
+  <script src="who-signs-who-drives_files/popper-2.6.0/popper.min.js"></script>
+  <link href="who-signs-who-drives_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="who-signs-who-drives_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="who-signs-who-drives_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="who-signs-who-drives_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="who-signs-who-drives_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="who-signs-who-drives_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="who-signs-who-drives_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Who signs, who drives","description":"Owner signs. Steward drives. Custodian keeps the vehicle.\nDAMA-DMBOK already drew the line. Here is the operating RACI\nfor publishers and libraries.","authors":[{"author":"Olaf Schmalfuß","authorURL":"https://datamercs.net","affiliation":"OS DataMercs","affiliationURL":"https://datamercs.net","orcidID":"0000-0002-1919-3848"}],"publishedDate":"2026-09-21T00:00:00.000+02:00","citationText":"Schmalfuß, 2026"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Who signs, who drives</h1>
+
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt-tag">Standards &amp; metadata</div>
+<div class="dt-tag">Guides &amp; tooling</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Owner signs. Steward drives. Custodian keeps the vehicle.
+DAMA-DMBOK already drew the line. Here is the operating RACI
+for publishers and libraries.</p></p>
+</div>
+
+<div class="d-byline">
+  Olaf Schmalfuß <a href="https://datamercs.net" class="uri">https://datamercs.net</a> (OS DataMercs)<a href="https://datamercs.net" class="uri">https://datamercs.net</a>
+  
+<br/>2026-09-21
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#in-plain-terms" id="toc-in-plain-terms">In plain terms</a></li>
+<li><a href="#what-the-market-keeps-getting-wrong" id="toc-what-the-market-keeps-getting-wrong">What the market keeps getting wrong</a></li>
+<li><a href="#what-dama-actually-says" id="toc-what-dama-actually-says">What DAMA actually says</a></li>
+<li><a href="#the-data-owner" id="toc-the-data-owner">The data owner</a></li>
+<li><a href="#the-data-steward" id="toc-the-data-steward">The data steward</a></li>
+<li><a href="#the-data-custodian-because-the-binary-is-a-lie" id="toc-the-data-custodian-because-the-binary-is-a-lie">The data custodian, because the binary is a lie</a></li>
+<li><a href="#owner-vs-steward-without-the-fog" id="toc-owner-vs-steward-without-the-fog">Owner vs steward, without the fog</a></li>
+<li><a href="#how-they-sit-in-the-operating-model" id="toc-how-they-sit-in-the-operating-model">How they sit in the operating model</a></li>
+<li><a href="#the-operating-raci" id="toc-the-operating-raci">The operating RACI</a></li>
+<li><a href="#pitfalls-we-keep-seeing" id="toc-pitfalls-we-keep-seeing">Pitfalls we keep seeing</a></li>
+<li><a href="#what-this-looks-like-on-a-real-estate" id="toc-what-this-looks-like-on-a-real-estate">What this looks like on a real estate</a></li>
+<li><a href="#worksheet" id="toc-worksheet">Worksheet</a></li>
+<li><a href="#what-to-do-this-week" id="toc-what-to-do-this-week">What to do this week</a></li>
+<li><a href="#faq-stripped" id="toc-faq-stripped">FAQ, stripped</a></li>
+<li><a href="#sources" id="toc-sources">Sources</a></li>
+</ul>
+</nav>
+</div>
+<p>The payload has a name on it. If it has two names, or none, it sits on the dock.</p>
+<p>That is the whole argument. Catalogues, ONIX feeds, KBART files, contributor graphs, usage reports, AI provenance - none of them fail first as technology. They fail when a quality incident lands and the room starts asking who is supposed to move.</p>
+<p>Most vendor explainers flatten this into a two-role cartoon: owner versus steward, accountability versus responsibility, job done. Useful as far as it goes. It does not go far enough for a metadata shop. DAMA already had a more awkward, more accurate sentence. The rest of this piece is that sentence made operational.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-raci"></span>
+<img src="who-signs-who-drives-blog-landscape.jpg" alt="Figure 1. Metadata RACI - who signs, who drives. One A per row. Owner signs, steward drives, custodian keeps the vehicle." width="100%" />
+<p class="caption">
+Figure 1: Figure 1. Metadata RACI - who signs, who drives. One A per row. Owner signs, steward drives, custodian keeps the vehicle.
+</p>
+</div>
+</div>
+<h2 id="in-plain-terms">In plain terms</h2>
+<p>Forget job titles for a minute. Think of a weekly ONIX drop, a KBART file, a MARC pipeline.</p>
+<ul>
+<li>Someone has to <strong>decide</strong> whether a dirty file ships. That person <strong>signs</strong>. That is the owner.</li>
+<li>Someone has to <strong>keep the file from being dirty in the first place</strong>, and chase it when it is. That person <strong>drives</strong>. That is the steward.</li>
+<li>Someone has to <strong>keep the pipe that moves the file from falling over</strong>. That person does not choose the destination. That is the custodian.</li>
+</ul>
+<p>The usual shorthand in data governance: the owner is <strong>strategy</strong>, the steward is <strong>tactical execution</strong>. One sets the destination and accepts the risk. The other runs the route, every day.</p>
+<p>If you cannot point at three names - or two names wearing three hats - you do not have governance. You have a shared drive and a prayer.</p>
+<p>A useful test: when a library partner writes “this ISSN is wrong”, who is the first human who must move, and who is the human whose name is on the outcome if nobody moves? If the answer is “the data team”, you have already lost. “The data team” is not a signature.</p>
+<p><strong>RACI</strong>, since the letters otherwise sit there unexplained: <strong>R</strong>esponsible does the work. <strong>A</strong>ccountable owns the outcome - one per activity. <strong>C</strong>onsulted before the decision. <strong>I</strong>nformed after. That is all it is. A grid so “who decides” is not answered by whoever is loudest that afternoon.</p>
+<h2 id="what-the-market-keeps-getting-wrong">What the market keeps getting wrong</h2>
+<p>A few distortions show up in almost every explainer, job advert and internal slide.</p>
+<p><strong>Owner and steward as two species.</strong> Convenient. Slightly false. DAMA-DMBOK says the owner <em>is</em> a business data steward who has approval authority in a domain. Ownership is stewardship with the pen. You still split <strong>A</strong> and <strong>R</strong> on the shop floor because a feed on fire at 16:40 does not care about ontology. Pretending the book invented two separate professions is how you hire a “Head of Data Ownership” who cannot refuse a sales request.</p>
+<p><strong>IT as owner because IT holds the database.</strong> Custody is not ownership. The garage does not own the cargo. The person who can restore last night’s dump is not the person who may say the dump must not ship.</p>
+<p><strong>One hero, two hats, no names.</strong> Small houses do this and survive. What kills the model is leaving the hats unnamed so that, under pressure, both vanish. “We all own the data” is the most expensive sentence in the building.</p>
+<p><strong>Quality as one task.</strong> It is not. Defining what “published date” means, setting the error bar, approving who may have the file, writing the mapping, watching the feed, running the store, accepting a known-bad shipment, and encoding AI provenance are eight different labours. Stuffing them into a cell labelled “data quality” is how RACI becomes wallpaper.</p>
+<p><strong>Tooling as the operating model.</strong> A catalogue that stores an owner field is not ownership. An alerting product that pages a steward is not stewardship. If the name is only in the SaaS tenant and not on the job, the ticket queue and the export, you have decorated the dock.</p>
+<p><strong>Shared A.</strong> Three directors who can each say “not really my call”. That is zero owners. The article-shaped internet is strangely shy about saying this plainly.</p>
+<h2 id="what-dama-actually-says">What DAMA actually says</h2>
+<p>DAMA International’s <em>Data Management Body of Knowledge</em> (DMBOK2, revised) treats <strong>stewardship</strong> as the work of managing data assets on behalf of the organisation and in the interest of all stakeholders. It is not a job-board fashion. It is the operating doctrine.</p>
+<p>Two points the market flattens:</p>
+<ol type="1">
+<li>A <strong>data owner</strong> is, in DAMA’s wording, <em>a business data steward who has approval authority for decisions about data within their domain</em>. Ownership is not a separate species.</li>
+<li>Stewardship comes in types - enterprise, business, technical, coordinating. The person who knows what “active title” means in the trade list is not the same person who writes the validation rule that rejects a malformed 020. Pretending they are saves a line in an org chart and costs you a year.</li>
+</ol>
+<p>Use DAMA for the ontology. Use RACI for the shift.</p>
+<h2 id="the-data-owner">The data owner</h2>
+<p>A data owner is a senior business-side leader accountable for a defined domain: product metadata, licensee data, holdings, identifiers, usage, rights, AI-assisted content. Pick a bounded estate, not “all data”.</p>
+<p>Their name is on the outcome when that estate is wrong, misused, or quietly rotting.</p>
+<p>They do this:</p>
+<ul>
+<li>Set policy and acceptable use. Who may extract the ONIX? Under which licence? What counts as a violation?</li>
+<li>Approve access and redistribution. They sign. Someone else provisions.</li>
+<li>Define the quality bar. What does “good enough to ship to Nielsen, library partners, the discovery layer” mean? What error rate is tolerated?</li>
+<li>Accept risk. Ship the KBART with a known gap, or hold the file and take the commercial hit. That call is theirs.</li>
+<li>Own business value. Not “is the file present”, but “is this domain actually usable for the business we claim to run”.</li>
+</ul>
+<p>This is not a full-time technical post. A couple of hours a week plus availability when an incident needs a decision is a sane estimate. If your owners are writing XSLT and arguing about MARC indicator values, the role has drifted into someone else’s job.</p>
+<p>Typical holders: head of product, editorial director, head of library sales, rights lead, catalogue owner. Not the DBA. Not the intern who “knows the spreadsheet”.</p>
+<p>In RACI terms the owner is <strong>A</strong>. One A. Strategy. Destination and risk.</p>
+<h2 id="the-data-steward">The data steward</h2>
+<p>A data steward executes governance for the domain. Where the owner decides, the steward does. Strategy versus tactical execution, in the sentence every governance briefing eventually reaches.</p>
+<p>DAMA frames this as operational execution: keep content and metadata consistent with the policies, standards and business rules the owner set. In a publishing or library operation that looks like this:</p>
+<ul>
+<li>Translate “partner X may not receive pre-pub records” into actual rules, exceptions and monitoring.</li>
+<li>Watch quality: completeness of identifiers, consistency of contributor forms, KBART embargo dates that match the licence, ONIX notification types that match reality.</li>
+<li>Keep definitions, mappings and lineage current. If “first published date” means three different things across MARC, ONIX and the web shop, that is a steward problem with an owner signature behind it.</li>
+<li>Triage incidents. First responder when a library reports a broken ISSN or a vendor feed starts minting duplicate work identifiers.</li>
+<li>Bridge the business meaning and the technical pipe. Stewards speak both.</li>
+</ul>
+<p>Typical holders: senior metadata editor, catalogue manager, domain specialist who was already the unofficial “what does this field mean?” desk before anyone printed a badge.</p>
+<p>In RACI terms the steward is <strong>R</strong>. Tactical execution. The route.</p>
+<p>DAMA’s types still matter on the shop floor:</p>
+<ul>
+<li><strong>Business steward</strong> - semantics, glossary, policy fit.</li>
+<li><strong>Technical steward</strong> - rules, mappings, quality checks, metadata stores.</li>
+<li><strong>Domain steward</strong> - one estate (identifiers, rights, usage, AI provenance).</li>
+<li><strong>Coordinating steward</strong> - the person who stops four domains inventing four words for the same thing.</li>
+</ul>
+<p>You do not need four salaries. You need four hats named, even if two of them sit on one head.</p>
+<h2 id="the-data-custodian-because-the-binary-is-a-lie">The data custodian, because the binary is a lie</h2>
+<p>Most explainers stop at two roles and then wonder why IT and the catalogue still talk past each other.</p>
+<p>The <strong>custodian</strong> is the technical role that implements and operates the controls: storage, backup, encryption, access provisioning, pipeline runtime, retention enforcement. CISSP and DAMA both recognise the split, even if they use the words with slightly different accents.</p>
+<p>A steward defines what a valid ORCID looks like for the contributor domain. A custodian builds and runs the system that stores the record and enforces the check. Different labour. Different failure modes.</p>
+<p>Consumers - cataloguers downstream, library partners, sales ops, the discovery index - are <strong>I</strong>. Informed. A good steward treats their complaints as instrumentation, not as a queue to ignore.</p>
+<h2 id="owner-vs-steward-without-the-fog">Owner vs steward, without the fog</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Data owner</th>
+<th>Data steward</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RACI letter</td>
+<td><strong>A</strong> - Accountable</td>
+<td><strong>R</strong> - Responsible</td>
+</tr>
+<tr class="even">
+<td>Question they answer</td>
+<td>“Is this domain fit for the business, and who decided?”</td>
+<td>“Is the work done, correctly, today?”</td>
+</tr>
+<tr class="odd">
+<td>Horizon</td>
+<td>Strategic</td>
+<td>Tactical execution</td>
+</tr>
+<tr class="even">
+<td>Focus</td>
+<td>Policy, standards, risk, value</td>
+<td>Monitoring, definitions, mappings, incidents</td>
+</tr>
+<tr class="odd">
+<td>Seniority</td>
+<td>Business leader with real authority</td>
+<td>Domain expert / metadata lead</td>
+</tr>
+<tr class="even">
+<td>Time</td>
+<td>Hours per week, plus decisions</td>
+<td>Ongoing, often core to the role</td>
+</tr>
+<tr class="odd">
+<td>Failure mode</td>
+<td>Title without power</td>
+<td>Role without time or tools</td>
+</tr>
+</tbody>
+</table>
+<p>Neither works alone. An owner with no steward has a policy and nobody to carry it. A steward with no owner has a queue and no cover when someone important wants the dirty file shipped anyway.</p>
+<h2 id="how-they-sit-in-the-operating-model">How they sit in the operating model</h2>
+<p>Above them: a CDO-equivalent or a governance council. Strategy, cross-domain collisions, escalation. Identifier policy that cuts across product, rights and catalogue does not get decided in a side chat.</p>
+<p>Beside them: custodians and consumers.</p>
+<p>How it scales:</p>
+<ul>
+<li><strong>Centralised.</strong> Small core, every decision through one desk. Fine for a house with one catalogue. Becomes a bottleneck the moment you run multiple imprints, partner feeds and a library channel.</li>
+<li><strong>Federated / mesh-shaped.</strong> Each domain has an owner and a steward. A council holds the shared standards. Scales. Requires discipline. Most houses pretend they have this and actually have heroics.</li>
+<li><strong>Hybrid.</strong> Central policy and tooling. Domain owners and stewards execute inside it. This is where grown programmes land.</li>
+</ul>
+<p>In a small operation one person wears owner and steward for a quiet domain. That is allowed. What is not allowed is leaving the two functions unnamed.</p>
+<h2 id="the-operating-raci">The operating RACI</h2>
+<p>RACI is a responsibility-assignment grid from project management. Four letters, nothing mystical:</p>
+<ul>
+<li><strong>R - Responsible.</strong> Does the work.</li>
+<li><strong>A - Accountable.</strong> Owns the outcome. Signs. One per row.</li>
+<li><strong>C - Consulted.</strong> Asked before the decision.</li>
+<li><strong>I - Informed.</strong> Told afterwards.</li>
+</ul>
+<p>Generic charts talk about “data quality” as if it were one task. It is not. Here is a working cut for the work we actually do.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Owner</th>
+<th>Steward</th>
+<th>Custodian</th>
+<th>Council</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Define field meaning</td>
+<td><strong>A</strong></td>
+<td><strong>R</strong></td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr class="even">
+<td>Set the quality bar</td>
+<td><strong>A</strong></td>
+<td><strong>R</strong></td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr class="odd">
+<td>Approve access / redistribution</td>
+<td><strong>A</strong></td>
+<td>C</td>
+<td><strong>R</strong></td>
+<td>I</td>
+</tr>
+<tr class="even">
+<td>Maintain mappings and rules</td>
+<td>C</td>
+<td><strong>R</strong></td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr class="odd">
+<td>Monitor feed quality</td>
+<td>I</td>
+<td><strong>R</strong></td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr class="even">
+<td>Implement storage and controls</td>
+<td>I</td>
+<td>C</td>
+<td><strong>R</strong></td>
+<td>I</td>
+</tr>
+<tr class="odd">
+<td>Accept a known-bad shipment</td>
+<td><strong>A</strong></td>
+<td><strong>R</strong></td>
+<td>I</td>
+<td>I</td>
+</tr>
+<tr class="even">
+<td>Encode AI provenance</td>
+<td><strong>A</strong></td>
+<td><strong>R</strong></td>
+<td>C</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong> does the work. <strong>A</strong> owns the outcome - one per row. <strong>C</strong> consulted before. <strong>I</strong> told after.</p>
+<p>Vector copy: <a href="metadata-raci-who-signs-who-drives.svg"><code>metadata-raci-who-signs-who-drives.svg</code></a>.</p>
+<p>Two rules that keep this from becoming theatre:</p>
+<ol type="1">
+<li>Never two A’s on one activity. If three directors can each say “not really my call”, the domain has no owner.</li>
+<li>Wire the letters to systems. An owner in a slide deck and a steward in a private spreadsheet is costume jewellery. Put names on the dataset, the feed, the validation job, the ticket queue.</li>
+</ol>
+<h2 id="pitfalls-we-keep-seeing">Pitfalls we keep seeing</h2>
+<p><strong>Treating the two as the same badge.</strong> The operational fire always wins. Strategy is what you do after inbox zero, which never arrives.</p>
+<p><strong>An owner with no authority.</strong> If they cannot refuse an access request, hold a dirty file, or enforce a definition against a loud sales lead, they are a label. Do not print the label.</p>
+<p><strong>A steward with no hours and no tooling.</strong> Stewardship bolted onto a full-time cataloguing job becomes reactive firefighting. You will get heroes. Heroes leave.</p>
+<p><strong>Skipping the RACI.</strong> Then “who decides” is answered by whoever is loudest that afternoon.</p>
+<p><strong>Too many owners on one domain.</strong> Shared A is zero A.</p>
+<p><strong>Roles that never touch the pipes.</strong> MARC jobs, ONIX exports, KBART drops, repository deposits - if the names are not on those objects, the operating model is a PDF.</p>
+<p><strong>Calling IT the owner because they hold the database.</strong> The garage does not own the cargo.</p>
+<h2 id="what-this-looks-like-on-a-real-estate">What this looks like on a real estate</h2>
+<p>Three domains a publisher or library already has, whether they named them or not.</p>
+<p><strong>Identifiers.</strong> Owner: whoever is commercially and legally on the hook when an ISBN/ISSN/DOI collision ships. Steward: the person who maintains the assignment rules, checks uniqueness, and hunts duplicates. Custodian: the system that mints, stores and exposes the identifiers.</p>
+<p><strong>Rights and access.</strong> Owner: rights or library-sales lead. Steward: the metadata editor who keeps embargo, licence and territory consistent across ONIX, KBART and the platform. Custodian: IAM and the content-delivery stack.</p>
+<p><strong>AI-assisted content and provenance.</strong> Owner: the editorial or catalogue authority who decides how synthetic work is declared. Steward: the cataloguer who applies the MARC/ONIX practice - related work, prompter, model, human-in-the-loop - without wrecking the record. Custodian: the pipeline that preserves those fields through every transform. If the declaration dies in the next mapping, you do not have provenance. You have a press release.</p>
+<p>Same pattern, three estates. Name them.</p>
+<h2 id="worksheet">Worksheet</h2>
+<p>Print or fill one domain per page. Names blank. Letters already set to the default above.</p>
+<p><a href="metadata-raci-worksheet.pdf">Download the one-page RACI worksheet (PDF)</a></p>
+<h2 id="what-to-do-this-week">What to do this week</h2>
+<p>Do this in a week, not a programme office:</p>
+<ol type="1">
+<li>List the domains that actually move money or risk. Not fifty. Eight is already ambitious.</li>
+<li>Write one sentence per domain: who signs, who drives, who keeps the vehicle.</li>
+<li>Fill the RACI for the eight activities above. Argue once. Freeze it.</li>
+<li>Put the names on the objects - feeds, jobs, catalogues, ticket queues.</li>
+<li>Give the steward hours and a quality signal. A rule that never fires is décor.</li>
+<li>Give the owner a decision channel that does not require a standing committee.</li>
+<li>Review after the next incident, not after the next strategy offsite.</li>
+</ol>
+<p>If you cannot complete step 2, you do not have a governance model. You have a hope.</p>
+<h2 id="faq-stripped">FAQ, stripped</h2>
+<p><strong>Where does the custodian sit?</strong><br />
+Technical implementation and operation of controls. Not meaning. Not policy.</p>
+<p><strong>Who should be owner?</strong><br />
+A business-side leader with authority to refuse. If they cannot say no, they cannot own.</p>
+<p><strong>Does every table need both names?</strong><br />
+Every dataset needs a line back to a domain owner and a steward. Per-table bureaucracy is how programmes die. Domain assignment is how they live.</p>
+<p><strong>Is this only for enterprises with a CDO?</strong><br />
+No. A mid-size press with a catalogue manager and a head of product already has the raw material. What is usually missing is one sentence: who signs.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>DAMA International, <em>DAMA-DMBOK2</em> (revised). Stewardship types and the owner as approving business steward. <a href="https://dama.org/">dama.org</a></li>
+<li>DAMA Dictionary of Data Management, companion vocabulary.</li>
+<li>Gartner, prediction that most data-and-analytics governance initiatives fail by 2027 in the absence of a real or manufactured crisis.</li>
+<li>OS DataMercs, <em>Ghost in the MARC</em> - what “encode AI provenance” looks like when it leaves the slide.</li>
+</ul>
+<p>The rest is labour. Put a name on the payload. Drive it. Do not decorate the dock.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

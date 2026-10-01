@@ -1,0 +1,1 @@
+Face copy slot. Replace intro.html (keep the wrapping div.intro#page-intro). Priss voice, Scribes English.

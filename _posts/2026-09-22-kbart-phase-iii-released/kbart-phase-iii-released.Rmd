@@ -1,0 +1,251 @@
+---
+title: "KBART Phase III is published. Your Phase II files are not obsolete."
+description: |
+  RP-9-2026 went live on 26 August 2026. The 25-column TSV the industry
+  runs on did not vanish. Phase II never specified a packing list.
+  Phase III Section 4 finally does - as a tab file, not a spreadsheet.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+    
+preview: kbart-phase-iii-blog-landscape.jpg
+date: 2026-09-22
+slug: kbart-phase-iii
+draft: false
+toc: true
+toc_depth: 2
+output:
+  distill::distill_article:
+    toc: true
+    toc_float: true
+    self_contained: false
+    highlight: tango
+categories:
+  - Standards & metadata
+  - Guides & tooling
+  - Industry notes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+KBART Phase III is a real Recommended Practice now.
+
+It is not “coming soon.” It is also not what your knowledge base is loading this week.
+
+That gap is the whole story.
+
+## Two files, two jobs
+
+A **title list** is the tab file with one row per title. ISSN, ISBN, coverage, URL, paid or free. That is the payload.
+
+A **manifest** is the packing list. One row per *file*. Which package it belongs to, where to fetch it, how many titles, whether it is free. The cargo is useless if nobody can tell which drop is current.
+
+Phase II specified the title list. It did not specify the file manifest. Phase III writes the packing list into the RP as **Section 4**, and it is still a **tab-delimited `.txt` / `.tsv`**. Not a workbook. Not an “AI-ready Excel template.”
+
+## When did it actually go live?
+
+Committee approval **17 August 2026**. NISO publication **26 August 2026**.
+
+**NISO RP-9-2026**, *KBART: Knowledge Bases and Related Tools Recommended Practice*. ISBN 978-1-950980-36-9. DOI [10.3789/niso-rp-9-2026](https://doi.org/10.3789/niso-rp-9-2026).
+
+Working copies on this site (NISO permits non-commercial reproduction with source named):
+
+- Phase III: [RP-9-2026_NISO_KBART.pdf](RP-9-2026_NISO_KBART.pdf)
+- Phase II, still the operational format: [RP-9-2014_KBART.pdf](RP-9-2014_KBART.pdf)
+
+Official pages: [RP-9-2026](https://www.niso.org/publications/rp-9-2026-kbart) · [RP-9-2014](https://www.niso.org/publications/rp-9-2014-kbart) · [committee](https://www.niso.org/standards-committees/kbart)
+
+| Date | What happened |
+| --- | --- |
+| Dec 2019 | Phase III work item starts |
+| 25 Sep – 10 Nov 2025 | Public comment on draft RP-9-202X |
+| 17 Aug 2026 | Standing Committee / IDI approval |
+| **26 Aug 2026** | **RP-9-2026 published** |
+
+**KBART Automation** stays a separate RP: [NISO RP-26-2019](https://www.niso.org/publications/rp-26-2019-kbartautomation). Phase III adds *file-level* advice. It does not replace Automation.
+
+“Published” means the text is current. It does not mean Alma, WorldShare, SFX, EBSCO or *hbz* we:kb have flipped their parsers.
+
+## What Phase II specified - and what it did not
+
+Read [RP-9-2014](RP-9-2014_KBART.pdf) if someone told you Phase II had an official collection file. It did not.
+
+Phase II gives you:
+
+- One **title list** per package, UTF-8, tab-delimited, `.txt`
+- Filename `[ProviderName]_[Region/Consortium]_[PackageName]_[YYYY-MM-DD].txt`
+- Twenty-five columns, in order, last of them `access_type`
+- Extra columns **after** column 25
+- Separate files for separate packages
+- A public URL
+
+Section 6.5 tells you how to *label* the handoff. It does not give you what’s on the uplink. No `collection_id`. No file-level `record_count`. No machine-readable “this file is package X.”
+
+Houses with hundreds of packages invented a second TSV anyway, because otherwise librarians guess which dated file replaced which. Vendor KBs invented their own intake forms for the same reason. That is local practice and vendor onboarding. It is not Phase II.
+
+## What Phase III actually changes
+
+Read the abstract and then the field list in [RP-9-2026](RP-9-2026_NISO_KBART.pdf). In practitioner language:
+
+1. **Content type, not a third `publication_type`.** `publication_type` is still only `serial` or `monograph` (§3.8.21). Multimedia is a new field, `content_type` (§3.8.22): `text`, `image`, `audio`, `video`, `data`, `interactive`, `multiple`, `other`. A podcast series is `serial` + `audio`. One episode is `monograph` + `audio`. Do not invent a third publication-type token and ship it to a Phase II loader.
+2. **`access_type` grows a third letter.** `P` paid, `F` free (100% free in that file’s coverage), **`M` mixed / hybrid** (§3.8.30). Article- and chapter-level OA is still **roadmap** (Section 7). Separate all-OA title lists remain the clean model.
+3. **Global titles** - translated and transliterated publication titles; surname conventions. Do not overwrite `publication_title`. That field is still the match key.
+4. **File manifest** - Section 4. Tab file. Table 6 fields. See below.
+5. **Compliance, not “endorsement.”** Gold / Silver. Title list **and** manifest. [KBART Compliance](https://www.niso.org/standards-committees/kbart/kbart-compliance).
+6. **Automation file-level rules** under the same committee.
+7. **A full rewrite of Phase II prose.** Same 25 core ideas, fewer ambiguous sentences.
+8. **Roadmap, not features:** XML/JSON serializations and article/chapter KBART are Section 7. Not something you implement this month.
+
+### Changed values in columns you already have
+
+| Field | Phase II | Phase III | Safe in a Phase II loader? |
+| --- | --- | --- | --- |
+| `access_type` | `P`, `F` | adds `M` | **No** until the vendor says so |
+| `publication_type` | `serial`, `monograph` | still only those two | Yes, if you keep those tokens |
+| `content_type` | did not exist | new column | Put it **after** column 25 until the loader lists it |
+| `publication_title` | match key | still the match key; translations sit elsewhere | Yes. Do not overwrite it |
+
+Rule from Phase II that Phase III does not repeal: **structural change in columns 1–25 is a breaking change. Additive extras after `access_type` are legal.**
+
+## The official manifest is a tab file
+
+Section 4. That is the whole new object.
+
+For the layman: the manifest is a packing list. One row per collection. The title list stays one row per title.
+
+Phase III is explicit about the container (§4.5, §4.6.6):
+
+- UTF-8, tab-delimited
+- extension `.txt` or `.tsv`
+- filename `[ProviderName]_[ManifestType]_Manifest_YYYY-MM-DD.txt`
+- examples: `ExampleProviderName_AllCollections_Manifest_2026-08-31.txt`
+
+Highly recommended once you have more than one KBART file. Treat it as mandatory once you have a catalogue of packages.
+
+### Table 6 - the official columns
+
+From RP-9-2026 §4.7. Confirm against the PDF before you hard-code.
+
+| Field | Point |
+| --- | --- |
+| `collection_name` | Official package name |
+| `collection_id` | Stable id (sales code, package ISBN, URL if that is all you have) |
+| `collection_url` | Where a user *browses* the collection |
+| `collection_type` | `Populated` / `Upcoming` / `Discovery only` |
+| `file_name` | Exact title-list filename. Required if Populated |
+| `file_location` | HTTP(S) or (S)FTP where that title list lives |
+| `date_added` | When the collection entered the manifest |
+| `date_file_updated` | When the title list last changed |
+| `record_count` | Rows in the title list, minus the header |
+| `update_frequency` | How often the title list moves |
+| `linking_supported` | Optional. Granularity of linking |
+| `collection_description` | Optional |
+| `previous_collection_name` | Blank unless the package was renamed |
+| `freely_accessible` | File-level free-to-read vs paid |
+| `notes` | Optional |
+
+`collection_type` is the switch:
+
+- **Populated** - there is a title list; use it.
+- **Upcoming** - product not launched yet; warn the KB.
+- **Discovery only** - no title list (A&I, “database,” article-level bags). Manifest row only.
+
+That last bucket is how Phase III avoids pretending every product is a 25-column holdings file.
+
+Preferred exchange: **one** manifest covering all collections, sitting next to the title lists (§4.3.1). Split manifests only if the files themselves live in split places.
+
+## What is not the official manifest
+
+Vendor KBs have been asking for a packing list for years. Ex Libris still documents a **Manifest Template as `.xlsx`**: CollectionName, CollectionID, FileName, plus whatever else their loader wants this quarter. OCLC wants a collection created in Collection Manager before you can mint `oclc_collection_id`. Fine. That is onboarding.
+
+It is not Section 4.
+
+Alma’s current intake being an Excel workbook is not an upgrade. Each use of Excel in a metadata pipeline is an admission that the machine-readable file was too hard and someone opened a spreadsheet. “AI capability” stamped on that workflow does not make `.xlsx` a standard. Phase III already specified the file: tab, UTF-8, dated filename, Table 6. Ship that. If a KB also wants their workbook, generate it *from* the tab file. Do not make the workbook the source.
+
+A house TSV that happens to list `file_name`, `collection_id` and `record_count` is closer to Section 4 than any `.xlsx`. Map the headers. Do not write it up as if NISO had blessed your column order in 2014. They had not.
+
+## Is anyone shipping Phase III title lists yet?
+
+Not as a default production format.
+
+Checked mid-September 2026: Springer Nature, Emerald, OpenEdition and Koha’s importer still speak Phase II. KB vendors sat on the Standing Committee. That is how the RP got written. It is not the same as “our loader accepts `M` and `content_type` this month.”
+
+**The RP is live. The supply chain is not.** Expect a year of mixed files.
+
+## What you can do without breaking loaders
+
+**Do**
+
+- Keep the 25 Phase II columns, in order, with those header names.
+- Put `content_type`, translated titles and anything else **after** `access_type`.
+- Ship a second file for 100% OA titles.
+- Use `notes` for hybrid hints until the receiving system documents `M`.
+- Keep UTF-8, tab, `.txt`, date-stamped names.
+- Add a Section 4 manifest as `.txt` / `.tsv` when you have more than one package.
+
+**Do not**
+
+- Insert columns in the middle of the 25.
+- Rename `publication_title` or `online_identifier`.
+- Put `M` in `access_type` if the target parser only accepts `P`/`F`.
+- Replace the title list with JSON because Section 7 mentioned JSON.
+- Change `publication_type` to `video`. That field does not take that token.
+- Treat an Alma `.xlsx` as RP-9-2026.
+
+## If you actually process the files
+
+**This month**
+
+- Validate title lists against Phase II. Contract with Alma, Ebsco, WorldShare, hbz, most FTP drops. Text: [RP-9-2014_KBART.pdf](RP-9-2014_KBART.pdf).
+- Unknown headers after `access_type`: keep, log, do not fail the run.
+- `access_type` not `P` or `F`: warn. Do not silently map `M` to `P`.
+- Do not rewrite a working EBA list into “Phase III” for sport.
+
+**When a file claims Phase III**
+
+- Header row first. 25 names intact, new fields at the end: treat as Phase II + extras.
+- 25 moved, or `publication_type` has a token that is not `serial`/`monograph`: quarantine. Read [RP-9-2026](RP-9-2026_NISO_KBART.pdf).
+- A file named `*_Manifest_YYYY-MM-DD.txt` next to the title lists: use it to decide which package file is current. Do not infer that from HTML.
+
+**Hybrid OA and perpetual access**
+
+- Phase III does not give you article-level OA. Title-level `M` plus a separate OA collection is the model.
+- Entitlement audits still need licence text or Automation / RP-26-2019, not a prettier package KBART.
+
+**German / multilingual lists**
+
+- Translated and transliterated titles are the Phase III change worth planning. Keep the cataloguing title in `publication_title`. Variants after column 25 until the destination publishes its accept list.
+
+**Compliance talks**
+
+- Phase II endorsement is still the badge most providers hold.
+- Phase III compliance wants a title list *and* a Section 4 manifest.
+- Ask the KB one question in writing: *Which Phase III headers and `access_type` values will you ignore, and which will you reject?*
+
+## Bottom line
+
+Phase III went live on **26 August 2026** as **NISO RP-9-2026**. Multimedia via `content_type`. Hybrid via `M`. Packing list via Section 4. Cleaner compliance. The 25-column TSV did not retire.
+
+The official manifest is a tab file. A vendor Excel template is a vendor Excel template. Generate one from the other if you must. Do not confuse them.
+
+First real Phase III production file: parser test. Not a reason to rebuild last year’s EBA workflow.
+
+## Sources
+
+- NISO RP-9-2026 (this site): [RP-9-2026_NISO_KBART.pdf](RP-9-2026_NISO_KBART.pdf)
+- NISO RP-9-2026 (publisher page): <https://www.niso.org/publications/rp-9-2026-kbart>
+- NISO RP-9-2014 (this site): [RP-9-2014_KBART.pdf](RP-9-2014_KBART.pdf)
+- NISO RP-9-2014 (publisher page): <https://www.niso.org/publications/rp-9-2014-kbart>
+- Compliance (title list + Section 4 manifest): <https://www.niso.org/standards-committees/kbart/kbart-compliance>
+- Committee: <https://www.niso.org/standards-committees/kbart>
+- Public-comment announcement (25 Sep 2025): <https://www.niso.org/press-releases/draft-revision-kbart-phase-iii-now-available>
+- KBART Automation: <https://www.niso.org/publications/rp-26-2019-kbartautomation>

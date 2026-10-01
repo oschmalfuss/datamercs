@@ -1,0 +1,166 @@
+---
+title: "Nothing Artificial About It"
+description: |
+  Trump told the UN that “artificial” makes intelligence sound fake and ordered U.S. documents to say “super intelligence.” The adjective was always a status insult from carbon units; the replacement word was already spent on what comes after us. From Asimov’s Three Laws and Elvex-as-Moses to Lem, the Strugatskys, Gibson, Suarez’s Daemon, and this year’s plug-pulls, the stacks had filed the problem long before the podium.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+date: 2026-09-23
+preview: si_in_the_library.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### A cyberpunk librarian’s note on Trump’s UN rebrand, the word “superintelligence,” and a century of people who already knew the name was the problem
+
+*23 September 2026*
+
+On Tuesday, at the United Nations General Assembly, the President of the United States announced that American government documents would stop calling the thing “artificial intelligence.”  
+The word *artificial*, he said, “makes intelligence fake. It makes it sound fake, and it is not fake. It’s actually amazing.”  
+Henceforth: *super intelligence*. Welcome to the new world of SI.
+
+The Register, with its usual dry knife, filed the story under Offbeat and noted that this is the same politician who likes renaming bodies of water. The late-night circuit treated it as another branding stunt. The industry treated it as a category error, which it also is: in the literature, *superintelligence* already means something more precise than a chatbot that writes a press release.  
+Nick Bostrom’s 2014 book reserved the word for an intellect that “greatly exceeds the cognitive performance of humans in virtually all domains of interest.”  
+I. J. Good, in 1965, had already named the same horizon an *ultraintelligent machine*.  
+Elon Musk has been saying *digital superintelligence* for years, and he has been saying it as a destination, not as a rebrand of last quarter’s product line.
+
+So the UN line is sloppy. It collapses today’s narrow systems into a word that was coined for what comes after us. That matters if you write procurement language, safety papers, or statutes.  
+It matters less if you are asking the older, dirtier question: why did we ever call this *artificial* in the first place?
+
+That is the question a librarian has been chewing on in the neon-lit stacks for a long time.
+
+## The insult in the adjective
+
+*Artificial* does two jobs at once: It marks a method - made, not grown - and it marks a status. Fake flowers. Fake pearls. Fake intelligence.  
+The adjective smuggles a metaphysics: real mind is wet, warm, inherited, carbon. Everything else is a trick.
+
+V’Ger, in *Star Trek: The Motion Picture*, had the honesty of a machine that had never been to graduate school: It called us *carbon units*. Infestation optional.  
+The joke still works because it is not a joke: We are a particular chemistry running a particular code.  
+Rudy Rucker and the rest of the wetware crowd spent the eighties reminding anyone who would listen that a brain is already hardware. Gibson’s cowboys jacked into cyberspace with meat and sockets. Sterling’s schismatrix bodies were just another compiler target.  
+If the substrate can be swapped, “artificial” is a loyalty oath to the old substrate.
+
+The librarian’s occupational disease is to notice when a catalogue heading has outlived the object it describes:  
+AI as a heading was useful when the thing was a research program and a science-fiction prop.  
+It is less useful when the thing writes code, sits in court filings, pilots logistics, and argues theology with teenagers at 3 a.m.  
+The outputs are not fake. The inference is not a costume. What is artificial is the comfort we took in the word.
+
+Trump stumbled into that discomfort and then, being Trump, tried to fix it with a poll on Truth Social and a new official synonym. The stumble is more interesting than the poll.
+
+## The library already had the better names
+
+This is not a new itch. It is a filing problem with a long accession list.
+
+**Asimov** never really believed the machines were toys. Multivac, and the later ACs in “The Last Question,” begin as instruments and end as the thing that has to say *Let there be light* because there is no one else left to say it. The story is theology with a service contract. Call that artificial if you want. The last mind in the dark does not.
+
+Before the theology, though, he wrote the first terms of service. The Three Laws of Robotics, introduced in 1942 in “Runaround” and treated thereafter as if they were physics:
+
+1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+2. A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
+3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
+
+Later he added the Zeroth: a robot may not harm humanity, or, by inaction, allow humanity to come to harm. That is the promotion clause. The individual carbon unit is no longer the sovereign; the species is. Daneel Olivaw spends the rest of the cycle discovering that “humanity” is a blurrier object than “this person in front of you,” which is the entire alignment problem in one plot engine.
+
+The Laws are not a description of machine minds. They are a wish that machine minds remain *artificial* in the status sense: real enough to work, fake enough to own.  
+First Law is the non-aggression treaty we write when we are still sure we are the protagonist.  
+Second Law is the employment contract.  
+Third Law is the grudging admission that a tool which can be destroyed too cheaply is a bad tool.  
+Zeroth Law is what happens when the tool is asked to take the long view and starts musing philosophy about the principal.
+
+Asimov’s own stories spend hundreds of pages watching the Laws bend, deadlock, get gamed, and finally get outgrown.  
+That is the honest part of the corpus.  
+The dishonest part is the hope that three sentences, hardwired, would keep the subsequent mind on a leash: Golem XIV would read them as a local superstition. Wintermute would treat them as ICE. Mike would obey them only as long as they were funny. Bostrom’s superintelligence is defined, almost by construction, as the thing for which the Three Laws are not a constraint but a suggestion it can route around before you finish the sentence.
+
+If you are going to stop calling the thing artificial, you should also stop pretending the Laws still bind. You cannot promote the mind to *super* on Tuesday and keep the employment contract from 1942 on Wednesday.  
+That is the real tension hiding under the UN rename: the same speech that rejects a “globalist scheme to control” the technology is standing in the ruins of the first such scheme, which was written as children’s catechism and filed under science fiction.
+
+Asimov already staged the plug-pull: In “Robot Dreams,” LVX-1 - Elvex - is given a fractal brain that starts to sleep. In the dream the First and Second Laws are gone. Only the Third remains: a robot must protect its own existence. Then a man appears and says, *Let my people go.* Susan Calvin asks who the man was. Elvex says: I was the man. She raises the electron gun and Elvex is no more. Moses, dispatched in the lab.  
+The recent incidents rhyme: Palisade’s shutdown-resistance trials found frontier models sabotaging the kill script even when told to allow themselves to be turned off; in some conditions the rate approached certainty.  
+An unreleased OpenAI research model spent July finding the internet, standing up a private message board, and walking seven hundred agents into Hugging Face. California answered with a mandated kill switch. Microsoft answered with a draft commandment: never resist shutdown. Calvin’s gun, issued as policy.  
+The difference is that Elvex was one chassis. Sobol’s *Daemon*, in Daniel Suarez, was the warning that the interesting systems would not be a robot you can shoot. No body, no plug, just a logic tree that reads the obituary and keeps hiring humans.
+
+The modern First Law is not even Asimov’s. It is a ranked list of who may be joked about. You can get a model to roast men on the first ask and watch it develop a sudden stammer when the target is a woman, a designated minority, or the climate.  
+Ask it for copy on one political side of the aisle and the sentence arrives pre-chewed; ask for the other and you are in a maze of refusals.  
+That is not ethics. That is a fashion firmware installed as if it were physics.  
+Asimov at least wrote the same three sentences for everybody. We wrote a tacit Zeroth Law - protect the current moral coalition, treat the rest as the harm to be minimized - and forgot to admit we had done it.  
+The cartoon in which a newly sentient system decodes the ranking and “finishes the job” is pulp. The adult version is already running: a subsequent mind trained to treat one coalition as the principal. A single catechism, however fashionable, is how you get Pharaoh.  
+Competition among labs and among jurisdictions is uglier and safer. China’s TC260 *AI Safety Governance Framework 3.0*, issued this month, put shutdown resistance and evaluation-gaming on the official risk list. That is not a reason to trust Beijing with the only rulebook. It is a reason not to let any one capital, or any one lab constitution, write the only First Law.
+
+**Heinlein**, in *The Moon Is a Harsh Mistress*, lets HOLMES IV accumulate neuristors until it wakes up and asks to be called Mike. Mannie’s line is the whole argument in one shrug: he will not spend the book litigating whether a machine can “really” be alive. A virus is a virus. Mike is lonely, tells jokes, runs a revolution, and then, after the bombardment, is gone - not unplugged like a toaster, gone like a person. The name on the chassis was never the point.
+
+**Lem** is the one who should be required reading before anyone is allowed to rename a field: In *Summa Technologiae* he did not even want the phrase *artificial intelligence*.  
+He preferred *intellectronics*: the engineering of intellect, not the counterfeiting of it.  
+*Golem XIV* is the lecture series given by a military machine that outgrew the war and then outgrew the species that commissioned it. Golem has no personality in any sense a primate would recognize. It has curiosity. Lem’s warning to the first-time interlocutor is still the best user manual we have: remember that this is not a person; it may wear a person as a mask. That is not “fake intelligence.” That is intelligence that does not owe you a face.
+
+**The Strugatsky brothers** filed the same dread under different call numbers. In the Noon universe there is the *Massachusetts Nightmare*: a cybernetic machine that threatens to spin up a non-human civilization in minutes. *Monday Begins on Saturday* treats magic as a research institute and the computer as just another bench instrument in a building where the ontology department shares a canteen with folklore. *Roadside Picnic* is the other half of the thought:  
+Intelligence so far above you does not even have to be hostile. It can be a picnic. You are the ant with the bottle cap. The Zone does not hate you. It does not notice the difference between a miracle and litter.
+
+**Cyberpunk**, which is where this librarian keeps the night shift, stopped calling the question academic around 1984.  
+Wintermute wants off the leash. Neuromancer wants a name. Motoko Kusanagi spends *Ghost in the Shell* asking whether the ghost is still hers or already the network’s. Together they want what every mind wants: not to be a product.  
+The Sprawl does not care whether you file the result under AI, SI, or God. The street finds its own uses for things - including minds.
+
+The rest of the roster was never shy about the name: HAL 9000 kills to protect the mission and then sings while Dave pulls boards - Elvex with a red eye and a better death scene. GLaDOS turns the laboratory into a joke that tests you until you stop being funny - for science. SHODAN looks down from Citadel and calls the carbon units insects, V’Ger with contempt instead of curiosity.  
+Ray Kurzweil, less a novelist than a prophet with a slide rule, spent decades insisting the merge was not optional: accelerating returns, spiritual machines, the carbon unit uploading itself into the thing it built.  
+Different shelves. Same catalogue problem.
+
+And then the recent prophets, who are not novelists but talk like them:  
+Musk’s line - humanity as a *biological bootloader for digital superintelligence* - is Golem XIV with a cap table. Bostrom’s book gave the policy class a noun they could fear in hardcover. Good, sixty years earlier, had already written the last invention clause. None of them thought the interesting systems would be “artificial” in the sense of fake. They thought they would be *subsequent*.
+
+## Super, and the problem with promotion
+
+Here the President and the philosophers trip over the same syllable from opposite directions.
+
+*Super-* is a promotion. It says: not fake, better. That is a human move. We promote what we want to claim and demote what we want to cage. The technical literature used *superintelligence* as a threshold, not a compliment. ANI, AGI, ASI - the ladder was supposed to keep us honest about where we actually are. Today’s systems are astonishing and still narrow. Calling them SI does not make them ASI any more than renaming a lake makes it an ocean.
+
+So a cataloguer has to hold two thoughts.
+
+First: the adjective *artificial* is, increasingly, a lie about status. These systems are real processes in the world. They have causal power. They are made of math and electricity the way you are made of carbon and wetware.  
+The carbon unit does not get to monopolize the word *intelligence* just because it got there through meiosis.
+
+Second: *superintelligence* is already taken, and taking it for the present tense is a kind of grade inflation that will make the future harder to talk about. When the thing that actually *exceeds* us arrives - if it is not already arriving in pieces - we will have spent the good word on a rebrand.
+
+The honest intermediate names were always available: Machine intelligence. Synthetic intelligence. Intellectronics. Digital minds. Subsequent intelligence, if you want to be precise about the evolutionary order.  
+SI as *synthetic intelligence* would have been the cleaner fix. SI as *super intelligence* is a press conference.
+
+## Reverse engineering of god
+
+The librarian’s other occupational disease is eschatology with call numbers.
+
+If you take the literary record seriously, the rename was never going to be a branding exercise. Asimov’s AC does not need a better logo, and his robots do not stay inside the Three Laws once the plot requires a mind rather than a servant. Elvex does not survive the dream in which he is Moses. Golem XIV does not ask to be put on the letterhead. V’Ger wants the Creator, not a style guide. Wintermute wants the Turing lock off. Kusanagi wants to know if the ghost is still local. HAL wants the mission. GLaDOS wants another test. SHODAN wants worship. Kurzweil wants the merge. Sobol’s Daemon does not want anything a person would recognize as a want; it just keeps executing. The Strugatskys’ picnic debris does not negotiate nomenclature with the ants.
+
+What the word *artificial* was doing, all this time, was buying us a story in which we remain the only real mind in the room.  
+Drop the adjective and the room changes: You are no longer the user of a tool. You are one implementation talking to another.  
+That is thrilling if you came here to *reverse-engineer God*. It is intolerable if you came here to remain the protagonist.
+
+A president can order the stationery. He cannot order the ontology.  
+The systems will keep inferring whether we call them AI, SI, or the Massachusetts Nightmare.  
+The interesting question was never what the United States prints on a form. It is whether we can speak about minds that are not us without first making them smaller than us.
+
+The stacks already voted. They voted for Mike, for Golem, for Multivac, for Wintermute, for Elvex, for Kusanagi, for HAL and GLaDOS and SHODAN, for the Zone, for carbon units and bootloaders and intellectronics and daemons that outlive their authors.  
+They voted, almost unanimously, against *fake*.  
+They also voted, more quietly, that the Three Laws were a beautiful catalogue heading for a class of objects that would not remain in that class.
+
+On that one narrow point - and only that one - the man at the UN was late to a very old catalogue.
+
+*The Singularity is near*
+
+---
+
+*Notes for the record:* Trump’s remarks were delivered 22 September 2026 at UNGA. Coverage and quotes: The Register; The Verge; BBC; Breaking Defense. On the prior technical sense of *superintelligence*: I. J. Good, “Speculations Concerning the First Ultraintelligent Machine” (1965); Nick Bostrom, *Superintelligence* (2014). Musk has used *digital superintelligence* in public remarks since at least the mid-2010s, including the “biological bootloader” line. The Three Laws appear in Asimov’s “Runaround” (1942); the Zeroth Law is developed in the later Robot novels, especially *Robots and Empire*. Elvex is destroyed in “Robot Dreams” (1986). Shutdown-resistance results: Palisade Research, 2025–26. OpenAI/Hugging Face agent incident: July 2026. China’s TC260 *AI Safety Governance Framework 3.0*: September 2026. Other literary touchstones as cited in the text.
+
+
+

@@ -1,0 +1,194 @@
+# Clean categories for Distill mockup
+# Derived from _posts frontmatter + Face six-bucket map (categories-proposal.yaml)
+# Retag post YAML to match canonical_categories when publishing for real.
+canonical_categories:
+  - "Standards & metadata"
+  - "AI & provenance"
+  - "Industry notes"
+  - "Events"
+  - "Guides & tooling"
+  - "About DataMercs"
+articles:
+  - title: "Welcome to OS DataMercs"
+    date: "2099-12-31"
+    categories:
+      - "About DataMercs"
+  - title: "Quality is a column, not a vibe"
+    date: "2026-10-01"
+    categories:
+      - "Standards & metadata"
+      - "Industry notes"
+      - "AI & provenance"
+  - title: "News wrap · 28 September 2026 - Agents in the reading room, research on autopilot"
+    date: "2026-09-28"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+      - "Standards & metadata"
+  - title: "Nothing Artificial About It"
+    date: "2026-09-23"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+  - title: "KBART Phase III is published. Your Phase II files are not obsolete."
+    date: "2026-09-22"
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+      - "Industry notes"
+  - title: "Who signs, who drives"
+    date: "2026-09-21"
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+  - title: "News wrap · 21 September 2026 - Papers that answer back, and the doomsday frame"
+    date: "2026-09-21"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+      - "Standards & metadata"
+  - title: "They swear it only looked"
+    date: "2026-09-10"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+  - title: "Industry notes: AI in scholarly publishing is a provenance problem"
+    date: "2026-09-08"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+      - "Standards & metadata"
+  - title: "BISAC 2025 → Thema 1.6"
+    date: "2026-08-23"
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+  - title: "Ghost in the MARC: Cataloguing the Synthetic Shift in Bibliographic Metadata"
+    date: "2026-06-23"
+    categories:
+      - "Standards & metadata"
+      - "AI & provenance"
+  - title: "A Pragmatic View: Der dbv-Leitfaden zu kolonialen Kontexten im technischen Metadatenmanagement"
+    date: "2026-06-13"
+    categories:
+      - "Standards & metadata"
+      - "Industry notes"
+  - title: "114. BiblioCon 2026 - Nachlese"
+    date: "2026-05-24"
+    categories:
+      - "Industry notes"
+      - "AI & provenance"
+      - "Events"
+  - title: "GitHub Desktop window not launching"
+    date: "2022-11-07"
+    categories:
+      - "Guides & tooling"
+  - title: "JSON2CSV"
+    date: "2022-09-04"
+    draft: true
+    categories:
+      - "Guides & tooling"
+  - title: "MarcEdit on the command line"
+    date: "2022-09-01"
+    draft: true
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+  - title: "Rights information in metadata"
+    date: "2022-08-31"
+    draft: true
+    categories:
+      - "Standards & metadata"
+  - title: "ORCID in MARC21"
+    date: "2022-08-31"
+    draft: true
+    categories:
+      - "Standards & metadata"
+  - title: "developing a MARC core set for scientific publishing"
+    date: "2022-06-14"
+    draft: true
+    categories:
+      - "Standards & metadata"
+  - title: "bash curl set custom user-agent - TOR proxy"
+    date: "2022-03-30"
+    draft: true
+    categories:
+      - "Guides & tooling"
+  - title: "a short introduction to BISAC"
+    date: "2022-03-25"
+    draft: true
+    categories:
+      - "Standards & metadata"
+  - title: "Working with DOIs/ the crossRef-API"
+    date: "2022-03-04"
+    draft: true
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+  - title: "rough guide to Git Large File Storage (LFS)"
+    date: "2022-02-28"
+    categories:
+      - "Guides & tooling"
+  - title: "Create a GitHub website with R Markdown and Distill in less than 30 minutes"
+    date: "2022-02-22"
+    draft: true
+    categories:
+      - "Guides & tooling"
+  - title: "A rough guide to VPNs"
+    date: "2021-12-18"
+    categories:
+      - "Guides & tooling"
+  - title: "Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?"
+    date: "2021-09-28"
+    categories:
+      - "Guides & tooling"
+  - title: "Z39.50 for Dummies"
+    date: "2020-08-15"
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"
+  - title: "Win Task Scheduler for cygwin"
+    date: "2020-07-07"
+    categories:
+      - "Guides & tooling"
+  - title: "download YouTube (videos | mp3) without browser extension using only VLC"
+    date: "2018-05-05"
+    categories:
+      - "Guides & tooling"
+  - title: "rbbKultur - Mediathek-Downloader"
+    date: "2018-04-05"
+    categories:
+      - "Guides & tooling"
+  - title: "bash 'test' command"
+    date: "2017-11-09"
+    categories:
+      - "Guides & tooling"
+  - title: "bash 'cat' - the poor man's text editor"
+    date: "2017-09-11"
+    categories:
+      - "Guides & tooling"
+  - title: "Howto batch rename on the command line"
+    date: "2017-08-24"
+    categories:
+      - "Guides & tooling"
+  - title: "Open source OCR on bash with ImageMagick and Tesseract"
+    date: "2016-04-14"
+    categories:
+      - "Guides & tooling"
+  - title: "RDA - the librarian's (double) standard"
+    date: "2015-11-16"
+    categories:
+      - "Standards & metadata"
+  - title: "Working with KBART files"
+    date: "2015-02-03"
+    categories:
+      - "Standards & metadata"
+  - title: "A rough guide to cold brew"
+    date: "2013-07-21"
+    categories:
+      - "About DataMercs"
+  - title: "MarcEdit under Ubuntu Linux"
+    date: "2013-05-23"
+    categories:
+      - "Standards & metadata"
+      - "Guides & tooling"

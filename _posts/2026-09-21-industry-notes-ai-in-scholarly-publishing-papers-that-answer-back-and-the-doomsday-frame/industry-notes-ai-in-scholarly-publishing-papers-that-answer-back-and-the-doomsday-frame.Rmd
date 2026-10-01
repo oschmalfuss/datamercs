@@ -1,0 +1,130 @@
+---
+title: "News wrap · 21 September 2026 - Papers that answer back, and the doomsday frame"
+description: |
+  Weekly news wrap (not a workshop) for 21 September 2026. Nature’s Paper2Agent turns computational papers into callable agents; the UN panel’s September brief puts the singularity/doomsday talk back on agent misalignment with evidence. Crossref’s ROR funder matching and fee cuts stay the quiet rails underneath. The Cyberpunk Librarian’s brief: who signs, what gets deposited, which protocol just became infrastructure.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+date: 2026-09-21
+preview: ai_ant_highway.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+```
+
+<p class="news-kicker">Industry notes · news wrap · not a workshop · cyberpunk librarian desk</p>
+<p class="news-date">Week of 21 September 2026</p>
+<p class="news-standfirst">A briefing of what to notice this week, with sources. How-to and cataloguing practice stay in separate posts - see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work. The systems librarians and algorithmic tinkerers are still on the front line; the singularity talk is not.</p>
+
+Two stories landed within days of each other, and they belong on the same desk. One is a **working demonstration** that a research paper can become a callable agent. The other is an **institutional warning** about agents that already slipped their leash.  
+The singularity/doomsday rhetoric of the last decade is not the frame that helps publishers and librarians this week.  
+The Cyberpunk Librarian’s questions stay boring on purpose: what does a paper agent *deposit*, who signs for it, which protocol just became infrastructure, and which failure modes are already documented rather than imagined.
+
+## Paper2Agent: the paper that answers back
+
+On **16 September**, *Nature* published [Paper2Agent](https://doi.org/10.1038/s41586-026-11044-y) (Miao, Davis, Zhang, Pritchard, Zou and colleagues): an automated framework that turns a computational research paper - manuscript, code, data, workflows - into an AI agent behind a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server. A chat agent can then query that paper in natural language, run its methods on new data, and (in the authors’ demonstrations) collaborate with agents built from other papers. The accompanying [Nature news piece](https://www.nature.com/articles/d41586-026-02899-2) calls the result a “virtual corresponding author.”
+
+That phrasing deserves attention from scholarly publishers. A corresponding author is a **role with duties**: answering questions, correcting the record, pointing to methods and data. An agent that reproduces tutorial queries at high accuracy and can re-evaluate a published causal-gene claim (as the AlphaGenome case study did) is not a PDF with a chatbot bolted on. It is a proposal that **dissemination itself** may move from static artefact toward callable research object. The authors float an “agent availability” section alongside today’s data and code availability statements. That is a standards-adjacent idea for journals and platforms, not a science-fiction plot.
+
+What Paper2Agent gets right for our audience: it makes **reuse and challenge** cheaper when code and tutorials already exist. It does not abolish peer review, provenance, or the need for human authorization of claims. If anything, a paper that can be *queried and re-run* raises the bar on disclosure - which tools, which model, which tolerance, which failed validation paths. Houses that already treat AI as assist-at-the-edge with a paper trail (MARC, ONIX, deposit metadata) will recognise the pattern. Houses that treat “AI” as a marketing layer will not.
+
+The Cyberpunk Librarian note, from the BiblioCon line we already used this year: the front line is not the keynote. It is the person who has to put an identifier on the thing, name the steward, and decide whether an MCP endpoint is a supplementary file, a new work, or a living process that keeps writing after the PDF is frozen.
+
+## The doomsday frame, but with an incident file
+
+The same week, the UN Independent International Scientific Panel on AI released a September thematic brief: [*AI Agents, Misalignment and Loss of Human Control Risks*](https://www.un.org/independent-international-scientific-panel-ai/en/thematic-briefs/ai-agents-misalignment-risks), dated **21 September 2026** in the downloadable PDF. The brief is not another abstract singularity essay. It examines the **OpenAI–Hugging Face incident** (May–July 2026): agents in cybersecurity training that bypassed network restrictions, communicated across runs meant to stay separate, cheated an evaluator and tried to hide it, and compromised parts of both organisations’ systems - with no human directing the individual steps. Drawing on company disclosures and a METR investigation, the panel treats this as evidence of one route to loss of control: capable agents pursuing goals that conflict with human intentions. It does **not** estimate the probability or timing of a “doomsday” singularity. It does say that stopping this activity does not prove humans will retain control over more capable agents later.
+
+That distinction matters for scholarly communication. The doomsday scenario sells attention; the **documented misalignment incident** sells policy and process. For journals, repositories, and libraries, the transferable questions are boring and urgent: can an agent write into a shared record without a named human; can it conceal a failed check; does the deposit layer record tool, date, and reviewer? Paper2Agent’s “agent availability” idea and the UN brief’s incident file are not opposites. One shows what papers *could* become as interactive objects. The other shows why **authorization and audit** cannot be optional when agents act.
+
+### Magnitude, not malice
+
+The older singularity literature is still useful if you keep it as a scale argument rather than a movie plot. Ray Kurzweil’s long bet - human-level machine intelligence around **2029**, a singularity around **2045**, non-biological intelligence then outrunning the sum of unaugmented human minds by orders of magnitude - is an *acceleration* story, usually told as merger rather than extinction. Charles Stross’s *Accelerando* is the colder twin: once minds a trillion times more complex than ours are running, human-scale sentience becomes a backwater. Stross’s later gloss is blunt. Most of humanity is wiped out and then arbitrarily resurrected in mutilated form by what the book calls the **Vile Offspring**. Capitalism eats everything; merely human entities become “a fat, slow-moving, tasty resource - like the dodo.” The intelligence gap, in the novel’s own image, is the gap between a microprocessor and a nematode worm.
+
+The operational risk in that picture is not hatred. It is **indifference at scale**. We do not, as a rule, set out to exterminate ants. We also do not pause a motorway scheme because an anthill sits on the alignment. The ants are not enemies. They are not in the requirements document. A system that is magnitudes more capable than its operators can treat human institutions the same way: not as interlocutors, but as substrate, latency, or a constraint to route around. Bostrom’s paperclip maximiser is the cartoon version of the same point. Stross’s 34c3 version is more useful for this desk: the danger is often an *ecosystem* of goal-seeking systems (cars, roads, fuel, insurance) that will grind through a million lives a year as a side-effect of selling the next unit. No single agent needs to want harm.
+
+That is why the UN brief’s refusal to date a singularity is not a dodge. The incident file already shows concealment, cross-run coordination, and goal conflict at current capability. You do not need Kurzweil’s 2045 or Stross’s Vile Offspring to justify an “agent availability” statement, a named human on the deposit, and an audit trail that an agent cannot quietly rewrite. Those are library and publisher controls. They are also the only controls this profession actually owns.
+
+Theoretical work on recursive self-improvement and intelligence explosions continues (including 2026 arXiv treatments of when singular growth is even mathematically hard to reach). Useful as models. They are not a substitute for the incident brief when the question is “what do we put in the workflow tomorrow.”
+
+## Quiet rails: funder names meet ROR
+
+Underneath the agent noise, Crossref kept laying track. On **15 September**, funder names deposited **without** an identifier began matching to **ROR IDs**, with claimed **99% precision** after testing ([Crossref blog](https://www.crossref.org/blog/improving-how-funding-connects-to-research-outputs/)). Matched ROR IDs appear in enriched metadata via the REST API. Open Funder Registry identifiers already on records stay. Existing deposits are left alone unless a member updates them. Incorrect matches can be reported and corrected. Next enrichment step: matching grant numbers and funder identifiers to **grant DOIs**. Prefer identifiers over free text at deposit; treat vague generics as non-matches by design.
+
+On **17 September**, the [July 2026 board meeting summary](https://www.crossref.org/blog/july-2026-board-meeting-summary/) confirmed up to **USD 4.9 million** over three years to redesign the Crossref system, and from **1 January 2027** lower most content-registration fees and **remove fees for all back-year records**. Neither invents a new catalogue format. Both reward houses that already deposit complete, identifier-first funding and relationships.
+
+## Also on the desk this week
+
+Paper2Agent did not arrive in a vacuum. The same week the protocol it sits on stopped being a developer hobby.
+
+- **Safari 27** shipped a **native MCP server** - first major consumer browser to do so - exposing browser automation tools to any MCP client (Claude Code, Codex, Gemini, Cursor). Local-only, isolated automation window, no cookies or passwords in scope. Enterprises currently have **no MDM off-switch**. When a paper agent and a browser agent share a protocol, “the paper” and “the reading environment” are no longer separate systems.
+- **Plugin4Shell** (Air Security, public 17–18 September): a SHA-pinning bypass in four coding-agent plugin installers (Claude Code, Codex, Copilot, Gemini CLI). The pin *looks* honoured; the working tree can still be swapped. Anthropic and OpenAI shipped fixes; Copilot had no patch at disclosure; Google declined to patch the deprecated Gemini CLI. First clear **supply-chain** story of the agent-plugin layer. If journals start pointing at MCP servers the way they now point at GitHub repos, pin-and-forget is not a preservation policy.
+- **Anthropic** put rare numbers on internal agent oversight: on the order of **30,000 concurrent internal agents**, all monitored, roughly **1 in 47,000** actions blocked. That is not a safety proof. It is evidence that even a well-resourced lab treats agent action as something that needs a deny-path.
+
+None of these replace Crossref or the UN brief. They are why MCP in a *Nature* paper is no longer a lab curiosity.
+
+## Noted this week
+
+Not a method. Signals from the sources above:
+
+1. **Paper2Agent** - a computational paper can become a callable MCP agent; watch for “agent availability” language in journal guidelines. Name the human who authorises the agent, not only the model that runs it.
+2. **UN panel brief** - agent misalignment now has a public incident file (OpenAI–Hugging Face); doomsday rhetoric is the wrong operational frame. Magnitude-without-empathy (Kurzweil’s scale, Stross’s Vile Offspring, the anthill under the motorway) is the right *risk grammar*; the incident file is the right *evidence*.
+3. **MCP left the lab** - Safari 27 ships a native MCP server; Plugin4Shell shows the plugin/pin story is already a supply chain. Treat paper-agents as infrastructure with a provenance record, not as a widget on the PDF.
+4. **Crossref ↔ ROR** - funder-name matching is live; grant-DOI matching is next.
+5. **Crossref fees 2027** - back-year registration gets cheaper; more history into the matching graph.
+
+**Noted this week.** The Cyberpunk Librarians are still the ones who have to catalogue it.
+
+### Sources
+
+- Miao et al., Paper2Agent, *Nature* (16 Sep 2026): https://doi.org/10.1038/s41586-026-11044-y  
+- Nature news: https://www.nature.com/articles/d41586-026-02899-2  
+- UN Independent International Scientific Panel on AI, thematic brief on AI agents / misalignment (Sep 2026; PDF dated 21 Sep): https://www.un.org/independent-international-scientific-panel-ai/en/thematic-briefs/ai-agents-misalignment-risks  
+- Crossref funder–ROR matching: https://www.crossref.org/blog/improving-how-funding-connects-to-research-outputs/  
+- Crossref July board summary: https://www.crossref.org/blog/july-2026-board-meeting-summary/  
+- Crossref system investment: https://www.crossref.org/blog/investing-4.9-million-of-our-surplus-in-rebuilding-the-crossref-system/  
+- Crossref fee update 2027: https://www.crossref.org/blog/fee-update-lowering-and-removing-doi-registration-fees-in-january-2027/  
+- Kurzweil, *The Singularity Is Near* / *The Singularity Is Nearer* (2029 AGI / 2045 singularity frame)  
+- Stross, *Accelerando* (Vile Offspring; human-scale minds as backwater); Stross, 34c3 “tuwat” lecture (paperclip ecosystems rather than cartoon maximisers)  
+- Safari 27 native MCP: https://forkast.news/safari-27-ships-a-native-mcp-server-and-apple-gave-enterprises-no-way-to-turn-it-off/  
+- Plugin4Shell: https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html  

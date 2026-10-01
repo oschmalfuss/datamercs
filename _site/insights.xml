@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>OS DataMercs</title>
+    <link>https://www.datamercs.net</link>
+    <atom:link href="https://www.datamercs.net/insights.xml" rel="self" type="application/rss+xml"/>
+    <description>Metadata consulting and teaching for scholarly publishing and libraries.
+</description>
+    <image>
+      <title>OS DataMercs</title>
+      <url>https://www.datamercs.net/logo.png</url>
+      <link>https://www.datamercs.net</link>
+    </image>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 31 Dec 2099 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to OS DataMercs</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/welcome</link>
+      <description>OS DataMercs is inspired to elevate the publishing industry by consulting, teaching and providing most recognized metadata services.</description>
+      <category>About DataMercs</category>
+      <guid>https://www.datamercs.net/posts/welcome</guid>
+      <pubDate>Thu, 31 Dec 2099 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Quality is a column, not a vibe</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-10-01-quality-is-a-column-not-a-vibe</link>
+      <description>AG Universitätsverlage, Qualitätsstandards für Open-Access-Bücher, version 3. A note for the people who already run the feed: most of the sheet is maintenance, five items are news, and the gap that matters is still CC0 without a delivery format. Berlin, DINI, the Kodex and Plan S are treated as known.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-10-01-quality-is-a-column-not-a-vibe</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-10-01-quality-is-a-column-not-a-vibe/oa_ebook.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>News wrap · 28 September 2026 - Agents in the reading room, research on autopilot</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-28-industry-notes-ai-in-scholarly-publishing-agents-in-the-reading-room-research-on-autopilot</link>
+      <description>Weekly news wrap (not a workshop) for 28 September 2026. OpenAI's rogue-agent disclosures reach a university digital library and a government statistics portal. This is a security incident, not a national-security label. Google's ScientistTwo writes its own papers - and it is not Paper2Agent.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-09-28-industry-notes-ai-in-scholarly-publishing-agents-in-the-reading-room-research-on-autopilot</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-28-industry-notes-ai-in-scholarly-publishing-agents-in-the-reading-room-research-on-autopilot/news_room_2026-09-28.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Nothing Artificial About It</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-23-nothing-artificial-about-it</link>
+      <description>Trump told the UN that “artificial” makes intelligence sound fake and ordered U.S. documents to say “super intelligence.” The adjective was always a status insult from carbon units; the replacement word was already spent on what comes after us. From Asimov’s Three Laws and Elvex-as-Moses to Lem, the Strugatskys, Gibson, Suarez’s Daemon, and this year’s plug-pulls, the stacks had filed the problem long before the podium.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-09-23-nothing-artificial-about-it</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-23-nothing-artificial-about-it/si_in_the_library.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>KBART Phase III is published. Your Phase II files are not obsolete.</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-22-kbart-phase-iii-released</link>
+      <description>RP-9-2026 went live on 26 August 2026. The 25-column TSV the industry
+runs on did not vanish. Phase II never specified a packing list.
+Phase III Section 4 finally does - as a tab file, not a spreadsheet.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <category>Industry notes</category>
+      <guid>https://www.datamercs.net/posts/2026-09-22-kbart-phase-iii-released</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-22-kbart-phase-iii-released/kbart-phase-iii-blog-landscape.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>News wrap · 21 September 2026 - Papers that answer back, and the doomsday frame</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-21-industry-notes-ai-in-scholarly-publishing-papers-that-answer-back-and-the-doomsday-frame</link>
+      <description>Weekly news wrap (not a workshop) for 21 September 2026. Nature’s Paper2Agent turns computational papers into callable agents; the UN panel’s September brief puts the singularity/doomsday talk back on agent misalignment with evidence. Crossref’s ROR funder matching and fee cuts stay the quiet rails underneath. The Cyberpunk Librarian’s brief: who signs, what gets deposited, which protocol just became infrastructure.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-09-21-industry-notes-ai-in-scholarly-publishing-papers-that-answer-back-and-the-doomsday-frame</guid>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-21-industry-notes-ai-in-scholarly-publishing-papers-that-answer-back-and-the-doomsday-frame/ai_ant_highway.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Who signs, who drives</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-21-who-signs-who-drives</link>
+      <description>Owner signs. Steward drives. Custodian keeps the vehicle.
+DAMA-DMBOK already drew the line. Here is the operating RACI
+for publishers and libraries.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2026-09-21-who-signs-who-drives</guid>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-21-who-signs-who-drives/who-signs-who-drives-blog-landscape.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>They swear it only looked</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-10-they-swear-it-only-looked</link>
+      <description>Publishers now promise AI will index the corpus but not train on it. That is true only for model weights. The text is still chunked, embedded, retrieved, and answered from - a second copy plus a reading that often never clicks through. A first clause, not a last one.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-09-10-they-swear-it-only-looked</guid>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-10-they-swear-it-only-looked/AI_Jester.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Industry notes: AI in scholarly publishing is a provenance problem</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-09-08-industry-notes-ai-in-scholarly-publishing</link>
+      <description>A short roundup of live AI work in scholarly publishing and libraries — Science on review bottlenecks, Digital Science’s “workflows you can trust” grant, metadata enrichment, and why MARC/ONIX still carry the load.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-09-08-industry-notes-ai-in-scholarly-publishing</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-09-08-industry-notes-ai-in-scholarly-publishing/hero-subtle.png" medium="image" type="image/png" width="1536" height="1024"/>
+    </item>
+    <item>
+      <title>BISAC 2025 → Thema 1.6</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-08-23-datamercs-bisac-thema</link>
+      <description>Lookup for the official EDItEUR mapping, with heuristic DDC, LCSH and GND. The interactive table lives with the tools, not in this post.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2026-08-23-datamercs-bisac-thema</guid>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ghost in the MARC: Cataloguing the Synthetic Shift in Bibliographic Metadata</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata</link>
+      <description>Generative AI is rewriting the rules of published content and catalogue workflows. Moving past the noise of speculative disruption, this guide examines actionable standards for ONIX and MARC21. Discover how to properly designate AI software as related works, attribute human prompters, and apply robust provenance tracking without compromising metadata integrity.</description>
+      <category>Standards &amp; metadata</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata</guid>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/ghost-in-the-marc.png" medium="image" type="image/png" width="784" height="1168"/>
+    </item>
+    <item>
+      <title>A Pragmatic View: Der dbv-Leitfaden zu kolonialen Kontexten im technischen Metadatenmanagement</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-06-13-a-pragmatic-view-der-dbv-leitfaden-zu-kolonialen-kontexten-im-technischen-metadatenmanagement</link>
+      <description>Der neue dbv-Leitfaden zu kolonialen Kontexten liegt vor. Bevor bewährte und global funktionierende Datenstrukturen im Namen einer retrospektiven Kontextualisierung dekonstruiert werden, empfiehlt sich eine rein technische Analyse - ohne in die typische 'Was haben die Römer je für uns getan?'-Dystopie zu verfallen. Ein nüchterner Blick auf das, was datentechnisch sinnvoll ist: Präzise Spezifikation statt narrativer Prosa.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Industry notes</category>
+      <guid>https://www.datamercs.net/posts/2026-06-13-a-pragmatic-view-der-dbv-leitfaden-zu-kolonialen-kontexten-im-technischen-metadatenmanagement</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-06-13-a-pragmatic-view-der-dbv-leitfaden-zu-kolonialen-kontexten-im-technischen-metadatenmanagement/neuromlib_dbv.png" medium="image" type="image/png" width="1408" height="768"/>
+    </item>
+    <item>
+      <title>114. BiblioCon 2026 - Nachlese</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-05-24-114-bibliocon-2026-nachlese</link>
+      <description>»Analogue Meets Algorithm« - A systemic review of BiblioCon2026 in Berlin. 
+ Why the accelerating democratisation of AI signals the end of linear business 
+ models for legacy vendors and publishers. The system librarians and algorithmic 
+ tinkerers have recaptured the front line - the Cyberpunk Librarians are back!</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Events</category>
+      <guid>https://www.datamercs.net/posts/2026-05-24-114-bibliocon-2026-nachlese</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-05-24-114-bibliocon-2026-nachlese/BiblioCon-2026_SHODAN.png" medium="image" type="image/png" width="2137" height="480"/>
+    </item>
+    <item>
+      <title>GitHub Desktop window not launching</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching</link>
+      <description>GitHub Desktop seems to be launching on double click, but no UI window opens. This is a quick reminder on how to fix this.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching</guid>
+      <pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2022-11-07-github-desktop-window-not-launching/RelaunchGitHubDesktop.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>rough guide to Git Large File Storage (LFS)</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</link>
+      <description>Git Large File Storage (LFS) allows for versioning files larger than 100MB on GitHub. While this seems like a no brainer at first glance, it also comes with some draw backs. Thus, here's a rough guide on howto set-up Git-LFS and uninstall from a project again.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs</guid>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2022-02-28-rough-guide-to-git-large-file-storage-lfs/GITLFS.png" medium="image" type="image/png" width="511" height="272"/>
+    </item>
+    <item>
+      <title>A rough guide to VPNs</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</link>
+      <description>Since YouTube influencer marketing you know you need a VPN (i.e. virtual private network). There are many of services, mostly commercial, but also some free and academic options.  
+While VPNs are a solid solution in an institutional environment to access one's company's network, or for circumventing censorship or geo-blocking, there're wild claims being made when it comes to potential capabilities of VPNs or internet threats in general.  
+This article is not intended to deeply elaborate on that, but serves as a personal memo as well as a *thought piece*.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns</guid>
+      <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2021-12-18-a-rough-guide-to-vpns/distill-preview.png" medium="image" type="image/png" width="654" height="652"/>
+    </item>
+    <item>
+      <title>Wie erhalte ich falsch erhobene Zoll-Einfuhrabgaben sowie die DHL-Auslagepauschale zurück?</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation</link>
+      <description>Seitdem am 1. Juli 2021 die bisherige 22-Euro-Freigrenze für Waren aus dem Nicht-EU-Ausland entfiel, werden scheinbar auch Geschenksendungen, die weiter bis zu einem Wert von 45 EUR zoll- und einfuhrumsatzsteuerfrei sind, systematisch abgerechnet, zumal die Post den "Service" der Zollanmeldung übernommen hat und jegliche Gebühren - plus 6 EUR Auslagenpauschale - fraglos vorstreckt und dann per Postboten eintreibt, auch wenn die Pakete klar als Geschenk gekennzeichnet sind.  
+Hier wird erklärt, wie man sich Zoll und DHL-Auslagenpauschale in drei Schritten zurückholt.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation</guid>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2021-09-28-zoll-einfuhrabgaben-dhl-auslagepauschale-reklamation/Post-Zollregulativ.png" medium="image" type="image/png" width="878" height="700"/>
+    </item>
+    <item>
+      <title>Z39.50 for Dummies</title>
+      <dc:creator>Wolfram Schneider</dc:creator>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</link>
+      <description>This (cleaning up the vaults) is a shameless re-post of a now no longer available blogpost by Wolfram Schneider from Index Data, originally posted in 5 parts 2009/08/27-2010/01/13, which taught me a lot about implementing Z39.50 and the YAZ toolkit. I even printed it out back in the day and it is still worth reading today!</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2020-08-15-z3950-for-dummies</guid>
+      <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Win Task Scheduler for cygwin</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin</link>
+      <description>HowTo run bash scripts via Cygwin as Scheduled Task (i.e. "Aufgabenplanung") in Windows</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin</guid>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2020-07-07-wintaskschedulerforcygwin/example.png" medium="image" type="image/png" width="1258" height="839"/>
+    </item>
+    <item>
+      <title>download YouTube (videos | mp3) without browser extension using only VLC</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</link>
+      <description>There is a multitude of browser add-ons and extensions available for downloading YouTube videos or converting to mp3 that are usually somewhat obscure, but there is actually nothing more needed than the popular VLC player. Here is how!</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc</guid>
+      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2018-05-05-download-youtube-using-only-vlc/distill-preview.png" medium="image" type="image/png" width="856" height="673"/>
+    </item>
+    <item>
+      <title>rbbKultur - Mediathek-Downloader</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader</link>
+      <description>HowTo download "Mediathek" features for archival purposes</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader</guid>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2018-04-05-rbbkultur-mediathek-downloader/dwnfunction.png" medium="image" type="image/png" width="432" height="274"/>
+    </item>
+    <item>
+      <title>bash 'test' command</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-11-09-bash-test-command</link>
+      <description>A mental note and short reminder on how to use the "test" command in bash if-loops or using the &amp;&amp; and || operators for conditional scripting.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2017-11-09-bash-test-command</guid>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-11-09-bash-test-command/helptest.png" medium="image" type="image/png" width="640" height="320"/>
+    </item>
+    <item>
+      <title>bash 'cat' - the poor man's text editor</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor</link>
+      <description>Not many people realize that on bash you do not necessarily need a full blown text editor like vim, emacs or nano, or need to remember the heredoc logic to write text on the command line:
+All you need is some "cat magic"
+Here is how!</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor</guid>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-09-11-bash-cat-the-poor-mans-text-editor/cat_magic.png" medium="image" type="image/png" width="196" height="100"/>
+    </item>
+    <item>
+      <title>Howto batch rename on the command line</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</link>
+      <description>Renaming files is one of the everyday tasks, for which many people genuinely scramble and download the most dubious programs from the internet, while one could actually do this pretty easy with command line tools.  
+Here we will put down some quick and easy bash and PowerShell examples that anybody can do!</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line</guid>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2017-08-24-howto-batch-rename-on-the-command-line/manrename.png" medium="image" type="image/png" width="640" height="320"/>
+    </item>
+    <item>
+      <title>Open source OCR on bash with ImageMagick and Tesseract</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract</link>
+      <description>Handy script to ocr PDFs on the commandline with nothing but the FOSS tools ImageMagick and tesseract.</description>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2016-04-14-open-source-ocr-on-bash-with-imagemagick-and-tesseract</guid>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>RDA - the librarian's (double) standard</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2015-11-16-rda-the-librarians-double-standard</link>
+      <description>While librarians call for openess when it comes to standards and access - the current standard is de facto closed, i.e. hidden behind a pay wall. Nevertheless we'll try implenting and look behind the scenes in this workshop report.</description>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2015-11-16-rda-the-librarians-double-standard</guid>
+      <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Working with KBART files</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</link>
+      <description>KBART files are standardized title lists in .TXT format, that specify electronic collections. This is to provide a short overview on what to expect from this metadata format and how to work with it as publisher or librarian.</description>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files</guid>
+      <pubDate>Tue, 03 Feb 2015 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2015-02-02-working-with-kbart-files/nisokbart.png" medium="image" type="image/png" width="491" height="272"/>
+    </item>
+    <item>
+      <title>A rough guide to cold brew</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew</link>
+      <description>While to the common librarian Cory Doctorow is merely known as champion for Open Access, the Creative Commons, the EFF etc., he is also a hell of a barrista, introducing many a young scholar - the author included - to the carnality of cold brew.  
+So, here is the rough guide for future reference.</description>
+      <category>About DataMercs</category>
+      <guid>https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew</guid>
+      <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2013-07-21-a-rough-guide-to-cold-brew/cold_brew_cats.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>MarcEdit under Ubuntu Linux</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2013-05-23-marcedit-under-ubuntu-linux</link>
+      <description>HowTo install MarcEdit under Ubuntu 13.04, via Mono or Wine</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2013-05-23-marcedit-under-ubuntu-linux</guid>
+      <pubDate>Thu, 23 May 2013 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

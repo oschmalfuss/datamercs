@@ -1,0 +1,82 @@
+---
+title: "Industry notes: AI in scholarly publishing is a provenance problem"
+description: |
+  A short roundup of live AI work in scholarly publishing and libraries — Science on review bottlenecks, Digital Science’s “workflows you can trust” grant, metadata enrichment, and why MARC/ONIX still carry the load.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-09-08
+preview: hero-subtle.png
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+<img class="dm-hero-art" src="hero-subtle.png" alt="Quiet library reading room with a faint catalogue pane above the open book">
+
+# Industry notes: AI in scholarly publishing is a provenance problem
+
+Scholarly AI chatter on X this week keeps landing on the same operational theme: **not speed, but auditability**. For publishers and libraries that already live in MARC, ONIX, KBART and JATS, that should sound familiar — it is catalogue discipline applied to generative tools.
+
+## Slower, worse, more expensive (for now)
+
+*Science* editor-in-chief H. Holden Thorp’s editorial argues that AI is currently making scientific publishing **slower, worse, and more expensive**: more submissions and more AI-induced errors mean **more human checking**, not less ([Thorp / *Science*](https://doi.org/10.1126/science.aee8267); abstract also on [PubMed](https://pubmed.ncbi.nlm.nih.gov/42462024/)). Disclosure rules at *Science* already distinguish light editing help from drafting that must be declared — a policy problem that quickly becomes a **metadata** problem (what was assisted, by which system, under which human responsibility).
+
+That framing is useful for DataMercs clients: treat GenAI in the research and publishing stack as **workload that must be logged**, not as a free productivity dial.
+
+## “Agentic workflows you can trust”
+
+Digital Science’s 2026 Catalyst Grant theme is explicit: **Agentic Workflows You Can Trust** — up to £25,000 equity-free for early-stage tools that plan, execute and review multi-step research work **with provenance, governance and audit trails** ([press release](https://www.digital-science.com/press-releases/digital-science-2026-catalyst-grant-agentic-ai-workflows-you-can-trust/); [grant page](https://www.digital-science.com/about-us/investment/catalyst-grant/); applications close **5 October 2026, 17:00 BST**). Their definition of trust is quality and showing the working — not only post-hoc detection of bad actors.
+
+For metadata and product-data teams, that maps cleanly onto existing practice: **bounded automation, review queues, field-level change history**, and human sign-off before discovery feeds leave the house.
+
+## Libraries: enrichment with a paper trail
+
+Clarivate’s academic-library messaging continues to push **AI for day-to-day metadata enhancement** and workflow change ([example discussion via @ClarivateAG](https://x.com/ClarivateAG/status/2079880447392096742)). Separately, public-heritage projects (e.g. Boston Public Library / Harvard / OpenAI digitisation and metadata enhancement, reported via [Berkman Klein](https://x.com/BKCHarvard/status/1956384600332304799)) underline the same requirement: OCR and enrichment only help if **correction, source linkage, rights and provenance** travel with the record.
+
+Cataloguers already know the punchline: machines learn from intellectual work; they do not replace authority control ([librarian/cataloguer discourse](https://x.com/JaneDaniels1) — follow for the practitioner frame).
+
+## Integrity and polluted records
+
+JMIR and related integrity voices are naming the threat model aloud: AI-generated research, paper mills, citation manipulation, compromised peer review ([@jmirpub](https://x.com/jmirpub/status/2094805039235641578)). Nature’s researcher polling on **when AI use is acceptable and what must be disclosed** keeps disclosure on the industry agenda ([@Nature](https://x.com/Nature/status/2005585084871557310)).
+
+If the scientific record is a knowledge graph of claims, then **trust signals must be queryable** — in article metadata, in repository deposits, and in library catalogues.
+
+## Standards are not ballast
+
+An old publishing-conference jab still applies: talk of AI is cheap if product feeds are not ([ONIX discipline, evergreen](https://x.com/arhomberg/status/826155587704647681)). New agent layers still sit on **identifiers, controlled fields and partner formats**. We wrote the practical cataloguing side of that for AI-related works in [Ghost in the MARC](https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/) (ONIX + MARC21 provenance patterns).
+
+**Working rule:** put the agent **behind** the standard — MARC, ONIX, persistent IDs, disclosure fields — not the standard behind the agent.
+
+## What DataMercs takes from this week
+
+1. Measure GenAI by **review cost, error rate and provenance completeness**, not by draft speed.  
+2. Design enrichment and agent workflows with **human checkpoints and field-level audit**.  
+3. Keep discovery rails (ONIX/MARC/KBART/JATS) current; AI products inherit their quality.  
+
+Consulting and teaching remain available for publishers and library partners who want those rails explicit — without the hype cycle.
+
+---
+
+### Sources (primary)
+
+- Thorp, H. H. (2026). Related *Science* editorial context: https://doi.org/10.1126/science.aee8267 — PubMed: https://pubmed.ncbi.nlm.nih.gov/42462024/  
+- Digital Science Catalyst Grant 2026: https://www.digital-science.com/press-releases/digital-science-2026-catalyst-grant-agentic-ai-workflows-you-can-trust/ · https://www.digital-science.com/about-us/investment/catalyst-grant/  
+- Schmalfuß, O. (2026). Ghost in the MARC: https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/  
+- X discussion pointers (not substitutes for the above): ClarivateAG, Nature, jmirpub, BKCHarvard, DigitalLibs — captured in internal scan notes 2026-09-07.

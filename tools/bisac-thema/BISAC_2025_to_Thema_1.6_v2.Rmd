@@ -1,0 +1,373 @@
+---
+title: "BISAC 2025 → Thema 1.6 (v2)"
+output:
+  html_document:
+    self_contained: true
+    theme: null
+    highlight: null
+    mathjax: null
+    toc: false
+    css: datamercs-bisac-thema.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(readxl)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(htmltools)
+```
+
+```{r paths-and-load}
+# Resolve inputs: this folder first, then parent (XLSX often lives next to the old portal).
+find_input <- function(...) {
+  names <- c(...)
+  for (name in names) {
+    for (base in c(".", "..")) {
+      path <- file.path(base, name)
+      if (file.exists(path)) return(path)
+    }
+  }
+  stop("Missing input. Looked for: ", paste(names, collapse = ", "), " in ./ and ../")
+}
+
+xlsx_path <- find_input("BISAC 2025 to Thema 1.6 Mapping_Public.xlsx")
+tsv_path  <- find_input("bisac_section_mappings_improved.tsv")
+
+# Official Éditeur / BISG workbook (unchanged SoT for BISAC → Thema).
+official <- read_excel(xlsx_path) |>
+  mutate(across(everything(), ~ replace_na(as.character(.), "")))
+
+# Heuristic enrichment table (DDC / LCSH / GND + provenance).
+# Join key is the full 9-character BISAC code (`prefix` column in the TSV).
+enrichment <- read_tsv(tsv_path, show_col_types = FALSE)
+
+# Keep only enrichment columns we actually use (do not import TSV heading/section as the portal label).
+enrich_cols <- c(
+  "prefix",
+  "ddc", "ddc_confidence", "ddc_source",
+  "lcsh", "lcsh_uri", "lcsh_source", "lcsh_confidence",
+  "gnd", "gnd_id", "gnd_uri", "gnd_source", "gnd_confidence"
+)
+missing_cols <- setdiff(enrich_cols, names(enrichment))
+for (col in missing_cols) enrichment[[col]] <- ""
+enrichment <- enrichment |>
+  select(any_of(enrich_cols)) |>
+  mutate(across(everything(), ~ replace_na(as.character(.), "")))
+```
+
+```{r assemble}
+# Combine Thema / qualifier code+literal pairs into display strings.
+collapse_pairs <- function(df, code_names, literal_names) {
+  vapply(seq_len(nrow(df)), function(i) {
+    parts <- character()
+    for (j in seq_along(code_names)) {
+      code <- df[[code_names[j]]][i]
+      lit  <- df[[literal_names[j]]][i]
+      if (nzchar(code)) {
+        parts <- c(parts, if (nzchar(lit)) paste0(code, " — ", lit) else code)
+      }
+    }
+    paste(parts, collapse = " | ")
+  }, character(1))
+}
+
+# Build display strings from the official workbook alone (before join).
+thema_display <- collapse_pairs(
+  official,
+  paste0("Thema Code ", 1:4),
+  paste0("Thema Literal ", 1:4)
+)
+qual_display <- collapse_pairs(
+  official,
+  paste0("Qual Code ", 1:4),
+  paste0("Qual Literal ", 1:4)
+)
+
+joined <- official |>
+  mutate(
+    bisac = `BISAC Code`,
+    # Heading = official Thema literal (not a legacy TSV "section" field).
+    heading = if_else(nzchar(`Thema Literal 1`), `Thema Literal 1`, `BISAC Code`),
+    thema_display = thema_display,
+    qual_display = qual_display
+  ) |>
+  left_join(enrichment, by = c("bisac" = "prefix")) |>
+  mutate(
+    ddc            = if_else(is.na(ddc) | !nzchar(ddc), "—", ddc),
+    lcsh           = if_else(is.na(lcsh) | !nzchar(lcsh), "—", lcsh),
+    gnd            = if_else(is.na(gnd) | !nzchar(gnd), "—", gnd),
+    ddc_confidence = if_else(is.na(ddc_confidence) | !nzchar(ddc_confidence), "low", ddc_confidence),
+    gnd_id         = if_else(is.na(gnd_id), "", gnd_id),
+    gnd_uri        = if_else(is.na(gnd_uri), "", gnd_uri),
+    lcsh_uri       = if_else(is.na(lcsh_uri), "", lcsh_uri)
+  )
+```
+
+```{r display-helpers}
+esc <- function(x) htmltools::htmlEscape(as.character(x), attribute = FALSE)
+
+format_ddc <- function(ddc, confidence) {
+  conf <- tolower(confidence)
+  if (!conf %in% c("high", "medium", "low")) conf <- "low"
+  sprintf(
+    '<span class="ddc-cell"><span class="conf conf-%s" title="DDC confidence: %s"></span>%s</span>',
+    conf, esc(conf), esc(ddc)
+  )
+}
+
+format_lcsh <- function(label, uri) {
+  lab <- esc(label)
+  if (nzchar(uri)) {
+    sprintf(
+      '<a href="%s" target="_blank" rel="noopener" style="color:inherit">%s</a>',
+      esc(uri), lab
+    )
+  } else {
+    lab
+  }
+}
+
+format_gnd <- function(label, gnd_id, gnd_uri) {
+  lab <- esc(label)
+  if (!nzchar(gnd_id)) return(lab)
+  href <- if (nzchar(gnd_uri)) gnd_uri else paste0("https://d-nb.info/gnd/", gnd_id)
+  sprintf(
+    '%s <span class="gnd-id"><a href="%s" target="_blank" rel="noopener">%s</a></span>',
+    lab, esc(href), esc(gnd_id)
+  )
+}
+
+portal <- joined |>
+  transmute(
+    seq          = as.integer(seq),
+    bisac        = bisac,
+    heading      = heading,
+    thema        = thema_display,
+    qual         = qual_display,
+    ddc_html     = mapply(format_ddc, ddc, ddc_confidence, USE.NAMES = FALSE),
+    lcsh_html    = mapply(format_lcsh, lcsh, lcsh_uri, USE.NAMES = FALSE),
+    gnd_html     = mapply(format_gnd, gnd, gnd_id, gnd_uri, USE.NAMES = FALSE),
+    # Hidden columns: filtering + full-text search (HTML columns alone are awkward to search).
+    ddc_confidence = ddc_confidence,
+    ddc_text       = ddc,
+    lcsh_text      = lcsh,
+    gnd_text       = paste(gnd, gnd_id),
+    gnd_id_text    = gnd_id
+  )
+
+n_codes        <- nrow(portal)
+n_distinct_ddc <- n_distinct(portal$ddc_text)
+n_distinct_gnd <- n_distinct(joined$gnd)
+tsv_basename   <- basename(tsv_path)
+```
+
+```{r chrome, results='asis'}
+htmltools::HTML(sprintf(
+'<!-- portal chrome -->
+<div id="portal-chrome">
+  <div class="brand">
+    <span class="brand-mark">datamercs</span>
+    <h1>BISAC 2025 → <em>Thema 1.6</em> <span style="color:var(--muted);font-size:0.75em;font-weight:500">v2</span></h1>
+  </div>
+  <div class="meta-line">
+    OFFICIAL ÉDITEUR / BISG PUBLIC MAPPING
+    <span>·</span> %s CODES
+    <span>·</span> DDC / LCSH / GND IMPROVED HEURISTICS + PROVENANCE
+    <span>·</span> DT + REGEX
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search all fields…" autocomplete="off" spellcheck="false">
+    <label class="toggle" id="reToggle" title="Regular expression search">
+      <input type="checkbox" id="re">
+      <span class="dot"></span>
+      Regex
+    </label>
+    <label class="filter-conf" title="Filter by DDC confidence">
+      Conf
+      <select id="confFilter">
+        <option value="">all</option>
+        <option value="high">high</option>
+        <option value="medium">medium</option>
+        <option value="low">low</option>
+      </select>
+    </label>
+    <button type="button" class="btn" id="clear">Clear</button>
+    <div class="stats"><b id="shown">%s</b><span class="sep">/</span><span id="total">%s</span> codes</div>
+  </div>
+  <div class="re-err" id="reErr">Invalid regular expression</div>
+</div>
+%s
+<div class="notice">
+  <span class="tag">SoT</span>
+  Official workbook + <code>%s</code> · ~%s distinct DDC · ~%s distinct GND · coloured dot = DDC confidence · not WebDewey-licensed.
+</div>
+<div class="table-wrap">
+',
+format(n_codes, big.mark = ","),
+format(n_codes, big.mark = ","),
+format(n_codes, big.mark = ","),
+paste(readLines(find_input("intro.html"), warn = FALSE, encoding = "UTF-8"), collapse = "\n"),
+htmltools::htmlEscape(tsv_basename),
+format(n_distinct_ddc, big.mark = ","),
+format(n_distinct_gnd, big.mark = ",")
+))
+```
+
+```{r table}
+render_thema <- JS("
+  function(data, type) {
+    if (type !== 'display' || !data) return data || '—';
+    return data.split(' | ').map(function(part) {
+      var m = part.match(/^([A-Z0-9\\-]+)\\s*—\\s*(.*)$/);
+      if (m) return '<span class=\"badge\">' + m[1] + '</span>' + m[2];
+      return part;
+    }).join('<br>');
+  }
+")
+
+render_qual <- JS("
+  function(data, type) {
+    if (type !== 'display' || !data) return data || '—';
+    return data.split(' | ').map(function(part) {
+      var m = part.match(/^([A-Z0-9\\-]+)\\s*—\\s*(.*)$/);
+      if (m) return '<span class=\"badge badge-q\">' + m[1] + '</span>' + m[2];
+      return part;
+    }).join('<br>');
+  }
+")
+
+datatable(
+  portal,
+  rownames = FALSE,
+  escape   = FALSE,
+  class    = "display stripe compact",
+  colnames = c(
+    "#", "BISAC", "Heading", "Thema subject(s)", "Qualifier(s)",
+    "DDC ≈", "LCSH ≈", "GND ≈",
+    "conf", "ddc_text", "lcsh_text", "gnd_text", "gnd_id"
+  ),
+  options = list(
+    pageLength = 10,
+    lengthMenu = c(25, 50, 100, 250, 500),
+    order      = list(list(0, "asc")),
+    stateSave  = FALSE,
+    autoWidth  = FALSE,
+    searching  = TRUE,
+    search     = list(regex = FALSE, smart = TRUE, caseInsensitive = TRUE),
+    columnDefs = list(
+      list(className = "bisac",   targets = 1),
+      list(className = "heading", targets = 2),
+      list(targets   = 3, render = render_thema),
+      list(targets   = 4, render = render_qual),
+      list(className = "ddc",  targets = 5),
+      list(className = "lcsh", targets = 6),
+      list(className = "gnd",  targets = 7),
+      list(visible   = FALSE, targets = c(8, 9, 10, 11, 12))
+    ),
+    language = list(
+      search       = "",
+      lengthMenu   = "Show _MENU_",
+      info         = "_START_–_END_ of _TOTAL_",
+      infoFiltered = "(filtered from _MAX_)",
+      paginate     = list(previous = "‹", `next` = "›")
+    ),
+    initComplete = JS("
+      function(settings, json) {
+        var api = this.api();
+        var q = document.getElementById('q');
+        var re = document.getElementById('re');
+        var reToggle = document.getElementById('reToggle');
+        var reErr = document.getElementById('reErr');
+        var shown = document.getElementById('shown');
+        var clearBtn = document.getElementById('clear');
+        var confFilter = document.getElementById('confFilter');
+
+        function applySearch() {
+          var term = (q.value || '').trim();
+          var useRe = re.checked;
+          reErr.classList.remove('show');
+
+          var conf = (confFilter && confFilter.value) || '';
+          api.column(8).search(conf ? '^' + conf + '$' : '', true, false);
+
+          if (useRe && term) {
+            try { new RegExp(term); }
+            catch (e) {
+              reErr.textContent = 'Invalid regex: ' + e.message;
+              reErr.classList.add('show');
+              api.search('').draw();
+              return;
+            }
+            api.search(term, true, false).draw();
+          } else {
+            api.search(term, false, true).draw();
+          }
+          shown.textContent = api.page.info().recordsDisplay.toLocaleString();
+        }
+
+        q.addEventListener('input', applySearch);
+        if (confFilter) confFilter.addEventListener('change', applySearch);
+        re.addEventListener('change', function() {
+          reToggle.classList.toggle('active', re.checked);
+          q.placeholder = re.checked
+            ? 'RegExp (e.g. ^FIC.*|MED0[0-2]|796\\\\.8)…'
+            : 'Search all fields…';
+          applySearch();
+        });
+        clearBtn.addEventListener('click', function() {
+          q.value = '';
+          re.checked = false;
+          reToggle.classList.remove('active');
+          if (confFilter) confFilter.value = '';
+          q.placeholder = 'Search all fields…';
+          reErr.classList.remove('show');
+          applySearch();
+          q.focus();
+        });
+
+        api.on('draw', function() {
+          shown.textContent = api.page.info().recordsDisplay.toLocaleString();
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === '/' && document.activeElement !== q) {
+            e.preventDefault();
+            q.focus();
+            q.select();
+          }
+          if (e.key === 'Escape' && document.activeElement === q) q.blur();
+        });
+
+        applySearch();
+      }
+    ")
+  )
+)
+```
+
+```{r footer, results='asis'}
+htmltools::HTML('
+</div>
+<nav class="vocab-links" aria-label="Related vocabularies">
+  <h2>Look it up</h2>
+  <ul>
+    <li><a href="https://ns.editeur.org/thema/en" target="_blank" rel="noopener">Thema browser</a> <span>EDItEUR · English</span></li>
+    <li><a href="https://ns.editeur.org/thema/de" target="_blank" rel="noopener">Thema-Browser</a> <span>EDItEUR · Deutsch</span></li>
+    <li><a href="https://www.editeur.org/151/Thema" target="_blank" rel="noopener">Thema at EDItEUR</a> <span>code lists &amp; mappings</span></li>
+    <li><a href="https://id.loc.gov/authorities/subjects.html" target="_blank" rel="noopener">LCSH</a> <span>Library of Congress · id.loc.gov</span></li>
+    <li><a href="https://swb.bsz-bw.de/DB=2.104/" target="_blank" rel="noopener">OGND</a> <span>SWB / K10plus · Online-GND</span></li>
+    <li><a href="https://lobid.org/gnd" target="_blank" rel="noopener">lobid-gnd</a> <span>GND as JSON-LD</span></li>
+  </ul>
+</nav>
+<footer class="portal-foot">
+  SOURCE · ÉDITEUR / BISG “BISAC 2025 TO THEMA 1.6 MAPPING_PUBLIC.XLSX”
+  · HEADING · THEMA LITERAL 1 (OFFICIAL)
+  · DDC / LCSH / GND · HEURISTICS WITH PROVENANCE (NOT WEBDEWEY-LICENSED)
+  · <a href="https://datamercs.net">DATAMERCS.NET</a>
+  · INTERNAL DE GRUYTER USE
+</footer>
+')
+```
