@@ -1,0 +1,150 @@
+---
+title: "News wrap · 5 October 2026 - Member practices, and a rock called provenance"
+description: |
+  Weekly news wrap (not a workshop) for 5 October 2026. Crossref Member Practices feedback closes 9 October; China's CAS launches Panshi research-AI ecosystem 1.0 with a trust-and-trace claim; CAST opens another High-Starting-Point journal round with AI named; Springer Nature retracts an AI review for undeclared generative AI; Aleph Alpha ships Kolibri-1 under Apache 2.0.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+date: 2026-10-05
+preview: preview-panshi-2026-10-05.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+.news-credit {
+  font-size: 0.85rem;
+  color: #6b6860;
+}
+```
+
+<p class="news-kicker">Industry notes · news wrap · not a workshop</p>
+<p class="news-date">Week of 5 October 2026</p>
+<p class="news-standfirst">A briefing of what to notice this week, with sources. How-to and cataloguing practice stay in separate posts - see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work.</p>
+
+```{r preview, echo=FALSE, fig.cap="Preview. Bedrock, a seal, and a thread into the punch cards. Not a public repository.", out.width="100%"}
+knitr::include_graphics("preview-panshi-2026-10-05.jpg")
+```
+
+Last week’s wrap closed on agents in the reading room. This week the quieter desk has the loud deadline:  
+Crossref wants feedback on its draft Member Practices by **9 October**. In the same stretch, China launched a national-scale AI-for-science stack that talks about **trust and full-chain provenance**, and a Springer Nature journal retracted an AI review for undeclared generative AI.  
+The pattern is familiar. Rules and platforms multiply; the metadata that would make either enforceable still arrives late, if at all.
+
+## Crossref Member Practices: the door closes Thursday
+
+**What is open.** From August through early October, Crossref has been consulting on draft **Member Practices** that will sit under updated Member Terms. The plan is to publish the final set in **December 2026**. Feedback closes on **9 October**. The draft will then be discussed at the Crossref annual meeting on **22 October**, then go to the board ([Crossref consultation](https://www.crossref.org/blog/share-your-feedback-on-the-new-crossref-member-practices/)).
+
+**What Crossref says it is for.** Membership stays open and low-barrier. A DOI is still not a quality mark. What changes is the written expectation of responsible participation, and a clearer path to suspend or revoke membership when there is an ongoing pattern of non-compliance and little effort to improve. The working group includes COPE and DOAJ alongside publishers, institutions and funders. Crossref is also clear about what it will *not* do: no policing of individual disputes, no judging of research quality, no intervening in legal fights between parties.
+
+**Why it matters on our side of the counter.** For librarians and metadata leads, Member Practices are not another taxonomy. They are the governance layer behind the DOIs and landing pages your discovery systems trust. If membership can be paused when practices rot, the community needs to know how that signal travels into KBART, MARC and knowledge bases. That pipe is not specified yet. Comment while the window is open.
+
+**Same calendar: board vote.** Voting on seven board seats (six small-member, one large-member) closes at **12:00 UTC on 22 October**, with results at the online meeting the same day. The slate, posted 21 September, draws candidates from 29 countries, including OpenEdition, openRxiv and Oxford University Press ([Crossref slate](https://www.crossref.org/blog/2026-board-election-slate/)).
+
+## China: Panshi 1.0, and journals still on the assembly line
+
+**What launched.** On **30 September** in Beijing, the Computer Network Information Center of the Chinese Academy of Sciences (CAS CNIC) released **Panshi research intelligent ecosystem 1.0** (磐石科研智能生态1.0), with the **Panshi · One Science** intelligent research platform (磐石·壹科学) and a co-building programme called the **Spark Plan** (薪火计划). Roughly one hundred institutes, universities and companies are already listed as joining, covering foundation models, research corpora and application scenes ([CNIC](https://cnic.cas.cn/gzdt/202609/t20260930_8288830.html); [CAS / China News Service](https://www.cas.cn/cm/202609/t20260930_5121343.shtml)).
+
+磐石 is bedrock, not a repository name. The launch is a platform plus a co-building plan. The traceable object in the pitch is a science-resource identifier, not a public deposit you can resolve today.
+
+**Three claimed capabilities**, in the official wording:
+
+1. Fuse research data, models and tools into one intelligent research base.
+2. Connect national big-science facilities and labs across a full research loop, from hypothesis and literature through simulation, experiment, analysis and results.
+3. Evaluate research innovation with **AI-for-science trust evaluation**, covering mathematics, physics, chemistry, biology, and earth-and-space science, plus a **full-chain provenance mechanism** for science-resource identifiers so the research process is “trustworthy and verifiable”.
+
+Two days earlier, CAS’s **15th Five-Year Plan** coverage had already named Panshi foundation models, intelligent-scientist systems, science corpora and science data centres as planned infrastructure ([CAS / China News Service, 28 Sep](https://www.cas.cn/cm/202609/t20260928_5121143.shtml)).
+
+**The publishing angle.** This is not a Western standards body. It is a national research stack that puts **provenance and evaluation** in the product pitch. Whether that trace is interoperable with Crossref, DataCite or ORCID is an open question.  
+For publishers and librarians who license Chinese content or watch CNKI and CAS outputs, the useful habit is the same as for any vendor claim: ask what identifier is used, who can query it, and whether a third party can verify the trail without a private login.
+
+**Journals, still being founded.** On **29 September**, the China Association for Science and Technology (CAST) opened the **2026 High-Starting-Point new journal** round under Phase II of the Excellence Action Plan. The online window runs **30 September 09:00 to 20 October 17:00** (Beijing). Up to **120** projects; Chinese-language titles capped at 15. No project funding; selected titles get priority ISSN allocation. **Artificial intelligence** is named among priority fields for both English and Chinese new journals ([CAST notice](https://www.cast.org.cn/xs/TZGG/art/2026/art_14f4ca7a46a06f529b6eea2afded49e2.html)). The longer arc is the one the Scholarly Kitchen traced in June: Phase II of the Excellence Action Plan is building venues, not only upgrading them, inside an ecosystem funded, published and evaluated at home ([Scholarly Kitchen, 3 Jun](https://scholarlykitchen.sspnet.org/2026/06/03/the-rise-of-chinas-scholarly-publishing-system-part-1-chinas-journal-ecosystem-is-accelerating/)).  
+This call is another brick in that wall.
+
+Japan is the only one of the three with a same-week selection. On **29 September** the Ministry of Education, Culture, Sports, Science and Technology (MEXT) and the Japan Science and Technology Agency (JST) announced **31** projects under **AI for Science 革新的研究推進事業 (ARiSE)**, centred on foundation models for materials and life sciences, with support of up to about ¥3 billion per project ([JST](https://www.jst.go.jp/program/arise/index.html); [Nikkei, 29 Sep](https://www.nikkei.com/article/DGXZQOSG282UX0Y6A920C2000000/)).  
+That is a funding round for domain models, not an identifier-provenance layer. Held for a closer look, not a desk item this week.
+
+Singapore and India do not have an equivalent launch in this window. NSCC Singapore’s 8th Call for Projects, open **21 September to 16 October**, allocates national supercomputing time. It is not a new research stack ([NSCC](https://www.nscc.sg/portfolio/item/nsccs-8th-call-for-projects-now-open/)).  
+India’s National Frontier AI & Compute Fund, reported on **26 September** as an anchor of ₹15,000–20,000 crore under consideration, is still a proposal ([ETGovernment, via KBS Chronicle, 27 Sep](https://kbssidhu.substack.com/p/sovereign-ai-owning-the-shares-renting)).  
+Both stay in the source list until there is a selection, a stack, or an identifier to check.
+
+## Undeclared generative AI, retracted
+
+On **3 October**, *Discover Artificial Intelligence* (Springer Nature) published a retraction note for a 2024 review on AI in communication research. The publisher cites **undeclared use of generative AI** and references that appear contextually incorrect; the authors’ explanations were judged unsatisfactory. One author disagrees with the retraction; the other did not respond. Affiliations are at Hunan Normal University, Changsha ([retraction note](https://link.springer.com/article/10.1007/s44163-026-02440-4); original DOI [10.1007/s44163-024-00134-3](https://doi.org/10.1007/s44163-024-00134-3)).
+
+The irony writes itself: a paper about AI applications undone by undisclosed machine text. For editorial offices, the operational point is dull and useful. Disclosure policies only work if they are checked, and if incorrect references are treated as an integrity signal rather than a footnote tidy-up. Crossref’s longer metadata roadmap still points at free-text **statements** (including AI-use disclosures) in a future schema; Member Practices are the nearer lever ([Crossref metadata development](https://www.crossref.org/blog/building-better-connections-the-story-of-crossrefs-metadata-development/)).
+
+## Still open on the standards desk
+
+- **NISO ARM** (Accessibility Remediation Metadata): public comment remains open through **9 November 2026** ([NISO ARM](https://www.niso.org/standards-committees/arm)). Covered in last week’s wrap; no new milestone this week.
+- **De Gruyter Brill / Cashmere** inference-only licensing and the Crossref board ballot: unchanged since 28 September.
+
+## Noted this week
+
+Not a method. Signals from the sources above, plus one open-weight release that belongs on a German metadata desk.
+
+1. **Crossref Member Practices** - feedback ends 9 October; annual meeting and board results 22 October.
+2. **China, Panshi 1.0** - CAS CNIC ships an AI-for-science ecosystem that advertises trust evaluation and full-chain identifier provenance. A platform and a co-building plan, not a public repository.
+3. **CAST journals** - another High-Starting-Point round, AI named as a priority field, applications into late October.
+4. **Retraction** - undeclared generative AI plus bad references cost a Springer Nature AI review its place in the record.
+5. **Kolibri-1** - Aleph Alpha, the Heidelberg lab, released this on **3 October**: a German–English mixture-of-experts model, 78.1 billion parameters total and about 3.46 billion active per token, Apache 2.0 weights, context validated to 1,048,576 tokens ([model card](https://huggingface.co/Aleph-Alpha/Kolibri-1)). Sovereign weights are not a provenance standard. They do mean a European lab put a long-context bilingual reasoning model where a regulated desk can self-host it.
+6. **Interoperability gap** - national provenance claims and Crossref statements are not yet the same pipe.
+
+**Noted this week.**
+
+### Sources
+
+- [Share your feedback on the new Crossref Member Practices](https://www.crossref.org/blog/share-your-feedback-on-the-new-crossref-member-practices/) - Crossref, 10 Aug 2026 (deadline 9 Oct).
+- [2026 board election slate](https://www.crossref.org/blog/2026-board-election-slate/) - Crossref, 21 Sep 2026.
+- [CNIC Panshi 1.0 release](https://cnic.cas.cn/gzdt/202609/t20260930_8288830.html) - CAS CNIC, 30 Sep 2026.
+- [Panshi 1.0 (China News Service via CAS)](https://www.cas.cn/cm/202609/t20260930_5121343.shtml) - 30 Sep 2026.
+- [CAS 15th Five-Year Plan / AI (China News Service via CAS)](https://www.cas.cn/cm/202609/t20260928_5121143.shtml) - 28 Sep 2026.
+- [CAST 2026 High-Starting-Point new journal notice](https://www.cast.org.cn/xs/TZGG/art/2026/art_14f4ca7a46a06f529b6eea2afded49e2.html) - 29 Sep 2026.
+- [The rise of China’s scholarly publishing system, part 1](https://scholarlykitchen.sspnet.org/2026/06/03/the-rise-of-chinas-scholarly-publishing-system-part-1-chinas-journal-ecosystem-is-accelerating/) - Scholarly Kitchen, 3 Jun 2026.
+- [JST, ARiSE selection](https://www.jst.go.jp/program/arise/index.html) - 29 Sep 2026. Held.
+- [Nikkei, ARiSE 31 projects selected](https://www.nikkei.com/article/DGXZQOSG282UX0Y6A920C2000000/) - 29 Sep 2026. Held.
+- [NSCC Singapore, 8th Call for Projects](https://www.nscc.sg/portfolio/item/nsccs-8th-call-for-projects-now-open/) - applications close 16 Oct 2026. Held.
+- [Proposed National Frontier AI & Compute Fund](https://kbssidhu.substack.com/p/sovereign-ai-owning-the-shares-renting) - KBS Chronicle, 27 Sep 2026, citing ETGovernment, 26 Sep. Held.
+- [Retraction Note, *Discover Artificial Intelligence*](https://link.springer.com/article/10.1007/s44163-026-02440-4) - Springer Nature, 3 Oct 2026.
+- [Kolibri-1 model card](https://huggingface.co/Aleph-Alpha/Kolibri-1) - Aleph Alpha, 3 Oct 2026.
+- [Building better connections: Crossref metadata development](https://www.crossref.org/blog/building-better-connections-the-story-of-crossrefs-metadata-development/) - Crossref, 18 Jun 2026.
+- [NISO ARM working group](https://www.niso.org/standards-committees/arm).
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
