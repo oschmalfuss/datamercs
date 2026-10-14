@@ -1,0 +1,102 @@
+---
+title: "Move with the times: the ALA's refusal is contract language"
+description: |
+  The ALA Guidance on the Use of Artificial Intelligence in Libraries treats delay and non-adoption as professional outcomes, not failures. A reading for the metadata desk, the systems office and the consortial buyer: which sentences can go straight into vendor clauses and local procedure. Efficiency gains should ease overburdened staff through upskilling and hybridization, not become a reason for reductions.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+date: 2026-10-14
+preview: ai_card_catalogue.jpg
+categories:
+  - Standards & metadata
+  - AI & provenance
+  - Industry notes
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+<!-- DRAFT STATUS: draft: true (SCRIBES-EDIT, voice pass 2026-10-15). Nothing publishes to datamercs.net until Oyabun APPROVE. -->
+<!-- TODO: preview image not required for this draft. -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Source.** American Library Association. [*Guidance on the Use of Artificial Intelligence in Libraries*](ttps://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries)➚.  
+Prepared by the ALA Artificial Intelligence Policy Working Group for libraries drafting or revising local AI policies, procedures and vendor-review practice. Built on the ALA Core Values, with an appendix ethics framework after Luciano Floridi. Accessed 14 October 2026.
+
+## The short version
+
+This autumn there is no shortage of mood about AI in libraries. This document is not mood. It is operational text: decision points, review questions and a vocabulary of outcomes that a library, a press or a consortium can write straight into procedure.
+
+Our beat is the part of the stack where AI arrives as a default rather than a decision: the discovery layer, the cataloguing client, the acquisitions platform, the assistant quietly switched on in a release note. For that desk the guidance does three useful things. It names refusal as a legitimate outcome of review. It leaves final authority over metadata with the people who have the expertise. And it hands procurement a checklist that, with very little editing, reads like contract language.
+
+We do not read it as a brake. We want AI in cataloguing, discovery and scholarly publishing wherever there is a documented public-service purpose and the safeguards exist, not least where it can ease the load on already overburdened staff through deliberate upskilling and hybrid roles. So does the guidance. What it adds is the paper trail: the thing that makes responsible adoption defensible, and that stops efficiency being quietly converted into headcount reduction.
+
+## Refusal as an affirmative choice
+
+The sentence that matters most is short:
+
+> "A considered decision to delay, omit, remove, or discontinue use of a product is an affirmative professional choice grounded in library values, not a failure of adoption."
+
+The outcomes listed around it deserve copying into local procedure verbatim:  
+adoption, limited use, pilot testing, delay, pause, non-adoption, removal or discontinuation.  
+Eight states, not two. Adoption or limited use requires a documented service benefit and adequate safeguards; the rest apply when policy, vendor controls, staffing or review cannot mitigate the risks.
+
+This moves the burden of proof in a renewal meeting: The question is no longer "why aren't you using the feature?" but "has anyone documented the benefit and the safeguards?"  
+If nobody has, the outcome is delay, and delay is a professional position.
+
+That matters for colleagues whose training never covered model evaluation, data-processing agreements or ranking audits. Their worry is real, and it is not a character flaw. The guidance itself asks that AI literacy work avoid shaming anyone who is curious, sceptical, obliged to use it or trying to avoid it. A named outcome called "delay" gives those colleagues defensible ground while they acquire what the hybrid role demands.
+
+Where we would refuse outright is narrower: labour removed with no plan for upskilling or reinvestment, provenance vanishing upstream, the catalogue treated as scrap, a privacy failure that cannot be mitigated.  
+The guidance covers each. It does not ask anyone to refuse everything else.
+
+## What the metadata desk can lift
+
+**Human in the loop, as a requirement.** The technical-services line is unambiguous: AI applied to "cataloging, classification, and acquisitions processes must include human-in-the-loop configuration and oversight including full control to accept, edit, or reject suggestions."  
+A client that writes suggestions straight into the record, or lets you accept but not edit, does not meet it.
+
+**Final authority stays with expertise.** AI may assist with draft descriptions, candidate terms, metadata enrichment and first-pass classification. Final authority stays with staff who hold cataloguing, language, cultural, subject or community expertise, explicitly for subject headings, classification, authority work, non-English and non-Latin-script materials, local history, community materials and sensitive topics. The guidance also asks local procedures to define review methods, sampling, escalation, documentation and error correction. And it notes something every cataloguer has felt: automation shifts the decision to the end of the task, which is the worst possible place for a subject heading.
+
+**Keep the boring paths.** Alongside AI-enhanced discovery, libraries should preserve "predictable, transparent, non-personalized, and explainable access paths": known-item search, subject browsing, chronological lists. If the controlled-vocabulary browse breaks when the ranking model is switched on, your metadata investment has been quietly demoted.
+
+**Vendor review as clause text.** The privacy section lists what vendor review should establish: whether AI features are on by default; whether the library can switch them off; what data the system collects; whether prompts, searches, account activity, reference interactions or staff inputs are logged; whether data are used for model training or product improvement; where data are stored; which subprocessors are involved; retention; deletion; and audit or exit rights. In plain language. Each item converts directly into an RFP question or a licence schedule. Two neighbouring lines strengthen the buyer's hand: libraries "must not be required to trade data control for access to AI functionality", and vendors should offer equivalent non-AI services or document the limitation and name alternatives.
+
+## Collections and labour: upskilling and hybrid roles
+
+On collections the guidance is plain: declining to acquire primarily AI-generated materials is a legitimate exercise of professional judgement and fiscal stewardship when they fall short of local standards for quality, accuracy, originality, transparency or community relevance. Presses should read that the other way round: disclosure of AI assistance is becoming a selection criterion.
+
+On labour it is equally plain, and the sensible response is affirmative rather than defensive. Libraries should not use AI to justify staff reductions, deskilling or the replacement of professional judgement. Verified efficiency gains belong in working conditions and services. The guidance asks libraries to define meaningful human review (who reviews, with what training, when, and with what authority to question, correct, reject or escalate) and to use technology to extend staffing capacity, support training and empower library workers.
+
+With many technical-services teams already stretched, the useful reading is that AI should be embraced precisely to ease that load, provided the recovered capacity goes into upskilling and hybrid roles rather than being booked as spare headcount. Cataloguers and metadata specialists become reviewers and auditors of AI suggestions, designers of sampling regimes, owners of escalation paths and keepers of the error log. Routine first-pass work shrinks; the judgement that remains is applied at higher leverage, backed by explicit training. Delay stays available while that training and the local procedures are built. Review that nobody is paid for, or that is simply piled onto a full workload, is not review.
+
+The framing also accommodates the range of technical comfort in the profession. Colleagues who already treat systems work as core expertise can lead the hybrid design; colleagues whose professional identity rests on collections, community or reading can stand on the named outcome of delay while they acquire the competencies. The instruction to shame neither group still applies.
+
+## Homework for practitioners
+
+Concrete enough for this week:
+
+- **Map the stack.** List every AI-enabled feature in your discovery layer, library system, cataloguing client and publishing platform. Note which are on by default and whether you can switch them off.
+- **Write three questions into the next renewal.** Are prompts, searches or logs used for training or product improvement? Is there an equivalent non-AI path? What audit and exit rights do we have?
+- **Name the human in the loop.** For cataloguing and classification suggestions: who accepts, edits or rejects; at what sampling rate; where escalation goes; where errors are logged. Include the training those people will receive.
+- **Test the boring paths.** Confirm that known-item search, subject browse and chronological lists still behave predictably with AI ranking switched on.
+- **Add one line to collection policy** on primarily AI-generated materials: accept, case by case, or decline, with quality and disclosure criteria.
+- **Document the gap.** If you cannot get a plain-language answer on data use, write that down and record delay as the outcome until you do. The guidance says as much: if you cannot determine how a system uses data, delay, limit, refuse or discontinue. Record, too, whether any efficiency gain is earmarked for upskilling or service improvement rather than absorbed by the next round of cuts.
+
+## Close
+
+Those who will not move with the times will be moved on by them. Acceleration with a paper trail is still acceleration. The ALA text says it is meant to evolve as the landscape changes, and it will. The useful part is already stable: a list of outcomes that includes no, a human entitled to say it, and a set of questions vendors can be asked to answer in writing. Used as intended, those tools let a library embrace AI to ease overburdened staff through deliberate hybrid roles, rather than as a pretext for cuts.
+
+## Reference
+
+American Library Association, AI Policy Working Group. *Guidance on the Use of Artificial Intelligence in Libraries*. Accessed 14 October 2026.
+https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries➚
+
+<p class="news-credit">Written with the OSDS AI team as tool support; author of record is Olaf Schmalfuß.</p>
