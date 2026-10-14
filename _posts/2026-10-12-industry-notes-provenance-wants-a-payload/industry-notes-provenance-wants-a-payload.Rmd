@@ -1,0 +1,179 @@
+---
+title: "News wrap · 12 October 2026 - Provenance wants a payload"
+description: |
+  Weekly news wrap (not a workshop) for 12 October 2026. Publishers, NISO, COUNTER and Ithaka S+R launch TRACE so that AI answers can say where they came from; NISO republishes Journal Article Versions; a global AI-disclosure standard takes comments until 16 October; the Bodleian’s new AI policy comes with a cataloguing case where a human reads every AI suggestion; and India’s national university ranking scrutinises retracted papers and may bar repeat offenders.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: 2026-10-12
+preview: 2026-10-12_industry-notes.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+.news-credit {
+  font-size: 0.85rem;
+  color: #6b6860;
+}
+```
+
+<p class="news-kicker">Industry notes · news wrap · not a workshop</p>
+<p class="news-date">Week of 12 October 2026</p>
+<p class="news-standfirst">A briefing of what to notice this week, with sources. How-to and cataloguing practice stay in separate posts - see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work.</p>
+
+[Frankfurt week](https://www.buchmesse.de), and the scholarly-publishing trade spent it on one question: when an AI system hands a researcher an answer, can anyone tell where it came from?  
+At the STM Frankfurt Conference, publishers and standards bodies launched **TRACE**, a joint effort to make provenance, attribution and usage survive the trip through AI tools.  
+NISO, in the same week, republished its vocabulary for article versions. A global AI-disclosure standard is collecting comments until **16 October**.  
+And on the library side, the Bodleian published an AI policy that reads less like a manifesto and more like a cataloguing rule.  
+The common thread is old courier wisdom: the package is only as good as the label that stays on it.
+
+## TRACE: three projects, one question
+
+**What launched.** *TRACE - Trusted Retrieval & Attribution for Content Ecosystems* was presented on stage at the STM Frankfurt Conference by Priya Madina (Springer Nature), Tasha Mellins-Cohen (COUNTER), Todd Toler (Ithaka S+R) and Todd Carpenter (NISO) ([Scholarly Kitchen, 7 Oct](https://scholarlykitchen.sspnet.org/2026/10/07/trace-project-launches-to-advance-ai-interoperability/); [COUNTER, 6 Oct](https://www.countermetrics.org/trace-project/)). STM’s own conference report describes it as an effort to keep trusted research “identifiable, attributable, and measurable as AI increasingly mediates access to information” ([STM, 9 Oct](https://stm-assoc.org/stm-frankfurt-conference-2026-a-more-optimistic-outlook-for-scholarly-communication-through-cooperation-and-trust/)).
+
+It starts with funding for three parallel pieces of work:
+
+1. **How agents reach content.** *The Endpoint Question*, a three-month study led independently by Ithaka S+R, will look at how AI agents discover scholarly content, authenticate through a user’s existing entitlements, receive provenance-bearing information and leave a credible record of use. Findings are to be published openly. Toler notes that publishers “are already exploring MCP endpoints” - the *Model Context Protocol*, a common way of plugging tools into AI assistants - one organisation at a time ([STM announcement, 6 Oct](https://stm-assoc.org/stm-and-ithaka-sr-launch-research-project-on-the-interface-between-scholarly-content-and-ai/)).
+2. **What metadata travels with a source.** NISO is launching a pilot, planned at up to twelve months, to define and test a *minimum viable metadata model* for provenance and attribution at **inference time**: the information that should accompany a source when an AI system retrieves, cites or transforms it.  
+It builds on existing pieces (W3C PROV, C2PA content credentials, DOIs and other persistent identifiers) and explicitly does *not* try to solve attribution inside model weights, copyright enforcement or access control ([Scholarly Kitchen](https://scholarlykitchen.sspnet.org/2026/10/07/trace-project-launches-to-advance-ai-interoperability/)).
+3. **How AI usage gets counted.** TRACE part-funds COUNTER’s work on the COUNTER API and JSON Schema for AI usage metrics. Phase two of that guidance is meant to cover inference-time use *outside* publishers’ own platforms, and a holistic “AI retrievals” metric is planned ([COUNTER](https://www.countermetrics.org/trace-project/); [Scholarly Kitchen](https://scholarlykitchen.sspnet.org/2026/10/07/trace-project-launches-to-advance-ai-interoperability/)).
+
+**Who is at the table.** COUNTER lists the contributors to the funded development work: American Chemical Society, American Psychological Association, Cambridge University Press, Elsevier, IEEE, IOP Publishing, Sage, Springer Nature and Wiley ([COUNTER](https://www.countermetrics.org/trace-project/)).  
+That is a sensible coalition for getting things built, and also a coalition with an obvious interest in being credited. Neither fact cancels the other. The useful test for everyone else is whether the outputs stay open and implementable by a university press, a society journal or a repository with no developer on staff. The early signs are reasonable: Ithaka S+R will publish openly, and NISO says it has begun talking to Creative Commons about fitting a provenance package into CC Signals.
+
+**Why it matters at our counter.** For librarians, the COUNTER line is the one to watch: COUNTER describes TRACE as aiming for a system where “libraries can see how the content they license is used”. If AI retrievals become a reportable metric, they will end up in renewal conversations.  
+For metadata leads, the NISO pilot is the quiet one with the long tail. A *minimum* provenance payload will be filled from the metadata we already ship. A reader comment under the Kitchen post put it plainly:  
+the provenance package “will only be as good as the metadata behind it”.  
+Uneven affiliations, missing licences and orphaned version links will not become trustworthy just because an agent repeats them politely.
+
+## Versions are provenance too: NISO JAV, revised
+
+On **5 October**, NISO published the revised **Journal Article Versions** Recommended Practice, **NISO RP-8-2026**, first issued with ALPSP in 2008. It updates the terms and definitions for article versions, gives guidance on carrying version information in machine-readable formats such as JATS, and adds worked examples.  
+It is freely available ([NISO press release](https://www.niso.org/press-releases/niso-publishes-revised-journal-article-versions-jav-recommended-practice); [JAV working group page](https://www.niso.org/standards-committees/jav-revision)).
+
+Co-chair Patrick Hargitt (Olive Turn) gives the reason it belongs in this wrap:  
+readers need to know whether a work was reviewed, where it sits in its life cycle and whether it has changed, “and AI makes that clarity even more important”. Co-chair Mike Nason (University of New Brunswick) points at libraries, repositories and indexers, which all depend on consistent version information. The connection to TRACE is direct. A citation that cannot tell a preprint from a corrected version of record is not provenance; it is a rumour with a DOI.  
+The vocabulary waited eighteen years for its revision. The agents will not wait that long.
+
+## AI disclosure: one standard, comments close Friday
+
+The **International Science Council**, **COPE**, **STM** and the **Global Young Academy**, with the World Conference on Research Integrity, are working towards a *global reporting standard for AI disclosure in research*, which its organisers compare to the way CRediT standardised contributor roles.  
+Round two of the consultation, on *when* AI use must be disclosed, *where* and *how*, and how to describe human oversight and verification, closes on **16 October 2026**.  
+A refined “Vancouver Standard” is planned for late 2026 to early 2027 ([ISC consultation page](https://council.science/our-work/ai-disclosure-in-research/)).
+
+The working threshold from round one is worth reading slowly: AI use should be disclosed if it “substantively shapes or replaces human judgement”, tested by whether a disciplinary peer “would reasonably need to know” about it to assess the work ([SARUA summary](https://sarua.africa/searching-for-a-common-global-reporting-standard-for-ai-disclosure-in-research/)). The draft questions also ask whether disclosures should name *which human* checked each AI use, and whether prompts or logs should be kept.
+
+Why a metadata desk should care: machines already read these statements. In a new Crossref series on tools that use its API, Crossref reports more than 100 million REST API requests from Grobid clients in the first quarter of 2026, and notes that Grobid recently added extraction of CRediT and conflict-of-interest statements ([Crossref, 6 Oct](https://www.crossref.org/blog/how-grobid-uses-crossref-metadata-to-enrich-bibliographic-information/)). An AI-use statement that is structured can be harvested; one that is free prose in an acknowledgement will mostly be lost in extraction. If your press or library has a view on structure, this is the week to send it.
+
+## Library desk: the Bodleian’s worked case puts a human on every suggestion
+
+The Bodleian Libraries’ **AI Policy**, dated **29 September 2026**, sets out eight principles after a year of consultation and covers the description of collections and metadata explicitly.  
+Two lines stand out for practitioners: “We will refrain from treating AI adoption as an objective in itself”, and, where appropriate, users get an option to opt out of AI use.  
+The policy is to be reviewed annually ([policy PDF](https://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf)).
+
+A companion post on **1 October** walks through *hypothetical* use cases, and the cataloguing one is among the most concrete AI rules we have seen from a large research library this year. A cataloguer drafting descriptions and subject terms for an out-of-copyright pamphlet backlog with an approved chatbot reads every suggestion; “nothing is published automatically”; offensive historical terminology picked up from the source is rewritten and flagged to the team; and a note in the project file records that the records were drafted with AI assistance and reviewed by staff before publication ([Bodleian Digital blog](https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/)).
+
+This is acceleration with a seatbelt, which is the version we can support. One question for the next revision: the note sits in the *project file*. Whether it should also travel in the record itself, where an aggregator or an agent can see it, is exactly the kind of decision TRACE and the disclosure standard will eventually force on everyone.
+
+## Global desk: India counts retractions; China and Japan tighten the pipes
+
+**India - rankings meet retraction data.** India’s National Institutional Ranking Framework (NIRF) rankings for 2026 had not appeared by 7 October, although they normally come out in August or September. ThePrint reports that the National Board of Accreditation, which runs the exercise for the Ministry of Education, has flagged a large number of retracted papers during this year’s assessment and, according to unnamed officials, is considering barring repeat offenders from future rankings ([ThePrint, 6 Oct](https://theprint.in/india/education/slew-of-retracted-research-papers-flagged-in-nirf-assessment-puts-academic-institutes-under-govt-lens/3062852/); [India Today, 7 Oct](https://www.indiatoday.in/education-today/news/story/nirf-ranking-2026-retracted-papers-flagged-institutions-may-face-stricter-action-3011375-2026-10-07)).  
+The mechanism is not new: the official India Rankings 2025 report confirms that negative marking for retracted publications was introduced last year in the Overall, Engineering, Universities and Research Institutions categories ([NIRF 2025 report](https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf)). Citing Retraction Watch data, ThePrint puts India at 887 retractions in 2025, second only to China at 1,701.  
+Note what this means for metadata: once retraction status feeds a national ranking, a missing or late retraction notice is no longer a housekeeping issue. It moves an institution’s score. ThePrint also notes that a retraction does not by itself mean misconduct, and a ranking that cannot tell an honest correction from a paper mill will reward silence.
+
+**China - retractions, and an AI-content standard in the queue.** At a State Council Information Office press conference on **29 September**, Vice Minister of Science and Technology Qiu Yong said the ministry is leading a special campaign on papers retracted for academic misconduct and pushing the relevant authorities to set up routine checking and handling of retracted papers within their own systems, alongside a database of serious research-integrity violations used in grant, academy and award vetting ([*Science and Technology Daily*](https://www.stdaily.com/web/gdxw/2026-09/29/content_589907.html)).  
+Separately, a national standardisation guidance document, *Guideline on the boundaries of AIGC usage in academic publishing* (学术出版中人工智能生成合成内容（AIGC）使用边界指南), drafted under the national technical committee for information and documentation (TC4), with the Institute of Scientific and Technical Information of China, Tsinghua University Press and Wanfang Data among the drafters, is listed in the national standards register as **at the approval stage** when we checked on 11 October ([national standards platform, project 20253114-Z-469](https://std.samr.gov.cn/gb/search/gbDetailed?id=3871886E8F31EF0FE06397BE0A0A1488)).  
+Not this week’s news, but one to watch: when it is published, China will have a national reference for AI-generated content in academic publishing while the global disclosure standard is still in consultation.
+
+**Japan - the PDF era gets an end date.** J-STAGE, the Japan Science and Technology Agency’s national journal platform, has decided that full-text **JATS-XML will be mandatory** for new research articles in journals from fiscal year 2029 (Reiwa 11), with the transition expected to finish by the end of March 2030. The decision sits in the April 2026 “deliberation summary” of the J-STAGE Advisory Committee on the revised medium- to long-term strategy ([J-STAGE strategy decisions, April 2026](https://www.jstage.jst.go.jp/static/files/ja/pub_JstageStrategy_decisions2025.pdf)).  
+Scope is narrow on purpose: only journals and only research-article types. Editorials, announcements, columns and abstract-only items stay exempt. Already-published articles and retrospective deposits of back issues remain PDF-only.  
+PDF itself is not abolished; it becomes optional, and a lag of up to six months between the XML and the PDF (in either order) is allowed.  
+What ends is the long habit of depositing new research articles as PDF plus bibliographic XML and calling that complete. From fiscal 2029 the required object is structured full-text JATS; the paginated file is the optional rendering.
+
+The minimum tagging bar is deliberately modest and stays inside the JATS 1.1 profile J-STAGE already accepts (its own DTD based on the NISO Publishing tag set):  
+An article needs the ordinary front / body / back structure; the body must be sectioned; floats must carry titles and sit near their reference or be internally linked; tables and maths are preferably structured text but images remain acceptable.  
+No change to the underlying JATS version is planned. Current uptake is low - presentations in 2026 put full-text XML at roughly 7.6 % of current J-STAGE journals, against near-universal use among major Western publishers and earlier mandates at SciELO.  
+The usual barriers are staff, money and time; the free Word/LaTeX-to-XML conversion tool offered since 2020 is still little used.  
+Further GUI work and an XML-to-PDF generator are scheduled for around March 2027. InDesign is not supported and is not planned to be.
+
+JST lists several reasons. Machine readability for AI use is one of them, but not the only one: better on-platform HTML reading, translation, text-to-speech, search, external reuse and international circulation are given equal weight.  
+An online seminar tracing the forty-year road to the mandate (XSPA president Hidehiko Nakanishi, co-hosted with JEPA) is set for 6 November ([XSPA summary, 25 Sep](https://xspa.jp/archives/2684/); [JEPA, 7 Oct](https://www.jepa.or.jp/seminar/20261106/)).
+
+For a metadata desk the practical point is straightforward. From 2030 a large slice of Japanese society-journal content will arrive as structured JATS rather than PDF-plus-bibliographic XML. That changes what can be harvested, indexed, versioned and attributed without OCR or layout reconstruction - exactly the layer TRACE and the revised NISO JAV are trying to keep intact once agents start mediating access. The package, again, is only as good as the label that stays on it.
+
+
+**Elsewhere.** At STM Frankfurt, South Africa’s Daan du Toit (Department of Science and Innovation) warned that “decoupling is dangerous for everyone”, and a China panel with Tsinghua University Press and the National Science Library of the Chinese Academy of Sciences discussed the shift from quantity-driven assessment towards quality and integrity ([STM report](https://stm-assoc.org/stm-frankfurt-conference-2026-a-more-optimistic-outlook-for-scholarly-communication-through-cooperation-and-trust/)). We found nothing solid from Singapore for this desk this week, and say so rather than pad.
+
+## Noted this week
+
+Not a method. Seven signals from the sources above:
+
+1. **TRACE** - publishers, NISO, COUNTER and Ithaka S+R launch a joint push to keep provenance, attribution and usage intact through AI tools.
+2. **Minimum provenance payload** - NISO’s pilot will decide what metadata must travel with a source at inference time. What we ship today is what it will carry.
+3. **JAV revised** - NISO RP-8-2026 gives article versions a current vocabulary and a machine-readable route via JATS.
+4. **AI disclosure** - the ISC, COPE, STM and Global Young Academy consultation on a global reporting standard closes 16 October.
+5. **Bodleian** - in its worked cataloguing case, a human reads every AI suggestion, nothing publishes automatically, and the use is noted.
+6. **Retractions as a score** - India’s national ranking penalises them and may bar repeat offenders; China wants routine checking; retraction metadata is now policy input.
+7. **J-STAGE ends PDF-only** - from fiscal 2029 structured JATS becomes the required object for new journal research articles; PDF turns optional.
+
+**Noted this week.**
+
+### Sources
+
+- [TRACE Project Launches to Advance AI interoperability](https://scholarlykitchen.sspnet.org/2026/10/07/trace-project-launches-to-advance-ai-interoperability/) - The Scholarly Kitchen (Todd Carpenter), 7 Oct 2026.
+- [Introducing TRACE](https://www.countermetrics.org/trace-project/) - COUNTER Metrics, 6 Oct 2026.
+- [STM and Ithaka S+R launch research project on the interface between scholarly content and AI](https://stm-assoc.org/stm-and-ithaka-sr-launch-research-project-on-the-interface-between-scholarly-content-and-ai/) - STM, 6 Oct 2026.
+- [STM Frankfurt Conference 2026 report](https://stm-assoc.org/stm-frankfurt-conference-2026-a-more-optimistic-outlook-for-scholarly-communication-through-cooperation-and-trust/) - STM, 9 Oct 2026.
+- [NISO Publishes Revised Journal Article Versions (JAV) Recommended Practice](https://www.niso.org/press-releases/niso-publishes-revised-journal-article-versions-jav-recommended-practice) - NISO, 5 Oct 2026; [JAV working group page](https://www.niso.org/standards-committees/jav-revision).
+- [AI disclosure in research: towards a global reporting standard](https://council.science/our-work/ai-disclosure-in-research/) - International Science Council (round two closes 16 Oct 2026).
+- [Searching for a common, global reporting standard for AI disclosure in research](https://sarua.africa/searching-for-a-common-global-reporting-standard-for-ai-disclosure-in-research/) - SARUA (Walter Claassen).
+- [How Grobid uses Crossref metadata to enrich bibliographic information](https://www.crossref.org/blog/how-grobid-uses-crossref-metadata-to-enrich-bibliographic-information/) - Crossref, 6 Oct 2026.
+- [Bodleian Libraries’ AI Policy](https://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf) - 29 Sep 2026; [Implementing our AI Policy: hypothetical use cases](https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/) - Bodleian Digital blog, 1 Oct 2026.
+- [Slew of retracted research papers flagged in NIRF assessment](https://theprint.in/india/education/slew-of-retracted-research-papers-flagged-in-nirf-assessment-puts-academic-institutes-under-govt-lens/3062852/) - ThePrint, 6 Oct 2026; [India Today follow-up](https://www.indiatoday.in/education-today/news/story/nirf-ranking-2026-retracted-papers-flagged-institutions-may-face-stricter-action-3011375-2026-10-07), 7 Oct 2026.
+- [India Rankings 2025 report](https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf) - NIRF, Ministry of Education.
+- [科技部副部长邱勇：持续打击买卖论文等违规行为](https://www.stdaily.com/web/gdxw/2026-09/29/content_589907.html) - *Science and Technology Daily*, 29 Sep 2026.
+- [学术出版中人工智能生成合成内容（AIGC）使用边界指南 - project 20253114-Z-469](https://std.samr.gov.cn/gb/search/gbDetailed?id=3871886E8F31EF0FE06397BE0A0A1488) - National Public Service Platform for Standards Information (status checked 11 Oct 2026).
+- [J-STAGE 全文XML必須化まとめ](https://xspa.jp/archives/2684/) - XSPA, 25 Sep 2026; [J-STAGE medium- to long-term strategy and April 2026 decisions](https://www.jstage.jst.go.jp/static/pages/JstageStrategy/-char/ja); [JEPA seminar, 6 Nov 2026](https://www.jepa.or.jp/seminar/20261106/).
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
