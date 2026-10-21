@@ -1,0 +1,88 @@
+---
+title: "Paying twice for prestige"
+description: |
+  Open Access Week 2026 asks about "The Cost of Knowledge". In Germany the cost is published per article. Why libraries and university presses do not simply publish themselves: the infrastructure exists, the incentives do not. Homework for appointment committees, university presses, library networks and the DFG.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: 2026-10-20
+preview: oaw_2026.jpg
+categories:
+  - "Open access"
+  - "Scholarly publishing"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Open Access Week has chosen ["The Cost of Knowledge"](https://www.openaccessweek.org/) as its theme for 19 to 25 October, which is generous of it, since in Germany the cost is published per article. A researcher writes a paper, gives it to a publisher, reviews someone else's for free, and the university then pays between €2,200 and €3,150 for it to appear openly, plus reading access to the rest of the journal list.  
+The conscious librarian asks why libraries and university presses do not simply do this themselves.  
+The polite answer is that they already can. The less polite answer, and this is our view, is that nobody is promoted for it.
+
+## Who does what, on which layer
+
+Before anyone is blamed, it helps to know what each party was built to do.
+
+- **DEAL** is a national licensing contract, not a publishing strategy. It turns subscription money into "publish and read" fees: [€2,600 per article at Springer Nature](https://deal-konsortium.de/en/agreements/springer-nature), [€3,150, €2,700 or €2,200 by journal tier at Wiley](https://deal-konsortium.de/en/agreements/wiley), and [€2,500 at Elsevier](https://openaccess.mpg.de/2605261/deal-contracts-entered-into-force) in the first year, after 90% participation earned a 2% discount.
+- **The DFG's publication-cost programme** is a subsidy meant to change how money flows. It pays a [flat €1,400 per article and €5,000 per book](https://www.dfg.de/de/foerderung/antrag-foerderprozess/faq/oa-publikationskosten), takes its last applications in 2027, and gives way to a [successor programme with a first deadline of 4 May 2027](https://www.dfg.de/de/aktuelles/neuigkeiten-themen/info-wissenschaft/2026/ifw-26-68).
+- **SeDOA** is the service layer: a [DFG-funded national centre for fee-free Diamond journals](https://www.dfg.de/de/aktuelles/neuigkeiten-themen/info-wissenschaft/2025/ifw-25-07), approved on 11 December 2024 and run by 15 institutions under ULB Darmstadt, with the [AG Universitätsverlage directly involved](https://diamond-open-access.de/en/about/).
+- **The Action Plan for Diamond Open Access** is the coordination layer. It names [efficiency, quality standards, capacity building and sustainability](https://scienceeurope.org/our-resources/action-plan-for-diamond-open-access/), and calls the sector an "archipelago of relatively isolated journals and platforms".
+- **The AG Universitätsverlage quality standards** are the floor for open-access books, which the DFG already treats as binding for the books it funds. We read version 3 in ["Quality is a column, not a vibe"](https://www.datamercs.net/posts/2026-10-01-quality-is-a-column-not-a-vibe/).
+- **DORA, CoARA and the DFG CV** form the assessment layer. The DFG [signed DORA in 2021](https://www.dfg.de/de/foerderung/antrag-foerderprozess/faq/publikationswesen), is a [CoARA signatory](https://www.coara.org/signatories/deutsche-forschungsgemeinschaft-dfg-e-v/), and since March 2023 has limited CVs to [ten publications plus ten other outputs](https://www.dfg.de/de/aktuelles/neuigkeiten-themen/info-wissenschaft/2022/info-wissenschaft-22-61) such as data, software and preprints.
+
+Each of these does roughly what it says on the tin. The difficulty is the tin they are all standing in.
+
+## What the money buys
+
+DEAL did what it was built to do. The institutions taking part account for [about 90% of German output](https://openaccess.mpg.de/2605261/deal-contracts-entered-into-force) in the three publishers' journals, and the contracts could move around half of Germany's journal output to *open access*. That is real access, and nobody should pretend otherwise.
+
+What it does not change is who supplies the labour: Authors write, colleagues review and editors edit, mostly at no charge, and the institution then pays for everyone to read the result.  
+Paying twice is not fraud. It is simply what a market looks like when the customer also supplies the goods. The DFG's €1,400 covers part of the fee; the institution covers the rest.
+
+## Why presses do not win by default
+
+Building an alternative is not the hard part. [SeDOA](https://diamond-open-access.de), the Action Plan and the AG standards already exist. The hard part is that a fee-free journal at a university press must compete for authors whose careers are decided by appointment panels.
+
+A press can, however, take over a prestige title. The [Gutenberg-Jahrbuch](https://www.ub.uni-heidelberg.de/en/ueber-uns/drittmittelprojekte/laufende-drittmittelprojekte/gutenberg-jahrbuch-21), published since 1926 for the International Gutenberg Society in Mainz, is moving to Diamond Open Access with Heidelberg University Publishing (heiUP): CC BY-SA 4.0, no fees for authors or readers, OJS and an XML-first workflow, with the backfiles of the previous 100 yearbooks to be digitised. The project runs from 1 October 2026 ([Archivalia](https://doi.org/10.58079/16yvi)). Gutenberg, one gathers, has survived worse changes of format.
+
+The DFG has reformed its own reviewing. [CoARA](https://www.coara.org), however, binds each signatory's own processes, not every faculty in the country. One notices that a ten-publication CV still leaves open the question of which ten, and that question remains available to be read off the masthead.
+
+Diamond publishing has a cost problem of its own. The [cOAlition S Diamond journals study](https://scienceeurope.org/media/yejfasey/20210309_coalitions_diamond_study_final.pdf) (2021) found that 86% of Diamond journals publish fewer than 50 articles a year, 60% depend on volunteers, and almost a third did not know their financial status.  
+"Free to read and to publish in" is not the same as "costs nothing"; someone is paying, usually in evenings.
+
+So, to the librarian's question: it is not mainly immobility, nor mainly author vanity - it is a reward system that prices the brand, and a set of public bodies too polite to put that price in a single table.
+
+## Homework
+
+**Appointment and tenure committees, at each university, before the next round.**  
+If DORA, CoARA and the DFG CV are the assessment layer already on the table, the minimal operational step is to adopt the DFG CV format, keep journal impact factors out of job calls and assessment, and record in the minutes that this was done. Where a university has not signed CoARA, it is perhaps worth recording either the signature or the reason for its absence.
+
+**University presses, before 4 May 2027.**  
+If the AG standards are the floor the DFG already treats as binding, then a public statement of which required items are met is the natural next column. Ship the CC0 metadata licence in a feed that actually exists (ONIX 3, OAI-PMH or MARC, as the standards name them), not only as a sentence on a web page. Switch on a DOI link checker. Register journals and series with SeDOA.
+
+**Library networks, every year.**  
+If DEAL is a licensing contract and Diamond is the service layer, the two sides of the ledger belong in one public table. Publish DEAL invoices alongside Diamond and press budgets, set a target share for Diamond, and report against it.
+
+**The DFG, by the time the successor programme starts paying in 2028.**  
+If the publication-cost programme was meant to change how money flows, the successor can record the split between per-article fees and institutional Diamond infrastructure. Publish a list of presses that meet the required AG items, rather than accepting a PDF as the audit.
+
+## Close
+
+None of this requires a revolution, only a spreadsheet! Prestige is a line item; it merely happens to be filed under someone else's budget. Put it in ours, where it can be audited, and the bill may start to shrink.
+
+The German Open Access Week programme is at [open-access.network](https://open-access.network/fortbilden/open-access-week/open-access-week-2026). The SeDOA sessions are on Wednesday 21 October, from 13:00 Berlin time.
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
+<p class="news-credit">Follow us on X: <a href="https://x.com/DataMercsDotNet">https://x.com/DataMercsDotNet</a></p>

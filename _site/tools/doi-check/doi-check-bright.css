@@ -1,0 +1,65 @@
+/*
+ * DOI metadata check — "bright cyberpunk" theme variant (optional).
+ * Loaded after doi-check.css and only active when <html data-theme="bright">.
+ * Rule: neon colours (orange / magenta / acid yellow) are for borders, highlights
+ * and the progress bar only; all text uses dark, high-contrast colours (WCAG AA).
+ */
+html[data-theme="bright"] {
+  --bg: #fbfcfe;            /* near-white paper */
+  --surface: #ffffff;
+  --surface-muted: #eef3f8;
+  --border: #ff6b00;        /* cyberpunk orange (decor only) */
+  --text: #0a0e1a;          /* ink, 19:1 on bg */
+  --muted: #3d4456;         /* secondary text, ~9.6:1 */
+  --accent: #0a5c70;        /* text-safe teal for links/headings, ~7.2:1 */
+  --accent-soft: #fff7b3;   /* acid-yellow wash behind dark text */
+  --warn: #a3005c;          /* deep magenta for MISSING text, ~7.2:1 */
+  --warn-soft: #ffe3f3;
+  --neon-orange: #ff6b00;  /* 2.9:1 on white: never text */
+  --neon-magenta: #ff2bd6;
+  --neon-yellow: #e6ff00;
+}
+
+/* Subtle grid + scanlines on the page background. */
+html[data-theme="bright"] body {
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(10,14,26,.025) 0 1px, transparent 1px 3px),
+    linear-gradient(rgba(255,107,0,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,107,0,.07) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+/* Monospace headings with a neon underline. */
+html[data-theme="bright"] h1 {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  letter-spacing: .02em;
+  border-bottom: 3px solid var(--neon-magenta);
+  display: inline-block;
+  padding-bottom: .15rem;
+}
+html[data-theme="bright"] th { font-family: "IBM Plex Mono", ui-monospace, monospace; background: var(--surface-muted); }
+
+/* Inputs and panels: thin neon frame, glow on focus. */
+html[data-theme="bright"] textarea,
+html[data-theme="bright"] .wrap { border: 1px solid var(--neon-orange); box-shadow: 3px 3px 0 var(--neon-magenta); }
+html[data-theme="bright"] textarea:focus { outline: 2px solid var(--neon-magenta); }
+
+/* Buttons: dark ink fill, white text (19:1); neon edge. */
+html[data-theme="bright"] button { background: var(--text); color: #fff; box-shadow: 3px 3px 0 var(--neon-orange); }
+html[data-theme="bright"] button.secondary { background: #fff; color: var(--text); border: 2px solid var(--neon-magenta); }
+
+/* Progress bar in neon. */
+html[data-theme="bright"] progress { accent-color: var(--neon-magenta); }
+
+/* Summary chips: acid-yellow wash, dark text, orange edge. */
+html[data-theme="bright"] #summary li { background: var(--accent-soft); border-left: 3px solid var(--neon-orange); color: var(--text); }
+
+/* Flagged rows: magenta marker on the left. */
+html[data-theme="bright"] tr.flagged td:first-child { box-shadow: inset 4px 0 0 var(--neon-magenta); }
+html[data-theme="bright"] th, html[data-theme="bright"] td { border-bottom-color: #ffd9bf; }
+html[data-theme="bright"] footer { border-top: 2px dashed var(--neon-orange); }
+
+/* Raw-data links: ink text, orange underline. */
+html[data-theme="bright"] td.raw a { color: var(--text); text-decoration-color: var(--neon-orange); text-decoration-thickness: 2px; }

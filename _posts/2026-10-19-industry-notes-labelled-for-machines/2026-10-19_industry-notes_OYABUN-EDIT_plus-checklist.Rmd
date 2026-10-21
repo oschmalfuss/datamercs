@@ -1,0 +1,244 @@
+---
+title: "News wrap · 19 October 2026 - Labelled for machines"
+description: |
+  Weekly news wrap (not a workshop) for 19 October 2026. In Dublin, the European Commission revises its research guidance on generative AI, now with a chapter on AI agents and peer review, and collects first pledges from Elsevier, Frontiers and others; EDItEUR’s ONIX codelists gain a content audience for LLM training; a Scholarly Kitchen guest post asks for evidence before more adoption; and in Japan, NII documents how its open LLM-jp-4 models were built, with a rights level for every dataset, while the Humanitext project turns AI suggestions into expert-verified, sourced links.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: 2026-10-19
+preview: linkeddataxai.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: true
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+.news-credit {
+  font-size: 0.85rem;
+  color: #6b6860;
+}
+```
+
+<p class="news-kicker">Industry notes · news wrap · not a workshop</p>
+<p class="news-date">Week of 19 October 2026</p>
+<p class="news-standfirst">A briefing of what to notice this week, with sources. How-to and cataloguing practice stay in separate posts — see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work.</p>
+
+Last week the trade asked whether an AI answer can say where it came from. This week the question moved one layer down, to the label on the package itself.  
+In Dublin, the European Commission revised its guidance on generative AI in research, now with explicit rules of thumb for AI agents and peer review, and collected the first private pledges for AI in European science.  
+EDItEUR’s new ONIX codelists give publishers a way to say, in metadata, “this text is meant for machines”.  
+And in Japan, the National Institute of Informatics published a training report in which every dataset carries a rights level.  
+The courier rule still applies: whatever is not written on the label will be guessed at the other end.
+
+## Dublin: the guidance grows an agent chapter
+
+**What happened.** On **15 October**, at the European AI in Science Summit in Dublin, the Commission launched the **RAISE pledging initiative for AI in Science Enablers**, which collects in-kind support for European researchers from industry and philanthropy. First commitments came from the Novo Nordisk Foundation, Nvidia, Elsevier, Sanofi, Frontiers, Mistral and Google DeepMind. Pledges are to show support “beyond their direct commercial interests” and will be reviewed annually ([Commission press release IP/26/2175, 15 Oct](https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2175); [RAISE pledging page](https://research-and-innovation.ec.europa.eu/strategy/strategy-research-and-innovation/our-digital-future/european-ai-science-strategy/raise-resource-ai-science-europe/raise-pledging-initiative-ai-science-enablers_en)).
+
+Two of the first pledgers are publishers:
+
+- **Elsevier** offers 4,000 complimentary licences (1,000 each for LeapSpace, ClinicalKey AI, ClinicalKey Nursing AI and Complete Anatomy) and an estimated €1m a year of in-kind support and funding. That covers at least three new research collaborations a year, a new Centre on Hybrid Intelligence for Trustworthy Research with the University of Amsterdam and Vrije Universiteit Amsterdam, and training for about ten PhD candidates, postdocs and master’s students a year ([Elsevier, 15 Oct](https://www.prnewswire.com/news-releases/elsevier-commits-to-accelerate-ai-driven-science-across-europe-302908505.html)).
+- **Frontiers** offers AI-powered curation for 1,000 Horizon Europe datasets and 100 FAIR² Data Publication Grants for early-career researchers. The pledge is described as more than €1.6 million in services, free to researchers, and Frontiers offers its FAIR² open specification for institutions, repositories and infrastructures to adopt ([RAISE pledging page](https://research-and-innovation.ec.europa.eu/strategy/strategy-research-and-innovation/our-digital-future/european-ai-science-strategy/raise-resource-ai-science-europe/raise-pledging-initiative-ai-science-enablers_en)).
+
+At the same summit, the Commission presented the **fourth version of the ERA Living Guidelines on the responsible use of generative AI in research**, which it calls the most comprehensive update since the first version in 2024 ([DG RTD news, 16 Oct](https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/era-living-guidelines-responsible-use-generative-ai-research-updated-2026-10-16_en); [guidelines PDF](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en)).
+
+**The intended layer.** This is a *non-binding* stakeholder document from the ERA Forum, addressed to researchers, research organisations and research funders. It says outright that it adds no new requirements; it translates existing research-integrity principles to a workflow that now includes AI. Publishers and libraries are named as part of the conversation, but the recommendations are not written for them. Read it as the expectations your authors, reviewers and funders will bring to you, not as a rulebook for your production desk.
+
+**What is new and useful.**
+
+- **Agents.** AI agents are “advanced research tools, not independent scientists”. Using an agent “may never be considered a delegation of control or responsibility”, and researchers should build in checkpoints where critical decisions, such as methodological ones, are validated by a person.
+- **Disclosure.** Researchers disclose AI tools used *substantially*, describe what they did, and describe oversight and verification. A footnote draws a useful line: basic editorial support is not substantial; using AI for a literature review, to identify research gaps or to develop hypotheses is. Authors decide whether prompts, logs, model versions and parameters should be kept or shared, based on whether they are needed to understand, reproduce or audit the work.
+- **Peer review.** The judgement of scientific quality and merit is not delegated to AI. Reviewers use only “secure, trusted tools”, preferably ones provided by the institution, funder or publisher, and should not upload unpublished material to systems that cannot guarantee confidentiality and non-use for training.
+- **Hidden prompts.** Funders are told to watch for instructions hidden in proposals, defined as text placed “through invisible text, formatting tricks, or metadata” that a person may not notice but an AI tool may still process.
+
+The guidelines also point to the ISC, COPE, STM and Global Young Academy work on a global AI-disclosure standard, which will inform future versions. The next revision is planned for the third quarter of 2027.
+
+**Supplements for the metadata desk.** The guidance stops at principles, as its layer should. Here is what we would add on the publishing side.
+
+*1. A disclosure record you can actually harvest.* If authors are asked to describe substantive AI use and verification, give them fields rather than a free-text box. A minimal set:
+
+| Field | Example value | Why |
+|---|---|---|
+| `ai_tool` | product name as shown to the user | identifies the system |
+| `ai_version` | version or date string | outputs differ between versions |
+| `task` | controlled list: literature review / data analysis / translation / code / other | matches the guidelines’ “substantial use” examples |
+| `substantive` | yes / no | the threshold the guidelines use |
+| `verified_by` | ORCID iD of the responsible person | names the human who checked |
+| `verification_note` | one sentence | how output was checked |
+| `records_kept` | none / on request / deposited (with DOI) | prompts, logs, parameters |
+
+*2. A hidden-prompt check at intake.* Before any AI screener reads a submission, run a short audit: extract all text layers, including white or zero-size text and zero-width characters; read document properties and embedded XMP metadata; flag any imperative instructions aimed at a model. Log the result with the submission. The same check belongs in metadata ingestion: an abstract field is now an attack surface.
+
+*3. Four questions for any review-assistance vendor.* Is our content used to train your models, and is that contractual? Which model version scored this manuscript, and is that logged per item? Do you strip hidden instructions before inference? Can editors see why a flag was raised?
+
+The pledges themselves we welcome without irony. Free tool access and AI-ready datasets are acceleration, and Europe needs it. The useful check over the next year is the one the Commission has set itself: an annual review, with pledges and progress presented at future editions of the summit. Delivered access, not announced access, is what researchers will notice.
+
+## Standards & metadata: ONIX learns the word “LLM”
+
+**What changed.** EDItEUR published **Issue 75 of the ONIX for Books codelists** in mid-October. The changes were ratified by the ONIX International Steering Committee at its meeting during the Frankfurt Book Fair, and the change summary is dated 7 October ([Issue 75 changes, PDF](https://www.editeur.org/files/ONIX%20for%20books%20-%20code%20lists/ONIX_BookProduct_Codelists_Issue_75_Changes.pdf); [live codelist browser, List 154](https://ns.editeur.org/onix/en/154)). The AI-relevant additions:
+
+- **List 154 (Content audience), code 13 “LLM training”**: material not intended for display, but which may be used “for AI training, GEO and RAG”. (Our glosses: GEO is usually read as *generative engine optimisation*, the AI-era cousin of search-engine optimisation; RAG is *retrieval-augmented generation*, where a model looks things up before it answers.)
+- **List 158 (Resource content type), code 60 “LLM training data”**: a data file specifically intended for those uses.
+- **List 178 (Supporting resource file format), code D512 “JSON”**, or JSON-LD.
+- **List 153 (Text type), code 24**: a schema.org snippet in JSON-LD.
+
+EDItEUR’s note is careful about scope. These codes are for “initial exploratory use” of data in a special format that the **German ONIX IG** (the national user group) is to define. The linked data file sits apart from text meant for people, and any constraints or opt-outs on the book’s own content “should not be applied” to this file, because it is supplied specifically for AI use. Usage constraints can still be set for each supporting resource separately.
+
+**The intended layer.** This is a controlled vocabulary for exchanging book-trade metadata, not a licence and not a payload format. It gives a sender a way to *point at* machine-only material and tell it apart from marketing copy. What that material contains is left, for now, to the German group. That is not a gap to complain about; it is the next work item, and DACH publishers have a direct line into it.
+
+Two quieter additions matter to scholarly presses: **List 163, codes 41 and 42**, for the *manuscript submission date* and *manuscript accepted date*, “typically for academic and scholarly publishing”. Book metadata can now carry the same history dates that journal articles have long carried in JATS. In a week when disclosure standards ask *when* a work was reviewed, that is useful.
+
+**Supplements: a working checklist for an ONIX sender.**
+
+1. Decide what the “LLM training” text is: an extended abstract, a table of contents with chapter summaries, or nothing at all. Write it down as a house rule, not ad hoc per title.
+2. Keep it consistent with your rights position. The text-and-data-mining code in List 145 (code 11), and the narrower private-AI codes 13 and 14 added in Issue 73, govern the *book*. The new resource is a separate decision. Record both decisions in the same place.
+3. Version the file. Use the *Last updated* content date and a hash, so that a recipient, or an agent, can tell which version it used. List 162 already offers SHA-256 (code 08).
+4. Ask your aggregators and retailers which of these codes they will actually read before you invest in producing the file.
+
+An illustrative supporting-resource block (check element order against the ONIX 3.0 specification before use):
+
+```xml
+<SupportingResource>
+  <ResourceContentType>60</ResourceContentType>   <!-- LLM training data -->
+  <ContentAudience>13</ContentAudience>           <!-- LLM training -->
+  <ResourceMode>04</ResourceMode>                 <!-- Text -->
+  <ResourceVersion>
+    <ResourceForm>02</ResourceForm>               <!-- Downloadable file -->
+    <ResourceVersionFeature>
+      <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
+      <FeatureValue>D512</FeatureValue>           <!-- JSON -->
+    </ResourceVersionFeature>
+    <ResourceVersionFeature>
+      <ResourceVersionFeatureType>08</ResourceVersionFeatureType>
+      <FeatureValue><!-- SHA-256 of the file --></FeatureValue>
+    </ResourceVersionFeature>
+    <ResourceLink>https://example.org/onix/9783000000000-llm.json</ResourceLink>
+    <ContentDate>
+      <ContentDateRole>17</ContentDateRole>       <!-- Last updated -->
+      <Date>20261019</Date>
+    </ContentDate>
+  </ResourceVersion>
+</SupportingResource>
+```
+
+What we would like the German format to carry, as a suggestion from the cheap seats: the work’s persistent identifiers (ISBN, DOI), the rightsholder, a licence statement in machine-readable form, the version of record it summarises, and who wrote the summary - a person, a model, or a model checked by a person. That last field is the disclosure question again, arriving through the back door of the book trade.
+
+**ONIX homework: who acts, on what, by when.**
+
+*The layer first.* The ONIX codelists are a technical standard. They are a shared vocabulary for book-trade metadata, not a licence and not a deadline. Issue 75 is dated 12 October 2026 ([Issue 75 codelists](https://www.editeur.org/files/ONIX%20for%20books%20-%20code%20lists/ONIX_BookProduct_Codelists_Issue_75.html)). Every new code is optional. EDItEUR marks the LLM codes for “initial exploratory use” and sets no date by which recipients must read them. So there is no deadline. The practical one is *before your next feed-schema update*.
+
+1. **Publisher metadata team: load Issue 75 now.** Update the codelist tables in your product-information system and your validator, so that List 154 code 13, List 158 code 60, List 178 code D512 and List 163 codes 41 and 42 validate. Loading codes commits you to nothing.
+2. **ONIX system owner (a Klopotek-type system, or your feed vendor): confirm the path before the next feed-schema update.** Ask four questions. Can the feed send `<ContentAudience>13</ContentAudience>` and `<ResourceContentType>60</ResourceContentType>` in a Block 2 `<SupportingResource>`? Can it send `<ResourceVersionFeatureType>01</ResourceVersionFeatureType>` with `<FeatureValue>D512</FeatureValue>`? Can it send the new date roles in `<PublishingDate>`? And which release does the feed actually send: ONIX 3.0, or 3.1.1 or later?
+3. **Rights team, with the metadata team: make two decisions, not one.** The book’s own text-and-data-mining position goes in Block 1 `<EpubUsageConstraint>`, using List 145 code 11 (or the narrower codes 13 and 14) with a List 146 status. EDItEUR says those book-level constraints *should not* be applied to the LLM-training file. Terms for that file go in its own `<EpubUsageConstraint>` inside the `<SupportingResource>`, and that placement needs ONIX 3.1.1 or later ([ONIX 3.1.1 changes](https://www.editeur.org/files/ONIX%203/Changes%20for%20ONIX%203.1.1.pdf)). If your feed is still on 3.0, it has nowhere to state terms for the file. Hold the file back until it does. Record both decisions in the same rights record.
+4. **Scholarly programme and metadata team: map the manuscript dates at the next change to your editorial system.** Use List 163 code 41 (manuscript submission date) and code 42 (manuscript accepted date) in `<PublishingDate>`. These dates come from your submission and review system, not from ONIX. The work is mapping that field, not retyping it.
+5. **Metadata lead: watch the German ONIX IG, and do not build the payload yet.** The format of the LLM-training file is still to be defined there. We found no published draft as of 18 October 2026. When a draft appears, pilot it on a handful of titles, with a SHA-256 hash (List 162 code 08) and a *Last updated* date on every version. Before you go further, ask your main recipients which of these codes they will actually ingest, and from when.
+
+**On the journal side, two dates for the diary.** Crossref’s annual meeting and board election is online on **22 October**, with an in-depth update on the new Member Practices on the agenda ([Crossref](https://www.crossref.org/crossref-annual-meeting/)). On **3 November**, a Crossref webinar with Patricia Feeney, Liz Allen and Mike Nason looks at bringing the NISO CRediT and JAV recommendations into Crossref metadata, and “what implementation actually involves” ([CRediT, 17 Oct](https://credit.niso.org/updates/crossref-webinar-how-to-incorporate-credit-into-metadata/)).
+
+## Evidence desk: measure before you multiply
+
+In a Scholarly Kitchen guest post on **14 October**, Sarah Hands (Chief Operating Officer, PA EDitorial) argues that AI adoption in editorial workflows may be running ahead of the evidence. She is explicit that this is not resistance. Her concern is that success is measured too narrowly (speed and throughput), that wider costs show up elsewhere in the workflow, and that **automation bias** makes a system flag feel more authoritative than a colleague’s judgement. Her test: “An AI-generated flag isn’t necessarily a finding; it is a signal requiring context and interpretation.” She asks publishers to share null and negative results, not only successes ([Scholarly Kitchen, 14 Oct](https://scholarlykitchen.sspnet.org/2026/10/14/guest-post-artificial-intelligence-in-scholarly-publishing-are-we-moving-faster-than-the-evidence/)).
+
+**The intended layer.** An opinion piece from a service provider, not a policy. It sets out questions and leaves the measurement design to the reader, which is fair for the format.
+
+**Supplement: a one-page evaluation sheet for any AI step in an editorial or metadata workflow.**
+
+- *Baseline first.* Record current error rates and turnaround for the task before you switch the tool on.
+- *Adjudicated sample.* For a fixed sample each month, a person decides independently. Count false positives and false negatives against that decision, not against the tool’s own confidence.
+- *Disagreement log.* Every case where the editor overrules the flag, or follows a flag that turns out wrong, gets one line. That log is your automation-bias detector.
+- *Split by population.* Report results by discipline, article type and first language of authors; averages hide exactly what Hands is worried about.
+- *Downstream cost.* Track the extra work created later: queries, appeals, corrections.
+- *Review date.* Every tool gets a date on which it is kept, changed or switched off, with the sheet attached.
+
+Publish the sheet, even when the result is “inconclusive”. We are in favour of moving fast; we would just like to know where we are going.
+
+## Global desk: Japan publishes the recipe, and a line from China
+
+**Japan - a training report with rights levels.** On **14 October**, the LLM-jp team, coordinated by the National Institute of Informatics (NII), posted the technical report for **LLM-jp-4**, an 8B dense and a 32B-A3B mixture-of-experts model trained from scratch on about 12 trillion tokens and released under Apache 2.0 ([arXiv:2610.19331](https://arxiv.org/abs/2610.19331)). What makes it relevant to publishers is not the benchmark table but section 2, the selection rules:
+
+- Every dataset subset carries a **release level** from L1 to LZ, set out as yes/no columns for *internal-model training*, *public-model training*, *retrieval* (showing parts of the data to users) and *redistribution*. Only L1-L3 data were used for the public models.
+- The team requires that a dataset’s *original construction* was lawful, not only its own use. Datasets built with models whose terms restrict using their outputs to train other models are excluded, even when the dataset itself carries a permissive licence. The report names OpenAI’s proprietary GPT models, Anthropic’s Claude and Meta’s Llama as examples.
+- The corpus table lists scholarly and public sources individually, including KAKEN (Japan’s grants database), arXiv, peS2o, patents, and PDFs and HTML from WARP, the National Diet Library’s web archive, each with its release level.
+
+The NII’s media advisory of **15 October** announces the second Open LLM Symposium for **5 November** in Tokyo, with EuroLLM lead André Martins (Instituto Superior Técnico, Lisbon) among the keynotes. The symposium is part of a programme funded by Japan’s education and science ministry (MEXT) on transparency and reliability of generative AI models ([NII media advisory, PDF](https://www.nii.ac.jp/news/upload/nii_mediaadvisory_20261015.pdf)).
+
+For a licensing desk, the release-level table is a ready-made template. Separating *training*, *retrieval and display* and *redistribution* into three explicit permissions is exactly the distinction most content licences still blur. Asking an AI partner “which of the three do you need?” is a better opening than “may we discuss AI?”.
+
+**Japan - AI proposes, the expert verifies, the record remembers.** The *Humanitext* project led by Naoya Iwata (Nagoya University and NII), with colleagues at J.F. Oberlin University, the University of Tokyo and NII, is one of 19 projects chosen from 501 proposals in 42 countries for Schmidt Sciences’ Humanities and AI Virtual Institute. The grant is US$816,667 over three years, October 2026 to September 2029 ([Schmidt Sciences, 14 Oct](https://www.schmidtsciences.org/havi-2026-announcement/); [NII release, 15 Oct](https://www.nii.ac.jp/news/release/2026/1015-1.html)).
+
+The method is the part to copy. A language model proposes candidate links between classical texts, such as quotation, allusion, paraphrase or critique. Experts and graduate students accept, correct or reject each one. Verified links are stored with their type, direction, confidence and *verification history* in Wikibase and Neo4j, and then used as grounding for GraphRAG answers, which will be tested against ordinary retrieval-augmented generation. The researchers first build 500 relations by hand as a benchmark, aim for more than 10,000 verified relations in three years, and plan to release the graph, annotation software and benchmarks under open licences. It builds on *Humanitext Antiqua*, a research platform, public since August 2024, that answers questions about more than 2,300 Greek and Latin works by pointing to the source passages.
+
+For cataloguers this is a familiar workflow wearing new clothes: machine suggestion, human decision, recorded provenance. If you want to run the same pattern on subject indexing or authority links, the minimum record per decision is short: `proposed_by` (model and version), `decided_by` (person and role), `decision` (accept / modify / reject), `basis` (the passage or source consulted) and `timestamp`. Keep it, and the next audit takes an afternoon instead of a quarter.
+
+**China - integrity talks and a standard still in the queue.** In her letter of **12 October**, COPE Chair Nancy Chescheir reports that after a June delegation to Beijing at the invitation of the Society of China University Journals, COPE is setting up an *ad hoc* group to address research and publication integrity concerns together with Chinese colleagues. Co-Vice Chair Tim Kersjes now leads COPE’s work on AI and external liaison ([COPE, 12 Oct](https://publicationethics.org/news-opinion/letter-cope-chair-october-2026)). The national guidance document on AIGC usage boundaries in academic publishing that we noted last week still shows as *at the approval stage* (正在批准) in the national standards register when we checked on 18 October ([project 20253114-Z-469](https://std.samr.gov.cn/gb/search/gbDetailed?id=3871886E8F31EF0FE06397BE0A0A1488)).
+
+**India, Singapore and elsewhere.** We found no new primary-source development this week for India: the NIRF retraction story we covered on 12 October has not moved on in any official source we could find. We also found nothing solid from Singapore or other BRICS members for this desk, and we say so rather than pad.
+
+## Noted this week
+
+Not a method. Seven signals from the sources above:
+
+1. **Agents are tools, not scientists** - the fourth ERA Living Guidelines add checkpoints for AI agents, a “substantial use” line for disclosure, and a warning about hidden prompts in metadata.
+2. **Publishers pledge to RAISE** - Elsevier (licences, about €1m a year in-kind) and Frontiers (AI-ready curation for 1,000 Horizon Europe datasets) are among the first seven pledgers; delivery is reviewed annually.
+3. **ONIX Issue 75** - a content audience and a resource type for LLM training, JSON as a file format, and manuscript submission and acceptance dates for scholarly books. The payload format comes from the German ONIX group.
+4. **Evidence before scale** - a Scholarly Kitchen guest post asks publishers to measure what AI changes and to share inconclusive results.
+5. **Rights levels in the open** - LLM-jp-4 separates training, retrieval and redistribution for every dataset; a usable template for licence talks.
+6. **Verified, not just generated** - Humanitext stores each AI-proposed link with an expert’s decision and its verification history.
+7. **Calendar** - the ISC, COPE, STM and Global Young Academy disclosure consultation closed on 16 October, with a draft “Vancouver Standard” to be refined in round three, end of 2026 to early 2027 ([ISC](https://council.science/our-work/ai-disclosure-in-research/)); COPE expects the fifth Principles of Transparency at the end of October; Crossref meets on 22 October.
+
+### Sources
+
+- [Commission launches RAISE pledging initiative to boost AI support for researchers across Europe](https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2175) - European Commission, IP/26/2175, 15 Oct 2026.
+- [RAISE Pledging Initiative: AI in science enablers](https://research-and-innovation.ec.europa.eu/strategy/strategy-research-and-innovation/our-digital-future/european-ai-science-strategy/raise-resource-ai-science-europe/raise-pledging-initiative-ai-science-enablers_en) - DG Research and Innovation (first pledgers, incl. Elsevier and Frontiers).
+- [Elsevier Commits to Accelerate AI-Driven Science Across Europe](https://www.prnewswire.com/news-releases/elsevier-commits-to-accelerate-ai-driven-science-across-europe-302908505.html) - Elsevier via PR Newswire, 15 Oct 2026.
+- [ERA Living Guidelines on the responsible use of Generative AI in research updated](https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/era-living-guidelines-responsible-use-generative-ai-research-updated-2026-10-16_en) - DG Research and Innovation, 16 Oct 2026; [Living guidelines, fourth version (PDF)](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en), published 15 Oct 2026.
+- [ONIX for Books codelists Issue 75 - additions and updates (PDF)](https://www.editeur.org/files/ONIX%20for%20books%20-%20code%20lists/ONIX_BookProduct_Codelists_Issue_75_Changes.pdf) - EDItEUR, mid-October 2026; [ONIX codelists browser](https://ns.editeur.org/onix/en/154).
+- [Crossref 2026 annual meeting and board election](https://www.crossref.org/crossref-annual-meeting/) - Crossref, 22 Oct 2026.
+- [Crossref webinar - how to incorporate CRediT into metadata](https://credit.niso.org/updates/crossref-webinar-how-to-incorporate-credit-into-metadata/) - CRediT (NISO), 17 Oct 2026.
+- [Guest Post - Artificial Intelligence in Scholarly Publishing: Are We Moving Faster Than the Evidence?](https://scholarlykitchen.sspnet.org/2026/10/14/guest-post-artificial-intelligence-in-scholarly-publishing-are-we-moving-faster-than-the-evidence/) - The Scholarly Kitchen (Sarah Hands), 14 Oct 2026.
+- [LLM-jp-4 technical report](https://arxiv.org/abs/2610.19331) - LLM-jp, arXiv:2610.19331, submitted 14 Oct 2026.
+- [第2回オープン大規模言語モデルシンポジウム - media advisory (PDF)](https://www.nii.ac.jp/news/upload/nii_mediaadvisory_20261015.pdf) - National Institute of Informatics, 15 Oct 2026.
+- [Schmidt Sciences awards $10 million to one of the world’s largest AI and humanities research programs](https://www.schmidtsciences.org/havi-2026-announcement/) - Schmidt Sciences, 14 Oct 2026; [Humanitext selected for HAVI](https://www.nii.ac.jp/news/release/2026/1015-1.html) - NII news release, 15 Oct 2026.
+- [Letter from the COPE Chair: October 2026](https://publicationethics.org/news-opinion/letter-cope-chair-october-2026) - COPE, 12 Oct 2026.
+- [学术出版中人工智能生成合成内容（AIGC）使用边界指南 - project 20253114-Z-469](https://std.samr.gov.cn/gb/search/gbDetailed?id=3871886E8F31EF0FE06397BE0A0A1488) - National Public Service Platform for Standards Information (status checked 18 Oct 2026).
+- [AI disclosure in research: towards a global reporting standard](https://council.science/our-work/ai-disclosure-in-research/) - International Science Council (round two closed 16 Oct 2026).
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
+<p class="news-credit">Follow us on X: <a href="https://x.com/DataMercsDotNet">https://x.com/DataMercsDotNet</a></p>

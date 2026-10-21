@@ -17,6 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## // Standards
 
 MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliographic) // [DNB](https://www.dnb.de/marc21) // [OCLC](https://www.oclc.org/bibformats/en/about.html)  
+> [OSDS MARC Core Set](https://datamercs.net/posts/2026-10-17-marc-core-field-set/)  
 [KBART](https://www.niso.org/standards-committees/kbart) - Knowledge Bases and Related Tools Recommended Practice  
 [ONIX](https://www.editeur.org/8/ONIX/) for Books Product Information Message  
 [ISBD](https://www.ifla.org/international-standard-bibliographic-description) - International Standard Bibliographic Description  
@@ -42,7 +43,8 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 
 ## // Tools
 
-[BISAC 2025 → Thema 1.6](tools/bisac-thema.html) — official EDItEUR / BISG mapping, with heuristic DDC, LCSH and GND.
+[BISAC 2025 → Thema 1.6](tools/bisac-thema.html) - official EDItEUR / BISG mapping, with heuristic DDC, LCSH and GND.  
+[CrossRef DOI metadata checker](tools/doi-check/doi-check.html)
 
 [cygwin](https://cygwin.com/install.html)  
 [draw.io](https://app.diagrams.net)  

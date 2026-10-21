@@ -1,0 +1,45 @@
+type	pos	value	meaning	loc
+ebook	LDR/05	n · c · d	new · corrected · deleted (record status)	bdleader
+ebook	LDR/06	a	language material (text)	bdleader
+ebook	LDR/07	m	monograph/item	bdleader
+ebook	LDR/09	a	UCS/Unicode (UTF-8)	bdleader
+ebook	LDR/17	# or 7	full or minimal level	bdleader
+ebook	LDR/18	i or c	ISBD punctuation included or omitted	bdleader
+ebook	006/00	m	computer file / electronic resource	bd006
+ebook	006/06	o	online	bd006
+ebook	006/09	d	document	bd006
+ebook	007/00-01	cr	electronic resource, remote	bd007
+ebook	008/06	s or t	single date · publication and copyright date	bd008a
+ebook	008/07-10	yyyy	date 1	bd008a
+ebook	008/15-17	gw · au · sz · xxu · enk	place of publication (MARC country code)	bd008a
+ebook	008/23	o	form of item: online (Books)	bd008b
+ebook	008/24-27	b · i …	nature of contents (bibliographies, indexes …)	bd008b
+ebook	008/29	0 or 1	conference publication	bd008b
+ebook	008/31	0 or 1	index	bd008b
+ebook	008/33	0	not fiction	bd008b
+ebook	008/35-37	ger · eng	language	bd008a
+ebook	008/39	d · c · #	cataloguing source	bd008a
+ejournal	LDR/06	a	language material (text)	bdleader
+ejournal	LDR/07	s	serial	bdleader
+ejournal	006/00 · /06 · /09	m · o · d	electronic resource, online, document	bd006
+ejournal	007/00-01	cr	electronic resource, remote	bd007
+ejournal	008/06	c or d	currently published · ceased	bd008a
+ejournal	008/07-10 · /11-14	yyyy · 9999	beginning · ending date (9999 = ongoing)	bd008a
+ejournal	008/18	q · m · a · z …	frequency	bd008s
+ejournal	008/19	r · n · x · u	regularity	bd008s
+ejournal	008/21	j	journal (latest MARC 21 value, defined since 2021); p periodical still valid	bd008s
+ejournal	008/22	#	form of original item: none of the following	bd008s
+ejournal	008/23	o	form of item: online	bd008s
+ejournal	008/34	0	successive entry	bd008s
+ejournal	008/35-37	ger · eng	language	bd008a
+database	LDR/06	a (or m)	text-based database a; predominantly non-textual m (then 008 Computer files)	bdleader
+database	LDR/07	i	integrating resource	bdleader
+database	006/00 · /06 · /09	m · o · d / e / j	electronic resource, online; type of file by content (document, bibliographic data, online system or service)	bd006
+database	007/00-01	cr	electronic resource, remote	bd007
+database	008/06	c or d	currently published · ceased	bd008a
+database	008/07-10 · /11-14	yyyy · 9999	beginning · ending date	bd008a
+database	008/18	k (or other)	frequency: k continuously updated	bd008s
+database	008/19	r · n · x · u	regularity	bd008s
+database	008/21	d or w	updating database · updating website	bd008s
+database	008/23	o	form of item: online	bd008s
+database	008/34	2	integrated entry	bd008s

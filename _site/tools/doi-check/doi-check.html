@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOI metadata check - OS DataMercs</title>
+<link rel="stylesheet" href="doi-check.css">
+<link rel="stylesheet" href="doi-check-bright.css">
+<script>/* apply saved theme before paint (avoids flash) */
+try { if (localStorage.getItem("doi-check-theme") === "bright") document.documentElement.dataset.theme = "bright"; } catch (e) {}
+</script>
+</head>
+<body>
+<main>
+<p class="topbar"><a href="../resources.html">← Resources</a>
+<button id="theme" class="secondary" type="button" aria-pressed="false">Theme: classic</button></p>
+<h1>DOI metadata check</h1>
+<p class="lede">Paste up to 200 DOIs. Each record is read from the public Crossref REST API in your browser,
+one at a time, and checked for common gaps: authors, ORCID iDs, abstract, references, licence, ISBN/ISSN,
+page range and date. Nothing is stored or sent to us.</p>
+
+<label for="dois"><strong>DOIs</strong> (one per line; https://doi.org/ prefixes are fine)</label>
+<textarea id="dois" spellcheck="false" placeholder="10.xxxx/example&#10;https://doi.org/10.xxxx/another"></textarea>
+<div class="controls">
+  <button id="run">Check</button>
+  <label><input type="checkbox" id="apa"> add APA reference (slower; via doi.org)</label>
+  <progress id="bar" value="0" max="1"></progress><span id="progress-text"></span>
+  <button id="tsv" class="secondary" disabled>Download TSV</button>
+</div>
+<p id="notes"></p>
+<ul id="summary"></ul>
+<div class="wrap"><table>
+<thead><tr><th>DOI</th><th>Type</th><th>Title</th><th>Contributors</th><th>ORCID</th><th>Abstract</th><th>Refs</th>
+<th>Licence</th><th>ISBN/ISSN</th><th>Page</th><th>Published</th><th>Flags</th><th>Raw</th><th id="apa-head" hidden>APA</th></tr></thead>
+<tbody id="rows"></tbody></table></div>
+
+<footer>
+<p>“MISSING” means the field is absent from the Crossref record, not necessarily an error: front matter has no
+author, books have no page range. Flags are heuristics. Data: Crossref REST API (metadata CC0); references: doi.org
+content negotiation (CSL).</p>
+<p>Olaf Schmalfuß · AI disclosure: OSDS AI, via Grok Bot · v0.4</p>
+</footer>
+</main>
+<script src="doi-check.js"></script>
+</body>
+</html>

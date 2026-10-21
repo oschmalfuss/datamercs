@@ -24,6 +24,41 @@
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Paying twice for prestige</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-10-20-paying-twice-for-prestige</link>
+      <description>Open Access Week 2026 asks about "The Cost of Knowledge". In Germany the cost is published per article. Why libraries and university presses do not simply publish themselves: the infrastructure exists, the incentives do not. Homework for appointment committees, university presses, library networks and the DFG.</description>
+      <category>Open access</category>
+      <category>Scholarly publishing</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-10-20-paying-twice-for-prestige</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-10-20-paying-twice-for-prestige/oaw_2026.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>News wrap · 19 October 2026 - Labelled for machines</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-10-19-industry-notes-labelled-for-machines</link>
+      <description>Weekly news wrap (not a workshop) for 19 October 2026. In Dublin, the European Commission revises its research guidance on generative AI, now with a chapter on AI agents and peer review, and collects first pledges from Elsevier, Frontiers and others; EDItEUR’s ONIX codelists gain a content audience for LLM training; a Scholarly Kitchen guest post asks for evidence before more adoption; and in Japan, NII documents how its open LLM-jp-4 models were built, with a rights level for every dataset, while the Humanitext project turns AI suggestions into expert-verified, sourced links.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-10-19-industry-notes-labelled-for-machines</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-10-19-industry-notes-labelled-for-machines/linkeddataxai.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>The 2016 MARC21 core set for e-resources, updated</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-10-17-marc-core-field-set</link>
+      <description>DataMercs' core set for MARC records, brought up to current practice and widened to e-journals and databases. One table, three markets: DNB and the German-language union catalogues, LC/PCC, and OCLC. Draft.</description>
+      <category>Standards &amp; metadata</category>
+      <category>Guides &amp; tooling</category>
+      <guid>https://www.datamercs.net/posts/2026-10-17-marc-core-field-set</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-10-17-marc-core-field-set/marc-core-preview-drawer.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Move with the times: the ALA's refusal is contract language</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2026-10-15-ala-ai-guidance-refusal-as-contract-language</link>

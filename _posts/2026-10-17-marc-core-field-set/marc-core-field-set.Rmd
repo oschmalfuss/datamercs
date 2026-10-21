@@ -1,0 +1,440 @@
+---
+title: "The 2016 MARC21 core set for e-resources, updated"
+description: |
+  DataMercs' core set for MARC records, brought up to current practice and widened to e-journals and databases. One table, three markets: DNB and the German-language union catalogues, LC/PCC, and OCLC. Draft.
+author:
+  - name: Olaf Schmalfuß
+    url: https://datamercs.net
+    affiliation: OS DataMercs
+    affiliation_url: https://datamercs.net
+    orcid_id: 0000-0002-1919-3848
+date: 2026-10-17
+preview: marc-core-preview-drawer.jpg
+categories:
+  - "Standards & metadata"
+  - "Guides & tooling"
+draft: false
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: true
+    share: false
+    css:
+      - ../../tools/bisac-thema/datamercs-bisac-thema.css
+      - theme-tools-cyber.css
+      - datamercs-distill-bridge.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(htmltools)
+
+LOC  <- "https://www.loc.gov/marc/bibliographic/"
+BFAS <- "https://www.oclc.org/bibformats/en/"
+
+fields <- read.delim("marc-core-fields.tsv", sep = "\t", quote = "",
+                     stringsAsFactors = FALSE, encoding = "UTF-8", na.strings = character())
+ldr008 <- read.delim("marc-core-ldr008.tsv", sep = "\t", quote = "",
+                     stringsAsFactors = FALSE, encoding = "UTF-8", na.strings = character())
+
+esc <- function(x) htmlEscape(as.character(x))
+
+# requirement level -> the existing confidence dots of the lookup skin
+level <- function(x) {
+  x <- as.character(x)
+  head <- toupper(substr(trimws(x), 1, 1))
+  cls <- if (grepl("^—|^see", x)) "" else switch(head, M = "conf-high", A = "conf-medium", O = "conf-low", "")
+  dot <- if (nzchar(cls)) sprintf('<span class="conf %s"></span>', cls) else ""
+  sprintf('<span class="ddc-cell">%s%s</span>', dot, esc(x))
+}
+
+tag_cell <- function(tag, loc, bfas) {
+  a <- sprintf('<a href="%s%s.html" target="_blank" rel="noopener" style="color:inherit">%s</a>', LOC, loc, esc(tag))
+  if (nzchar(bfas)) a <- paste0(a, sprintf(' <span class="gnd-id"><a href="%s%s" target="_blank" rel="noopener">BFAS</a></span>', BFAS, bfas))
+  a
+}
+
+field_table <- function(df) {
+  rows <- vapply(seq_len(nrow(df)), function(i) {
+    r <- df[i, ]
+    paste0("<tr>",
+      '<td class="bisac">', tag_cell(r$tag, r$loc, r$bfas), "</td>",
+      '<td class="heading">', esc(r$name), "</td>",
+      '<td class="ddc">', esc(r$subfields), "</td>",
+      '<td class="ddc" style="text-align:center">', esc(r$ebook), "</td>",
+      '<td class="ddc" style="text-align:center">', esc(r$ejournal), "</td>",
+      '<td class="ddc" style="text-align:center">', esc(r$database), "</td>",
+      "<td>", level(r$dach), "</td>",
+      "<td>", level(r$pcc), "</td>",
+      "<td>", level(r$oclc), "</td>",
+      '<td class="gnd">', esc(r$notes), "</td>",
+      "</tr>")
+  }, character(1))
+  HTML(paste0('<div class="table-wrap"><table class="dataTable display stripe">',
+    "<thead><tr><th>Tag</th><th>Name</th><th>Indicators · subfields</th>",
+    "<th>E-book</th><th>E-journal</th><th>Database</th>",
+    "<th>DNB / DACH</th><th>LC / PCC</th><th>OCLC</th><th>Notes</th></tr></thead><tbody>",
+    paste(rows, collapse = ""), "</tbody></table></div>"))
+}
+
+ldr_table <- function(type) {
+  df <- ldr008[ldr008$type == type, ]
+  rows <- vapply(seq_len(nrow(df)), function(i) {
+    r <- df[i, ]
+    sprintf('<tr><td class="bisac"><a href="%s%s.html" target="_blank" rel="noopener" style="color:inherit">%s</a></td><td class="ddc">%s</td><td class="gnd">%s</td></tr>',
+            LOC, r$loc, esc(r$pos), esc(r$value), esc(r$meaning))
+  }, character(1))
+  HTML(paste0('<div class="table-wrap"><table class="dataTable display stripe">',
+    "<thead><tr><th>Position</th><th>Value</th><th>Meaning</th></tr></thead><tbody>",
+    paste(rows, collapse = ""), "</tbody></table></div>"))
+}
+```
+
+<div class="intro">
+<p>The 2016 core set is my core field set for e-book MARC records: which fields a publisher's record has to carry so that libraries in Germany and the US can load it without rework. Its last revision dates from December 2016. This page brings it up to date and widens it to e-journals and databases.</p>
+<p>It is a <strong>delivery core</strong>, not a cataloguing manual. Each column says what one document asks for, in its own layer. Where a document does not mention a field, the cell says so and nothing more.</p>
+<p class="chips">
+<span class="dm-chip">MARC 21 Bibliographic · LoC</span>
+<span class="dm-chip">DACH: AG KVA e-book requirements · RDA DACH</span>
+<span class="dm-chip">US: PCC PN · BSR · CSR</span>
+<span class="dm-chip">OCLC: BFAS Full / Minimal</span>
+</p>
+</div>
+
+## How to read the tables
+
+<div class="notice">
+<strong>Requirement levels.</strong> <span class="conf conf-high"></span><code>M</code> mandatory · <span class="conf conf-medium"></span><code>A</code> mandatory if applicable (OCLC: required if applicable) · <span class="conf conf-low"></span><code>O</code> optional · <code>X</code> not used · <code>—</code> not stated in that document. OCLC cells read <code>Full/Minimal</code>.<br>
+<strong>Columns.</strong> <em>DNB / DACH</em> = the AG KVA requirements of the German-language networks and the DNB for e-book deliveries (they cover e-books; e-journals run through the ZDB). <em>LC / PCC</em> = the PCC Provider-Neutral guide, falling back to the BSR or CSR where it is silent (marked). <em>OCLC</em> = Bibliographic Formats and Standards input standards.<br>
+<strong>Applicability.</strong> <code>●</code> core for that resource type · <code>○</code> if applicable · <code>–</code> not applicable.<br>
+<strong>DataMercs core.</strong> Rows named <em>DataMercs core</em> are decisions of this set that go beyond the three market documents. <em>DataMercs extension</em> marks a use that MARC 21 does not define as such.<br>
+<strong>Links.</strong> Every tag opens its MARC 21 Bibliographic page at the Library of Congress. <span class="gnd-id">BFAS</span> opens the OCLC page for the same field.
+</div>
+
+## The core field set
+
+```{r fields, layout="l-screen-inset"}
+field_table(fields)
+```
+
+<div class="notice">
+<strong>Field count.</strong> `r nrow(fields)` rows. Ranges (1XX, 6XX, 70X–75X, 80X–83X, 9XX) count as one row each, as do 780/785.
+</div>
+
+### Contents note: 505 alongside the 856 TOC link
+
+<div class="notice"><span class="tag">DataMercs core</span> Wherever a table of contents exists, e-books and edited volumes carry it as text in 505. A full-text contents note turns every chapter title, and in the enhanced form every chapter author, into a search and index entry point. A link in <code>856 42 $3 Table of contents</code> gives one URL that most catalogues do not index. 505 complements the 856 link; it does not replace it. Send both when you have both.</div>
+
+```
+505  0# $a Introduction -- Records in transit -- Identifiers that hold -- Licences in the record -- Index.
+505  00 $t Introduction / $r A. Editor -- $t Records in transit / $r B. Author $g (pages 11–38) -- $t Identifiers that hold / $r C. Author and D. Author --
+505  80 $t Licences in the record / $r E. Author -- $t Index.
+856  42 $3 Table of contents $u https://example.org/toc.pdf
+```
+
+- **505 0# basic**: all parts in a single `$a`, separated by ` -- `. Use it for monographs, or when only chapter titles are available.
+- **505 00 enhanced**: each part as `$t` title, `$r` statement of responsibility (after ` / `) and `$g` other information such as part, volume or page numbering. Use it for edited volumes and multi-author works where chapter authors matter: systems can index `$t` and `$r` for title and author searches. They are not controlled headings; chapter authors who need authority control also get a 700 (or 730/740 for titles).
+- **Indicators** (LoC): first `0` contents, `1` incomplete, `2` partial, `8` no display constant; second `#` basic, `0` enhanced.
+- **Punctuation**: ` -- ` between parts, ` / ` before a statement of responsibility; end the field with a full stop unless the contents continue in another 505.
+- **Long contents**: 505 is repeatable. Split a long table of contents over several 505 fields: the first carries first indicator `0`, each continuation carries `8`, so no second "Contents:" label is displayed. OCLC BFAS shows exactly this (`505 80` continuing the note begun in the first). [bd505](https://www.loc.gov/marc/bibliographic/bd505.html) · [BFAS 505](https://www.oclc.org/bibformats/en/5xx/505.html)
+
+## Leader, 006, 007 and 008 by resource type
+
+The fixed fields carry most of the machine logic, so they get their own tables. Positions not listed are optional or follow the MARC definition. Each position links to its LoC page: [Leader](https://www.loc.gov/marc/bibliographic/bdleader.html), [006](https://www.loc.gov/marc/bibliographic/bd006.html), [007](https://www.loc.gov/marc/bibliographic/bd007.html), [008 all materials](https://www.loc.gov/marc/bibliographic/bd008a.html), [008 books](https://www.loc.gov/marc/bibliographic/bd008b.html), [008 continuing resources](https://www.loc.gov/marc/bibliographic/bd008s.html).
+
+### E-books (monographs, 008 Books)
+
+```{r ldr-ebook, layout="l-page"}
+ldr_table("ebook")
+```
+
+### E-journals (serials, 008 Continuing resources)
+
+```{r ldr-ejournal, layout="l-page"}
+ldr_table("ejournal")
+```
+
+<div class="notice">
+<strong>008/21.</strong> This set follows the latest MARC 21 values: e-journals take <code>j</code> journal, defined since its addition in 2021 ("Periodical addressing readers interested in a specific subject or profession"). <code>p</code> periodical remains valid where less granularity is wanted. <a href="https://www.loc.gov/marc/bibliographic/bd008s.html">bd008s</a><br>
+Example: <code>008  261017c20269999gw qr j o     0    0eng d</code> (quarterly, regular, journal, online, successive entry).
+</div>
+
+### Databases and websites (integrating resources)
+
+```{r ldr-database, layout="l-page"}
+ldr_table("database")
+```
+
+<div class="notice">
+<strong>Integrating resources.</strong> LDR/07 <code>i</code> uses the continuing-resources 008 with 008/34 <code>2</code> integrated entry: one record that is updated as the resource changes, with no successive records. 588 describes the latest iteration consulted.
+</div>
+
+## What the current documents ask for
+
+Each document works on its own layer: a **cataloguing rule** (how to describe), an **application profile** (which elements a programme requires), or a **delivery spec** (what a supplier must send). The summaries below say which layer, then what matters for an e-resource record.
+
+### DNB and the German-language union catalogues
+
+- **AG KVA, *Anforderungen der deutschsprachigen Verbundsysteme und der Deutschen Nationalbibliothek an Metadatenlieferungen zu E-Books und E-Book-Paketen*** (English: *Metadata for e-books*). Current online edition, valid from 1 June 2023; it replaces the PDF edition of 5 August 2016 ("überarbeitete Fassung für die Anwendung des Regelwerkes RDA ab 1. Oktober 2015", [PDF](https://www.dnb.de/SharedDocs/Downloads/DE/Professionell/Standardisierung/AGV/anforderungenMetadatenEbooksMarcOnixRDA2015.pdf?__blob=publicationFile&v=1)). Delivery spec of the networks and the DNB (BVB, DNB, GBV, hbz, hebis, KOBV, OBV, SLSP, SWB, ZDB). MARC 21 (ISO 2709 or MARCXML) or ONIX 3.0.8, UTF-8, SFTP or OAI-PMH. Each element is marked mandatory, mandatory if available, or optional, with a MARC field and example. Key MARC points: 001 stable ID; 003/040 $a provider; 020, 024 $2 doi, 776 `08 $i Erscheint auch als $n Druck-Ausgabe $z`; 1XX/7XX with `$4` and `$0`; 506 `0# $a Open access`; 540 `$a $f $2 cc $u`; 912/950 for collections. KBART title lists go alongside. [German](https://www.agkva.org/888668211.html) · [English](https://www.agkva.org/1013678130.html)
+- **RDA DACH.** Cataloguing rule and application profile for the region, on the STA documentation platform since 2023; release 2026/1 came out in June 2026. It merges RDA, the former D-A-CH application rules and the explanations. [sta.dnb.de/doc/RDA](https://sta.dnb.de/doc/RDA)
+- **DNB MARC 21 field descriptions.** Format application: how the DNB itself exports title, holdings and authority data. Title data are at version 4.4 (10 November 2025). [dnb.de/marc21](https://www.dnb.de/marc21)
+- **K10plus (GBV and SWB).** MARC 21 export documentation of the shared catalogue, and its cataloguing manual for e-books. [MARC21 export](https://wiki.k10plus.de/spaces/K10PLUS/pages/27361336/MARC21-Exportformat) · [E-books manual (PDF)](https://opus.k10plus.de/frontdoor/deliver/index/docId/428/file/K10plus_E-Books.pdf)
+
+### Library of Congress and PCC (US)
+
+- **PCC Provider-Neutral E-Resource MARC Record Guide** (P-N/RDA combined, 30 September 2024). Application guideline for one record per e-resource across providers: monographs, serials and integrating resources. `040 $e rda $e pn`; no package or provider-specific data in 773, 8XX, 506 or 540; 506 and 856 `$7 0` for open access. [Guidelines page](https://www.loc.gov/aba/pcc/scs/documents/PCC-PN-guidelines.html) · [PDF](https://www.loc.gov/aba/pcc/scs/documents/PN-RDA-Combined.pdf)
+- **BIBCO Standard Record (BSR) RDA MAP** (26 April 2024). Application profile, a floor record for monographs. Textual monographs: LDR/17 blank, LDR/18 `i` or `c`, at least one class number, subject and genre/form access supported by authority records. [BSR MAPs](https://www.loc.gov/aba/pcc/bibco/bsr-maps.html)
+- **CONSER Standard Record (CSR) RDA MAP.** Application profile for serials: 310 frequency core if known, always a source-of-title and "Description based on" note in 588. [CSR (PDF)](https://www.loc.gov/aba/pcc/conser/documents/CONSER-RDA-CSR.pdf)
+- **LC-PCC Policy Statements.** Policy layer on top of RDA, free in the RDA Toolkit. [Access](https://www.loc.gov/aba/rda/lcps_access.html)
+- **Official RDA.** PCC moves to the official RDA Toolkit on a rolling schedule (May 2024 to April 2027). Until PCC says otherwise, PCC records follow original RDA. [PCC notice (PDF)](https://www.loc.gov/aba/pcc/rda/update-on-PCC-implementation-of-Official-RDA.pdf) · [FAQ](https://www.loc.gov/aba/pcc/rda/official-rda/implementation-faq.html)
+
+### OCLC
+
+- **Bibliographic Formats and Standards (BFAS).** Input standard. Two levels: *Full* (ELvl blank or 1) and *Minimal* (ELvl 7). Every field page gives Full/Minimal for the field and each subfield. [Introduction](https://www.oclc.org/bibformats/en/about/introduction.html) · [Fixed fields](https://www.oclc.org/bibformats/en/fixedfield.html)
+- **Vendor Record Contribution Program.** Delivery acceptance spec for supplier records: valid MARC 21 (or MARCXML, ONIX 3.0+), fewer than 2% machine-detectable coding errors, US cataloguing and heading standards, at least minimal-level completeness. [VRCP](https://help.oclc.org/Metadata_Services/WorldShare_Collection_Manager/Data_sync_collections/Reference/Vendor_Record_Contribution_Program_VRCP)
+- **WorldShare Collection Manager, knowledge base MARC delivery.** Delivery spec on the library side: a title gets a record only with an OCLC number, a format, a coverage value and, for e-books and full-text journals, a title URL. That makes the KBART `title_url` and a WorldCat match part of the record supply. [Troubleshooting](https://help.oclc.org/Metadata_Services/WorldShare_Collection_Manager/Knowledge_base_collections/Get_WorldCat_MARC_records_for_knowledge_base_collections/MARC_Record_delivery_troubleshooting)
+
+## Minimum fields per resource type
+
+<div class="vocab-links">
+<h2>// checklist</h2>
+<ul>
+<li><a href="https://www.loc.gov/marc/bibliographic/bdleader.html">E-book</a><span>LDR /06 a /07 m /09 a · 001 · 003 · 005 · 006 m · 007 cr · 008 Books /23 o · 020 · 024 doi · 040 $e rda · 041 · 1XX/7XX $4 $0 · 245 · 264 #1 · 300 · 336–338 · 347 · 490/8XX · 505 (where a TOC exists; 00 for edited volumes) · 506/540 (OA) · 520 · 588 · 6XX $0 $2 · 776 · 856 40 (+ 856 42 TOC link) · 540 record CC0 · <em>when applicable:</em> 500 AI disclosure, 883 for machine-generated fields</span></li>
+<li><a href="https://www.loc.gov/marc/bibliographic/bd008s.html">E-journal</a><span>LDR /06 a /07 s · 001 · 003 · 006 m · 007 cr · 008 CR /18 /19 /21 j /23 o /34 0 · 022 · 040 · 245 · 246 · 264 #1 · 310 · 336–338 · 362 · 506/540 (OA) · 520 · 588 · 6XX · 776 · 780/785 · 856 · 540 record CC0 · <em>when applicable:</em> 500 AI disclosure, 883 for machine-generated fields</span></li>
+<li><a href="https://www.loc.gov/marc/bibliographic/bd008s.html">Database / website</a><span>LDR /07 i · 001 · 003 · 006 m · 007 cr · 008 CR /18 k /19 /21 d or w /23 o /34 2 · 040 · 245 · 246 · 264 #1 · 310 · 336–338 · 520 · 588 (latest iteration) · 6XX · 856 · 540 record CC0 · <em>when applicable:</em> 500 AI disclosure, 883 for machine-generated fields</span></li>
+</ul>
+</div>
+
+## Sample field values
+
+<div class="notice"><span class="tag">example</span> Illustrative values for a fictional open-access e-book. Identifiers are placeholders. The GND IDs are real public authority records.</div>
+
+```
+LDR  00000nam a2200000 i 4500
+006  m     o  d
+007  cr |||||||||||
+008  261017t20262026gw      ob    001 0 eng d
+020  ## $a 9783XXXXXXXXX $q (PDF)
+024  7# $a 10.xxxx/example.2026 $2 doi
+035  ## $a (XX-0000)EX000123
+040  ## $a XX-0000 $b eng $e rda $c XX-0000
+041  ## $a eng
+082  04 $a 306.2 $2 23
+245  10 $a Example title : $b a subtitle / $c edited by A. Editor.
+264  #1 $a Berlin : $b Example Press, $c [2026]
+264  #4 $c ©2026
+300  ## $a 1 online resource (xii, 300 pages)
+336  ## $a text $b txt $2 rdacontent
+337  ## $a computer $b c $2 rdamedia
+338  ## $a online resource $b cr $2 rdacarrier
+347  ## $a text file $2 rdaft
+347  ## $b PDF
+505  00 $t Introduction / $r A. Editor -- $t First chapter title / $r B. Author -- $t Second chapter title / $r C. Author.
+506  0# $a Open access $f open access $2 coarar
+540  ## $a Creative Commons Attribution 4.0 International $f CC BY 4.0 $2 cc $u https://creativecommons.org/licenses/by/4.0/
+588  0# $a Description based on online resource; title from PDF title page (viewed October 17, 2026)
+650  #7 $a Politische Soziologie $0 (DE-588)4046558-5 $0 https://d-nb.info/gnd/4046558-5 $2 gnd
+655  #7 $a Aufsatzsammlung $0 (DE-588)4143413-4 $2 gnd-content
+700  1# $a Editor, A. $e editor $4 edt
+776  08 $i Print version: $t Example title $z 9783XXXXXXXXX
+856  40 $u https://doi.org/10.xxxx/example.2026 $7 0
+856  42 $3 Table of contents $u https://example.org/toc.pdf
+```
+
+For DACH delivery, the 776 reads `776 08 $i Erscheint auch als $n Druck-Ausgabe $z …`, and cataloguing in German gives `040 $b ger` with German RDA terms in 300 and 336–338.
+
+## Illustrative OA e-book record
+
+<div class="notice"><span class="tag">example</span> <strong>Illustrative example, not a real record.</strong> A fictional open-access e-book in line format, 32 lines. Title, names, ISBNs, DOI and GND numbers are dummies. The field choice and the indicator and subfield patterns follow well-formed vendor practice.</div>
+
+```
+LDR  00000nam a2200000 i 4500
+006  m     o  d
+007  cr |||||||||||
+008  261017s2026    gw      ob    001 0 eng d
+020  ## $a 9783000000000 $q (PDF)
+024  7# $a 10.xxxx/example $2 doi
+040  ## $a XX-0000 $b eng $e rda $c XX-0000
+041  0# $a eng $a ger
+082  04 $a 025.3 $2 23
+100  1# $a Muster, Erika, $e author. $4 aut $0 (DE-588)0000000-0
+245  10 $a Records that travel : $b a fictional guide to e-book metadata / $c Erika Muster.
+264  #1 $a Berlin : $b Example Academic Press, $c [2026]
+300  ## $a 1 online resource (xiv, 280 pages)
+336  ## $a text $b txt $2 rdacontent
+337  ## $a computer $b c $2 rdamedia
+338  ## $a online resource $b cr $2 rdacarrier
+347  ## $a text file $2 rdaft
+490  0# $a Example studies in metadata, $x 0000-0000 ; $v 12
+500  ## $a AI use disclosed by the author: language editing of chapters 2–4 with a generative AI tool; the author reviewed all text.
+505  00 $t Introduction / $r Max Beispiel -- $t Why records travel -- $t Identifiers that hold -- $t Licences in the record -- $t Provenance and the machine -- $t Appendix: a field checklist $g (pages 251–268).
+506  0# $a Open access $u http://purl.org/coar/access_right/c_abf2 $f Unrestricted online access $2 star
+520  3# $8 1\p $a This fictional handbook follows an e-book record from publisher to library catalogue and shows which fields survive the trip. (Repeat 520 for each language of the abstract.)
+540  ## $a Creative Commons Attribution 4.0 International $f CC BY 4.0 $2 cc $u https://creativecommons.org/licenses/by/4.0/
+540  ## $3 Bibliographic record $a Metadata in this record released under CC0 1.0 Universal. $f CC0 1.0 $2 cc $u https://creativecommons.org/publicdomain/zero/1.0/ $q XX-0000
+588  0# $a Description based on online resource; title from PDF title page (viewed October 17, 2026)
+650  #7 $8 2\p $a Metadaten $0 (DE-588)0000000-1 $0 https://d-nb.info/gnd/0000000-1 $2 gnd
+655  #7 $a Handbuch $0 (DE-588)0000000-2 $2 gnd-content
+700  1# $a Beispiel, Max, $e writer of introduction. $4 win $0 (DE-588)0000000-3
+776  08 $i Print version: $t Records that travel $z 9783000000017
+856  40 $u https://doi.org/10.xxxx/example $7 0
+883  1# $8 1\p $a abstract-llm-v1, human-reviewed $c 0.9 $d 20261018 $q XX-0000 $u https://example.org/provenance/abstract-llm-v1
+883  0# $8 2\p $a subject-classifier-v2 $c 0.72 $d 20261018 $q XX-0000
+```
+
+The 505 is core here because the book has a table of contents; it uses the enhanced form because the introduction has its own author. The 500, the 520–883 link and the 650–883 link are conditional: use them only when AI was involved. The record CC0 line goes on every record. `XX-0000` stands in for your MARC organisation code or ISIL.
+
+Reference for a well-received OA e-book data sample: [OA e-book collection, public metadata portal](https://degruyter-public.gitlab.io/metadata-portal/DG-collections.html/?q=oaebooks).
+
+For a DACH delivery, swap the 776 for `776 08 $i Erscheint auch als $n Druck-Ausgabe $z …`, add the RSWK chain as `689 00 $a … $0 (DE-588)…` if the recipient wants it, and use 084 for RVK or BK. A traced series takes `490 1#` plus `830 #0`.
+
+## Provenance and licensing: the DataMercs layer
+
+The three market documents stop at the resource. This set also says who may reuse the record and how a machine was involved in the work or the metadata. Each standard below is named by its layer.
+
+### CC0 on the record itself
+
+<div class="notice"><span class="tag">DataMercs core</span> Every record carries a CC0 statement for its own metadata. This is separate from the resource licence in 506/540. Reason: anyone can reuse, merge and enrich the record without asking.</div>
+
+```
+540  ## $3 Bibliographic record $a Metadata in this record released under CC0 1.0 Universal. $f CC0 1.0 $2 cc $u https://creativecommons.org/publicdomain/zero/1.0/ $q XX-0000
+```
+
+- **MARC 21 field 540** (format, LoC, December 2024): terms governing use and reproduction. `$f` takes a term from a standardised list such as Creative Commons. `$2 cc` is the Creative Commons code in the LoC *Access Restriction Term Source Codes*. `$u` takes a URI. `$q` names the supplying agency. LoC's own CC example puts the licence URI in `$0` (added 2024); this set uses `$u`, as the DNB does in its resource 540. [bd540](https://www.loc.gov/marc/bibliographic/bd540.html) · [source codes](https://www.loc.gov/standards/sourcelist/access-restriction.html)
+- **The extension.** 540 `$3` is defined as "part of the described material". Using it to point at the bibliographic record is a **DataMercs extension**. MARC 21 has no field for the licence of the record itself, and the MARC papers on open access and licences (2018-DP11, Proposal 2019-01, 2024-DP04) deal with the resource. Put the record line after the resource 540 so that a system ignoring `$3` still shows the resource licence first. [2019-01](https://www.loc.gov/marc/mac/2019/2019-01.html) · [2024-DP04](https://www.loc.gov/marc/mac/2024/2024-dp04.html)
+- **DNB** (policy layer): all title data and GND authority data are available under CC0 1.0, stated on the business-model page and in the open-data download notes. The licence is not repeated in the records; live records carry 540 only for the resource (`540 ## $u http://creativecommons.org/licenses/by/4.0 $2 cc`). [Geschäftsmodell](https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/geschaeftsmodell.html) · [data.dnb.de](https://data.dnb.de/opendata/)
+- **OCLC** (policy layer): OCLC recommends the Open Data Commons Attribution licence (ODC-BY) for member libraries that publish WorldCat-derived data, with an attribution sentence and a pointer to the WorldCat community norms. The terms live in *WorldCat Rights and Responsibilities*; origin travels in the record as 040 and the `035 (OCoLC)` number. [Press release, 6 August 2012](https://librarytechnology.org/document/17111) · [WorldCat Rights and Responsibilities](https://www.oclc.org/en/worldcat/cooperative-quality/policy.html)
+
+### AI in the resource
+
+- **COPE** and **ICMJE** (publication-ethics layer): an AI tool cannot be an author because it cannot take responsibility for the work. Authors disclose the tool and how they used it. [COPE](https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools) · [ICMJE](https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html)
+- **MARC relator list** (code list, LoC): it has no term or code for AI or machine generation. The nearest entries, *software developer* [swd] and *music programmer* [mup], describe persons. [Relator terms](https://www.loc.gov/marc/relators/relaterm.html)
+- **CRediT** (ANSI/NISO Z39.104-2022, contributor-role taxonomy): its 14 roles describe human contributors. The **STM classification of AI use in manuscript preparation** (September 2025) names the activities, such as language editing or drafting, that a disclosure can cite. The **AID Framework** (2024) gives a structured disclosure statement. [CRediT](https://credit.niso.org/) · [STM](https://stm-assoc.org/document/recommendations-for-a-classification-of-ai-use-in-academic-manuscript-preparation/) · [AID Framework](https://aidframework.org/)
+
+So the disclosure is a note, not a heading. **500** fits: it is the general note for information without a specialised 5XX. 545 holds the creator's biography, and 588 is about the record.
+
+```
+500  ## $a AI use disclosed by the author: language editing of chapters 2–4 with a generative AI tool; the author reviewed all text.
+```
+
+If the tool has to be indexed, an uncontrolled added entry can trace it. This is a **DataMercs extension**, optional, and never a 100/700:
+
+```
+720  2# $a Example language model 1.0 $e language editing tool
+```
+
+### AI in the record
+
+**MARC 21 field 883** (format, LoC, May 2020) records metadata provenance for a linked field. First indicator: `0` fully machine-generated, `1` partially machine-generated, `2` not machine-generated, `#` no information. Subfields:
+
+- `$a` creation process
+- `$c` confidence value, from 0 to 1, with a point or comma
+- `$d` creation date (yyyymmdd)
+- `$q` agency, as a MARC organisation code
+- `$u` URI of the process
+- `$x` validity end date
+- `$w` source record number
+- `$0` source authority number, `$1` real-world object URI
+- `$8` field link
+
+Link both fields with the same `$8` number and link type `p`.
+
+```
+520  3# $8 1\p $a [abstract text]
+650  #7 $8 2\p $a [subject] $0 (DE-588)… $2 gnd
+883  1# $8 1\p $a abstract-llm-v1, human-reviewed $c 0.9 $d 20261018 $q XX-0000 $u https://example.org/provenance/abstract-llm-v1
+883  0# $8 2\p $a subject-classifier-v2 $c 0.72 $d 20261018 $q XX-0000
+```
+
+`XX-0000` is a placeholder for your MARC organisation code or ISIL. DNB records use the same pattern for machine-assigned DDC classes, for example `883 0# $8 6\p $a emakn $c 0,16014 $d … $q DE-101 $u https://d-nb.info/provenance/plan#emakn`. [bd883](https://www.loc.gov/marc/bibliographic/bd883.html) · [$8 link types](https://www.loc.gov/marc/bibliographic/ecbdcntf.html)
+
+**Data provenance `$7`** (MARC 21 Appendix J, added 2022, revised December 2025) is defined in 520, 650, 500 and 720, among others, but not in 540 or 883. It holds a provenance value for the other subfields of the same field and can carry a category code from the LoC *Data Provenance Code List*, for example `dpenmw` (note on metadata work). The values themselves are not controlled. Use it as an optional in-field echo; 883 stays the carrier. [Appendix J](https://www.loc.gov/marc/bibliographic/bdapndxj.html) · [Code list](https://www.loc.gov/standards/valuelist/dataprov.html)
+
+```
+520  3# $a [abstract text] $7 (dpenmw)machine-generated, human-reviewed
+```
+
+A human-readable line in **588** is also within that field's scope ("tracking and controlling the metadata"): `588 ## $a Abstract machine-generated and reviewed by the cataloguer.`
+
+### Why
+
+Provenance is the point of this site. A record that says who made it, by which process and under which licence can be trusted, corrected and passed on. This page practises what it describes: it names its author of record and its tool, credited as "OSDS AI, via Grok Bot", which is a disclosure and not an authorship. Related posts: [Ghost in the MARC](https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/) and [Who signs, who drives](https://www.datamercs.net/posts/2026-09-21-who-signs-who-drives/).
+
+## QA checklist
+
+<div class="notice">
+<span class="tag">before delivery</span><br>
+1. LDR/09 <code>a</code> and the file really is UTF-8; no mixed encodings in one batch.<br>
+2. LDR/06–07 match 008 (Books vs Continuing resources) and 006/007 are present and agree with 338.<br>
+3. 001 is stable: the update file carries the same ID as the first delivery; deletes go out as a separate file.<br>
+4. 020 holds only e-ISBNs in $a; print ISBNs in 776 $z (and 020 $z under PN).<br>
+5. 024 $a is a bare DOI, ind1 7, $2 doi; the same DOI resolves in 856 $u.<br>
+6. 040 $b matches the language of 300, 336–338 and the notes; 040 $e rda is present.<br>
+7. 264 second indicator is right (1 publication, 4 copyright); no 260 alongside.<br>
+8. 506 first indicator agrees with $a (0 = no restrictions); 856 $7 agrees with 506.<br>
+9. 540 $f uses the CC short form, $2 cc, and $u points to the matching licence version.<br>
+10. Where a table of contents exists, 505 carries it as text (00 for edited volumes, 0# otherwise), parts separated by <code> -- </code>, continuations with first indicator 8; an 856 42 $3 Table of contents link goes alongside, never instead.<br>
+11. Every controlled access point (1XX, 6XX, 7XX) has $2 or a thesaurus indicator, and a $0/$1 that resolves.<br>
+12. No package, platform or price data in 490/8XX or general notes; use 912/950 locally where the recipient wants it.<br>
+13. Every machine-generated or AI-assisted field has an 883 with the right first indicator (0 fully, 1 partially) and the same $8 number with link type <code>p</code>; $q holds a MARC organisation code.<br>
+14. Every record carries the record CC0 line (540 $3 Bibliographic record … $f CC0 1.0 $2 cc), separate from the resource licence.<br>
+15. AI involvement in the resource is a 500 note, never a 100/700 heading.<br>
+16. Validate the batch (MARC structure, field and indicator validity) before sending. OCLC loads vendor batches only if fewer than 2% of records have machine-detectable coding errors.
+</div>
+
+## What changed since the 2016 core set
+
+- **Scope**: e-journals and databases (integrating resources) join e-books, with their own LDR/008 tables.
+- **Markets**: one column each for DNB/DACH, LC/PCC and OCLC instead of a single house level.
+- **Identifiers**: 020 `$q` for format qualifiers; print ISBN to 776; 024 DOI kept; 016 for the DNB number; `$0`/`$1` identifiers and URIs in 1XX, 6XX and 7XX.
+- **RDA**: 264 with copyright in `#4`; 336–338 with `$b` codes; 347 split into `$a … $2 rdaft` and `$b PDF`; 040 `$e pn` for provider-neutral records; LDR/18 `i` or `c`.
+- **Open access**: 506 with `$f`/`$2`, 540 with CC licence and link, 856 `$7`.
+- **Subjects**: GND and LCSH with `$0` and `$2`; 655 genre/form (gnd-content, lcgft); 082 and 084 (sdnb, rvk, bkl) alongside 072.
+- **Linking**: 776 in DACH and PCC wording; 758 for identifiers of related entities; 856 kept for access.
+- **Packages**: 773 package entries left out (PN: not used); package data go to local 912/950.
+- **Contents**: 505 retained and now core for e-books and edited volumes wherever a table of contents exists: 00 enhanced ($t/$r/$g) for edited and multi-author works, 0# basic otherwise. The 856 42 $3 Table of contents link complements it and does not replace it.
+- **Dropped**: 538 "Mode of access" (PN: only for digital preservation records).
+- **New, optional**: 341/532 accessibility.
+- **Provenance and licensing (DataMercs core)**: CC0 for the record itself on every record; AI use in the resource as a 500 note; 883 with $8 links for machine-generated fields.
+
+## Sources
+
+Library of Congress. *MARC 21 Format for Bibliographic Data.* <https://www.loc.gov/marc/bibliographic/>
+
+AG Kooperative Verbundanwendungen. *Anforderungen der deutschsprachigen Verbundsysteme und der Deutschen Nationalbibliothek an Metadatenlieferungen zu E-Books und E-Book-Paketen* (online edition, valid from 2023-06-01). <https://www.agkva.org/888668211.html> · English: <https://www.agkva.org/1013678130.html>
+
+AG Kooperative Verbundanwendungen. *Anforderungen der deutschsprachigen Verbundsysteme und der Deutschen Nationalbibliothek an Metadatenlieferungen zu E-Books und E-Book-Paketen. Überarbeitete Fassung für die Anwendung des Regelwerkes RDA ab 1. Oktober 2015* (PDF, 5 August 2016; superseded). <https://www.dnb.de/SharedDocs/Downloads/DE/Professionell/Standardisierung/AGV/anforderungenMetadatenEbooksMarcOnixRDA2015.pdf?__blob=publicationFile&v=1>
+
+Standardisierungsausschuss. *RDA DACH*, release 2026/1. <https://sta.dnb.de/doc/RDA>
+
+Deutsche Nationalbibliothek. *MARC 21.* <https://www.dnb.de/marc21>
+
+Program for Cooperative Cataloging. *Provider-Neutral E-Resource MARC Record Guide: P-N/RDA Combined Version* (30 September 2024). <https://www.loc.gov/aba/pcc/scs/documents/PN-RDA-Combined.pdf>
+
+Program for Cooperative Cataloging. *BIBCO Standard Record (BSR) RDA Metadata Application Profile* (26 April 2024). <https://www.loc.gov/aba/pcc/bibco/bsr-maps.html>
+
+Program for Cooperative Cataloging. *CONSER Standard Record (CSR) RDA Metadata Application Profile.* <https://www.loc.gov/aba/pcc/conser/documents/CONSER-RDA-CSR.pdf>
+
+OCLC. *Bibliographic Formats and Standards.* <https://www.oclc.org/bibformats/en/about/introduction.html>
+
+OCLC. *Vendor Record Contribution Program (VRCP).* <https://help.oclc.org/Metadata_Services/WorldShare_Collection_Manager/Data_sync_collections/Reference/Vendor_Record_Contribution_Program_VRCP>
+
+Library of Congress. *MARC 21 Bibliographic: 540 Terms Governing Use and Reproduction Note* (December 2024); *883 Metadata Provenance* (May 2020); *Appendix J: Data Provenance Subfields* (December 2025). <https://www.loc.gov/marc/bibliographic/bd540.html> · <https://www.loc.gov/marc/bibliographic/bd883.html> · <https://www.loc.gov/marc/bibliographic/bdapndxj.html>
+
+Library of Congress. *Access Restriction Term Source Codes*; *Data Provenance Code List*; *MARC Code List for Relators*. <https://www.loc.gov/standards/sourcelist/access-restriction.html> · <https://www.loc.gov/standards/valuelist/dataprov.html> · <https://www.loc.gov/marc/relators/relaterm.html>
+
+MARC Advisory Committee. *Proposal 2019-01: Designating Open Access and License Information for Remote Online Resources*; *Discussion Paper 2024-DP04: Adding Subfields $0 and $1 to Fields 506 and 540.* <https://www.loc.gov/marc/mac/2019/2019-01.html> · <https://www.loc.gov/marc/mac/2024/2024-dp04.html>
+
+Deutsche Nationalbibliothek. *Geschäftsmodell für Metadatendienste.* <https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/geschaeftsmodell.html>
+
+OCLC. *WorldCat Rights and Responsibilities for the OCLC Cooperative.* <https://www.oclc.org/en/worldcat/cooperative-quality/policy.html>
+
+COPE. *Authorship and AI tools.* <https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools> · ICMJE. *AI use by authors.* <https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html>
+
+NISO. *CRediT, Contributor Role Taxonomy* (ANSI/NISO Z39.104-2022). <https://credit.niso.org/> · STM. *Recommendations for a Classification of AI Use in Academic Manuscript Preparation* (2025). <https://stm-assoc.org/document/recommendations-for-a-classification-of-ai-use-in-academic-manuscript-preparation/> · Weaver, K. D. *The Artificial Intelligence Disclosure (AID) Framework: An Introduction.* C&RL News 85(10), 2024. <https://crln.acrl.org/index.php/crlnews/article/view/26548>
+
+
+<footer class="portal-foot">
+Byline: Olaf Schmalfuß (author of record). Tool disclosure: OSDS AI, via Grok Bot, was used for drafting and source checks; it is not a co-author.
+</footer>

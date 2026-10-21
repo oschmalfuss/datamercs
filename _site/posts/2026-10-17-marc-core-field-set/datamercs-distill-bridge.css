@@ -1,0 +1,52 @@
+/* datamercs · Distill bridge for the lookup skin
+   Distill's JavaScript turns div.d-title / div.d-byline / div.d-article / div.d-appendix
+   into <d-title>, <d-byline>, <d-article>, <d-appendix> at load time, so the class
+   selectors in theme-tools-cyber.css miss them. This file repeats those same rules for
+   the element names. Only existing tokens from datamercs-bisac-thema.css /
+   theme-tools-cyber.css are used; no new colours or components. */
+
+d-title h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  color: var(--white) !important;
+  letter-spacing: -0.02em !important;
+}
+d-title p, d-byline, d-byline *, d-article, d-article p, d-article li {
+  color: var(--text) !important;
+}
+d-byline { border-color: var(--border) !important; }
+d-byline h3 { color: var(--muted) !important; }
+
+d-article h2,
+d-article h3,
+d-article h4 {
+  font-family: var(--font-ui) !important;
+  color: var(--white) !important;
+  letter-spacing: -0.01em !important;
+  border-bottom-color: var(--border) !important;
+}
+d-article h2::before {
+  content: "// ";
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+d-article a { color: var(--cyan) !important; border-bottom: none !important; }
+
+d-article .table-wrap { overflow-x: auto; padding: 0 0 24px !important; }
+d-article table.dataTable { font-size: 0.82rem; }
+d-article table.dataTable td.gnd { min-width: 240px; }
+
+.d-contents h3, .d-contents nav h3 { color: var(--muted) !important; }
+
+d-appendix {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+}
+d-appendix h3 { color: var(--cyan) !important; }
+
+/* the lookup skin hides .title/.author/.date (rmarkdown chrome); Distill's byline
+   uses .author for the author name, so bring it back inside the byline only */
+d-byline .author, d-byline p.author { display: block !important; }
