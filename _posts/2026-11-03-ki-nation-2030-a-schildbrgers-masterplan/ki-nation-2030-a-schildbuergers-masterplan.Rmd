@@ -1,0 +1,226 @@
+---
+title: "KI-Nation 2030: A Schildbürger's Masterplan"
+subtitle: "Contradictions, Energy Reality, LNG, Nordstream, and the Planwirtschaft of the German AI Taskforce"
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: "`r Sys.Date()`"
+preview: ger_ai_narrenschiff.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(knitr)
+```
+
+# The Masterplan and the Shoulder-Tapping
+
+On 2 November 2026, at the Digital-Gipfel in Berlin, the German government published the *Ergebnisbericht der KI-Taskforce*: “[Deutschland als KI-Nation 2030](https://bmds.bund.de/service/publikationen/ki-nation-deutschland-2030)”.^[BMDS, *Deutschland als KI-Nation 2030*, 2 Nov 2026 (PDF linked under Sources).]  
+Eighteen cross-ministry key measures, measurable targets (AI in 80 % of large firms, 55 % of SMEs and 90 % of federal authorities; AI data-centre capacity +300 % vs 2025), and the *firm assurance* that the energy will be covered “nachhaltig und klimaneutral” - somehow.
+
+The document itself records the investment gap:
+
+- the US invested around **286 bn USD** of private money in AI in 2025,
+- China plans around **295 bn USD** of state funds for a national AI data-centre network,
+- Germany managed **3.9 bn USD** of private investment.^[Ergebnisbericht, section “Ausgangslage”, citing its own footnotes 2-4.]
+- The next 12-18 months, we are told, are decisive.
+
+Nvidia's Jensen Huang had already offered Chancellor Merz some free advice in Berlin on 19 October 2026:
+
+> “There's nothing to regulate if the industry doesn't thrive.” - and, interrupting the Chancellor a few minutes later: “Give Germany a chance.”^[Quotes as reported by [Business Insider, Oct 2026](https://www.businessinsider.com/jensen-huang-warns-europe-move-faster-ai-risk-falling-behind-2026-10) and the [event transcript](https://singjupost.com/transcript-merz-x-jensen-huang-ai-safety-regulation-germanys-industrial-future). The two lines were said at different moments; the draft had merged them into one quote.]
+
+What followed was another "Arbeitskreis", an *AISI Deutschland* (AI Safety and Security Institute) to be built out, and a coordination document.  
+Textbook *Planwirtschaft - "made in Germany"*: diagnose the gap, convene a body, list the measures, and pat each other on the shoulder for having produced a *masterplan*.  
+Shall we have a quick reality check? An opinion piece.
+
+# Official Energy Numbers from the Ministries and Sector Studies
+
+### Current baseline (Bitkom / Borderstep, November 2025)
+
+- Installed IT connected load: **2,980 MW** (2025, +9 % year on year)
+- Electricity consumption: **21.3 TWh** (≈ 4 % of German gross electricity consumption)^[The 4 % share is our own estimate (21.3 TWh against roughly 500-520 TWh gross consumption); Bitkom does not state it.]
+- AI/HPC share: ≈ 15 % of capacity (≈ 530 MW), projected to 2,020 MW by 2030 (≈ 40 % of a total above 5,000 MW)
+
+Source: Bitkom / Borderstep Institut, *Rechenzentren in Deutschland: Aktuelle Marktentwicklungen (Update 2025)*, 10 Nov 2025.^[[Bitkom press release](https://www.bitkom.org/Presse/Presseinformation/Rechenzentren-Deutschland-KI-treibt-Wachstum); [study PDF](https://www.bitkom.org/sites/main/files/2025-11/bitkom-studie-rechenzentren-in-deutschland-2025.pdf).]
+
+The Taskforce's +300 % target for AI data-centre capacity sits on top of this base - and is, incidentally, exactly the fourfold growth Bitkom already expected the market to deliver on its own. Asked by the Bundestag, the government replied that it has “keine Informationen” on the future energy demand of AI-capable data centres; a BMWE-commissioned study puts *all* data centres at about **42 TWh in 2035**.^[[Bundestag Drucksache 21/1263](https://dserver.bundestag.de/btd/21/012/2101263.pdf), answer to question 2.] Earlier transmission-operator scenario work pointed to 39-88 TWh by 2037/2045.^[Not re-verified for this revision: from the Netzentwicklungsplan Strom 2037/2045 scenario framework; please check the exact figures before publishing.]  
+Which leaves the question: can Germany even support such a *"climate-damaging"* technology!?
+
+## Simple arithmetic / (R-magic) on the Taskforce ambition
+
+```{r energy-calc, code_folding = T}
+baseline_twh_2025 <- 21.3
+ai_share_2025 <- 0.15
+ai_twh_2025 <- baseline_twh_2025 * ai_share_2025
+
+# +300 % AI capacity (Taskforce language) = 4x
+ai_growth_factor <- 4
+ai_twh_2030_upper <- ai_twh_2025 * ai_growth_factor
+
+# Conservative total DC if only the AI portion multiplies and the rest stays flat
+total_twh_2030_conservative <- (baseline_twh_2025 - ai_twh_2025) + ai_twh_2030_upper
+
+# Bitkom total capacity path (~5 GW by 2030 from 2.98 GW)
+capacity_growth_factor <- 5000 / 2980
+total_twh_2030_bitkom_scale <- baseline_twh_2025 * capacity_growth_factor
+
+cat("AI-related TWh 2025 (approx.):", round(ai_twh_2025, 1), "\n")
+cat("AI-related TWh 2030 at +300 %:", round(ai_twh_2030_upper, 1), "\n")
+cat("Conservative total DC TWh 2030:", round(total_twh_2030_conservative, 1), "\n")
+cat("Increase vs 2025 baseline:", round(total_twh_2030_conservative / baseline_twh_2025, 2), "x\n")
+cat("Bitkom-scale total DC TWh 2030 (capacity ratio):", round(total_twh_2030_bitkom_scale, 1), "\n")
+cat("BMWE all-DC estimate 2035: ~42 TWh\n")
+```
+
+Note: AI capacity runs at higher utilisation than the average rack, so applying the capacity share to energy (15 % of TWh) understates AI's real consumption. The numbers above are a floor, not a ceiling.
+
+Even under these modest assumptions the additional load is material.  
+The higher paths (Bitkom's 5 GW, the IEA's global doubling of data-centre demand by 2030,^[[IEA, *Energy and AI*, April 2025](https://www.iea.org/reports/energy-and-ai): data-centre electricity demand projected to roughly double to about 945 TWh by 2030.] the grid operators' 39-88 TWh) push it further.  
+The report itself offers no demand figure in TWh and not one word on *baseload*.
+
+# The Energy Contradiction: “Nachhaltig und klimaneutral” vs LNG and Nordstream Reality
+
+Irrational *"German Atom-Angst"* and our political master brains shut down - and then blew up - the last German nuclear power stations in April 2023 (so that's out of the window), and sun and wind apparently never send an invoice...  
+So what's left?
+
+## Nordstream and the LNG pivot
+
+Nord Stream 1 and 2 were sabotaged in September 2022, ending Russian pipeline gas to Germany in practice - with thanks to our best *friends* and *allies*.  
+The federal government has repeatedly stated that a restart of Nord Stream 2 is not under consideration; certification remains suspended; and EU law now phases out remaining Russian gas imports by 2027 regardless of sanctions.^[REPowerEU phase-out regulation (2026). Exact cut-off dates (LNG vs pipeline, short vs long-term contracts) not re-verified for this revision.]
+
+Replacement: Norwegian pipeline gas plus LNG terminals (Wilhelmshaven, Brunsbüttel, Mukran; Stade still pending).  
+In 2025 LNG accounted for **10.3 %** of German gas imports (106 TWh of 1,031 TWh), and about **96 %** of that LNG came from the US.^[[Bundesnetzagentur, Rückblick Gasversorgung 2025](https://www.bundesnetzagentur.de/gasversorgung-rueckblick2025), 9 Jan 2026.]  
+On 1 November 2026, the legal reference date, storage stood at just **61.0-61.2 %** against a legal average target of about **70 %** (80 % for most sites, 45 % for six) - the lowest 1 November level in at least ten years, and 14 points below 2025.^[[tagesschau.de, 1/2 Nov 2026](https://www.tagesschau.de/wirtschaft/energie/gasspeicher-vorgaben-ziel-verfehlt-100.html) (AGSI data, 61.2 %); [gasspeicher.app](https://gasspeicher.app/verlauf/) (61.05 %, 2025: 75.13 %).]  
+The ministry assures us supply is secure. *Cui bono?*
+
+## Price reality
+
+- German non-household electricity (Eurostat band 500-1,999 MWh/year, H1 2026, excl. VAT and recoverable taxes): **20.6 ct/kWh**, vs an EU average of 18.0 ct and 15.7 ct in France.^[[Eurostat, nrg_pc_205](https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_205/default/table?lang=en), H1 2026, released 30 Oct 2026.] US industrial customers paid **8.51 US-ct/kWh** on average in 2025^[[EIA, Electric Power Annual, Table 2.4](https://www.eia.gov/electricity/annual/html/epa_02_04.html), final 2025 data.] - so Germany sits at roughly **2.5×** the US level, not merely 2×. (Bands differ; large German consumers with electricity-tax and grid-fee reductions pay less, but so do large US ones.)
+- Wholesale day-ahead (DE-LU) averaged **€89.32/MWh** in 2025, up 13.8 % on 2024; winter peaks run far higher whenever gas sets the price.^[[Bundesnetzagentur/SMARD, 2025 electricity market data](https://www.smard.de/page/en/topic-article/5892/219038/record-high-for-solar-generation-in-each-quarter).]
+- Residual load remains gas-fired, so TTF prices pass straight through to power prices.
+- Grid connection queues, especially in Frankfurt/Rhine-Main, already constrain new large loads; Bitkom names grid capacity and permitting as the top obstacles.^[Bitkom study 2025, p. 4.] The Taskforce's own target of **≤ 2.5 years** from application to commissioning is a polite admission of how long it takes today.
+
+The Taskforce language (“verlässliche nachhaltige und klimaneutrale Energieversorgung”, renewable expansion that “berücksichtigt ambitionierte Ausbauszenarien”) treats all of this as a *coordination problem*.  
+Yet, it is a *physical* and a *price* problem!  
+US hyperscalers sign long-term nuclear offtake; Berlin still frames the matter as a *renewables-plus-efficiency exercise* while gas stays the marginal fuel.  
+And the Energieeffizienzgesetz's requirement that data centres cover 100 % of their electricity from renewables from 1 January 2027 - *bilanziell*, via certificates - does not deliver a single firm electron at 3 a.m. in a January Dunkelflaute.
+
+## Who else is in the race? A small price overview
+
+```{r price-table, echo=FALSE}
+prices <- data.frame(
+  Country = c("Germany", "EU-27 average", "France", "Sweden", "Finland",
+              "Norway", "USA", "China", "India", "UAE", "Saudi Arabia", "Qatar"),
+  Price = c("20.6 €ct", "18.0 €ct", "15.7 €ct", "11.8 €ct", "9.3 €ct",
+            "11.7 US-ct", "8.5 US-ct", "10.9 US-ct", "12.2 US-ct",
+            "11.0 US-ct", "7.0 US-ct", "3.6 US-ct"),
+  Basis = c(rep("Eurostat, 500-1,999 MWh/yr, H1 2026, excl. VAT", 5),
+            "GlobalPetrolPrices, business 1 GWh/yr, avg 2023-26",
+            "EIA, all industrial customers, 2025",
+            rep("GlobalPetrolPrices, business 1 GWh/yr, avg 2023-26", 5))
+)
+knitr::kable(prices, col.names = c("Country", "Price per kWh", "Basis / year"))
+```
+
+Sources: Eurostat nrg_pc_205 (H1 2026); EIA Electric Power Annual (2025); [GlobalPetrolPrices.com, business rates, 2023-2026 average](https://www.globalpetrolprices.com/electricity_prices/) (incl. taxes; regulated tariffs in the Gulf, China and India).  
+Germany on the GlobalPetrolPrices basis: 28.4 US-ct.  
+Figures are indicative, not like-for-like: hyperscalers negotiate high-voltage, high-load-factor contracts, and the IEA notes that heavy industry in Inner Mongolia or Texas pays well below national averages.^[[IEA chart, final electricity price for large industrial customers, 2019-2024](https://www.iea.org/data-and-statistics/charts/estimated-final-electricity-price-for-large-industrial-customers-in-energy-intensive-industries-2019-2024).]
+
+So, with the deadliest politeness: whom exactly does Germany expect to invest here, and why?  
+Not the Gulf states, which sell power at a quarter to a half of our price and are building sovereign AI campuses with that cheap gas and sun.  
+Not China, which pairs tariffs at about half of ours with 295 bn USD of state money.  
+Not the Nordics or France, a short fibre hop away, with hydro and nuclear at roughly half to two-thirds of the German price.  
+And not the Americans, who - as Huang kindly reminded us - have their own cheaper electrons and a regulator that waits until there is something to regulate.  
+Perhaps the investor the masterplan has in mind is the one who values *Planungssicherheit* above all: certainty that the power will be expensive, the permit slow, and the storage 61 % full.
+
+## Musk's version of the same arithmetic
+
+Elon Musk put the bottleneck plainly back in February 2024:
+
+> “A year ago, the shortage was chips; neural net chips. Then, it was very easy to predict that the next shortage will be voltage step-down transformers. [...] Then, the next shortage will be electricity. They won't be able to find enough electricity to run all the chips.”^[Bosch Connected World 2024, dial-in Q&A, as transcribed (“lightly edited”) by [New Atlas, 1 Mar 2024](https://newatlas.com/technology/elon-musk-ai/).]
+
+And that is why his companies are now taking the data centres off the planet altogether:
+
+> “In 36 months, but probably closer to 30 months, the most economically compelling place to put AI will be space. [...] The only place you can really scale is space. Once you start thinking in terms of what percentage of the Sun's power you are harnessing, you realize you have to go to space. You can't scale very much on Earth.”^[*Cheeky Pint* podcast with John Collison and Dwarkesh Patel, [transcript](https://cheekypint.transistor.fm/21/transcript); reported by [Fortune, 6 Feb 2026](https://fortune.com/2026/02/06/elon-musk-space-based-ai-data-centers-spacex-hyperscaler-starship/). At Davos in January 2026 he gave the reasoning: in orbit “any given solar panel will do five times more energy” - no night, no weather, no atmosphere - and cooling is a radiator pointed into 3-kelvin shade ([pv magazine, 26 Jan 2026](https://www.pv-magazine.com/2026/01/26/musk-at-wef-solar-space-based-ai-data-centers-possible-in-two-to-three-years/)).]
+
+Note the order of escape routes: first cheap firm power on the ground, then orbit. Germany offers neither - though, to be fair, in space there is no grid-connection queue and no Arbeitskreis either.
+
+# Obvious Contradictions in One Place
+
+1. **Sovereignty rhetoric** *vs* **customer reality.** The report and Chancellor Merz speak of “digitale Souveränität” and of avoiding dependence on third parties.  
+The physical prerequisites (cheap firm power, capital at scale, fast permits) are not in place.  
+The default outcome is **continued purchase** of frontier training and bulk inference from **external** providers.
+
+2. **+300 % AI capacity, zero energy figure.** A quantitative compute target sits beside a government that told the Bundestag it has no information on future AI energy demand. The BMWE's 42 TWh (2035) and the Bitkom capacity path never made it into the masterplan.
+
+3. **“Klimaneutral” vs gas as the residual fuel.** Post-Nordstream gas is LNG-heavy, US-sourced and price-volatile, and storage started this winter well below target. Certificates are not firm, cheap electrons at the socket.  
+Baseload, nuclear offtake and a price gap of ~2.5× to the US: not discussed.
+
+4. **Regulation before industry.** Huang said it to Merz's face: *nothing to regulate if the industry does not thrive*.  
+The answer: a Taskforce, quarterly State Secretary meetings, and an AISI Deutschland layered on top of the EU AI Act.  
+Process multiplies; the capability base stays thin.
+
+5. **Capital gap closed by paperwork!?** 3.9 bn vs 286 bn (and China's 295 bn of state money) is not bridged by *18 measures* and an *“Effizienz-Check”* of existing funding instruments - especially as the report expressly makes no funding decisions at all.^[Ergebnisbericht, closing section; see also [move-online.de, 3 Nov 2026](https://www.move-online.de/k21-meldungen/deutschland-soll-bis-2030-ki-nation-werden/).]
+
+6. **Industrial niche vs frontier ambition.** Germany's real strengths (manufacturing data, engineering, Mittelstand, “physical AI”) are duly acknowledged.  
+Yet the goal is still framed as a sovereign KI-Nation with frontier access and European alternatives.  
+The energy and capital arithmetic points to a niche site, not to a frontier trailblazer status.
+
+# Why Customer and Bystander Status is the Default Path to 2030++
+
+Put the contradictions together and the forecast writes itself:
+
+- **Money:** the gap above is measured in orders of magnitude, and orders of magnitude do not respond to quarterly meetings.
+- **Power:** compute is an electricity product. At ~2.5× the US price, twice the Nordic one and with connection queues on top, training and inference simply cost more here - and operators go where power is cheap and firm.
+- **Rules:** one cannot regulate an industry into existence; the AI Act plus national layers add process before there is scale to apply it to.
+- **Niche:** specialised models and physical AI for the Mittelstand remain genuinely valuable - as an integrator's business, not an infrastructure owner's.
+- **Timing:** capability curves are set by capital, energy and iteration speed elsewhere. The singularity does not wait for the Arbeitskreis' scented candles to finish.
+
+Germany will take part as a sophisticated customer, integrator and niche supplier until the physical constraints change.  
+The masterplan documents the gap and answers it with the instruments Germany already knows; the history of *Planwirtschaft* suggests results will lag the paperwork.  
+Whatever does emerge will most likely do so **despite** the programmes, **not because** of them.
+
+The shoulder-tapping is available immediately. The electrons and the capital are not.
+
+*Germany got what it voted for - and we'll gladly sail the [Narrenschiff](https://sachsen.digital/werk/11823/8) helmless over the event horizon into the singularity.*
+
+# Selected Sources
+
+- KI-Taskforce Ergebnisbericht, 2 Nov 2026:  
+  https://www.bundesregierung.de/resource/blob/975228/2459514/b8518975df987ac1cfdc1fc5b655efb3/2026-11-02-ki-data.pdf?download=1  
+  BMDS landing page: https://bmds.bund.de/service/publikationen/ki-nation-deutschland-2030
+- Bitkom / Borderstep, *Rechenzentren in Deutschland: Aktuelle Marktentwicklungen - Update 2025* (10 Nov 2025):  
+  https://www.bitkom.org/Presse/Presseinformation/Rechenzentren-Deutschland-KI-treibt-Wachstum
+- Bundestag Drucksache 21/1263 (no data on AI energy demand; BMWE ~42 TWh 2035; EnEfG 2027):  
+  https://dserver.bundestag.de/btd/21/012/2101263.pdf
+- Bundesnetzagentur, gas supply 2025 (LNG 10.3 % / 106 TWh, ~96 % US):  
+  https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2026/20260109_JahresRueckblickGAS.html
+- Gas storage 1 Nov 2026 (AGSI via tagesschau): https://www.tagesschau.de/wirtschaft/energie/gasspeicher-vorgaben-ziel-verfehlt-100.html
+- Bundesnetzagentur/SMARD, electricity market 2025 (day-ahead €89.32/MWh): https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260104_SMARD.html
+- Eurostat, non-household electricity prices (nrg_pc_205), H1 2026: https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_205/default/table?lang=en
+- EIA Electric Power Annual, Table 2.4 (US industrial 8.51 ¢/kWh, 2025): https://www.eia.gov/electricity/annual/html/epa_02_04.html
+- GlobalPetrolPrices.com, business electricity prices 2023-2026: https://www.globalpetrolprices.com/electricity_prices/
+- IEA, *Energy and AI* (2025): https://www.iea.org/reports/energy-and-ai
+- Huang/Merz, Invest in Germany Summit, 19 Oct 2026: https://www.businessinsider.com/jensen-huang-warns-europe-move-faster-ai-risk-falling-behind-2026-10 ; https://www.heise.de/en/news/Chancellor-Merz-sees-Nvidia-as-a-growth-catalyst-11493408.html  
+  (FAZ link from the draft not re-checked: https://www.faz.net/aktuell/wirtschaft/unternehmen/nvidia-chef-jensen-huang-zu-friedrich-merz-gib-deutschland-eine-chance-201603218.html)
+- Musk: New Atlas (1 Mar 2024) https://newatlas.com/technology/elon-musk-ai/ ; Fortune (6 Feb 2026) https://fortune.com/2026/02/06/elon-musk-space-based-ai-data-centers-spacex-hyperscaler-starship/ ; pv magazine (26 Jan 2026) https://www.pv-magazine.com/2026/01/26/musk-at-wef-solar-space-based-ai-data-centers-possible-in-two-to-three-years/
+
+```{r session-info, echo=FALSE}
+sessionInfo()
+```
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
+<p class="news-credit">Follow us on X: <a href="https://x.com/DataMercsDotNet">https://x.com/DataMercsDotNet</a></p>

@@ -1,0 +1,157 @@
+---
+title: "News wrap · 2 November 2026 - Dates, versions, and one preference line"
+description: |
+  Catch-up industry notes for early November 2026. ONIX Issue 75 adds manuscript dates that only travel in ONIX 3; a shared robots.txt token lets sites ask not to be used for AI training; ISBN Canada wants a human-author declaration; volume pressure shows up as paused journals and arXiv caps; and metadata already knew about editor-author overlaps.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: 2026-11-02
+preview: preview_industry_news_02-11-26.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+.news-credit {
+  font-size: 0.85rem;
+  color: #6b6860;
+}
+```
+
+<p class="news-kicker">Industry notes · news wrap · not a workshop</p>
+<p class="news-date">Week of 3 November 2026</p>
+<p class="news-standfirst">A short briefing of what stuck from the last two weeks, with sources. How-to and cataloguing practice stay in separate posts - see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work.</p>
+
+Last week the trade counted the readers who are not people. This week it was offered a single line to ask machines not to learn from the furniture, while the standards basement quietly added dates that only travel on the newer pipes. Volume pressure showed up as closed front doors and hard caps.  
+The librarian’s rule for the week: If the date is not in the record, the deadline is not in the process. A preference is not a permission.
+
+## Standards desk: ONIX 3 gets the dates, KBART grows the titles
+
+**ONIX Issue 75** (the October 2026 release of the codelists for ONIX for Books, the XML format the book trade uses to send product metadata from publishers to retailers, aggregators and libraries) added two quiet but useful codes for scholarly work. List 163 codes 41 and 42 are for the *manuscript submission date* and *manuscript accepted date*, “typically for academic and scholarly publishing”. They exist for **ONIX 3 only**. ONIX 2.1 codes remain locked at Issue 36; new codes do not reach 2.1 feeds. If a trading partner still ingests 2.1, codes 41 and 42 arrive as nothing at all ([EDItEUR Issue 75 changes PDF](https://www.editeur.org/files/ONIX%20for%20books%20-%20code%20lists/ONIX_BookProduct_Codelists_Issue_75_Changes.pdf); [List 163](https://ns.editeur.org/onix/en/163); [BookNet Canada notes](https://booknetcanada.atlassian.net/wiki/spaces/UserDocs/pages/1378799)) - but who's still at ONIX 2.1, right;-)
+
+The same release includes AI-related vocabulary: List 19 code 09 for a contributor that is “a generative AI model or technique” (combinable with the role “assisted by”), and List 73 codes 55 and 56 for a link to a third-party certification of no AI-generated content or to the publisher’s own declaration ([List 19](https://ns.editeur.org/onix/en/19); [List 73](https://ns.editeur.org/onix/en/73)).
+
+**What to do.** Metadata leads: list your recipients and the ONIX version each one actually ingests. One column, two values. Do not invent workarounds for the manuscript dates; send them in the ONIX 3 feed and ask when the partner will take ONIX 3. Map the dates from your editorial system to `<PublishingDate>` so they are ready when the pipes are. The COPE, DOAJ, OASPA and WAME *Principles of Transparency* already say submission and acceptance dates “are preferred” for published research; scholarly books can now carry them too.
+
+**KBART Phase III** (NISO Recommended Practice RP-9-2026, published 26 August 2026) added `alternate_publication_title` and `alternate_title_type` so native, transliterated and translated titles can coexist, plus full contributor names. Julie Zhu (IEEE) described a monthly title-count comparison across knowledge bases as a practical check, and noted work on a persistent Package ID ([Scholarly Kitchen, 16 Oct](https://scholarlykitchen.sspnet.org/2026/10/16/guest-post-from-an-accidental-title-list-to-a-connected-supply-chain-my-years-with-kbart/); [NISO announcement](http://www.niso.org/press-releases/niso-publishes-phase-iii-kbart)). Our longer guide is on the site.
+
+**What to do.** Fill the alternate title fields from your catalogue record, not by hand for the occasion. Once a month, compare the title count in the publisher’s KBART file with what your knowledge base shows for the same package. A mismatch is a question, not a crime. Ask your knowledge-base vendor which Phase III fields they ingest today and how they will carry a Package ID once NISO defines one.
+
+## One line for training, and a human declaration
+
+On 30 October an Internet-Draft at the IETF (the body that publishes internet standards, cf. https://www.rfc-editor.org) proposed a shared way to say “do not use my site for AI training” in robots.txt, the small text file at the root of every website that tells crawlers where they may go. The author is Kevin Kelley of Anthropic. A site adds a group for the reserved name `__usage_ai-training` and lists what may or may not be used. The draft’s example disallows everything except a press kit:
+
+```
+User-Agent: __usage_ai-training
+Disallow: /
+Allow: /press-kit/
+```
+
+A wildcard group (`User-Agent: *`) does *not* cover the token. If there is no such group, no preference has been expressed. The token is a statement of preference, not a crawling instruction, and private agreements may override it. “AI training” here means using an asset to modify the learned parameters of a generative AI model ([draft-kelley-aipref-training-preference-signal-00](https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/00/)).
+
+Google aims to support it in 2027 and will treat an opt-out through the shared token as if the publisher had disallowed Google-Extended (its existing AI training control).  
+Microsoft says Bing will apply the new preferences as it crawls from 1 February 2027 and asks sites that used NoArchive or NoCache as an AI signal to move by 1 March 2027.  
+OpenAI said “in the coming months”; Anthropic has started implementing.  
+Microsoft notes that the preferences “do not establish licensing or payment arrangements” ([Google Search Central, 30 Oct](https://developers.google.com/search/blog/2026/10/ai-training-control); [Bing blog, 30 Oct](https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/)).
+
+**What to do.** Read your current robots.txt and keep the company-specific groups (GPTBot, Google-Extended, ClaudeBot and friends). Decide one policy line for training, write it down with the date, and if it is “no”, add the `__usage_ai-training` group. Write exceptions as `Allow` lines on purpose. Tell your licensing team that the file now speaks for the institution, and that anything sold or licensed still needs a contract.
+
+**ISBN Canada** (Library and Archives Canada) now says that by registering you declare the publication was written by a human author. AI may be used only for limited support tasks such as brainstorming, grammar or formatting. ISBN Canada limits the quantity of ISBNs for works whose content is primarily generated by AI (text, illustration, translation). The page gives no definition of “primarily” and no number for the limit; the policy is under review ([LAC ISBN Canada page, modified 9 Oct](https://www.canada.ca/en/library-archives/services/publishers/isbn/about.html); [Global News, 22 Oct](https://globalnews.ca/news/12111768/canada-artificial-intelligence-books-copyright/)).
+
+The data already has words for this. Use ONIX List 19 code 09 and List 73 codes 55/56 so the declaration travels with the book instead of staying in the ISBN form. Canadian publishers: keep a copy of the declaration per title and send the matching codes. Acquisitions librarians: ask vendors in writing whether they receive and pass those codes and what they do with titles that carry them.
+
+## Volume and the front door
+
+On 19 October the editors of six probability journals closed new submissions (or began temporarily deferring them) to rewrite their AI policies and manage volume. *ESAIM: Probability and Statistics* reopens on 9 November. Revisions and running reviews continue. The joint letter cites “the sharp increase in submissions” and the need to rethink editorial policies and tools in light of AI ([Société Mathématique de France, 19 Oct](https://smf.emath.fr/actualites-smf/19-10-26-communique-fermeture-journaux-de-probabilites); [EDP Sciences](https://www.edpsciences.org/en/news-highlights/3058-esaim-probability-and-statistics-takes-action-to-address-increasing-manuscript-submissions)).
+
+arXiv, the largest preprint server, capped each submitter at two papers per calendar month (and three active submissions) starting 1 October after September 2026 brought 40,363 submissions. Moderators faced a surge of low-value, often AI-assisted work ([arXiv announcement and reporting, early October](https://arxiv.org); [Nature, 15 Oct](https://www.nature.com/articles/d41586-026-03194-w)).
+
+**What to do.** Editors: put four numbers on one page - weekly submissions versus the same weeks in 2022, desk-rejection rate, referee invitations needed per completed review, and median days to first decision. If you cannot produce them from your submission system in an hour, that is the first finding. Authors in probability: check each journal’s site for the new policy before you send anything in November.
+
+## What the metadata already knew, and what machines need to see
+
+At the ACM/IEEE Joint Conference on Digital Libraries on 15 October, Jules Di Scala and colleagues presented [EditorCheck](https://dl.acm.org/doi/10.1145/3805696.3846011). The tool reads the handling editor’s name from published article metadata and looks up past co-authorships with the authors in Dimensions. Across more than 340,000 PLOS papers and 172,000 MDPI papers it found more than 8,000 PLOS papers and around 2,500 MDPI papers that breach the publishers’ own rules (no shared papers in the previous five years at PLOS, three at MDPI). PLOS had already reassigned some flagged articles; MDPI asked to see the database. The check only works because those publishers publish handling editors’ names ([Retraction Watch, 22 Oct](https://retractionwatch.com/2026/10/22/editorcheck-handling-editors-authors-collaboration-plos-mdpi-joint-conference-digital-libraries/)).
+
+**What to do.** Publishers: put the handling editor in the record (JATS XML `<contrib contrib-type="editor">` with role and ORCID iD). Editorial offices: run the check at assignment, not after publication. Crossref members: the research-integrity survey with STM is open until 15 November ([Crossref, 20 Oct](https://www.crossref.org/blog/share-your-research-integrity-experiences-with-crossref-and-stm/)).
+
+On 26 October Springer Nature and Google DeepMind announced a research partnership on an AI assistant for peer reviewers. The prototype is being tested and “runs solely in Springer Nature’s private, secure Gemini Enterprise platform”, so manuscripts do not leave the publisher’s environment. The stance is summarised as “human first, AI second” ([Springer Nature press release, 26 Oct](https://group.springernature.com/gp/group/media/press-releases/research-partnership-with-googledeepmind-to-support-peer-review/53891572)).
+
+Rockefeller University Press (five journals) tags corrections and retractions so that AI systems can parse the information, and dropped the requirement to disclose pure language editing while still requiring disclosure for substantive use ([Rockefeller University Q&A, 26 Oct](https://www.rockefeller.edu/news/40794-how-ai-is-reshaping-scientific-publishing/)).
+
+**What to do.** For any journal: pick five of your own retracted or corrected articles and check that the notice is linked in your Crossref metadata (the relationship and update fields), not only on the web page. Add two fields to the review form - “AI tool used (name and version, or none)” and “for what (language, summary, checks)” - so use is recorded per review.
+
+## Noted this week
+
+1. **ONIX 3 only** - Issue 75 manuscript submission and acceptance dates (List 163 codes 41 and 42) do not reach ONIX 2.1 feeds. AI contributor and certification codes are also available.
+2. **One line for training** - `__usage_ai-training` in robots.txt; Google aims for 2027, Bing from 1 February 2027. Wildcard rules do not count. Preference, not permission or payment.
+3. **Declare a human** - ISBN Canada applicants declare human authorship; AI-heavy works get limited ISBNs. Send the matching ONIX codes.
+4. **Closed for repairs** - six probability journals paused new submissions from 19 October; *ESAIM: P&S* reopens 9 November. arXiv capped at two submissions per author per month.
+5. **Editors in the metadata** - EditorCheck found over 10,000 PLOS and MDPI papers that breach editor-author collaboration rules because those publishers publish editors’ names.
+6. **Human first, AI second** - Springer Nature and Google DeepMind test a reviewer assistant inside the publisher’s own cloud. Rockefeller tags corrections and retractions for machines.
+7. **Japan** - the History of Science Society of Japan published six short AI rules for its journal (AI cannot be an author; language help free, content generation declared with tool, purpose and method; no AI images; reviewers need author consent before uploading to external tools) ([日本科学史学会, 22 Oct](https://historyofscience.jp/blog/2026/10/22/10127/)).
+8. **Calendar** - Crossref and STM integrity survey closes 15 November. Charleston Conference sessions on AI in the catalogue and related topics, 4–6 November.
+
+The weekly wrap continues next Monday. Same shelves, new labels.
+
+### Sources
+
+- [ONIX for Books codelists Issue 75 – additions and updates (PDF)](https://www.editeur.org/files/ONIX%20for%20books%20-%20code%20lists/ONIX_BookProduct_Codelists_Issue_75_Changes.pdf) – EDItEUR, signed Graham Bell, 7 Oct 2026; [List 163](https://ns.editeur.org/onix/en/163); [List 19](https://ns.editeur.org/onix/en/19); [List 73](https://ns.editeur.org/onix/en/73).
+- [ONIX codelist notes, Issue 75](https://booknetcanada.atlassian.net/wiki/spaces/UserDocs/pages/1378799) – BookNet Canada.
+- [Guest Post – From an Accidental Title List to a Connected Supply Chain: My Years with KBART](https://scholarlykitchen.sspnet.org/2026/10/16/guest-post-from-an-accidental-title-list-to-a-connected-supply-chain-my-years-with-kbart/) – The Scholarly Kitchen (Julie Zhu, IEEE), 16 Oct 2026.
+- [NISO Publishes Phase III of the KBART Recommended Practice](http://www.niso.org/press-releases/niso-publishes-phase-iii-kbart) – NISO, 26 Aug 2026.
+- [draft-kelley-aipref-training-preference-signal-00](https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/00/) – IETF Datatracker (Kevin Kelley, Anthropic), 30 Oct 2026.
+- [Supporting a shared AI training control for websites](https://developers.google.com/search/blog/2026/10/ai-training-control) – Google Search Central Blog, 30 Oct 2026.
+- [Your content, your choice: clearer preferences for training and grounding](https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/) – Bing Blogs, 30 Oct 2026.
+- [About ISBN Canada](https://www.canada.ca/en/library-archives/services/publishers/isbn/about.html) – Library and Archives Canada, modified 9 Oct 2026.
+- [Report on AI, books and ISBN Canada](https://globalnews.ca/news/12111768/canada-artificial-intelligence-books-copyright/) – Global News, 22 Oct 2026.
+- [Communiqué: Fermeture temporaire de soumissions](https://smf.emath.fr/actualites-smf/19-10-26-communique-fermeture-journaux-de-probabilites) – Société Mathématique de France, 19 Oct 2026.
+- [ESAIM: Probability and Statistics takes action…](https://www.edpsciences.org/en/news-highlights/3058-esaim-probability-and-statistics-takes-action-to-address-increasing-manuscript-submissions) – EDP Sciences, 19 Oct 2026.
+- [Thousands of research studies violate journal policies…](https://retractionwatch.com/2026/10/22/editorcheck-handling-editors-authors-collaboration-plos-mdpi-joint-conference-digital-libraries/) – Retraction Watch, 22 Oct 2026.
+- [EditorCheck: Auditing editor–author conflicts of interests](https://doi.org/10.1145/3805696.3846011)
+- [Press release on the Google DeepMind peer review partnership](https://group.springernature.com/gp/group/media/press-releases/research-partnership-with-googledeepmind-to-support-peer-review/53891572) – Springer Nature, 26 Oct 2026.
+- [How AI is reshaping scientific publishing](https://www.rockefeller.edu/news/40794-how-ai-is-reshaping-scientific-publishing/) – The Rockefeller University (Q&A with Susan King), 26 Oct 2026.
+- [生成AI利用に関するガイドラインの制定についての告知](https://historyofscience.jp/blog/2026/10/22/10127/) – 日本科学史学会 (History of Science Society of Japan), 22 Oct 2026.
+- [Share your research integrity experiences with Crossref and STM](https://www.crossref.org/blog/share-your-research-integrity-experiences-with-crossref-and-stm/) – Crossref, 20 Oct 2026.
+
+<p class="news-credit">Olaf Schmalfuß, with the OSDS AI team · OS DataServices</p>
+<p class="news-credit">Follow us on X: <a href="https://x.com/DataMercsDotNet">https://x.com/DataMercsDotNet</a></p>

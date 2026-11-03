@@ -24,6 +24,29 @@
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>KI-Nation 2030: A Schildbürger's Masterplan</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</link>
+      <description>KI-Nation 2030: A Schildbürger's Masterplan</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan/ger_ai_narrenschiff.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>News wrap · 2 November 2026 - Dates, versions, and one preference line</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-11-02-industry-notes-dates-versions-and-one-preference-line</link>
+      <description>Catch-up industry notes for early November 2026. ONIX Issue 75 adds manuscript dates that only travel in ONIX 3; a shared robots.txt token lets sites ask not to be used for AI training; ISBN Canada wants a human-author declaration; volume pressure shows up as paused journals and arXiv caps; and metadata already knew about editor-author overlaps.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-11-02-industry-notes-dates-versions-and-one-preference-line</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-11-02-industry-notes-dates-versions-and-one-preference-line/preview_industry_news_02-11-26.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Retractions and AI search: It's the plumbing, not the robots - more research required</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2026-10-23-retractions-ai-plumbing</link>

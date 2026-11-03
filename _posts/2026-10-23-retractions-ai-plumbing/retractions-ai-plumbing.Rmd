@@ -33,6 +33,8 @@ The retraction debate usually arrives as one undifferentiated lump of indignatio
 Fraud, paper mills, AI slop, chatbots citing nonsense.  
 It is five problems, owned by five different layers. Fix the wrong layer and you get a very tidy solution to someone else's problem.
 
+**note:** follow along and check all DOIs and metadata for yourself via our *CrossRef DOI checker* here: https://datamercs.net/tools/doi-check/doi-check.html
+
 ## (a) Honest error and correction: The system working
 
 Layer: Authors and editors.
@@ -77,8 +79,6 @@ In our test set, the Crossref titles of the
 papers all start with "RETRACTED", while  
 - *Hwang's* ([10.1126/science.1094515](https://api.crossref.org/works/10.1126%2Fscience.1094515/transform/application/vnd.crossref.unixsd+xml)) Science paper, retracted in 2006, does not.  
 Title prefixes are human-friendly, but machines should read the relation, not the title.
-
-[ note: check all DOIs for yourself via our *CrossRef DOI checker* here: https://datamercs.net/tools/doi-check/doi-check.html ]
 
 ## (e) AI on both sides
 
