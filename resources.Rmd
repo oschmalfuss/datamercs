@@ -40,11 +40,13 @@ MARC21 Format for Bibliographic Data  - [LoC](https://www.loc.gov/marc/bibliogra
 [SRU](https://www.loc.gov/standards/sru/) - Search/Retrieve via URL // [Z39.50-Zugang des GBV](https://verbundwiki.gbv.de/display/VZG/Schnittstellen)  
 [WorldCat - bib Read](https://developer.api.oclc.org/)  
 
+## // OSDS Tools
 
-## // Tools
-
+[AI Glossary - the cybrarian's acronynomicon](tools/ai-glossary.html)  
 [BISAC 2025 → Thema 1.6](tools/bisac-thema.html) - official EDItEUR / BISG mapping, with heuristic DDC, LCSH and GND.  
 [CrossRef DOI metadata checker](tools/doi-check/doi-check.html)
+
+## // misc. Tools
 
 [cygwin](https://cygwin.com/install.html)  
 [draw.io](https://app.diagrams.net)  
