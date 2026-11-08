@@ -1,0 +1,234 @@
+---
+title: "News wrap · 9 November 2026 - Reading rooms for robots"
+description: |
+  Weekly news wrap (not a workshop) for 9 November 2026. Three university presses and Oxford University Press open licensed reading rooms for AI assistants; a trust certificate scheme and a discovery tool try to make credibility readable by machines; Amazon starts accepting ISNI contributor identifiers; the Principles of Transparency gain an AI section while the authorship debate moves on; and from China, the national AIGC guidance for academic publishing is out, together with a preprint metadata guide.
+author:
+- first_name: "Olaf"
+  last_name: "Schmalfuß"
+  orcid_id: 0000-0002-1919-3848
+  url: https://www.datamercs.net
+  affiliation: OS DataServices
+  affiliation_url: https://www.datamercs.net
+date: 2026-11-09
+preview: news_room_2026-11-09.jpg
+categories:
+  - "Industry notes"
+  - "AI & provenance"
+  - "Standards & metadata"
+draft: false
+output:
+  distill::distill_article:
+    toc: false
+    self_contained: true
+    share: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+.news-kicker {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b4f6c;
+  margin: 0 0 0.35rem;
+}
+.news-date {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1c1b19;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+.news-standfirst {
+  font-size: 1.02rem;
+  color: #4a4843;
+  border-left: 3px solid #0b4f6c;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1.4rem;
+}
+.news-credit {
+  font-size: 0.85rem;
+  color: #6b6860;
+}
+```
+
+<p class="news-kicker">
+Industry notes · news wrap · not a workshop
+</p>
+
+<p class="news-date">
+Week of 9 November 2026
+</p>
+
+<p class="news-standfirst">
+A briefing of what to notice this week, with sources and a little homework. How-to and cataloguing practice stay in separate posts - see <a href="https://www.datamercs.net/posts/2026-06-23-ghost-in-the-marc-cataloguing-the-synthetic-shift-in-bibliographic-metadata/">Ghost in the MARC</a> for the standards work.
+</p>
+
+Last week the web was offered a polite way to tell machines not to learn from the furniture[^1].  
+This week the publishers did the obvious next thing and built the machines a *reading room*, with a front desk, a sign-in sheet and a firm notice about what may be taken away.\
+Three university presses announced a shared gateway through which AI assistants may read licensed scholarship, and Oxford University Press is testing the same idea inside ChatGPT at three universities.\
+At the Charleston Conference[^2], the Premiers audience voted for new products, including ways of letting AI read books, and heard proposals for making trust itself machine-readable.\
+Amazon quietly started accepting the identifier that tells one author from another.\
+The Principles of Transparency, which journals sign up to, gained an AI section, while the authorship debate concluded, provisionally, that nobody is quite sure what an author is any more.\
+And China published its national guidance on AI-generated content in academic publishing, plus a preprint metadata guide that nobody will tweet about and everybody will need.\
+The librarian's rule for the week: a reading room is only as good as its sign-in sheet.
+
+[^1]: <https://datamercs.net/posts/2026-11-02-industry-notes-dates-versions-and-one-preference-line/#one-line-for-training-and-a-human-declaration>
+
+[^2]: [https://www.charleston-hub.com/the-charleston-conference/welcome/2026-preliminary-agenda](https://www.charleston-hub.com/the-charleston-conference/welcome/2026-preliminary-agenda/){.uri}
+
+## Reading rooms for robots: Meridian and the Oxford pilot
+
+**What happened.** On **3 November** Cambridge University Press, Johns Hopkins University Press and Princeton University Press announced that they are the founding publishers of [Meridian](https://meridianalliance.org), a gateway for AI tools convened by Cashmere, a company that licenses publishers' content to AI firms and acts as Meridian's "initial operator and platform provider".  
+Meridian uses MCP, the Model Context Protocol: a common plug that lets an AI assistant ask an outside system for material while it answers a question. Through Meridian, an assistant may retrieve passages from licensed, peer-reviewed books and journals, must cite them, and sends the reader on to the publisher's version of record "through their library's access". Content reached this way "is never used to train or fine-tune AI models, and is never sublicensed or redistributed". Libraries are promised "COUNTER-aligned reporting" on how their licensed collections are used by AI. Participation is opt-in and non-exclusive, and titles can be withdrawn at any time. The three presses sit with Cashmere on an Advisory Council "with institutional library representation forthcoming"; the council is to become the board once Meridian incorporates as an independent not-for-profit. Catalogues onboard in November, and a closed beta for selected institutions opens "later this fall"; Cashmere has committed its platform for an initial 24-month evaluation period ([Princeton University Press](https://press.princeton.edu/news/meridian); [Johns Hopkins University Press, 3 Nov](https://www.press.jhu.edu/newsroom/hopkins-press-founding-publisher-new-meridian-initiative)). Cashmere's own explainer puts the idea neatly: libraries already license "read rights", and AI adds "inference rights", which cover what agents can retrieve and reason over on a researcher's behalf ([Cashmere, 4 Nov](https://cashmere.io/resources/blog/meridian-scholarly-publishers-trusted-research-ai))[^3].
+
+[^3]: A quick reality check on that claim here: <https://datamercs.net/posts/2026-09-10-they-swear-it-only-looked/>
+
+The same day, **Oxford University Press** described a pilot, running from October to December, that connects *ChatGPT Edu* accounts (the university edition of [OpenAI](https://chatgpt.com/business/education)'s chatbot) at Harvard Library, the Wharton School of the University of Pennsylvania and the University of Oxford to OUP content the institutions already buy or subscribe to. The MCP server was built with Silverchair, OUP's platform provider; answers carry citations and links to Oxford Academic. OUP says it wants to learn whether researchers are motivated to use such a connector, how trusted sources change the quality of the answers, and whether publisher citations change how people verify. Tanya Laplante, OUP's director of product platforms, says the press wants to learn "what real-world use of publisher MCPs looks like", and Richard Ovenden, Bodley's Librarian at Oxford, frames it as libraries and publishers working together on reliability ([OUP, 3 Nov](https://corp.oup.com/news/new-pilot-launched-to-connect-trusted-scholarship-with-ai-powered-research/)).
+
+Reporting on Charleston Premiers on 5 November, Research Information described ten five-minute pitches and an audience vote that gave Meridian the award for best design.  
+Most impactful and best overall went to Citations, presented by Jim Bryant: library connectors that let an assistant show authorised passages, generate citations and point readers to local holdings, with micropayments to publishers and libraries planned through pre-funded escrow accounts and a distributed ledger ([Research Information, 5 Nov](https://www.researchinformation.info/news/charleston-premiers-10-approaches-to-the-changing-research-landscape/)).
+
+**The intended layer.** Two different things:  
+Meridian is a governance-plus-product initiative: a shared licence route with a council, an operator and a promise to become a not-for-profit.  
+The OUP project is an evidence-gathering pilot with three named institutions and an end date.  
+Neither is a standard, and neither claims to be one. Both rely on MCP, which is a technical protocol, not a licence.
+
+**Homework.** For acquisitions and e-resources librarians, before any AI connector goes into a renewal or a pilot agreement:
+
+1.  Ask which catalogue the connector actually reaches: your licensed holdings only, or a wider set with your entitlements checked at the time of the request.
+2.  Ask how usage will be reported. COUNTER's best practice for AI usage, updated on 23 October, adds the optional access method "Agent" and optional AI metrics, including retrieval metrics. It says: "Where publishers manage access to content, for example via MCPs and other APIs, retrieval metrics MUST be reported as on-platform (first party) AI usage." These extensions appear only in COUNTER Reports when requested, not in their Standard Views ([COUNTER](https://www.countermetrics.org/code-of-practice/best-practice/bp-ai/)). Put that sentence in the agreement.
+3.  Ask what happens when a title is withdrawn: do answers already generated keep their citations, and does the link still resolve?
+4.  Ask who holds the library seat on the council, and when. "Forthcoming" is a fine word for a train timetable.
+5.  Write down, in one line, that "not used for training" still means the text is retrieved, chunked and answered from.  
+We argued this in September in [They swear it only looked](https://www.datamercs.net/posts/2026-09-10-they-swear-it-only-looked/), and the licence should say which of those it covers.
+
+## Trust, made readable for machines
+
+**What happened.** At the same Charleston Premiers session, Toby Green presented the [TrustMarc Initiative](https://trustmarc.org/how), which proposes machine-readable certificates that record an item's provenance, stewardship and the review or selection it went through, issued by libraries and publishers under an independent standards council. *TrustMARC* is literally a wordplay pairing “trust mark” (a badge confirming compliance with quality or security standards) with the MARC (Machine-Readable Cataloging) format. The name literally means a machine-readable token of trust.  
+Research Information reports a target of launching in March 2027 with at least 100,000 certificates ([Research Information, 5 Nov](https://www.researchinformation.info/news/charleston-premiers-10-approaches-to-the-changing-research-landscape/)).  
+TrustMarc's own launch notice from June names the Standards Council (chair Christian Dupont of Boston College, Buhle Mbambo-Thata of the National University of Lesotho, and Carol Mandel, NYU Dean of Libraries Emerita), with Coherent Digital as founding implementation partner running the registry, and promised a public beta at Charleston ([TrustMarc, 23 Jun](https://trustmarc.org/post/trustmarc-initiative-launches)).  
+In the same session Third Iron's Kendall Bartsch showed LibKey flagging material from problematic publishers in discovery systems and PubMed, next to its existing retraction and expression-of-concern notices, with AI-assisted analysis "subject to human review" and the reasons for a flag open to inspection.
+
+**The intended layer.** TrustMarc is a proposed framework governed by its own Standards Council, not a standard issued by NISO, ISO or W3C. LibKey's flags are a commercial discovery feature.
+
+**Homework.** For journal publishers and repository managers: before anyone asks you to buy a certificate, list the trust signals you already publish as metadata rather than as prose on a web page. A short audit, one row per journal:
+
+- peer-review type stated in structured metadata, where the schema supports it (a review report deposit is not the same thing as an article's review-method statement),
+- corrections and retractions linked through Crossref update relationships, not only on the article page,
+- editor names and roles in the record,
+- licence and AI/text-mining policy as a URL in the metadata.
+
+Those are useful fields to make available to any future certificate scheme; its actual mappings still need checking. If a field is empty today, no badge will fill it. You can see what a single DOI's Crossref record currently carries with our [DOI lookup tool](https://www.datamercs.net/tools/doi-check/doi-check.html).
+
+## Standards desk: Amazon takes ISNI
+
+**What happened.** On **4 November** Amazon[^4] told publishers it now accepts [ISNI](https://isni.org), the International Standard Name Identifier: a 16-character number that identifies a person who contributes to creative works (authors, illustrators, translators), so that two people called *J. Smith* stop sharing an author page.
+
+[^4]: See [BISG, 4 November](https://www.bisg.org/news/a-step-forward-for-isni-amazon-now-accepting-contributor-identifiers), and [BookNet Canada, 5 November](https://booknetcanada.ca/blog/2026/11/05/amazon-is-now-accepting-isni-for-book-contributors/).
+
+Publishers can send ISNIs in ebook and print ONIX metadata, in spreadsheet uploads or through Amazon's title editor; submission is optional. Amazon's early plans for using ISNI are connecting books to the right author pages, linking an author's works together and grouping formats and editions.
+
+The Book Industry Study Group (BISG) points to its recent Recommended Practices for Assigning ISNI and notes that US adoption has been slowed by "limited awareness, technical complexity, and the decentralized nature of the publishing industry". Claire Holloway, chair of BISG's Metadata Committee, calls Amazon's step "an encouraging development"; Krista Coulson of the Workflow Committee asks for ISNI to travel "in ONIX 3, as often as possible" ([BISG, Allison Belan, 4 Nov](https://www.bisg.org/news/a-step-forward-for-isni-amazon-now-accepting-contributor-identifiers)).
+
+**The intended layer.** A retailer's metadata intake policy, backed by an industry body's recommended practice. It obliges no one; it simply makes a long-standing identifier worth sending.
+
+**Homework.** The field exists already. In ONIX 3, a contributor's `<NameIdentifier>` with `<NameIDType>` **16** carries the ISNI, written as sixteen characters, since in ONIX "the spaces or hyphens should be omitted" ([EDItEUR List 44](https://ns.editeur.org/onix/en/44)). So:
+
+- *Metadata leads at publishers:* Count how many of your frontlist contributors have an ISNI in your title management system. If the answer is "we don't store it", add the field this quarter.
+- *Cataloguers:* Check whether the authority record already carries an ISNI for the contributor. Ask your publishers to send it, rather than matching names by hand later.
+- *Self-publishing platforms and agents:* The BISG practice says who can register ISNIs on an author's behalf. Read it before an author asks you.
+
+## Disclosure desk: The Principles get an AI section, and authorship gets a debate
+
+**What happened.** On **29 October** COPE, DOAJ, OASPA and WAME released version 5.0 of the [Principles of Transparency and Best Practice in Scholarly Publishing](https://publicationethics.org/guidance/guideline/principles-transparency-and-best-practice-scholarly-publishing). The new edition asks journals to have policies on how authors use AI and to be transparent about whether peer reviewers and editors use AI or automated tools for screening, drafting reviews or editorial comments. It states the current consensus that AI cannot qualify as an author, while requiring any journal that accepts AI authorship to say so. It also recommends that publishers disclose their policies on access to, and licensing of, journal content by AI companies and text miners. It also prohibits copying titles and ISSNs to impersonate journals, asks a journal to name its primary official website, and forbids compensation for editors and staff based on article acceptance. COPE and WAME use the Principles as membership requirements ([DOAJ blog, 29 Oct](https://blog.doaj.org/2026/10/29/the-principles-of-transparency-and-best-practice-in-scholarly-publishing-have-been-revised-and-updated/)).
+
+The same day Science's Jeffrey Brainard reported on the authorship question raised by OpenAI's preprints that list the AI itself as sole author. Brian Earp of the National University of Singapore suggests a human "certifying" author who checks and vouches for the results; David Resnik (US National Institute of Environmental Health Sciences) holds that an author must at least have analysed or interpreted the data. Science also reports that the JACC journals dropped disclosure of AI writing assistance last year, while still requiring disclosure of AI used in the research, and that PLOS no longer requires disclosure of common uses such as language improvement. A working group cooperating with publishing industry groups proposed a taxonomy of 18 research activities for reporting AI use and plans a completed draft "by early 2027" ([Science, 29 Oct](https://www.science.org/content/article/ai-generates-findings-authorship-and-disclosure-rules-draw-fresh-scrutiny)). On 4 November in The Scholarly Kitchen, Ashutosh Ghildiyal and Integra's Gregory Simmons cite SSP's Pulse Check, published in January 2026 from a December 2025 poll, in which only 3% of respondents rated their organisations fully prepared for AI, and argue that every restriction should come with "a sanctioned alternative" ([The Scholarly Kitchen, 4 Nov](https://scholarlykitchen.sspnet.org/2026/11/04/from-ai-adoption-to-ai-practice-building-governed-ai-in-scholarly-publishing/); [Pulse Check findings, 9 Jan](https://scholarlykitchen.sspnet.org/2026/01/09/ai-in-scholarly-publishing-ssp-pulse-check-report/)).
+
+**The intended layer.** The Principles are a best-practice framework that becomes binding through membership: if you are a member of COPE or WAME, they are your checklist. They require an explicit AI policy and specify the questions it must address, without prescribing one uniform answer to every permitted use: a useful division of labour for a document of this kind. The Science piece is reporting on an open debate, and the 18-category taxonomy is a draft from a working group.
+
+**Homework.** For journal editorial offices, before the next membership or indexing review:
+
+1.  Publish three short statements on the journal website, each with a date: what authors may use AI for and what they must declare; whether and how editors and reviewers use AI or automated screening; and who may mine or license the journal's content for AI, with a contact.
+2.  Make the third one machine-findable: link it from your licence information and, if you run your own site, from the robots.txt and AI-preference settings we covered last week.
+3.  If you dropped disclosure for language editing (as PLOS has for language improvement, and [Rockefeller University Press has for language editing alone](https://www.rockefeller.edu/news/40794-how-ai-is-reshaping-scientific-publishing/)), say so explicitly, so reviewers do not ask for statements you no longer require.
+4.  Keep a one-page register of the AI tools your staff are approved to use, with the data each may see. That is the "sanctioned alternative" in practice.
+
+## Global desk
+
+**China - the AIGC guidance is out, and it brought a preprint metadata guide.** An update to our earlier reporting: When we checked the national standards register on 1 November, the national guidance on AI-generated content in academic publishing still showed as *at the approval stage*. It has since appeared as published on **30 October** as **GB/Z 290-2026** 学术出版中人工智能生成合成内容（AIGC）使用边界指南 (Guideline on the boundaries of AIGC usage in academic publishing), status current, under the national information and documentation standards committee (TC4) ([standards register](https://std.samr.gov.cn/gb/search/gbDetailed?id=5F6B9C9E6B66C75BE06397BE0A0A6C0B)). The State Administration for Market Regulation posted the announcement on **4 November**, listing 37 guidance documents approved on 30 October ([SAMR announcement](https://www.samr.gov.cn/bzjss/tzgg/art/2026/art_4095208446874019868a4267dc284d01.html); [SAC list, announcement 2026 No. 47](https://std.sacinfo.org.cn/gnoc/queryInfo?id=18C80E1F1BA8346A1E84F2C4068D669A)). The drafting bodies include the Institute of Scientific and Technical Information of China (ISTIC), the China Association for Science and Technology's society service centre, Tsinghua University Press, China Science Publishing & Media, Wanfang Data and the Institute of Automation of the Chinese Academy of Sciences. A sister document, **GB/Z 287-2026** on the use of third-party services in academic publishing, was published on 24 September ([register](https://std.samr.gov.cn/gb/search/gbDetailed?id=5CADE28DF1249BD1E06397BE0A0A8034)).
+
+The same 30 October list contains **GB/Z 329-2026 预印本元数据 (Preprint metadata)**. Its February consultation notice on China's national preprint platform described the draft as seeking to unify preprint metadata across platforms in five named dimensions: metadata structure, basic metadata, publication metadata, version-control metadata and preprint platform metadata ([ISTIC national preprint platform, 13 Feb](https://coaa.istic.ac.cn/preprint/dynamics/59)). Also on the list: GB/Z 325-2026 信息与文献 图书馆和档案馆藏品管理 (Information and documentation — collection management in libraries and archives).
+
+*The intended layer:* GB/Z documents are national standardisation guidance documents (指导性技术文件), not mandatory standards. They describe practice for publishers, journals and platforms in mainland China. We have not read the full texts of GB/Z 290 or GB/Z 329, so our account of the published documents is limited to titles, dates, status and drafters; the metadata description above comes from the consultation notice, not the final text.
+
+*Homework.* Publishers with many authors in mainland China: Obtain GB/Z 290 and GB/Z 287 and compare them with your own AI and author-services policies; where they differ, say in your author guidelines which applies. Preprint servers and indexers that take Chinese preprints: Obtain the final text and compare the five metadata dimensions named in the consultation notice for GB/Z 329 with what you send to Crossref for posted content, especially version history and the link to the later journal article. Version-control metadata is exactly where preprints and articles lose track of each other.
+
+Download links for your convenience:
+
+Official permalinks for the latest published editions checked on 8 November 2026. These are register records, not direct PDF downloads; no DOI is listed in the records.
+
+- **GB/Z 290-2026 — 学术出版中人工智能生成合成内容（AIGC）使用边界指南** / *Guideline on the boundaries of artificial intelligence generated content (AIGC) usage in academic publishing*: [official register record, published 30 October 2026](https://std.samr.gov.cn/gb/search/gbDetailed?id=5F6B9C9E6B66C75BE06397BE0A0A6C0B).
+- **GB/Z 287-2026 — 学术出版第三方服务使用指南** / *Guidelines for the use of third party services in academic publishing*: [official register record, published 24 September 2026](https://std.samr.gov.cn/gb/search/gbDetailed?id=5CADE28DF1249BD1E06397BE0A0A8034).
+- **GB/Z 329-2026 — 预印本元数据** / *Preprint metadata*: [official register record, published 30 October 2026](https://std.samr.gov.cn/gb/search/gbDetailed?id=5F6B9C9E6B7CC75BE06397BE0A0A6C0B).
+
+The records identify the published guidance documents, not the consultation drafts. We have not obtained readable official full texts for GB/Z 290 or GB/Z 329.
+
+**Singapore - a voice in the authorship debate.** The most quotable proposal in Science's authorship piece came from Brian Earp at the National University of Singapore: a "certifying" author who vouches for AI-produced work, rather than policies that let humans edit an AI-written manuscript just enough to qualify for authorship ([Science, 29 Oct](https://www.science.org/content/article/ai-generates-findings-authorship-and-disclosure-rules-draw-fresh-scrutiny)). A debate, not a policy, but one worth noting by any journal rewriting its authorship criteria.
+
+**India, Japan and elsewhere.** India's CSIR-NIScPR runs a three-day "Skill Training in Artificial Intelligence for Libraries" from 17 to 19 November, applications by 10 November ([CSIR-NIScPR training calendar](https://www.niscpr.res.in/hrd/skilldevelopment)). That is a training course, not a policy change. For Japan, a quick check of primary-source channels brought up no new domestic policy or standards development in our lane this week beyond last week's items, and we say so rather than pad.
+
+## Noted this week
+
+Not a method. Eight signals from the sources above:
+
+1.  **Reading rooms for robots** - Cambridge, Johns Hopkins and Princeton university presses found Meridian, an MCP gateway run by Cashmere; content "never used to train or fine-tune AI models"; library seat on the council "forthcoming".
+2.  **A pilot with an end date** - Oxford University Press connects ChatGPT Edu at Harvard Library, Wharton and the University of Oxford to licensed OUP content until December, built with Silverchair.
+3.  **The audience's vote** - at Charleston Premiers, Citations won most impactful and best overall; Meridian won best design.
+4.  **Trust as metadata** - TrustMarc proposes machine-readable trust certificates, with a March 2027 target of 100,000; LibKey flags problematic publishers in discovery.
+5.  **One author, one number** - Amazon accepts ISNI in ONIX, spreadsheets and its title editor; ONIX List 44 code 16.
+6.  **Principles 5.0** - COPE, DOAJ, OASPA and WAME ask journals for AI policies for authors, reviewers and editors, and for disclosure of AI licensing.
+7.  **Authorship, provisionally** - JACC does not require disclosure of AI writing assistance, while PLOS exempts common uses such as language improvement; an 18-category disclosure taxonomy is due as a draft by early 2027.
+8.  **China** - GB/Z 290-2026 (AIGC in academic publishing) and GB/Z 329-2026 (preprint metadata) published on 30 October, announced 4 November. Calendar: the [Crossref and STM integrity survey for Crossref members](https://www.crossref.org/blog/share-your-research-integrity-experiences-with-crossref-and-stm/) closes on 15 November; CSIR-NIScPR AI course 17 to 19 November.
+
+The weekly wrap continues next Monday. Same shelves, new labels.
+
+### Sources
+
+- [Meridian announcement](https://press.princeton.edu/news/meridian) - Princeton University Press, 3 Nov 2026; [Hopkins Press is a Founding Publisher of New Meridian initiative](https://www.press.jhu.edu/newsroom/hopkins-press-founding-publisher-new-meridian-initiative) - Johns Hopkins University Press, 3 Nov 2026.
+- [Meridian: scholarly publishers bring trusted research into AI](https://cashmere.io/resources/blog/meridian-scholarly-publishers-trusted-research-ai) - Cashmere, 4 Nov 2026.
+- [New pilot launched to connect trusted scholarship with AI-powered research](https://corp.oup.com/news/new-pilot-launched-to-connect-trusted-scholarship-with-ai-powered-research/) - Oxford University Press, 3 Nov 2026.
+- [Charleston Premiers: 10 approaches to the changing research landscape](https://www.researchinformation.info/news/charleston-premiers-10-approaches-to-the-changing-research-landscape/) - Research Information, 5 Nov 2026.
+- [Best practice: Generative and agentic AI usage](https://www.countermetrics.org/code-of-practice/best-practice/bp-ai/) - COUNTER Metrics, updated 23 Oct 2026.
+- [Leaders in libraries and publishing launch the TrustMarc Initiative](https://trustmarc.org/post/trustmarc-initiative-launches) - TrustMarc Initiative, 23 Jun 2026.
+- [A Step Forward for ISNI: Amazon Now Accepting Contributor Identifiers](https://www.bisg.org/news/a-step-forward-for-isni-amazon-now-accepting-contributor-identifiers) - Book Industry Study Group (Allison Belan), 4 Nov 2026.
+- [Amazon is now accepting ISNI for book contributors](https://booknetcanada.ca/blog/2026/11/05/amazon-is-now-accepting-isni-for-book-contributors/) - BookNet Canada, 5 Nov 2026.
+- [ONIX codelist 44, Name identifier type](https://ns.editeur.org/onix/en/44) - EDItEUR.
+- [Principles of Transparency and Best Practice in Scholarly Publishing, version 5](https://publicationethics.org/guidance/guideline/principles-transparency-and-best-practice-scholarly-publishing) - COPE, DOAJ, OASPA and WAME, 29 Oct 2026.
+- [The Principles of Transparency and Best Practice in Scholarly Publishing have been revised and updated](https://blog.doaj.org/2026/10/29/the-principles-of-transparency-and-best-practice-in-scholarly-publishing-have-been-revised-and-updated/) - DOAJ blog, 29 Oct 2026.
+- [Who wrote that paper? AI use spurs debate over scientific authorship](https://www.science.org/content/article/ai-generates-findings-authorship-and-disclosure-rules-draw-fresh-scrutiny) - Science (Jeffrey Brainard), 29 Oct 2026.
+- [From AI Adoption to AI Practice: Building Governed AI in Scholarly Publishing](https://scholarlykitchen.sspnet.org/2026/11/04/from-ai-adoption-to-ai-practice-building-governed-ai-in-scholarly-publishing/) - The Scholarly Kitchen (Ashutosh Ghildiyal, Gregory Simmons), 4 Nov 2026.
+- [AI in Scholarly Publishing — SSP Pulse Check Report](https://scholarlykitchen.sspnet.org/2026/01/09/ai-in-scholarly-publishing-ssp-pulse-check-report/) - The Scholarly Kitchen, 9 Jan 2026; poll conducted 1–12 Dec 2025.
+- [How AI is reshaping scientific publishing](https://www.rockefeller.edu/news/40794-how-ai-is-reshaping-scientific-publishing/) - The Rockefeller University (Q&A with Susan King), 26 Oct 2026.
+- [GB/Z 329-2026 预印本元数据](https://std.samr.gov.cn/gb/search/gbDetailed?id=5F6B9C9E6B7CC75BE06397BE0A0A6C0B) - National Public Service Platform for Standards Information (checked 8 Nov 2026).
+- [GB/Z 290-2026 学术出版中人工智能生成合成内容（AIGC）使用边界指南](https://std.samr.gov.cn/gb/search/gbDetailed?id=5F6B9C9E6B66C75BE06397BE0A0A6C0B) and [GB/Z 287-2026 学术出版第三方服务使用指南](https://std.samr.gov.cn/gb/search/gbDetailed?id=5CADE28DF1249BD1E06397BE0A0A8034) - National Public Service Platform for Standards Information (checked 8 Nov 2026).
+- [关于批准发布《学术出版中人工智能生成合成内容（AIGC）使用边界指南》等37项国家标准化指导性技术文件的公告](https://www.samr.gov.cn/bzjss/tzgg/art/2026/art_4095208446874019868a4267dc284d01.html) - SAMR, posted 4 Nov 2026; [announcement 2026 No. 47 with list](https://std.sacinfo.org.cn/gnoc/queryInfo?id=18C80E1F1BA8346A1E84F2C4068D669A) - Standardization Administration of China.
+- [《预印本元数据》国家标准化指导性技术文件征求意见](https://coaa.istic.ac.cn/preprint/dynamics/59) - ISTIC national preprint platform, 13 Feb 2026.
+- [CSIR-NIScPR training calendar FY 2026-27](https://www.niscpr.res.in/hrd/skilldevelopment) - CSIR-NIScPR.
+- [Share your research integrity experiences with Crossref and STM](https://www.crossref.org/blog/share-your-research-integrity-experiences-with-crossref-and-stm/) - Crossref (Leandro Contreras, Helena Cousijn), 20 Oct 2026.
+- [2026 preliminary agenda](https://www.charleston-hub.com/the-charleston-conference/welcome/2026-preliminary-agenda/) - Charleston Conference.
+- Our own background: [They swear it only looked](https://www.datamercs.net/posts/2026-09-10-they-swear-it-only-looked/); [DOI lookup tool](https://www.datamercs.net/tools/doi-check/doi-check.html); [News wrap · 2 November 2026](https://www.datamercs.net/posts/2026-11-02-industry-notes-dates-versions-and-one-preference-line/).
+
+<p class="news-credit">
+Olaf Schmalfuß, with the OSDS AI team · OS DataServices
+</p>
+
+<p class="news-credit">
+Follow us on X: <a href="https://x.com/DataMercsDotNet">https://x.com/DataMercsDotNet</a>
+</p>
