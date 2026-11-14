@@ -24,6 +24,29 @@
       <media:content url="https://www.datamercs.net/posts/welcome/trinity of discovery.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>KI-Nation 2030: A Schildbürger's Masterplan</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</link>
+      <description>Opinion piece on Germany’s KI-Nation 2030 plan: the Taskforce’s +300 % AI-capacity target collides with energy reality, LNG dependence, a ~2.5× US power-price gap, and a capital shortfall of orders of magnitude.</description>
+      <category>Industry notes</category>
+      <category>AI &amp; provenance</category>
+      <guid>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</guid>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan/ger_ai_narrenschiff.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Out-reviewed, unsigned: AI peer review needs a paper trail</title>
+      <dc:creator>Olaf Schmalfuß</dc:creator>
+      <link>https://www.datamercs.net/posts/2026-11-13-out-reviewed-unsigned-ai-peer-review-needs-a-paper-trail</link>
+      <description>A Harvard working paper finds that AI reviews beat the best human pre-submission reviews on every measure the authors could build. What it shows, what it does not, who is already building review assistants, and a starter kit for library publishers and university presses: A workflow, the metadata fields, and the questions to put to vendors.</description>
+      <category>Scholarly publishing</category>
+      <category>AI &amp; provenance</category>
+      <category>Standards &amp; metadata</category>
+      <guid>https://www.datamercs.net/posts/2026-11-13-out-reviewed-unsigned-ai-peer-review-needs-a-paper-trail</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://www.datamercs.net/posts/2026-11-13-out-reviewed-unsigned-ai-peer-review-needs-a-paper-trail/night-shift-library-desk.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>News wrap · 9 November 2026 - Reading rooms for robots</title>
       <dc:creator>Olaf Schmalfuß</dc:creator>
       <link>https://www.datamercs.net/posts/2026-11-09-industry-notes-reading-rooms-for-robots</link>
@@ -34,17 +57,6 @@
       <guid>https://www.datamercs.net/posts/2026-11-09-industry-notes-reading-rooms-for-robots</guid>
       <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
       <media:content url="https://www.datamercs.net/posts/2026-11-09-industry-notes-reading-rooms-for-robots/news_room_2026-11-09.jpg" medium="image" type="image/jpeg"/>
-    </item>
-    <item>
-      <title>KI-Nation 2030: A Schildbürger's Masterplan</title>
-      <dc:creator>Olaf Schmalfuß</dc:creator>
-      <link>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</link>
-      <description>KI-Nation 2030: A Schildbürger's Masterplan</description>
-      <category>Industry notes</category>
-      <category>AI &amp; provenance</category>
-      <guid>https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan</guid>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
-      <media:content url="https://www.datamercs.net/posts/2026-11-03-ki-nation-2030-a-schildbrgers-masterplan/ger_ai_narrenschiff.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>News wrap · 2 November 2026 - Dates, versions, and one preference line</title>

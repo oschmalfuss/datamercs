@@ -1,6 +1,8 @@
 ---
 title: "KI-Nation 2030: A Schildbürger's Masterplan"
 subtitle: "Contradictions, Energy Reality, LNG, Nordstream, and the Planwirtschaft of the German AI Taskforce"
+description: |
+  Opinion piece on Germany’s KI-Nation 2030 plan: the Taskforce’s +300 % AI-capacity target collides with energy reality, LNG dependence, a ~2.5× US power-price gap, and a capital shortfall of orders of magnitude.
 author:
 - first_name: "Olaf"
   last_name: "Schmalfuß"
